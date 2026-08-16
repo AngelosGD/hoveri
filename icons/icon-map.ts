@@ -191,6 +191,16 @@ import CircleDollarSignIcon from "@/icons/circle-dollar-sign-icon";
 import CircleEuroIcon from "@/icons/circle-euro-icon";
 import ChartCandlestickIcon from "@/icons/chart-candlestick-icon";
 import TrendingDownIcon from "@/icons/trending-down-icon";
+import Dice1Icon from "@/icons/dice-1-icon";
+import Dice2Icon from "@/icons/dice-2-icon";
+import Dice3Icon from "@/icons/dice-3-icon";
+import Dice4Icon from "@/icons/dice-4-icon";
+import Dice5Icon from "@/icons/dice-5-icon";
+import SwordIcon from "@/icons/sword-icon";
+import SwordsIcon from "@/icons/swords-icon";
+import ShieldIcon from "@/icons/shield-icon";
+import ShieldHalfIcon from "@/icons/shield-half-icon";
+import CastleIcon from "@/icons/castle-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -383,6 +393,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "circle-euro-icon": CircleEuroIcon,
   "chart-candlestick-icon": ChartCandlestickIcon,
   "trending-down-icon": TrendingDownIcon,
+  "dice-1-icon": Dice1Icon,
+  "dice-2-icon": Dice2Icon,
+  "dice-3-icon": Dice3Icon,
+  "dice-4-icon": Dice4Icon,
+  "dice-5-icon": Dice5Icon,
+  "sword-icon": SwordIcon,
+  "swords-icon": SwordsIcon,
+  "shield-icon": ShieldIcon,
+  "shield-half-icon": ShieldHalfIcon,
+  "castle-icon": CastleIcon,
 };
 
 export function getIconComponent(file: string) {

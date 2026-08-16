@@ -231,4 +231,16 @@ export const ICON_MANIFEST = [
   { file: "circle-euro-icon", name: "Euro circle", category: "Finanzas", tags: ["euro", "money", "currency", "coin"] },
   { file: "chart-candlestick-icon", name: "Candlestick chart", category: "Finanzas", tags: ["candlestick", "chart", "stocks", "finance"] },
   { file: "trending-down-icon", name: "Trending down", category: "Finanzas", tags: ["trending", "down", "decrease", "chart"] },
+
+  // Juegos
+  { file: "dice-1-icon", name: "Dice 1", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
+  { file: "dice-2-icon", name: "Dice 2", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
+  { file: "dice-3-icon", name: "Dice 3", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
+  { file: "dice-4-icon", name: "Dice 4", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
+  { file: "dice-5-icon", name: "Dice 5", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
+  { file: "sword-icon", name: "Sword", category: "Juegos", tags: ["sword", "blade", "knight", "weapon"] },
+  { file: "swords-icon", name: "Swords", category: "Juegos", tags: ["swords", "cross", "battle", "war"] },
+  { file: "shield-icon", name: "Shield", category: "Juegos", tags: ["shield", "defense", "protect", "guard"] },
+  { file: "shield-half-icon", name: "Shield half", category: "Juegos", tags: ["shield", "defense", "half", "protect"] },
+  { file: "castle-icon", name: "Castle", category: "Juegos", tags: ["castle", "fort", "king", "chess"] },
 ];

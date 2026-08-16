@@ -322,6 +322,19 @@ const THEME_BY_NAME = {
   "circle-euro": "coin",
   "chart-candlestick": "bars-up",
   "trending-down": "cascade",
+  // juegos
+  "dice-1": "bounce-flat",
+  "dice-2": "bounce-flat",
+  "dice-3": "bounce-flat",
+  "dice-4": "bounce-flat",
+  "dice-5": "bounce-flat",
+  "dice-6": "bounce-flat",
+  sword: "slash",
+  swords: "clash",
+  shield: "guard",
+  "shield-half": "guard",
+  "shield-check": "spark",
+  castle: "pop",
 };
 
 const THEME_DEFAULTS = [
@@ -1110,6 +1123,32 @@ function buildStart(theme, parts, seedName) {
     case "bars-up": {
       boxes.forEach((b) => {
         push(b.i, { scaleY: [0.2, 1, 1], opacity: [0.3, 1, 1] }, 0.7, 0.1 * b.i);
+      });
+      break;
+    }
+    case "bounce-flat": {
+      boxes.forEach((b) => {
+        push(b.i, { y: [0, -6, 1.5, 0], rotate: [0, 8, -4, 0], scale: [0.85, 1.08, 1] }, 0.8, 0.12 * b.i);
+      });
+      break;
+    }
+    case "slash": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { rotate: [0, dir * 14, 0], x: [0, dir * 2, 0] }, 0.5, 0.1 * b.i);
+      });
+      break;
+    }
+    case "clash": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 4, -dir * 1, 0], rotate: [0, dir * 9, 0] }, 0.55, 0.08 * b.i);
+      });
+      break;
+    }
+    case "guard": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 1.12, 0.94, 1], x: [0, 0, 2, 0] }, 0.5, 0.1 * b.i);
       });
       break;
     }

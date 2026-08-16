@@ -1146,6 +1146,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Finanzas",
     tags: ["trending","down","decrease","chart"],
   },
+  {
+    name: "Dice 1",
+    file: "dice-1-icon",
+    category: "Juegos",
+    tags: ["dice","game","random","luck"],
+  },
+  {
+    name: "Dice 2",
+    file: "dice-2-icon",
+    category: "Juegos",
+    tags: ["dice","game","random","luck"],
+  },
+  {
+    name: "Dice 3",
+    file: "dice-3-icon",
+    category: "Juegos",
+    tags: ["dice","game","random","luck"],
+  },
+  {
+    name: "Dice 4",
+    file: "dice-4-icon",
+    category: "Juegos",
+    tags: ["dice","game","random","luck"],
+  },
+  {
+    name: "Dice 5",
+    file: "dice-5-icon",
+    category: "Juegos",
+    tags: ["dice","game","random","luck"],
+  },
+  {
+    name: "Sword",
+    file: "sword-icon",
+    category: "Juegos",
+    tags: ["sword","blade","knight","weapon"],
+  },
+  {
+    name: "Swords",
+    file: "swords-icon",
+    category: "Juegos",
+    tags: ["swords","cross","battle","war"],
+  },
+  {
+    name: "Shield",
+    file: "shield-icon",
+    category: "Juegos",
+    tags: ["shield","defense","protect","guard"],
+  },
+  {
+    name: "Shield half",
+    file: "shield-half-icon",
+    category: "Juegos",
+    tags: ["shield","defense","half","protect"],
+  },
+  {
+    name: "Castle",
+    file: "castle-icon",
+    category: "Juegos",
+    tags: ["castle","fort","king","chess"],
+  },
 ];
 
 export function getIconCount(): number {
