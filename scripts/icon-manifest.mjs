@@ -147,4 +147,16 @@ export const ICON_MANIFEST = [
   { file: "calendar-days-icon", name: "Calendar days", category: "Tiempo", tags: ["calendar", "date", "days", "schedule"] },
   { file: "calendar-check-icon", name: "Calendar check", category: "Tiempo", tags: ["calendar", "check", "done", "event"] },
   { file: "timer-reset-icon", name: "Timer reset", category: "Tiempo", tags: ["timer", "reset", "restart", "reload"] },
+
+  // Comunicación
+  { file: "mail-icon", name: "Mail", category: "Comunicación", tags: ["mail", "email", "message", "letter"] },
+  { file: "message-circle-icon", name: "Message circle", category: "Comunicación", tags: ["message", "chat", "talk", "bubble"] },
+  { file: "message-square-icon", name: "Message square", category: "Comunicación", tags: ["message", "chat", "talk", "bubble"] },
+  { file: "message-circle-more-icon", name: "Message more", category: "Comunicación", tags: ["message", "chat", "more", "bubble"] },
+  { file: "message-square-text-icon", name: "Message text", category: "Comunicación", tags: ["message", "chat", "text", "bubble"] },
+  { file: "message-square-dot-icon", name: "Message dot", category: "Comunicación", tags: ["message", "chat", "dot", "notification"] },
+  { file: "message-square-plus-icon", name: "Message plus", category: "Comunicación", tags: ["message", "chat", "add", "new"] },
+  { file: "voicemail-icon", name: "Voicemail", category: "Comunicación", tags: ["voicemail", "voice", "audio", "message"] },
+  { file: "mail-plus-icon", name: "Mail plus", category: "Comunicación", tags: ["mail", "email", "add", "compose"] },
+  { file: "at-sign-icon", name: "At sign", category: "Comunicación", tags: ["at", "mention", "email", "signal"] },
 ];

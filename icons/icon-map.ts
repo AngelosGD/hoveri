@@ -121,6 +121,16 @@ import CalendarIcon from "@/icons/calendar-icon";
 import CalendarDaysIcon from "@/icons/calendar-days-icon";
 import CalendarCheckIcon from "@/icons/calendar-check-icon";
 import TimerResetIcon from "@/icons/timer-reset-icon";
+import MailIcon from "@/icons/mail-icon";
+import MessageCircleIcon from "@/icons/message-circle-icon";
+import MessageSquareIcon from "@/icons/message-square-icon";
+import MessageCircleMoreIcon from "@/icons/message-circle-more-icon";
+import MessageSquareTextIcon from "@/icons/message-square-text-icon";
+import MessageSquareDotIcon from "@/icons/message-square-dot-icon";
+import MessageSquarePlusIcon from "@/icons/message-square-plus-icon";
+import VoicemailIcon from "@/icons/voicemail-icon";
+import MailPlusIcon from "@/icons/mail-plus-icon";
+import AtSignIcon from "@/icons/at-sign-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -243,6 +253,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "calendar-days-icon": CalendarDaysIcon,
   "calendar-check-icon": CalendarCheckIcon,
   "timer-reset-icon": TimerResetIcon,
+  "mail-icon": MailIcon,
+  "message-circle-icon": MessageCircleIcon,
+  "message-square-icon": MessageSquareIcon,
+  "message-circle-more-icon": MessageCircleMoreIcon,
+  "message-square-text-icon": MessageSquareTextIcon,
+  "message-square-dot-icon": MessageSquareDotIcon,
+  "message-square-plus-icon": MessageSquarePlusIcon,
+  "voicemail-icon": VoicemailIcon,
+  "mail-plus-icon": MailPlusIcon,
+  "at-sign-icon": AtSignIcon,
 };
 
 export function getIconComponent(file: string) {

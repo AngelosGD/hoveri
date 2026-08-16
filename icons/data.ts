@@ -726,6 +726,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Tiempo",
     tags: ["timer","reset","restart","reload"],
   },
+  {
+    name: "Mail",
+    file: "mail-icon",
+    category: "Comunicación",
+    tags: ["mail","email","message","letter"],
+  },
+  {
+    name: "Message circle",
+    file: "message-circle-icon",
+    category: "Comunicación",
+    tags: ["message","chat","talk","bubble"],
+  },
+  {
+    name: "Message square",
+    file: "message-square-icon",
+    category: "Comunicación",
+    tags: ["message","chat","talk","bubble"],
+  },
+  {
+    name: "Message more",
+    file: "message-circle-more-icon",
+    category: "Comunicación",
+    tags: ["message","chat","more","bubble"],
+  },
+  {
+    name: "Message text",
+    file: "message-square-text-icon",
+    category: "Comunicación",
+    tags: ["message","chat","text","bubble"],
+  },
+  {
+    name: "Message dot",
+    file: "message-square-dot-icon",
+    category: "Comunicación",
+    tags: ["message","chat","dot","notification"],
+  },
+  {
+    name: "Message plus",
+    file: "message-square-plus-icon",
+    category: "Comunicación",
+    tags: ["message","chat","add","new"],
+  },
+  {
+    name: "Voicemail",
+    file: "voicemail-icon",
+    category: "Comunicación",
+    tags: ["voicemail","voice","audio","message"],
+  },
+  {
+    name: "Mail plus",
+    file: "mail-plus-icon",
+    category: "Comunicación",
+    tags: ["mail","email","add","compose"],
+  },
+  {
+    name: "At sign",
+    file: "at-sign-icon",
+    category: "Comunicación",
+    tags: ["at","mention","email","signal"],
+  },
 ];
 
 export function getIconCount(): number {
