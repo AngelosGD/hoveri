@@ -1506,6 +1506,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Usuarios",
     tags: ["user","remove","delete","person"],
   },
+  {
+    name: "Shapes",
+    file: "shapes-icon",
+    category: "Diseño",
+    tags: ["shapes","geometry","design","forms"],
+  },
+  {
+    name: "Pen tool",
+    file: "pen-tool-icon",
+    category: "Diseño",
+    tags: ["pen","tool","vector","design"],
+  },
+  {
+    name: "Brush",
+    file: "brush-icon",
+    category: "Diseño",
+    tags: ["brush","paint","art","draw"],
+  },
+  {
+    name: "Wand sparkles",
+    file: "wand-sparkles-icon",
+    category: "Diseño",
+    tags: ["wand","magic","sparkles","edit"],
+  },
+  {
+    name: "Spline",
+    file: "spline-icon",
+    category: "Diseño",
+    tags: ["spline","curve","anchor","design"],
+  },
+  {
+    name: "Cursor",
+    file: "pointer-icon",
+    category: "Diseño",
+    tags: ["pointer","cursor","mouse","click"],
+  },
+  {
+    name: "Mouse pointer",
+    file: "mouse-pointer-2-icon",
+    category: "Diseño",
+    tags: ["mouse","pointer","cursor","click"],
+  },
+  {
+    name: "Layers",
+    file: "layers-icon",
+    category: "Diseño",
+    tags: ["layers","stack","depth","design"],
+  },
+  {
+    name: "Layout grid",
+    file: "layout-grid-icon",
+    category: "Diseño",
+    tags: ["layout","grid","cells","design"],
+  },
+  {
+    name: "Layout dashboard",
+    file: "layout-dashboard-icon",
+    category: "Diseño",
+    tags: ["layout","dashboard","panels","ui"],
+  },
 ];
 
 export function getIconCount(): number {

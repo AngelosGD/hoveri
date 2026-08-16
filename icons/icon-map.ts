@@ -251,6 +251,16 @@ import UserCheckIcon from "@/icons/user-check-icon";
 import UserSearchIcon from "@/icons/user-search-icon";
 import ContactRoundIcon from "@/icons/contact-round-icon";
 import UserRoundXIcon from "@/icons/user-round-x-icon";
+import ShapesIcon from "@/icons/shapes-icon";
+import PenToolIcon from "@/icons/pen-tool-icon";
+import BrushIcon from "@/icons/brush-icon";
+import WandSparklesIcon from "@/icons/wand-sparkles-icon";
+import SplineIcon from "@/icons/spline-icon";
+import PointerIcon from "@/icons/pointer-icon";
+import MousePointer2Icon from "@/icons/mouse-pointer-2-icon";
+import LayersIcon from "@/icons/layers-icon";
+import LayoutGridIcon from "@/icons/layout-grid-icon";
+import LayoutDashboardIcon from "@/icons/layout-dashboard-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -503,6 +513,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "user-search-icon": UserSearchIcon,
   "contact-round-icon": ContactRoundIcon,
   "user-round-x-icon": UserRoundXIcon,
+  "shapes-icon": ShapesIcon,
+  "pen-tool-icon": PenToolIcon,
+  "brush-icon": BrushIcon,
+  "wand-sparkles-icon": WandSparklesIcon,
+  "spline-icon": SplineIcon,
+  "pointer-icon": PointerIcon,
+  "mouse-pointer-2-icon": MousePointer2Icon,
+  "layers-icon": LayersIcon,
+  "layout-grid-icon": LayoutGridIcon,
+  "layout-dashboard-icon": LayoutDashboardIcon,
 };
 
 export function getIconComponent(file: string) {

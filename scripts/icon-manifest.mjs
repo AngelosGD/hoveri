@@ -303,4 +303,16 @@ export const ICON_MANIFEST = [
   { file: "user-search-icon", name: "User search", category: "Usuarios", tags: ["user", "search", "find", "person"] },
   { file: "contact-round-icon", name: "Contact", category: "Usuarios", tags: ["contact", "user", "person", "avatar"] },
   { file: "user-round-x-icon", name: "User remove", category: "Usuarios", tags: ["user", "remove", "delete", "person"] },
+
+  // Diseño
+  { file: "shapes-icon", name: "Shapes", category: "Diseño", tags: ["shapes", "geometry", "design", "forms"] },
+  { file: "pen-tool-icon", name: "Pen tool", category: "Diseño", tags: ["pen", "tool", "vector", "design"] },
+  { file: "brush-icon", name: "Brush", category: "Diseño", tags: ["brush", "paint", "art", "draw"] },
+  { file: "wand-sparkles-icon", name: "Wand sparkles", category: "Diseño", tags: ["wand", "magic", "sparkles", "edit"] },
+  { file: "spline-icon", name: "Spline", category: "Diseño", tags: ["spline", "curve", "anchor", "design"] },
+  { file: "pointer-icon", name: "Cursor", category: "Diseño", tags: ["pointer", "cursor", "mouse", "click"] },
+  { file: "mouse-pointer-2-icon", name: "Mouse pointer", category: "Diseño", tags: ["mouse", "pointer", "cursor", "click"] },
+  { file: "layers-icon", name: "Layers", category: "Diseño", tags: ["layers", "stack", "depth", "design"] },
+  { file: "layout-grid-icon", name: "Layout grid", category: "Diseño", tags: ["layout", "grid", "cells", "design"] },
+  { file: "layout-dashboard-icon", name: "Layout dashboard", category: "Diseño", tags: ["layout", "dashboard", "panels", "ui"] },
 ];

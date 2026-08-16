@@ -391,6 +391,17 @@ const THEME_BY_NAME = {
   "user-search": "sawtooth",
   "contact-round": "pop",
   "user-round-x": "swing-parts",
+  // diseño
+  shapes: "spin-burst",
+  "pen-tool": "draw-stagger",
+  brush: "dab",
+  "wand-sparkles": "spark",
+  spline: "wave-x",
+  pointer: "aim",
+  "mouse-pointer-2": "click-part",
+  layers: "stack",
+  "layout-grid": "stagger-pop",
+  "layout-dashboard": "stagger-pop",
 };
 
 const THEME_DEFAULTS = [
@@ -1257,6 +1268,12 @@ function buildStart(theme, parts, seedName) {
       const rest = boxes.filter((b) => b.cy >= 10);
       top.forEach((b) => push(b.i, { y: [0, -4, 1, 0], rotate: [0, -2, 0] }, 0.5, 0.05 * b.i));
       rest.forEach((b) => push(b.i, { scale: [1, 1.1, 0.96, 1] }, 0.5, 0.1 * b.i));
+      break;
+    }
+    case "click-part": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 0.8, 1], y: [0, 2, 0] }, 0.3, 0.1 * b.i);
+      });
       break;
     }
     default: {
