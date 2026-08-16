@@ -12,15 +12,19 @@ const PizzaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.15, 0.95, 1.2, 1] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
+    animate(".part-0", {"x":[0,1.4072164948453607,0],"y":[0,-2.938144329896907,0]}, { duration: 1.2, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,1.438144329896907,0],"y":[0,-2.9690721649484537,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"x":[0,1.4690721649484537,0],"y":[0,0,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"x":[0,-1.5,0],"y":[0,-0.030927835051546393,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.36 });
+    animate(".part-4", {"x":[0,-1.4690721649484535,0],"y":[0,-0.061855670103092786,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.48 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,16 +47,11 @@ const PizzaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="m12 14-1 1" />
-        <path d="m13.75 18.25-1.25 1.42" />
-        <path d="M17.775 5.654a15.68 15.68 0 0 0-12.121 12.12" />
-        <path d="M18.8 9.3a1 1 0 0 0 2.1 7.7" />
-        <path d="M21.964 20.732a1 1 0 0 1-1.232 1.232l-18-5a1 1 0 0 1-.695-1.232A19.68 19.68 0 0 1 15.732 2.037a1 1 0 0 1 1.232.695z" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m12 14-1 1" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m13.75 18.25-1.25 1.42" />
+        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17.775 5.654a15.68 15.68 0 0 0-12.121 12.12" />
+        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M18.8 9.3a1 1 0 0 0 2.1 7.7" />
+        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21.964 20.732a1 1 0 0 1-1.232 1.232l-18-5a1 1 0 0 1-.695-1.232A19.68 19.68 0 0 1 15.732 2.037a1 1 0 0 1 1.232.695z" />
       </motion.svg>
     );
   },

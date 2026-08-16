@@ -12,15 +12,21 @@ const LanguagesIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [0.5, 1.15, 0.9, 1] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
+    animate(".part-0", {"scale":[0.85,1.12,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"scale":[0.85,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.08 });
+    animate(".part-2", {"scale":[0.85,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.16 });
+    animate(".part-3", {"scale":[0.85,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-4", {"scale":[0.85,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.32 });
+    animate(".part-5", {"scale":[0.85,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
+    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,17 +49,12 @@ const LanguagesIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="m5 8 6 6" />
-        <path d="m4 14 6-6 2-3" />
-        <path d="M2 5h12" />
-        <path d="M7 2h1" />
-        <path d="m22 22-5-10-5 10" />
-        <path d="M14 18h6" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m5 8 6 6" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m4 14 6-6 2-3" />
+        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 5h12" />
+        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 2h1" />
+        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m22 22-5-10-5 10" />
+        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 18h6" />
       </motion.svg>
     );
   },

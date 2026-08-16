@@ -12,15 +12,13 @@ const TagIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, -8, 8, -6, 6, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
+    animate(".part-0", {"y":[0,-2,2,0],"rotate":[0,2.345360824742268,0]}, { duration: 1.1, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-2,2,0],"rotate":[0,2.3969072164948453,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { rotate: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,13 +41,8 @@ const TagIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
-        <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+        <motion.circle className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="7.5" cy="7.5" r=".5" fill="currentColor" />
       </motion.svg>
     );
   },

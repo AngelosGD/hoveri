@@ -12,15 +12,19 @@ const SignalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [0.5, 1.15, 0.9, 1] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
+    animate(".part-0", {"scaleY":[1,0.6,1.15,1],"y":[0,1.5,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"scaleY":[1,0.6,1.15,1],"y":[0,1.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"scaleY":[1,0.6,1.15,1],"y":[0,1.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"scaleY":[1,0.6,1.15,1],"y":[0,1.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.36 });
+    animate(".part-4", {"scaleY":[1,0.6,1.15,1],"y":[0,-1.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.48 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,16 +47,11 @@ const SignalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="M2 20h.01" />
-        <path d="M7 20v-4" />
-        <path d="M12 20v-8" />
-        <path d="M17 20V8" />
-        <path d="M22 4v16" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 20h.01" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 20v-4" />
+        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 20v-8" />
+        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17 20V8" />
+        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M22 4v16" />
       </motion.svg>
     );
   },

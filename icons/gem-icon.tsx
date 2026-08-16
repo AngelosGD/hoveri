@@ -12,15 +12,15 @@ const GemIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 0.85, 1.15, 1], opacity: [1, 0.4, 1, 1] },
-        { duration: 0.45, ease: "easeInOut" },
-      );
+    animate(".part-0", {"rotate":7.505154639175258,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"rotate":7.6701030927835046,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-2", {"rotate":7.835051546391753,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.28 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1, opacity: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,14 +43,9 @@ const GemIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="M10.5 3 8 9l4 13 4-13-2.5-6" />
-        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z" />
-        <path d="M2 9h20" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10.5 3 8 9l4 13 4-13-2.5-6" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z" />
+        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 9h20" />
       </motion.svg>
     );
   },

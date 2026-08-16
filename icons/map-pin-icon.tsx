@@ -12,15 +12,13 @@ const MapPinIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { y: [-8, 2, -1, 0], rotate: [20, -4, 2, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
+    animate(".part-0", {"y":[0,4,0],"rotate":[0,12,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"y":[0,-1,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { y: 0, rotate: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,13 +41,8 @@ const MapPinIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 0%", transformBox: "fill-box" }}
-        >
-        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-        <circle cx="12" cy="10" r="3" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+        <motion.circle className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="10" r="3" />
       </motion.svg>
     );
   },

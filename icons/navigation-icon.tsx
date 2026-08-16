@@ -12,15 +12,11 @@ const NavigationIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, 12, -8, 6, 0], x: [0, 1.5, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
+    animate(".part-0", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { rotate: 0, x: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,12 +39,7 @@ const NavigationIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <polygon points="3 11 22 2 13 21 11 13 3 11" />
-        </motion.g>
+        <motion.polygon className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} points="3 11 22 2 13 21 11 13 3 11" />
       </motion.svg>
     );
   },

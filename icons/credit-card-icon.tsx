@@ -12,15 +12,13 @@ const CreditCardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { x: [-8, 2, -1, 0], rotate: [0, -6, 3, 0] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
+    animate(".part-0", {"x":[0,6,0],"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.04 });
+    animate(".part-1", {"x":[0,6,0],"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.04 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { x: 0, rotate: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,13 +41,8 @@ const CreditCardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <rect width="20" height="14" x="2" y="5" rx="2" />
-        <line x1="2" x2="22" y1="10" y2="10" />
-        </motion.g>
+        <motion.rect className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} width="20" height="14" x="2" y="5" rx="2" />
+        <motion.line className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="2" x2="22" y1="10" y2="10" />
       </motion.svg>
     );
   },

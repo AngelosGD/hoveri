@@ -12,15 +12,27 @@ const KeyboardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { x: [0, -4, 4, -3, 3, 0], rotate: [0, -3, 3, -2, 2, 0] },
-        { duration: 0.5, ease: "easeInOut" },
-      );
+    animate(".part-0", {"y":[0,1.5,0],"opacity":[1,0.6,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-2", {"y":[0,1.5,0],"opacity":[1,0.6,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.12 });
+    animate(".part-4", {"y":[0,1.5,0],"opacity":[1,0.6,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
+    animate(".part-5", {"y":[0,1.5,0],"opacity":[1,0.6,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.3 });
+    animate(".part-1", {"scale":[1,1.04,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-3", {"scale":[1,1.04,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-6", {"scale":[1,1.04,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-7", {"scale":[1,1.04,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-8", {"scale":[1,1.04,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { x: 0, rotate: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
+    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
+    animate(".part-6", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.36 });
+    animate(".part-7", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.42 });
+    animate(".part-8", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.48 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,20 +55,15 @@ const KeyboardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="M10 8h.01" />
-        <path d="M12 12h.01" />
-        <path d="M14 8h.01" />
-        <path d="M16 12h.01" />
-        <path d="M18 8h.01" />
-        <path d="M6 8h.01" />
-        <path d="M7 16h10" />
-        <path d="M8 12h.01" />
-        <rect width="20" height="16" x="2" y="4" rx="2" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10 8h.01" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 12h.01" />
+        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 8h.01" />
+        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 12h.01" />
+        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M18 8h.01" />
+        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 8h.01" />
+        <motion.path className="part-6" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 16h10" />
+        <motion.path className="part-7" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 12h.01" />
+        <motion.rect className="part-8" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} width="20" height="16" x="2" y="4" rx="2" />
       </motion.svg>
     );
   },

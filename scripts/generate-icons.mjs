@@ -1,328 +1,120 @@
 /**
  * Generates animated icon components from Lucide icon paths.
- * Usage: node scripts/generate-icons.mjs <name>:<variant> [more...]
- * Variant is picked per name via the ANIMATION_MANIFEST when omitted.
- * Output: icons/<kebab-name>-icon.tsx
+ * Usage: node scripts/generate-icons.mjs
+ * Regenerates every non-handcrafted icon from the manifest using
+ * per-icon thematic animations that move its parts individually.
  */
 import { pathToFileURL } from "node:url";
-import { writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { ICON_MANIFEST } from "./icon-manifest.mjs";
 
 const LUCIDE_DIR = join(process.cwd(), "node_modules/lucide-react/dist/esm/icons");
 
-const VARIANTS = {
-  pulse: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.15, 0.95, 1.2, 1] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  throb: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.08, 1, 1.06, 1] },
-        { duration: 0.9, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  bounce: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { y: [0, -6, 0, -2, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { y: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  float: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { y: [0, -3, 0, -1.5, 0], scale: [1, 1.05, 1] },
-        { duration: 1, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { y: 0, scale: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  wiggle: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, -8, 8, -6, 6, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { rotate: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  shake: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { x: [0, -4, 4, -3, 3, 0], rotate: [0, -3, 3, -2, 2, 0] },
-        { duration: 0.5, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { x: 0, rotate: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  swing: {
-    origin: "50% 15%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, -14, 14, -8, 8, 0] },
-        { duration: 0.8, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { rotate: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  tilt: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, 12, -8, 6, 0], x: [0, 1.5, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { rotate: 0, x: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  spin: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { rotate: 360 },
-        { duration: 1.1, ease: "linear", repeat: 2 },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { rotate: 0 }, { duration: 0.3, ease: "easeOut" });
-    };`,
-  },
-  crank: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, 18, -18, 12, -12, 0] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { rotate: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  flash: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 0.85, 1.15, 1], opacity: [1, 0.4, 1, 1] },
-        { duration: 0.45, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { scale: 1, opacity: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  grow: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { scale: [0.5, 1.15, 0.9, 1] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  drop: {
-    origin: "50% 0%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { y: [-8, 2, -1, 0], rotate: [20, -4, 2, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { y: 0, rotate: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  rise: {
-    origin: "50% 100%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { y: [6, -2, 1, 0], opacity: [0.3, 1, 1, 1] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { y: 0, opacity: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  squash: {
-    origin: "50% 100%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { scaleY: [1, 0.65, 1.2, 1], scaleX: [1, 1.1, 0.95, 1] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { scaleY: 1, scaleX: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  slide: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { x: [-8, 2, -1, 0], rotate: [0, -6, 3, 0] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { x: 0, rotate: 0 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
-  spread: {
-    origin: "50% 50%",
-    start: `async () => {
-      await animate(
-        ".icon-path",
-        { scale: [0.9, 1.2, 0.95, 1.1, 1], opacity: [1, 0.75, 1, 1] },
-        { duration: 0.8, ease: "easeInOut" },
-      );
-    };`,
-    stop: `() => {
-      animate(".icon-path", { scale: 1, opacity: 1 }, { duration: 0.2, ease: "easeOut" });
-    };`,
-  },
+const HANDCRAFTED = new Set([
+  "heart", "star", "rocket", "send", "moon", "sun", "copy", "check",
+  "bookmark", "bell", "settings", "coffee", "camera", "github",
+]);
+
+const THEME_BY_NAME = {
+  // notamos: los 'code' y derivados separan sus símbolos
+  code: "split",
+  "file-code": "split",
+  terminal: "blink",
+  languages: "spread",
+  "git-branch": "branch",
+  database: "stack",
+  server: "stack",
+  cpu: "chip",
+  calculator: "stack",
+  bug: "creep",
+  // viento / clima
+  wind: "wave",
+  "cloud-rain": "rain",
+  "cloud-snow": "rain",
+  "cloud-lightning": "bolt",
+  "cloud-sun": "orbit",
+  snowflake: "crystal",
+  tornado: "swirl",
+  rainbow: "rise-parts",
+  umbrella: "pop",
+  cloud: "drift",
+  "cloud-drizzle": "rain",
+  // celular
+  smartphone: "screen",
+  tablet: "screen",
+  laptop: "hinge",
+  monitor: "screen",
+  "battery-charging": "charge",
+  battery: "charge",
+  wifi: "signal",
+  bluetooth: "pulse-parts",
+  signal: "bars",
+  phone: "ring",
+  // música
+  music: "notes",
+  "music-2": "notes",
+  headphones: "sound",
+  mic: "amplify",
+  "volume-2": "sound",
+  play: "play-pulse",
+  pause: "bars",
+  clapperboard: "clap",
+  film: "reel",
+  gamepad: "play-pulse",
+  // viajes
+  plane: "air",
+  car: "drive",
+  bus: "drive",
+  ship: "rock",
+  compass: "needle",
+  map: "unfold",
+  navigation: "aim",
+  "map-pin": "pin-drop",
+  ticket: "rip",
+  anchor: "sway",
+  // hogar
+  house: "pop",
+  lamp: "glow-parts",
+  sofa: "soft",
+  bed: "soft",
+  lightbulb: "filament",
+  tv: "screen",
+  keyboard: "type",
+  printer: "eject",
+  thermometer: "heat",
+  "washing-machine": "swirl",
+  // negocios
+  "dollar-sign": "stack",
+  bitcoin: "coin",
+  "credit-card": "swipe",
+  wallet: "open-parts",
+  tag: "tag-wave",
+  receipt: "print-out",
+  "shopping-cart": "roll",
+  "trending-up": "climb",
+  "chart-pie": "swirl",
+  coins: "coin",
+  // deportes
+  trophy: "shine-parts",
+  medal: "shine-parts",
+  target: "focus",
+  gift: "unbox",
+  sparkle: "spark",
+  palette: "dab",
+  gem: "facet",
 };
 
-const ANIMATION_MANIFEST = {
-  smartphone: "pulse",
-  tablet: "wiggle",
-  laptop: "pulse",
-  monitor: "swing",
-  battery: "throb",
-  "battery-charging": "flash",
-  wifi: "spread",
-  bluetooth: "wiggle",
-  signal: "grow",
-  phone: "bounce",
-  code: "wiggle",
-  terminal: "flash",
-  "git-branch": "spread",
-  database: "pulse",
-  server: "throb",
-  cpu: "spin",
-  "file-code": "bounce",
-  languages: "grow",
-  calculator: "pulse",
-  bug: "wiggle",
-  pizza: "pulse",
-  beer: "swing",
-  donut: "slide",
-  "ice-cream-bowl": "grow",
-  cake: "bounce",
-  apple: "swing",
-  sandwich: "squash",
-  utensils: "shake",
-  croissant: "grow",
-  popcorn: "bounce",
-  cloud: "float",
-  "cloud-rain": "drop",
-  "cloud-snow": "drop",
-  "cloud-lightning": "flash",
-  "cloud-sun": "spread",
-  snowflake: "spin",
-  wind: "wiggle",
-  umbrella: "float",
-  rainbow: "rise",
-  tornado: "crank",
-  music: "wiggle",
-  "music-2": "bounce",
-  headphones: "throb",
-  mic: "grow",
-  play: "bounce",
-  pause: "pulse",
-  "volume-2": "grow",
-  clapperboard: "slide",
-  gamepad: "tilt",
-  film: "crank",
-  plane: "float",
-  car: "shake",
-  bus: "bounce",
-  ship: "swing",
-  compass: "spin",
-  map: "spread",
-  navigation: "tilt",
-  "map-pin": "drop",
-  ticket: "slide",
-  anchor: "swing",
-  house: "bounce",
-  lamp: "grow",
-  sofa: "squash",
-  bed: "spread",
-  lightbulb: "flash",
-  tv: "pulse",
-  keyboard: "shake",
-  printer: "throb",
-  thermometer: "rise",
-  "washing-machine": "crank",
-  "dollar-sign": "grow",
-  bitcoin: "spin",
-  "credit-card": "slide",
-  wallet: "bounce",
-  tag: "wiggle",
-  receipt: "drop",
-  "shopping-cart": "shake",
-  "trending-up": "rise",
-  "chart-pie": "grow",
-  coins: "bounce",
-  trophy: "bounce",
-  medal: "spin",
-  target: "spread",
-  gift: "bounce",
-  sparkle: "grow",
-  palette: "crank",
-  gem: "flash",
-};
+const THEME_DEFAULTS = [
+  "stagger-pop", "stagger-bounce", "breathe", "drift", "stagger-grow",
+  "swing-parts", "orbit", "wave", "stagger-tilt",
+];
+
+function hashStr(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+  return h;
+}
 
 function toKebab(str) {
   return str
@@ -338,6 +130,125 @@ function toPascal(str) {
     .join("");
 }
 
+function nums(str) {
+  const m = str.match(/-?\d*\.?\d+(?:e[-+]?\d+)?/gi);
+  return m ? m.map(Number) : [];
+}
+
+function pathPoints(d) {
+  const pts = [];
+  const re = /([MmLlHhVvCcSsQqTtAaZz])|(-?\d*\.?\d+(?:e[-+]?\d+)?)/g;
+  let cmd = "M";
+  let x = 0;
+  let y = 0;
+  let sx = 0;
+  let sy = 0;
+  const isRel = () => cmd === cmd.toLowerCase();
+  const args = [];
+
+  const ARG_COUNT = { M: 2, L: 2, T: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, A: 7, Z: 0 };
+
+  const apply = () => {
+    const C = cmd.toUpperCase();
+    const R = isRel();
+    if (C === "M") {
+      x = R ? x + args[0] : args[0];
+      y = R ? y + args[1] : args[1];
+      pts.push({ x, y });
+      sx = x;
+      sy = y;
+      cmd = R ? "l" : "L";
+    } else if (C === "L") {
+      x = R ? x + args[0] : args[0];
+      y = R ? y + args[1] : args[1];
+      pts.push({ x, y });
+    } else if (C === "H") {
+      x = R ? x + args[0] : args[0];
+      pts.push({ x, y });
+    } else if (C === "V") {
+      y = R ? y + args[0] : args[0];
+      pts.push({ x, y });
+    } else if (C === "C") {
+      const ex = R ? x + args[4] : args[4];
+      const ey = R ? y + args[5] : args[5];
+      pts.push({ x: ex, y: ey });
+      x = ex;
+      y = ey;
+    } else if (C === "S") {
+      const ex = R ? x + args[2] : args[2];
+      const ey = R ? y + args[3] : args[3];
+      pts.push({ x: ex, y: ey });
+      x = ex;
+      y = ey;
+    } else if (C === "Q") {
+      const ex = R ? x + args[2] : args[2];
+      const ey = R ? y + args[3] : args[3];
+      pts.push({ x: ex, y: ey });
+      x = ex;
+      y = ey;
+    } else if (C === "A") {
+      x = R ? x + args[5] : args[5];
+      y = R ? y + args[6] : args[6];
+      pts.push({ x, y });
+    } else if (C === "Z") {
+      x = sx;
+      y = sy;
+      pts.push({ x, y });
+    }
+    args.length = 0;
+  };
+
+  for (const m of d.matchAll(re)) {
+    if (m[1]) {
+      if (args.length) apply();
+      cmd = m[1];
+      if (cmd.toUpperCase() === "Z") {
+        apply();
+        continue;
+      }
+      continue;
+    }
+    args.push(Number(m[0]));
+    if (ARG_COUNT[cmd.toUpperCase()] > 0 && args.length >= ARG_COUNT[cmd.toUpperCase()]) apply();
+  }
+  if (args.length) apply();
+  return pts.length ? pts : [{ x: 12, y: 12 }];
+}
+
+function estimateBox(node) {
+  const [tag, attrs] = node;
+  let xs = [];
+  let ys = [];
+  if (tag === "path" && attrs.d) {
+    const pts = pathPoints(attrs.d);
+    for (const p of pts) {
+      xs.push(p.x);
+      ys.push(p.y);
+    }
+  } else if (tag === "circle") {
+    xs.push(attrs.cx);
+    ys.push(attrs.cy);
+  } else if (tag === "rect") {
+    xs.push(attrs.x, attrs.x + attrs.width);
+    ys.push(attrs.y, attrs.y + attrs.height);
+  } else if (tag === "line") {
+    xs.push(attrs.x1, attrs.x2);
+    ys.push(attrs.y1, attrs.y2);
+  } else if (tag === "ellipse") {
+    xs.push(attrs.cx);
+    ys.push(attrs.cy);
+  } else if (tag === "polyline" || tag === "polygon") {
+    const n = nums(attrs.points ?? "");
+    for (let i = 0; i + 1 < n.length; i += 2) {
+      xs.push(n[i]);
+      ys.push(n[i + 1]);
+    }
+  }
+  if (!xs.length) return { cx: 12, cy: 12 };
+  const avg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+  return { cx: avg(xs), cy: avg(ys) };
+}
+
 function serializeAttrs(attrs) {
   return Object.entries(attrs)
     .filter(([key]) => key !== "key")
@@ -345,41 +256,516 @@ function serializeAttrs(attrs) {
     .join(" ");
 }
 
-function nodeToJsx(node, depth = 0) {
+function nodeToJsx(node, partIndex) {
   const [tag, attrs, children] = node;
+  const box = estimateBox(node);
+  const style = `style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}`;
+  const cls = `className="part-${partIndex}"`;
   if (Array.isArray(children) && children.length > 0) {
-    const inner = children.map((c) => nodeToJsx(c, depth + 1)).join("\n");
+    const inner = children.map((c) => nodeToJsx(c, partIndex)).join("\n");
     const attrStr = Object.keys(attrs).length ? ` ${serializeAttrs(attrs)}` : "";
-    return `        <${tag}${attrStr}>\n${inner}\n        </${tag}>`;
+    return `        <motion.${tag} ${cls} ${style}${attrStr}>\n${inner}\n        </motion.${tag}>`;
   }
   const attrStr = serializeAttrs(attrs);
-  return `        <${tag} ${attrStr} />`;
+  return `        <motion.${tag} ${cls} ${style} ${attrStr} />`;
 }
 
-const args = process.argv.slice(2);
-
-if (!existsSync(join(process.cwd(), "icons"))) {
-  mkdirSync(join(process.cwd(), "icons"));
+function json(v) {
+  return JSON.stringify(v);
 }
 
-for (const arg of args) {
-  const [name, explicitVariant] = arg.split(":");
-  const variant = explicitVariant || ANIMATION_MANIFEST[name] || "pulse";
-  const animation = VARIANTS[variant];
+function buildStart(theme, parts) {
+  const boxes = parts.map((p, i) => ({ i, ...estimateBox(p[0]) }));
+  const n = parts.length;
+  const seed = hashStr(parts[0][0].map((x) => x).join(""));
+  const r = (k) => (k % 97) / 97;
 
-  if (!animation) {
-    console.error(`✗ unknown variant "${variant}" for ${name}`);
-    continue;
+  const ease = "easeInOut";
+  let lines = [];
+
+  const push = (i, keyframes, duration, delay = 0) => {
+    lines.push(
+      `    animate(".part-${i}", ${json(keyframes)}, { duration: ${duration}, ease: "${ease}"${delay ? `, delay: ${delay}` : ""} });`,
+    );
+  };
+
+  const resetPoints = (jitter = 0.04, based = 0.06) => {
+    return boxes.map((b) => {
+      const j = (r(seed + b.i * 3) - 0.5) * jitter;
+      return `    animate(".part-${b.i}", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut"${based ? `, delay: ${(based * b.i).toFixed(2)}` : ""} });`;
+    }).join("\n");
+  };
+
+  const below = (cy) => cy > 13;
+  const left = (cx) => cx < 12;
+
+  switch (theme) {
+    case "split": {
+      boxes.forEach((b) => {
+        const dir = (left(b.cx) ? -1 : 1) * 3;
+        push(b.i, { x: [0, dir, 0], rotate: [0, dir * 12, 0] }, 0.8, 0.05 * b.i);
+      });
+      break;
+    }
+    case "wave": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 6;
+        push(b.i, { x: [0, wob, -wob * 0.6, 0], y: [0, -2, 2, 0] }, 1.1, 0.13 * b.i);
+      });
+      break;
+    }
+    case "rain": {
+      const drops = boxes.filter((b) => below(b.cy));
+      const rest = boxes.filter((b) => !below(b.cy));
+      rest.forEach((b) => push(b.i, { y: [0, 2, 0] }, 0.6, 0.1 * b.i));
+      drops.forEach((b) => {
+        push(b.i, { y: [0, 5], rotate: [0, 10], opacity: [0, 0.4, 1, 0] }, 0.9, 0.18 * b.i);
+      });
+      break;
+    }
+    case "bolt": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 0.85, 1.2, 1], opacity: [1, 0.3, 1, 1] }, 0.4, 0.12 * b.i);
+      });
+      break;
+    }
+    case "orbit": {
+      const rays = boxes.filter((b) => b.cy < 11);
+      const core = boxes.filter((b) => b.cy >= 11);
+      core.forEach((b) => push(b.i, { scale: [1, 1.15, 0.95, 1.1, 1] }, 0.9, 0.05));
+      rays.forEach((b) => push(b.i, { rotate: 90 }, 1.4, 0.02 * b.i));
+      break;
+    }
+    case "crystal": {
+      boxes.forEach((b) => {
+        const dir = (r(seed + b.i) - 0.5) * 30;
+        push(b.i, { rotate: dir, scale: [1, 0.85, 1.1, 1] }, 1, 0.15 * b.i);
+      });
+      break;
+    }
+    case "swirl": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { rotate: dir * 30, x: [0, dir * 2, 0], scale: [1, 0.9, 1] }, 1.2, 0.1 * b.i);
+      });
+      break;
+    }
+    case "rise-parts": {
+      boxes.forEach((b) => {
+        const side = left(b.cx) ? -1.5 : 1.5;
+        push(b.i, { y: [6, -1, 0], opacity: [0.2, 1, 1], x: [0, side, 0] }, 0.9, 0.12 * b.i);
+      });
+      break;
+    }
+    case "pop": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [0.6, 1.2, 0.95, 1] }, 0.7, 0.1 * b.i);
+      });
+      break;
+    }
+    case "stack": {
+      boxes.forEach((b) => {
+        const dir = below(b.cy) ? 1 : -1;
+        push(b.i, { y: [0, dir * 3, 0], opacity: [1, 0.7, 1] }, 0.9, 0.15 * b.i);
+      });
+      break;
+    }
+    case "chip": {
+      boxes.forEach((b) => {
+        if (below(b.cy)) push(b.i, { y: [0, 2, 0], opacity: [1, 0.5, 1] }, 0.8, 0.1 * b.i);
+        else push(b.i, { y: [0, -1, 0] }, 0.8, 0.1 * b.i);
+      });
+      break;
+    }
+    case "blink": {
+      boxes.forEach((b) => {
+        push(b.i, { opacity: [1, 0.2, 1] }, 0.3, 0.12 * b.i);
+      });
+      break;
+    }
+    case "branch": {
+      const stem = boxes.find((b) => b.cy >= 12);
+      const tips = boxes.filter((b) => b.cy < 12);
+      if (stem) push(stem.i, { scaleY: [1, 1.06, 1] }, 0.8);
+      tips.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 2, 0], y: [0, -1.5, 0], scale: [1, 1.1, 1] }, 1, 0.1 * b.i);
+      });
+      break;
+    }
+    case "screen": {
+      const body = boxes.find((b) => below(b.cy));
+      const screen = boxes.find((b) => b.cy < 12);
+      if (body) push(body.i, { scale: [1, 1.03, 1] }, 0.7);
+      if (screen) push(screen.i, { opacity: [1, 0.5, 1], scale: [1, 0.97, 1] }, 0.9, 0.1);
+      boxes.forEach((b, idx) => {
+        if (b !== body && b !== screen) push(b.i, { opacity: [1, 0.6, 1] }, 0.8, 0.1 * idx);
+      });
+      break;
+    }
+    case "hinge": {
+      const screen = boxes.find((b) => b.cy < 12);
+      if (screen) push(screen.i, { rotate: [-3, 3, 0] }, 0.7, 0.05);
+      boxes.forEach((b) => {
+        if (b !== screen) push(b.i, { y: [0, 1, 0] }, 0.7, 0.08);
+      });
+      break;
+    }
+    case "charge": {
+      const rayo = boxes.find((b) => b.cx < 8);
+      if (rayo) push(rayo.i, { scale: [1, 0.85, 1.15, 1], opacity: [1, 0.3, 1, 1] }, 0.5, 0.1);
+      boxes.forEach((b) => {
+        if (b !== rayo) push(b.i, { opacity: [1, 0.65, 1], scale: [1, 1.04, 1] }, 1.1, 0.12 * b.i);
+      });
+      break;
+    }
+    case "signal": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [0.85, 1.15, 0.9, 1], opacity: [0.6, 1, 0.8, 1] }, 1, 0.18 * b.i);
+      });
+      break;
+    }
+    case "bars": {
+      boxes.forEach((b) => {
+        const dir = below(b.cy) ? 1 : -1;
+        push(b.i, { scaleY: [1, 0.6, 1.15, 1], y: [0, dir * 1.5, 0] }, 0.8, 0.12 * b.i);
+      });
+      break;
+    }
+    case "ring": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { rotate: [0, dir * 10, 0] }, 0.6, 0.03);
+      });
+      break;
+    }
+    case "notes": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 4;
+        push(b.i, { y: [0, -3, 0], rotate: [0, wob, 0], scale: [1, 1.08, 1] }, 1, 0.14 * b.i);
+      });
+      break;
+    }
+    case "sound": {
+      const arcsTop = boxes.filter((b) => b.cy < 12);
+      arcsTop.forEach((b) => push(b.i, { scale: [0.8, 1.15, 0.85, 1], opacity: [0.5, 1, 0.7, 1] }, 1, 0.15 * b.i));
+      const rest = boxes.filter((b) => b.cy >= 12);
+      rest.forEach((b) => push(b.i, { scale: [1, 1.05, 1] }, 0.8));
+      break;
+    }
+    case "amplify": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 1.12, 0.96, 1.08, 1], opacity: [1, 0.8, 1, 1] }, 0.9, 0.1 * b.i);
+      });
+      break;
+    }
+    case "play-pulse": {
+      const focus = boxes.find((b) => b.cx > 11);
+      if (focus) push(focus.i, { scale: [1, 1.18, 0.95, 1.1, 1] }, 0.7, 0.05);
+      boxes.forEach((b) => {
+        if (b !== focus) push(b.i, { scale: [1, 1.05, 1] }, 0.7, 0.08);
+      });
+      break;
+    }
+    case "clap": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 3, 0], rotate: [0, dir * 8, 0] }, 0.6, 0.06);
+      });
+      break;
+    }
+    case "reel": {
+      boxes.forEach((b) => {
+        if (b.cy < 10) push(b.i, { rotate: 24 }, 1.2, 0.04 * b.i);
+        else push(b.i, { opacity: [1, 0.6, 1] }, 1, 0.1 * b.i);
+      });
+      break;
+    }
+    case "air": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 2;
+        push(b.i, { y: [0, -3, 0, -1, 0], rotate: [0, wob, -wob, 0], x: [0, 1, 0] }, 1.1, 0.12 * b.i);
+      });
+      break;
+    }
+    case "drive": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 2, 0], y: [0, 0.8 * b.i, 0], rotate: [0, dir * 3, 0] }, 0.8, 0.06 * b.i);
+      });
+      break;
+    }
+    case "rock": {
+      boxes.forEach((b) => {
+        push(b.i, { rotate: [0, -8, 8, -4, 0], y: [0, 1, 0] }, 1, 0.1 * b.i);
+      });
+      break;
+    }
+    case "needle": {
+      const needle = boxes.find((b) => b.cy < 12);
+      if (needle) push(needle.i, { rotate: 40 }, 1.1, 0.1);
+      boxes.forEach((b) => {
+        if (b !== needle) push(b.i, { scale: [1, 1.06, 1] }, 0.8);
+      });
+      break;
+    }
+    case "unfold": {
+      const leftSide = boxes.filter((b) => left(b.cx));
+      const rightSide = boxes.filter((b) => !left(b.cx));
+      leftSide.forEach((b) => push(b.i, { x: [0, -3, 0], rotate: [0, -6, 0] }, 0.8, 0.05));
+      rightSide.forEach((b) => push(b.i, { x: [0, 3, 0], rotate: [0, 6, 0] }, 0.8, 0.05));
+      break;
+    }
+    case "aim": {
+      const arrow = boxes.find((b) => b.cy < 12);
+      if (arrow) push(arrow.i, { y: [0, -3, 0], opacity: [1, 0.7, 1] }, 0.7, 0.08);
+      boxes.forEach((b) => {
+        if (b !== arrow) push(b.i, { scale: [1, 1.06, 1] }, 0.9);
+      });
+      break;
+    }
+    case "pin-drop": {
+      const pin = boxes.find((b) => below(b.cy));
+      if (pin) push(pin.i, { y: [0, 4, 0], rotate: [0, 12, 0] }, 0.7, 0.08);
+      const top = boxes.find((b) => b.cy < 12);
+      if (top) push(top.i, { y: [0, -1, 0] }, 0.7, 0.05);
+      break;
+    }
+    case "rip": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 4, 0], rotate: [0, dir * 10, 0] }, 0.7, 0.05 * b.i);
+      });
+      break;
+    }
+    case "sway": {
+      boxes.forEach((b) => {
+        push(b.i, { rotate: [0, -10, 10, -4, 0] }, 1.2, 0.12 * b.i);
+      });
+      break;
+    }
+    case "glow-parts": {
+      boxes.forEach((b) => {
+        push(b.i, { opacity: [1, 0.55, 1], scale: [1, 1.06, 1] }, 1, 0.15 * b.i);
+      });
+      break;
+    }
+    case "soft": {
+      boxes.forEach((b) => {
+        const dir = below(b.cy) ? 1 : -1;
+        push(b.i, { y: [0, dir * 1.5, 0], scaleY: [1, 0.92, 1.04, 1] }, 1, 0.12 * b.i);
+      });
+      break;
+    }
+    case "filament": {
+      const glow = boxes.find((b) => b.cy >= 9 && b.cy <= 12);
+      if (glow) push(glow.i, { opacity: [1, 0.4, 1], scale: [1, 1.1, 1] }, 0.6, 0.05);
+      boxes.forEach((b) => {
+        if (b !== glow) push(b.i, { opacity: [1, 0.7, 1] }, 0.8, 0.1 * b.i);
+      });
+      break;
+    }
+    case "type": {
+      const keys = boxes.filter((b) => b.cy < 12);
+      const rest = boxes.filter((b) => b.cy >= 12);
+      keys.forEach((b) => push(b.i, { y: [0, 1.5, 0], opacity: [1, 0.6, 1] }, 0.7, 0.06 * b.i));
+      rest.forEach((b) => push(b.i, { scale: [1, 1.04, 1] }, 0.7, 0.05));
+      break;
+    }
+    case "eject": {
+      boxes.forEach((b) => {
+        if (b.cy < 9) push(b.i, { scale: [0.85, 1.1, 1], opacity: [0.5, 1, 1] }, 0.7, 0.08);
+        else push(b.i, { y: [0, 2, 0] }, 0.7, 0.1 * b.i);
+      });
+      break;
+    }
+    case "heat": {
+      const top = boxes.find((b) => b.cy < 10);
+      boxes.forEach((b) => {
+        if (b.cy < 10) push(b.i, { y: [0, -2, 0], opacity: [0.5, 1, 0.6] }, 0.9, 0.1 * b.i);
+        else push(b.i, { opacity: [1, 0.7, 1], scale: [1, 1.04, 1] }, 1.1, 0.1 * b.i);
+      });
+      void top;
+      break;
+    }
+    case "coin": {
+      boxes.forEach((b) => {
+        push(b.i, { rotate: [0, 20, -10, 8, 0], x: [0, 2, 0], scale: [1, 1.08, 1] }, 1, 0.1 * b.i);
+      });
+      break;
+    }
+    case "swipe": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 6, 0], rotate: [0, dir * 12, 0] }, 0.8, 0.04);
+      });
+      break;
+    }
+    case "open-parts": {
+      const leftSide = boxes.filter((b) => left(b.cx));
+      const rightSide = boxes.filter((b) => !left(b.cx));
+      leftSide.forEach((b) => push(b.i, { x: [0, -4, 0], rotate: [0, -10, 0] }, 0.9, 0.05));
+      rightSide.forEach((b) => push(b.i, { x: [0, 4, 0], rotate: [0, 10, 0] }, 0.9, 0.05));
+      break;
+    }
+    case "tag-wave": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 5;
+        push(b.i, { y: [0, -2, 2, 0], rotate: [0, wob, 0] }, 1.1, 0.12 * b.i);
+      });
+      break;
+    }
+    case "print-out": {
+      boxes.forEach((b) => {
+        if (b.cy < 9) push(b.i, { y: [0, 3, 0], opacity: [0.4, 1, 0.6] }, 0.9, 0.1 * b.i);
+        else push(b.i, { y: [0, -1, 0] }, 0.7);
+      });
+      break;
+    }
+    case "roll": {
+      const wheels = boxes.filter((b) => below(b.cy));
+      const rest = boxes.filter((b) => !below(b.cy));
+      wheels.forEach((b) => push(b.i, { x: [0, 3, -3, 0] }, 0.9, 0.08));
+      rest.forEach((b) => push(b.i, { x: [0, 1.5, 0] }, 0.9, 0.05));
+      break;
+    }
+    case "climb": {
+      boxes.forEach((b) => {
+        push(b.i, { y: [6, -2, 0], opacity: [0.2, 1, 1] }, 1, 0.15 * b.i);
+      });
+      break;
+    }
+    case "shine-parts": {
+      boxes.forEach((b) => {
+        push(b.i, { opacity: [1, 0.55, 1], scale: [1, 1.07, 1], rotate: [0, r(seed + b.i) * 8, 0] }, 1, 0.15 * b.i);
+      });
+      break;
+    }
+    case "focus": {
+      boxes.forEach((b) => {
+        if (b.cy === 12 && b.cx === 12) push(b.i, { scale: [1, 1.3, 1] }, 0.8, 0.05);
+        else push(b.i, { scale: [0.9, 1.08, 0.95, 1] }, 0.9, 0.1 * b.i);
+      });
+      break;
+    }
+    case "unbox": {
+      const lid = boxes.filter((b) => b.cy < 10);
+      const rest = boxes.filter((b) => b.cy >= 10);
+      lid.forEach((b) => push(b.i, { y: [0, -4, 0], rotate: [0, 6, 0] }, 0.8, 0.05));
+      rest.forEach((b) => {
+        const side = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, side * 2, 0], scale: [0.9, 1.08, 1] }, 0.9, 0.12 * b.i);
+      });
+      break;
+    }
+    case "spark": {
+      const tips = boxes.filter((b) => Math.abs(b.cx - 12) < 2 && Math.abs(b.cy - 12) < 2);
+      boxes.forEach((b) => {
+        if (tips.includes(b)) push(b.i, { scale: [0.4, 1.3, 0.8, 1], rotate: [0, 30], opacity: [0.5, 1, 0.7, 1] }, 0.9, 0.08 * b.i);
+        else push(b.i, { opacity: [1, 0.6, 1], scale: [1, 1.05, 1] }, 0.9, 0.1 * b.i);
+      });
+      break;
+    }
+    case "dab": {
+      const dots = boxes.filter((b) => below(b.cy) && Math.abs(b.cx - 12) < 4);
+      dots.forEach((b) => push(b.i, { scale: [0.8, 1.25, 1], opacity: [0.6, 1, 1] }, 0.8, 0.12 * b.i));
+      boxes.forEach((b) => {
+        if (!dots.includes(b)) push(b.i, { scale: [1, 1.06, 1] }, 0.8, 0.1);
+      });
+      break;
+    }
+    case "facet": {
+      boxes.forEach((b) => {
+        const dir = (r(seed + b.i) - 0.5) * 16;
+        push(b.i, { rotate: dir, scale: [0.9, 1.12, 1], opacity: [0.6, 1, 1] }, 0.9, 0.14 * b.i);
+      });
+      break;
+    }
+    case "creep": {
+      boxes.forEach((b) => {
+        push(b.i, { x: [0, (left(b.cx) ? -1 : 1) * 3, 0], y: [0, (below(b.cy) ? 2 : -2), 0], rotate: [0, 6, 0] }, 0.9, 0.08 * b.i);
+      });
+      break;
+    }
+    case "pulse-parts": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 1.16, 1], opacity: [1, 0.7, 1] }, 0.9, 0.12 * b.i);
+      });
+      break;
+    }
+    case "stagger-pop": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [0.7, 1.15, 0.95, 1] }, 0.7, 0.08 * b.i);
+      });
+      break;
+    }
+    case "stagger-bounce": {
+      boxes.forEach((b) => {
+        push(b.i, { y: [0, -4, 0], scale: [1, 1.06, 1] }, 0.7, 0.09 * b.i);
+      });
+      break;
+    }
+    case "stagger-grow": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [0.5, 1.15, 0.9, 1], opacity: [0.4, 1, 1] }, 0.8, 0.1 * b.i);
+      });
+      break;
+    }
+    case "stagger-tilt": {
+      boxes.forEach((b) => {
+        const dir = (r(seed + b.i) - 0.5) * 14;
+        push(b.i, { rotate: [0, dir, 0] }, 0.7, 0.08 * b.i);
+      });
+      break;
+    }
+    case "swing-parts": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { rotate: [0, dir * 12, 0] }, 0.8, 0.1 * b.i);
+      });
+      break;
+    }
+    case "breathe": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 1.1, 0.95, 1.06, 1], opacity: [1, 0.85, 1] }, 1.3, 0.1 * b.i);
+      });
+      break;
+    }
+    case "drift": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 3;
+        push(b.i, { x: [0, wob, 0], y: [0, -3 * r(seed + b.i + 1), 0] }, 1.2, 0.12 * b.i);
+      });
+      break;
+    }
+    default: {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [0.85, 1.12, 1] }, 0.8, 0.08 * b.i);
+      });
+    }
   }
 
-  const url = pathToFileURL(join(LUCIDE_DIR, `${name}.mjs`)).href;
+  const resetLines = resetPoints();
+  return { start: lines.join("\n"), stop: resetLines };
+}
+
+for (const entry of ICON_MANIFEST) {
+  const lucideName = entry.file.replace(/-icon$/, "");
+  if (HANDCRAFTED.has(lucideName)) continue;
+
+  const themed = THEME_BY_NAME[lucideName];
+  const theme = themed || THEME_DEFAULTS[hashStr(lucideName) % THEME_DEFAULTS.length];
+
+  const url = pathToFileURL(join(LUCIDE_DIR, `${lucideName}.mjs`)).href;
   const mod = await import(url);
   const iconNode = mod.__iconNode;
+  if (!iconNode) continue;
 
-  const fileName = `${toKebab(name)}-icon.tsx`;
-  const className = `${toPascal(name)}Icon`;
+  const parts = iconNode.map((node, i) => nodeToJsx(node, i));
+  const { start, stop } = buildStart(theme, iconNode.map((n) => [n]));
 
-  const paths = iconNode.map((node) => nodeToJsx(node)).join("\n");
+  const fileName = `${lucideName}-icon.tsx`;
+  const className = `${toPascal(lucideName)}Icon`;
 
   const component = `"use client";
 
@@ -394,9 +780,13 @@ const ${className} = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = ${animation.start}
+    const startAnimation = async () => {
+${start}
+    };
 
-    const stopAnimation = ${animation.stop}
+    const stopAnimation = () => {
+${stop}
+    };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
 
@@ -418,12 +808,7 @@ const ${className} = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "${animation.origin}", transformBox: "fill-box" }}
-        >
-${paths}
-        </motion.g>
+${parts.join("\n")}
       </motion.svg>
     );
   },
@@ -435,7 +820,7 @@ export default ${className};
 `;
 
   writeFileSync(join(process.cwd(), "icons", fileName), component);
-  console.log(`✓ generated icons/${fileName} [${variant}]`);
+  console.log(`✓ regenerated ${fileName} [${theme}] (${parts.length} parts)`);
 }
 
 console.log("Done.");

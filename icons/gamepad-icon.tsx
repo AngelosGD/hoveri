@@ -12,15 +12,19 @@ const GamepadIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { rotate: [0, 12, -8, 6, 0], x: [0, 1.5, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
+    animate(".part-0", {"scale":[1,1.18,0.95,1.1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-1", {"scale":[1,1.05,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-2", {"scale":[1,1.05,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-3", {"scale":[1,1.05,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-4", {"scale":[1,1.05,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { rotate: 0, x: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,16 +47,11 @@ const GamepadIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <line x1="6" x2="10" y1="12" y2="12" />
-        <line x1="8" x2="8" y1="10" y2="14" />
-        <line x1="15" x2="15.01" y1="13" y2="13" />
-        <line x1="18" x2="18.01" y1="11" y2="11" />
-        <rect width="20" height="12" x="2" y="6" rx="2" />
-        </motion.g>
+        <motion.line className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="6" x2="10" y1="12" y2="12" />
+        <motion.line className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="8" x2="8" y1="10" y2="14" />
+        <motion.line className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="15" x2="15.01" y1="13" y2="13" />
+        <motion.line className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="18" x2="18.01" y1="11" y2="11" />
+        <motion.rect className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} width="20" height="12" x="2" y="6" rx="2" />
       </motion.svg>
     );
   },

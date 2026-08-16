@@ -12,15 +12,13 @@ const PauseIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.15, 0.95, 1.2, 1] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
+    animate(".part-0", {"scaleY":[1,0.6,1.15,1],"y":[0,1.5,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"scaleY":[1,0.6,1.15,1],"y":[0,1.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,13 +41,8 @@ const PauseIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <rect x="14" y="3" width="5" height="18" rx="1" />
-        <rect x="5" y="3" width="5" height="18" rx="1" />
-        </motion.g>
+        <motion.rect className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="14" y="3" width="5" height="18" rx="1" />
+        <motion.rect className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="5" y="3" width="5" height="18" rx="1" />
       </motion.svg>
     );
   },

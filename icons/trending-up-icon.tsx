@@ -12,15 +12,13 @@ const TrendingUpIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { y: [6, -2, 1, 0], opacity: [0.3, 1, 1, 1] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
+    animate(".part-0", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { y: 0, opacity: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,13 +41,8 @@ const TrendingUpIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
-        >
-        <path d="M16 7h6v6" />
-        <path d="m22 7-8.5 8.5-5-5L2 17" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 7h6v6" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m22 7-8.5 8.5-5-5L2 17" />
       </motion.svg>
     );
   },

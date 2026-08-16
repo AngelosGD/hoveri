@@ -12,15 +12,15 @@ const MicIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [0.5, 1.15, 0.9, 1] },
-        { duration: 0.65, ease: "easeInOut" },
-      );
+    animate(".part-0", {"scale":[1,1.12,0.96,1.08,1],"opacity":[1,0.8,1,1]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"scale":[1,1.12,0.96,1.08,1],"opacity":[1,0.8,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[1,1.12,0.96,1.08,1],"opacity":[1,0.8,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,14 +43,9 @@ const MicIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="M12 19v3" />
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-        <rect x="9" y="2" width="6" height="13" rx="3" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 19v3" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <motion.rect className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="9" y="2" width="6" height="13" rx="3" />
       </motion.svg>
     );
   },

@@ -12,15 +12,23 @@ const BusIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { y: [0, -6, 0, -2, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
+    animate(".part-0", {"x":[0,-2,0],"y":[0,0,0],"rotate":[0,-3,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,2,0],"y":[0,0.8,0],"rotate":[0,3,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", {"x":[0,-2,0],"y":[0,1.6,0],"rotate":[0,-3,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", {"x":[0,2,0],"y":[0,2.4000000000000004,0],"rotate":[0,3,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", {"x":[0,-2,0],"y":[0,3.2,0],"rotate":[0,-3,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-5", {"x":[0,-2,0],"y":[0,4,0],"rotate":[0,-3,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.3 });
+    animate(".part-6", {"x":[0,2,0],"y":[0,4.800000000000001,0],"rotate":[0,3,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.36 });
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { y: 0 }, { duration: 0.2, ease: "easeOut" });
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
+    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
+    animate(".part-6", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.36 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,18 +51,13 @@ const BusIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <path d="M8 6v6" />
-        <path d="M15 6v6" />
-        <path d="M2 12h19.6" />
-        <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
-        <circle cx="7" cy="18" r="2" />
-        <path d="M9 18h5" />
-        <circle cx="16" cy="18" r="2" />
-        </motion.g>
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 6v6" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M15 6v6" />
+        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 12h19.6" />
+        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+        <motion.circle className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="7" cy="18" r="2" />
+        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 18h5" />
+        <motion.circle className="part-6" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="16" cy="18" r="2" />
       </motion.svg>
     );
   },
