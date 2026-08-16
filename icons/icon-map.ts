@@ -201,6 +201,16 @@ import SwordsIcon from "@/icons/swords-icon";
 import ShieldIcon from "@/icons/shield-icon";
 import ShieldHalfIcon from "@/icons/shield-half-icon";
 import CastleIcon from "@/icons/castle-icon";
+import HeartPulseIcon from "@/icons/heart-pulse-icon";
+import StethoscopeIcon from "@/icons/stethoscope-icon";
+import ActivityIcon from "@/icons/activity-icon";
+import PillIcon from "@/icons/pill-icon";
+import BiohazardIcon from "@/icons/biohazard-icon";
+import BoneIcon from "@/icons/bone-icon";
+import SyringeIcon from "@/icons/syringe-icon";
+import DnaIcon from "@/icons/dna-icon";
+import BabyIcon from "@/icons/baby-icon";
+import BandageIcon from "@/icons/bandage-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -403,6 +413,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "shield-icon": ShieldIcon,
   "shield-half-icon": ShieldHalfIcon,
   "castle-icon": CastleIcon,
+  "heart-pulse-icon": HeartPulseIcon,
+  "stethoscope-icon": StethoscopeIcon,
+  "activity-icon": ActivityIcon,
+  "pill-icon": PillIcon,
+  "biohazard-icon": BiohazardIcon,
+  "bone-icon": BoneIcon,
+  "syringe-icon": SyringeIcon,
+  "dna-icon": DnaIcon,
+  "baby-icon": BabyIcon,
+  "bandage-icon": BandageIcon,
 };
 
 export function getIconComponent(file: string) {

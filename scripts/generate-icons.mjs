@@ -335,6 +335,17 @@ const THEME_BY_NAME = {
   "shield-half": "guard",
   "shield-check": "spark",
   castle: "pop",
+  // salud
+  "heart-pulse": "ecg",
+  stethoscope: "swing-parts",
+  activity: "ecg",
+  pill: "roll",
+  biohazard: "swirl",
+  bone: "stagger-bounce",
+  syringe: "inject",
+  dna: "helix",
+  baby: "rock",
+  bandage: "soft",
 };
 
 const THEME_DEFAULTS = [
@@ -1149,6 +1160,20 @@ function buildStart(theme, parts, seedName) {
     case "guard": {
       boxes.forEach((b) => {
         push(b.i, { scale: [1, 1.12, 0.94, 1], x: [0, 0, 2, 0] }, 0.5, 0.1 * b.i);
+      });
+      break;
+    }
+    case "ecg": {
+      boxes.forEach((b) => {
+        if (b.tag === "path") push(b.i, { pathLength: [0, 1, 1] }, 0.5, 0.2 * b.i);
+        else push(b.i, { scale: [1, 1.2, 1], opacity: [0.6, 1, 1] }, 0.4, 0.2 * b.i);
+      });
+      break;
+    }
+    case "helix": {
+      boxes.forEach((b) => {
+        const dir = (r(seed + b.i) - 0.5) * 10;
+        push(b.i, { rotate: dir, y: [0, -2, 2, 0], x: [0, dir, -dir, 0] }, 1, 0.15 * b.i);
       });
       break;
     }

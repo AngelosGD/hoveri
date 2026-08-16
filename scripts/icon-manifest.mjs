@@ -243,4 +243,16 @@ export const ICON_MANIFEST = [
   { file: "shield-icon", name: "Shield", category: "Juegos", tags: ["shield", "defense", "protect", "guard"] },
   { file: "shield-half-icon", name: "Shield half", category: "Juegos", tags: ["shield", "defense", "half", "protect"] },
   { file: "castle-icon", name: "Castle", category: "Juegos", tags: ["castle", "fort", "king", "chess"] },
+
+  // Salud
+  { file: "heart-pulse-icon", name: "Heart pulse", category: "Salud", tags: ["heart", "pulse", "heartbeat", "health"] },
+  { file: "stethoscope-icon", name: "Stethoscope", category: "Salud", tags: ["stethoscope", "doctor", "medical", "health"] },
+  { file: "activity-icon", name: "Activity", category: "Salud", tags: ["activity", "pulse", "heartbeat", "ecg"] },
+  { file: "pill-icon", name: "Pill", category: "Salud", tags: ["pill", "medicine", "pharma", "drug"] },
+  { file: "biohazard-icon", name: "Biohazard", category: "Salud", tags: ["biohazard", "danger", "bio", "waste"] },
+  { file: "bone-icon", name: "Bone", category: "Salud", tags: ["bone", "skeleton", "doctor", "pet"] },
+  { file: "syringe-icon", name: "Syringe", category: "Salud", tags: ["syringe", "needle", "injection", "vaccine"] },
+  { file: "dna-icon", name: "DNA", category: "Salud", tags: ["dna", "genetics", "biology", "helix"] },
+  { file: "baby-icon", name: "Baby", category: "Salud", tags: ["baby", "newborn", "child", "infant"] },
+  { file: "bandage-icon", name: "Bandage", category: "Salud", tags: ["bandage", "wound", "plaster", "medical"] },
 ];

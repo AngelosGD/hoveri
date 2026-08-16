@@ -1206,6 +1206,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Juegos",
     tags: ["castle","fort","king","chess"],
   },
+  {
+    name: "Heart pulse",
+    file: "heart-pulse-icon",
+    category: "Salud",
+    tags: ["heart","pulse","heartbeat","health"],
+  },
+  {
+    name: "Stethoscope",
+    file: "stethoscope-icon",
+    category: "Salud",
+    tags: ["stethoscope","doctor","medical","health"],
+  },
+  {
+    name: "Activity",
+    file: "activity-icon",
+    category: "Salud",
+    tags: ["activity","pulse","heartbeat","ecg"],
+  },
+  {
+    name: "Pill",
+    file: "pill-icon",
+    category: "Salud",
+    tags: ["pill","medicine","pharma","drug"],
+  },
+  {
+    name: "Biohazard",
+    file: "biohazard-icon",
+    category: "Salud",
+    tags: ["biohazard","danger","bio","waste"],
+  },
+  {
+    name: "Bone",
+    file: "bone-icon",
+    category: "Salud",
+    tags: ["bone","skeleton","doctor","pet"],
+  },
+  {
+    name: "Syringe",
+    file: "syringe-icon",
+    category: "Salud",
+    tags: ["syringe","needle","injection","vaccine"],
+  },
+  {
+    name: "DNA",
+    file: "dna-icon",
+    category: "Salud",
+    tags: ["dna","genetics","biology","helix"],
+  },
+  {
+    name: "Baby",
+    file: "baby-icon",
+    category: "Salud",
+    tags: ["baby","newborn","child","infant"],
+  },
+  {
+    name: "Bandage",
+    file: "bandage-icon",
+    category: "Salud",
+    tags: ["bandage","wound","plaster","medical"],
+  },
 ];
 
 export function getIconCount(): number {
