@@ -1224,7 +1224,7 @@ function buildStart(theme, parts, seedName) {
     }
     case "wheel": {
       boxes.forEach((b) => {
-        if (Math.abs(b.cy - 12) < 4 && Math.abs(b.cx - 12) < 4) continue;
+        if (Math.abs(b.cy - 12) < 4 && Math.abs(b.cx - 12) < 4) return;
         const dir = (r(seed + b.i) - 0.5) * 60;
         push(b.i, { rotate: [0, dir, 0] }, 0.9, 0.12 * b.i);
       });
