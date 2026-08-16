@@ -1026,6 +1026,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Dispositivos",
     tags: ["router","network","wifi","internet"],
   },
+  {
+    name: "Image",
+    file: "image-icon",
+    category: "Multimedia",
+    tags: ["image","picture","photo","graphic"],
+  },
+  {
+    name: "Image plus",
+    file: "image-plus-icon",
+    category: "Multimedia",
+    tags: ["image","picture","add","photo"],
+  },
+  {
+    name: "Image upload",
+    file: "image-up-icon",
+    category: "Multimedia",
+    tags: ["image","upload","share","picture"],
+  },
+  {
+    name: "Image download",
+    file: "image-down-icon",
+    category: "Multimedia",
+    tags: ["image","download","save","picture"],
+  },
+  {
+    name: "Video",
+    file: "video-icon",
+    category: "Multimedia",
+    tags: ["video","camera","record","movie"],
+  },
+  {
+    name: "Video off",
+    file: "video-off-icon",
+    category: "Multimedia",
+    tags: ["video","off","muted","camera"],
+  },
+  {
+    name: "Videotape",
+    file: "videotape-icon",
+    category: "Multimedia",
+    tags: ["videotape","vhs","tape","vintage"],
+  },
+  {
+    name: "Aperture",
+    file: "aperture-icon",
+    category: "Multimedia",
+    tags: ["aperture","camera","lens","photo"],
+  },
+  {
+    name: "Images",
+    file: "images-icon",
+    category: "Multimedia",
+    tags: ["images","photos","gallery","pictures"],
+  },
+  {
+    name: "Image play",
+    file: "image-play-icon",
+    category: "Multimedia",
+    tags: ["image","video","play","picture"],
+  },
 ];
 
 export function getIconCount(): number {

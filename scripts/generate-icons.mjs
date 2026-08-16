@@ -300,6 +300,17 @@ const THEME_BY_NAME = {
   router: "signal",
   "camera-off": "swing-parts",
   projector: "glow-parts",
+  // multimedia
+  image: "ripple",
+  "image-plus": "stack",
+  "image-up": "climb",
+  "image-down": "inject",
+  "image-play": "play-pulse",
+  images: "wave-x",
+  video: "screen",
+  "video-off": "spark",
+  videotape: "reel",
+  aperture: "orbit",
 };
 
 const THEME_DEFAULTS = [

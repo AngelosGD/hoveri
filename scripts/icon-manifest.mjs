@@ -207,4 +207,16 @@ export const ICON_MANIFEST = [
   { file: "phone-call-icon", name: "Phone call", category: "Dispositivos", tags: ["phone", "call", "ring", "talk"] },
   { file: "mic-vocal-icon", name: "Microphone", category: "Dispositivos", tags: ["mic", "microphone", "voice", "record"] },
   { file: "router-icon", name: "Router", category: "Dispositivos", tags: ["router", "network", "wifi", "internet"] },
+
+  // Multimedia
+  { file: "image-icon", name: "Image", category: "Multimedia", tags: ["image", "picture", "photo", "graphic"] },
+  { file: "image-plus-icon", name: "Image plus", category: "Multimedia", tags: ["image", "picture", "add", "photo"] },
+  { file: "image-up-icon", name: "Image upload", category: "Multimedia", tags: ["image", "upload", "share", "picture"] },
+  { file: "image-down-icon", name: "Image download", category: "Multimedia", tags: ["image", "download", "save", "picture"] },
+  { file: "video-icon", name: "Video", category: "Multimedia", tags: ["video", "camera", "record", "movie"] },
+  { file: "video-off-icon", name: "Video off", category: "Multimedia", tags: ["video", "off", "muted", "camera"] },
+  { file: "videotape-icon", name: "Videotape", category: "Multimedia", tags: ["videotape", "vhs", "tape", "vintage"] },
+  { file: "aperture-icon", name: "Aperture", category: "Multimedia", tags: ["aperture", "camera", "lens", "photo"] },
+  { file: "images-icon", name: "Images", category: "Multimedia", tags: ["images", "photos", "gallery", "pictures"] },
+  { file: "image-play-icon", name: "Image play", category: "Multimedia", tags: ["image", "video", "play", "picture"] },
 ];

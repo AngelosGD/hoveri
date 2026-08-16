@@ -171,6 +171,16 @@ import UsbIcon from "@/icons/usb-icon";
 import PhoneCallIcon from "@/icons/phone-call-icon";
 import MicVocalIcon from "@/icons/mic-vocal-icon";
 import RouterIcon from "@/icons/router-icon";
+import ImageIcon from "@/icons/image-icon";
+import ImagePlusIcon from "@/icons/image-plus-icon";
+import ImageUpIcon from "@/icons/image-up-icon";
+import ImageDownIcon from "@/icons/image-down-icon";
+import VideoIcon from "@/icons/video-icon";
+import VideoOffIcon from "@/icons/video-off-icon";
+import VideotapeIcon from "@/icons/videotape-icon";
+import ApertureIcon from "@/icons/aperture-icon";
+import ImagesIcon from "@/icons/images-icon";
+import ImagePlayIcon from "@/icons/image-play-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -343,6 +353,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "phone-call-icon": PhoneCallIcon,
   "mic-vocal-icon": MicVocalIcon,
   "router-icon": RouterIcon,
+  "image-icon": ImageIcon,
+  "image-plus-icon": ImagePlusIcon,
+  "image-up-icon": ImageUpIcon,
+  "image-down-icon": ImageDownIcon,
+  "video-icon": VideoIcon,
+  "video-off-icon": VideoOffIcon,
+  "videotape-icon": VideotapeIcon,
+  "aperture-icon": ApertureIcon,
+  "images-icon": ImagesIcon,
+  "image-play-icon": ImagePlayIcon,
 };
 
 export function getIconComponent(file: string) {
