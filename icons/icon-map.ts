@@ -241,6 +241,16 @@ import ShieldAlertIcon from "@/icons/shield-alert-icon";
 import RadarIcon from "@/icons/radar-icon";
 import ScanFaceIcon from "@/icons/scan-face-icon";
 import FingerprintPatternIcon from "@/icons/fingerprint-pattern-icon";
+import UserRoundIcon from "@/icons/user-round-icon";
+import UserRoundPlusIcon from "@/icons/user-round-plus-icon";
+import UserRoundCheckIcon from "@/icons/user-round-check-icon";
+import UserRoundSearchIcon from "@/icons/user-round-search-icon";
+import UsersRoundIcon from "@/icons/users-round-icon";
+import UserPlusIcon from "@/icons/user-plus-icon";
+import UserCheckIcon from "@/icons/user-check-icon";
+import UserSearchIcon from "@/icons/user-search-icon";
+import ContactRoundIcon from "@/icons/contact-round-icon";
+import UserRoundXIcon from "@/icons/user-round-x-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -483,6 +493,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "radar-icon": RadarIcon,
   "scan-face-icon": ScanFaceIcon,
   "fingerprint-pattern-icon": FingerprintPatternIcon,
+  "user-round-icon": UserRoundIcon,
+  "user-round-plus-icon": UserRoundPlusIcon,
+  "user-round-check-icon": UserRoundCheckIcon,
+  "user-round-search-icon": UserRoundSearchIcon,
+  "users-round-icon": UsersRoundIcon,
+  "user-plus-icon": UserPlusIcon,
+  "user-check-icon": UserCheckIcon,
+  "user-search-icon": UserSearchIcon,
+  "contact-round-icon": ContactRoundIcon,
+  "user-round-x-icon": UserRoundXIcon,
 };
 
 export function getIconComponent(file: string) {

@@ -1446,6 +1446,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Seguridad",
     tags: ["fingerprint","biometric","identity","touch"],
   },
+  {
+    name: "User",
+    file: "user-round-icon",
+    category: "Usuarios",
+    tags: ["user","person","profile","account"],
+  },
+  {
+    name: "User plus",
+    file: "user-round-plus-icon",
+    category: "Usuarios",
+    tags: ["user","add","invite","person"],
+  },
+  {
+    name: "User check",
+    file: "user-round-check-icon",
+    category: "Usuarios",
+    tags: ["user","check","verified","person"],
+  },
+  {
+    name: "User search",
+    file: "user-round-search-icon",
+    category: "Usuarios",
+    tags: ["user","search","find","person"],
+  },
+  {
+    name: "Users",
+    file: "users-round-icon",
+    category: "Usuarios",
+    tags: ["users","people","team","group"],
+  },
+  {
+    name: "User plus",
+    file: "user-plus-icon",
+    category: "Usuarios",
+    tags: ["user","add","invite","person"],
+  },
+  {
+    name: "User check",
+    file: "user-check-icon",
+    category: "Usuarios",
+    tags: ["user","check","verified","approve"],
+  },
+  {
+    name: "User search",
+    file: "user-search-icon",
+    category: "Usuarios",
+    tags: ["user","search","find","person"],
+  },
+  {
+    name: "Contact",
+    file: "contact-round-icon",
+    category: "Usuarios",
+    tags: ["contact","user","person","avatar"],
+  },
+  {
+    name: "User remove",
+    file: "user-round-x-icon",
+    category: "Usuarios",
+    tags: ["user","remove","delete","person"],
+  },
 ];
 
 export function getIconCount(): number {

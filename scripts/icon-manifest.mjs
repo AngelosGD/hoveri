@@ -291,4 +291,16 @@ export const ICON_MANIFEST = [
   { file: "radar-icon", name: "Radar", category: "Seguridad", tags: ["radar", "scan", "detect", "sonar"] },
   { file: "scan-face-icon", name: "Scan face", category: "Seguridad", tags: ["scan", "face", "id", "biometric"] },
   { file: "fingerprint-pattern-icon", name: "Fingerprint", category: "Seguridad", tags: ["fingerprint", "biometric", "identity", "touch"] },
+
+  // Usuarios
+  { file: "user-round-icon", name: "User", category: "Usuarios", tags: ["user", "person", "profile", "account"] },
+  { file: "user-round-plus-icon", name: "User plus", category: "Usuarios", tags: ["user", "add", "invite", "person"] },
+  { file: "user-round-check-icon", name: "User check", category: "Usuarios", tags: ["user", "check", "verified", "person"] },
+  { file: "user-round-search-icon", name: "User search", category: "Usuarios", tags: ["user", "search", "find", "person"] },
+  { file: "users-round-icon", name: "Users", category: "Usuarios", tags: ["users", "people", "team", "group"] },
+  { file: "user-plus-icon", name: "User plus", category: "Usuarios", tags: ["user", "add", "invite", "person"] },
+  { file: "user-check-icon", name: "User check", category: "Usuarios", tags: ["user", "check", "verified", "approve"] },
+  { file: "user-search-icon", name: "User search", category: "Usuarios", tags: ["user", "search", "find", "person"] },
+  { file: "contact-round-icon", name: "Contact", category: "Usuarios", tags: ["contact", "user", "person", "avatar"] },
+  { file: "user-round-x-icon", name: "User remove", category: "Usuarios", tags: ["user", "remove", "delete", "person"] },
 ];

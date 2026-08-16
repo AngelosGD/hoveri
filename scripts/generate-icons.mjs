@@ -380,6 +380,17 @@ const THEME_BY_NAME = {
   radar: "ripple",
   "scan-face": "scan",
   "fingerprint-pattern": "ripple",
+  // usuarios
+  "user-round": "bounce-flat",
+  "user-round-plus": "stagger-pop",
+  "user-round-check": "spark",
+  "user-round-search": "sawtooth",
+  "users-round": "stagger-bounce",
+  "user-plus": "stagger-pop",
+  "user-check": "spark",
+  "user-search": "sawtooth",
+  "contact-round": "pop",
+  "user-round-x": "swing-parts",
 };
 
 const THEME_DEFAULTS = [
