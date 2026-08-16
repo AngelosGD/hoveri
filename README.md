@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# hoveri
 
-## Getting Started
+Icons that move with intent. An open source animated icon library built with React, Next.js, and Motion.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installing icons
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Install a single icon
 
-## Learn More
+```bash
+npx shadcn@latest add https://hoveri.com/r/[icon-name].json
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Install the whole library
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install hoveri
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```tsx
+import { HeartIcon, StarIcon } from "hoveri";
+```
 
-## Deploy on Vercel
+### Manual / copy the source
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Every icon page has a "Manual" tab with the full source code. Copy it, paste it, customize it.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+- Next.js 16
+- React 19
+- Motion (Framer Motion)
+- Tailwind CSS v4
+- shadcn/ui
+
+## Project Structure
+
+```
+icons/           # Animated icon components (the library)
+components/      # UI components
+app/             # Next.js app router pages
+lib/             # Utilities
+scripts/         # Codegen + registry tooling
+```
+
+## Scripts
+
+```bash
+npm run dev          # Start dev server
+npm run build        # Build for production
+npm run lint         # ESLint
+npm run typecheck    # TypeScript check
+npm run check        # Run lint + typecheck
+```
+
+## License
+
+MIT
