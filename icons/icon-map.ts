@@ -1,0 +1,210 @@
+"use client";
+
+import type { ComponentType } from "react";
+import HeartIcon from "@/icons/heart-icon";
+import StarIcon from "@/icons/star-icon";
+import MoonIcon from "@/icons/moon-icon";
+import SunIcon from "@/icons/sun-icon";
+import CheckIcon from "@/icons/check-icon";
+import BookmarkIcon from "@/icons/bookmark-icon";
+import SettingsIcon from "@/icons/settings-icon";
+import CopyIcon from "@/icons/copy-icon";
+import SendIcon from "@/icons/send-icon";
+import BellIcon from "@/icons/bell-icon";
+import CameraIcon from "@/icons/camera-icon";
+import CoffeeIcon from "@/icons/coffee-icon";
+import RocketIcon from "@/icons/rocket-icon";
+import SmartphoneIcon from "@/icons/smartphone-icon";
+import TabletIcon from "@/icons/tablet-icon";
+import LaptopIcon from "@/icons/laptop-icon";
+import MonitorIcon from "@/icons/monitor-icon";
+import BatteryIcon from "@/icons/battery-icon";
+import BatteryChargingIcon from "@/icons/battery-charging-icon";
+import WifiIcon from "@/icons/wifi-icon";
+import BluetoothIcon from "@/icons/bluetooth-icon";
+import SignalIcon from "@/icons/signal-icon";
+import PhoneIcon from "@/icons/phone-icon";
+import CodeIcon from "@/icons/code-icon";
+import TerminalIcon from "@/icons/terminal-icon";
+import GitBranchIcon from "@/icons/git-branch-icon";
+import DatabaseIcon from "@/icons/database-icon";
+import ServerIcon from "@/icons/server-icon";
+import CpuIcon from "@/icons/cpu-icon";
+import FileCodeIcon from "@/icons/file-code-icon";
+import LanguagesIcon from "@/icons/languages-icon";
+import CalculatorIcon from "@/icons/calculator-icon";
+import BugIcon from "@/icons/bug-icon";
+import PizzaIcon from "@/icons/pizza-icon";
+import BeerIcon from "@/icons/beer-icon";
+import DonutIcon from "@/icons/donut-icon";
+import IceCreamBowlIcon from "@/icons/ice-cream-bowl-icon";
+import CakeIcon from "@/icons/cake-icon";
+import AppleIcon from "@/icons/apple-icon";
+import SandwichIcon from "@/icons/sandwich-icon";
+import UtensilsIcon from "@/icons/utensils-icon";
+import CroissantIcon from "@/icons/croissant-icon";
+import PopcornIcon from "@/icons/popcorn-icon";
+import CloudIcon from "@/icons/cloud-icon";
+import CloudRainIcon from "@/icons/cloud-rain-icon";
+import CloudSnowIcon from "@/icons/cloud-snow-icon";
+import CloudLightningIcon from "@/icons/cloud-lightning-icon";
+import CloudSunIcon from "@/icons/cloud-sun-icon";
+import SnowflakeIcon from "@/icons/snowflake-icon";
+import WindIcon from "@/icons/wind-icon";
+import UmbrellaIcon from "@/icons/umbrella-icon";
+import RainbowIcon from "@/icons/rainbow-icon";
+import TornadoIcon from "@/icons/tornado-icon";
+import MusicIcon from "@/icons/music-icon";
+import Music2Icon from "@/icons/music-2-icon";
+import HeadphonesIcon from "@/icons/headphones-icon";
+import MicIcon from "@/icons/mic-icon";
+import PlayIcon from "@/icons/play-icon";
+import PauseIcon from "@/icons/pause-icon";
+import Volume2Icon from "@/icons/volume-2-icon";
+import ClapperboardIcon from "@/icons/clapperboard-icon";
+import GamepadIcon from "@/icons/gamepad-icon";
+import FilmIcon from "@/icons/film-icon";
+import PlaneIcon from "@/icons/plane-icon";
+import CarIcon from "@/icons/car-icon";
+import BusIcon from "@/icons/bus-icon";
+import ShipIcon from "@/icons/ship-icon";
+import CompassIcon from "@/icons/compass-icon";
+import MapIcon from "@/icons/map-icon";
+import NavigationIcon from "@/icons/navigation-icon";
+import MapPinIcon from "@/icons/map-pin-icon";
+import TicketIcon from "@/icons/ticket-icon";
+import AnchorIcon from "@/icons/anchor-icon";
+import HouseIcon from "@/icons/house-icon";
+import LampIcon from "@/icons/lamp-icon";
+import SofaIcon from "@/icons/sofa-icon";
+import BedIcon from "@/icons/bed-icon";
+import LightbulbIcon from "@/icons/lightbulb-icon";
+import TvIcon from "@/icons/tv-icon";
+import KeyboardIcon from "@/icons/keyboard-icon";
+import PrinterIcon from "@/icons/printer-icon";
+import ThermometerIcon from "@/icons/thermometer-icon";
+import WashingMachineIcon from "@/icons/washing-machine-icon";
+import DollarSignIcon from "@/icons/dollar-sign-icon";
+import BitcoinIcon from "@/icons/bitcoin-icon";
+import CreditCardIcon from "@/icons/credit-card-icon";
+import WalletIcon from "@/icons/wallet-icon";
+import TagIcon from "@/icons/tag-icon";
+import ReceiptIcon from "@/icons/receipt-icon";
+import ShoppingCartIcon from "@/icons/shopping-cart-icon";
+import TrendingUpIcon from "@/icons/trending-up-icon";
+import ChartPieIcon from "@/icons/chart-pie-icon";
+import CoinsIcon from "@/icons/coins-icon";
+import TrophyIcon from "@/icons/trophy-icon";
+import MedalIcon from "@/icons/medal-icon";
+import TargetIcon from "@/icons/target-icon";
+import GiftIcon from "@/icons/gift-icon";
+import SparkleIcon from "@/icons/sparkle-icon";
+import PaletteIcon from "@/icons/palette-icon";
+import GemIcon from "@/icons/gem-icon";
+
+const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+  "heart-icon": HeartIcon,
+  "star-icon": StarIcon,
+  "moon-icon": MoonIcon,
+  "sun-icon": SunIcon,
+  "check-icon": CheckIcon,
+  "bookmark-icon": BookmarkIcon,
+  "settings-icon": SettingsIcon,
+  "copy-icon": CopyIcon,
+  "send-icon": SendIcon,
+  "bell-icon": BellIcon,
+  "camera-icon": CameraIcon,
+  "coffee-icon": CoffeeIcon,
+  "rocket-icon": RocketIcon,
+  "smartphone-icon": SmartphoneIcon,
+  "tablet-icon": TabletIcon,
+  "laptop-icon": LaptopIcon,
+  "monitor-icon": MonitorIcon,
+  "battery-icon": BatteryIcon,
+  "battery-charging-icon": BatteryChargingIcon,
+  "wifi-icon": WifiIcon,
+  "bluetooth-icon": BluetoothIcon,
+  "signal-icon": SignalIcon,
+  "phone-icon": PhoneIcon,
+  "code-icon": CodeIcon,
+  "terminal-icon": TerminalIcon,
+  "git-branch-icon": GitBranchIcon,
+  "database-icon": DatabaseIcon,
+  "server-icon": ServerIcon,
+  "cpu-icon": CpuIcon,
+  "file-code-icon": FileCodeIcon,
+  "languages-icon": LanguagesIcon,
+  "calculator-icon": CalculatorIcon,
+  "bug-icon": BugIcon,
+  "pizza-icon": PizzaIcon,
+  "beer-icon": BeerIcon,
+  "donut-icon": DonutIcon,
+  "ice-cream-bowl-icon": IceCreamBowlIcon,
+  "cake-icon": CakeIcon,
+  "apple-icon": AppleIcon,
+  "sandwich-icon": SandwichIcon,
+  "utensils-icon": UtensilsIcon,
+  "croissant-icon": CroissantIcon,
+  "popcorn-icon": PopcornIcon,
+  "cloud-icon": CloudIcon,
+  "cloud-rain-icon": CloudRainIcon,
+  "cloud-snow-icon": CloudSnowIcon,
+  "cloud-lightning-icon": CloudLightningIcon,
+  "cloud-sun-icon": CloudSunIcon,
+  "snowflake-icon": SnowflakeIcon,
+  "wind-icon": WindIcon,
+  "umbrella-icon": UmbrellaIcon,
+  "rainbow-icon": RainbowIcon,
+  "tornado-icon": TornadoIcon,
+  "music-icon": MusicIcon,
+  "music-2-icon": Music2Icon,
+  "headphones-icon": HeadphonesIcon,
+  "mic-icon": MicIcon,
+  "play-icon": PlayIcon,
+  "pause-icon": PauseIcon,
+  "volume-2-icon": Volume2Icon,
+  "clapperboard-icon": ClapperboardIcon,
+  "gamepad-icon": GamepadIcon,
+  "film-icon": FilmIcon,
+  "plane-icon": PlaneIcon,
+  "car-icon": CarIcon,
+  "bus-icon": BusIcon,
+  "ship-icon": ShipIcon,
+  "compass-icon": CompassIcon,
+  "map-icon": MapIcon,
+  "navigation-icon": NavigationIcon,
+  "map-pin-icon": MapPinIcon,
+  "ticket-icon": TicketIcon,
+  "anchor-icon": AnchorIcon,
+  "house-icon": HouseIcon,
+  "lamp-icon": LampIcon,
+  "sofa-icon": SofaIcon,
+  "bed-icon": BedIcon,
+  "lightbulb-icon": LightbulbIcon,
+  "tv-icon": TvIcon,
+  "keyboard-icon": KeyboardIcon,
+  "printer-icon": PrinterIcon,
+  "thermometer-icon": ThermometerIcon,
+  "washing-machine-icon": WashingMachineIcon,
+  "dollar-sign-icon": DollarSignIcon,
+  "bitcoin-icon": BitcoinIcon,
+  "credit-card-icon": CreditCardIcon,
+  "wallet-icon": WalletIcon,
+  "tag-icon": TagIcon,
+  "receipt-icon": ReceiptIcon,
+  "shopping-cart-icon": ShoppingCartIcon,
+  "trending-up-icon": TrendingUpIcon,
+  "chart-pie-icon": ChartPieIcon,
+  "coins-icon": CoinsIcon,
+  "trophy-icon": TrophyIcon,
+  "medal-icon": MedalIcon,
+  "target-icon": TargetIcon,
+  "gift-icon": GiftIcon,
+  "sparkle-icon": SparkleIcon,
+  "palette-icon": PaletteIcon,
+  "gem-icon": GemIcon,
+};
+
+export function getIconComponent(file: string) {
+  return iconMap[file];
+}
