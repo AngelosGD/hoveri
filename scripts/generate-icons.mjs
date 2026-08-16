@@ -358,6 +358,17 @@ const THEME_BY_NAME = {
   "cloud-fog": "drift",
   "cloudy": "drift",
   sprout: "rise-parts",
+  // viajes
+  "train-front": "rail",
+  "tram-front": "rail",
+  "bus-front": "drive",
+  sailboat: "rock",
+  tent: "rise-parts",
+  bike: "wheel",
+  "life-buoy": "orbit",
+  luggage: "roll",
+  "car-front": "drive",
+  "train-track": "draw",
 };
 
 const THEME_DEFAULTS = [
@@ -1201,6 +1212,21 @@ function buildStart(theme, parts, seedName) {
       boxes.forEach((b) => {
         const wob = (r(seed + b.i) - 0.5) * 8;
         push(b.i, { x: [0, wob, -wob * 0.6, 0], y: [0, -3 * r(seed + b.i + 1), 0], rotate: [0, wob, 0] }, 1.2, 0.12 * b.i);
+      });
+      break;
+    }
+    case "rail": {
+      const top = boxes.filter((b) => b.cy < 13);
+      const rest = boxes.filter((b) => b.cy >= 13);
+      top.forEach((b) => push(b.i, { x: [0, 3, 0], y: [0, -1, 0] }, 0.7, 0.08 * b.i));
+      rest.forEach((b) => push(b.i, { scale: [1, 1.08, 1] }, 0.7, 0.08 * b.i));
+      break;
+    }
+    case "wheel": {
+      boxes.forEach((b) => {
+        if (Math.abs(b.cy - 12) < 4 && Math.abs(b.cx - 12) < 4) continue;
+        const dir = (r(seed + b.i) - 0.5) * 60;
+        push(b.i, { rotate: [0, dir, 0] }, 0.9, 0.12 * b.i);
       });
       break;
     }

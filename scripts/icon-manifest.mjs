@@ -267,4 +267,16 @@ export const ICON_MANIFEST = [
   { file: "cloud-fog-icon", name: "Cloud fog", category: "Clima", tags: ["fog", "cloud", "mist", "weather"] },
   { file: "sprout-icon", name: "Sprout", category: "Naturaleza", tags: ["sprout", "plant", "grow", "spring"] },
   { file: "cloudy-icon", name: "Cloudy", category: "Clima", tags: ["cloudy", "cloud", "weather", "overcast"] },
+
+  // Viajes
+  { file: "train-front-icon", name: "Train", category: "Viajes", tags: ["train", "rail", "transport", "station"] },
+  { file: "tram-front-icon", name: "Tram", category: "Viajes", tags: ["tram", "streetcar", "transport", "city"] },
+  { file: "bus-front-icon", name: "Bus", category: "Viajes", tags: ["bus", "transport", "vehicle"] },
+  { file: "sailboat-icon", name: "Sailboat", category: "Viajes", tags: ["sailboat", "boat", "sail", "sea"] },
+  { file: "tent-icon", name: "Tent", category: "Viajes", tags: ["tent", "camping", "glamping", "outdoor"] },
+  { file: "bike-icon", name: "Bike", category: "Viajes", tags: ["bike", "bicycle", "cycle", "ride"] },
+  { file: "life-buoy-icon", name: "Life buoy", category: "Viajes", tags: ["buoy", "life", "rescue", "sea"] },
+  { file: "luggage-icon", name: "Luggage", category: "Viajes", tags: ["luggage", "suitcase", "bag", "travel"] },
+  { file: "car-front-icon", name: "Car front", category: "Viajes", tags: ["car", "front", "vehicle", "drive"] },
+  { file: "train-track-icon", name: "Train track", category: "Viajes", tags: ["train", "track", "rail", "railway"] },
 ];

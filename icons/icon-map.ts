@@ -221,6 +221,16 @@ import SunMoonIcon from "@/icons/sun-moon-icon";
 import CloudFogIcon from "@/icons/cloud-fog-icon";
 import SproutIcon from "@/icons/sprout-icon";
 import CloudyIcon from "@/icons/cloudy-icon";
+import TrainFrontIcon from "@/icons/train-front-icon";
+import TramFrontIcon from "@/icons/tram-front-icon";
+import BusFrontIcon from "@/icons/bus-front-icon";
+import SailboatIcon from "@/icons/sailboat-icon";
+import TentIcon from "@/icons/tent-icon";
+import BikeIcon from "@/icons/bike-icon";
+import LifeBuoyIcon from "@/icons/life-buoy-icon";
+import LuggageIcon from "@/icons/luggage-icon";
+import CarFrontIcon from "@/icons/car-front-icon";
+import TrainTrackIcon from "@/icons/train-track-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -443,6 +453,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "cloud-fog-icon": CloudFogIcon,
   "sprout-icon": SproutIcon,
   "cloudy-icon": CloudyIcon,
+  "train-front-icon": TrainFrontIcon,
+  "tram-front-icon": TramFrontIcon,
+  "bus-front-icon": BusFrontIcon,
+  "sailboat-icon": SailboatIcon,
+  "tent-icon": TentIcon,
+  "bike-icon": BikeIcon,
+  "life-buoy-icon": LifeBuoyIcon,
+  "luggage-icon": LuggageIcon,
+  "car-front-icon": CarFrontIcon,
+  "train-track-icon": TrainTrackIcon,
 };
 
 export function getIconComponent(file: string) {
