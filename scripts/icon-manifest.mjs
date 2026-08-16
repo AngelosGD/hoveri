@@ -315,4 +315,16 @@ export const ICON_MANIFEST = [
   { file: "layers-icon", name: "Layers", category: "Diseño", tags: ["layers", "stack", "depth", "design"] },
   { file: "layout-grid-icon", name: "Layout grid", category: "Diseño", tags: ["layout", "grid", "cells", "design"] },
   { file: "layout-dashboard-icon", name: "Layout dashboard", category: "Diseño", tags: ["layout", "dashboard", "panels", "ui"] },
+
+  // Bases de datos
+  { file: "database-zap-icon", name: "Database zap", category: "Bases de datos", tags: ["database", "zap", "fast", "data"] },
+  { file: "database-plus-icon", name: "Database plus", category: "Bases de datos", tags: ["database", "add", "create", "data"] },
+  { file: "database-search-icon", name: "Database search", category: "Bases de datos", tags: ["database", "search", "find", "data"] },
+  { file: "database-backup-icon", name: "Database backup", category: "Bases de datos", tags: ["database", "backup", "save", "safety"] },
+  { file: "database-check-icon", name: "Database check", category: "Bases de datos", tags: ["database", "check", "valid", "ok"] },
+  { file: "database-minus-icon", name: "Database minus", category: "Bases de datos", tags: ["database", "remove", "delete", "data"] },
+  { file: "database-x-icon", name: "Database close", category: "Bases de datos", tags: ["database", "close", "error", "data"] },
+  { file: "database-arrow-down-icon", name: "Database down", category: "Bases de datos", tags: ["database", "down", "import", "data"] },
+  { file: "database-arrow-up-icon", name: "Database up", category: "Bases de datos", tags: ["database", "up", "export", "data"] },
+  { file: "archive-restore-icon", name: "Archive restore", category: "Bases de datos", tags: ["archive", "restore", "recover", "box"] },
 ];

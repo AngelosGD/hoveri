@@ -261,6 +261,16 @@ import MousePointer2Icon from "@/icons/mouse-pointer-2-icon";
 import LayersIcon from "@/icons/layers-icon";
 import LayoutGridIcon from "@/icons/layout-grid-icon";
 import LayoutDashboardIcon from "@/icons/layout-dashboard-icon";
+import DatabaseZapIcon from "@/icons/database-zap-icon";
+import DatabasePlusIcon from "@/icons/database-plus-icon";
+import DatabaseSearchIcon from "@/icons/database-search-icon";
+import DatabaseBackupIcon from "@/icons/database-backup-icon";
+import DatabaseCheckIcon from "@/icons/database-check-icon";
+import DatabaseMinusIcon from "@/icons/database-minus-icon";
+import DatabaseXIcon from "@/icons/database-x-icon";
+import DatabaseArrowDownIcon from "@/icons/database-arrow-down-icon";
+import DatabaseArrowUpIcon from "@/icons/database-arrow-up-icon";
+import ArchiveRestoreIcon from "@/icons/archive-restore-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -523,6 +533,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "layers-icon": LayersIcon,
   "layout-grid-icon": LayoutGridIcon,
   "layout-dashboard-icon": LayoutDashboardIcon,
+  "database-zap-icon": DatabaseZapIcon,
+  "database-plus-icon": DatabasePlusIcon,
+  "database-search-icon": DatabaseSearchIcon,
+  "database-backup-icon": DatabaseBackupIcon,
+  "database-check-icon": DatabaseCheckIcon,
+  "database-minus-icon": DatabaseMinusIcon,
+  "database-x-icon": DatabaseXIcon,
+  "database-arrow-down-icon": DatabaseArrowDownIcon,
+  "database-arrow-up-icon": DatabaseArrowUpIcon,
+  "archive-restore-icon": ArchiveRestoreIcon,
 };
 
 export function getIconComponent(file: string) {

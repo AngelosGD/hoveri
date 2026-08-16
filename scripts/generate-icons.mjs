@@ -402,6 +402,17 @@ const THEME_BY_NAME = {
   layers: "stack",
   "layout-grid": "stagger-pop",
   "layout-dashboard": "stagger-pop",
+  // bases de datos
+  "database-zap": "bolt",
+  "database-plus": "stagger-pop",
+  "database-search": "sawtooth",
+  "database-backup": "stack",
+  "database-check": "spark",
+  "database-minus": "stagger-pop",
+  "database-x": "swing-parts",
+  "database-arrow-down": "inject",
+  "database-arrow-up": "climb",
+  "archive-restore": "unbox",
 };
 
 const THEME_DEFAULTS = [

@@ -1566,6 +1566,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Diseño",
     tags: ["layout","dashboard","panels","ui"],
   },
+  {
+    name: "Database zap",
+    file: "database-zap-icon",
+    category: "Bases de datos",
+    tags: ["database","zap","fast","data"],
+  },
+  {
+    name: "Database plus",
+    file: "database-plus-icon",
+    category: "Bases de datos",
+    tags: ["database","add","create","data"],
+  },
+  {
+    name: "Database search",
+    file: "database-search-icon",
+    category: "Bases de datos",
+    tags: ["database","search","find","data"],
+  },
+  {
+    name: "Database backup",
+    file: "database-backup-icon",
+    category: "Bases de datos",
+    tags: ["database","backup","save","safety"],
+  },
+  {
+    name: "Database check",
+    file: "database-check-icon",
+    category: "Bases de datos",
+    tags: ["database","check","valid","ok"],
+  },
+  {
+    name: "Database minus",
+    file: "database-minus-icon",
+    category: "Bases de datos",
+    tags: ["database","remove","delete","data"],
+  },
+  {
+    name: "Database close",
+    file: "database-x-icon",
+    category: "Bases de datos",
+    tags: ["database","close","error","data"],
+  },
+  {
+    name: "Database down",
+    file: "database-arrow-down-icon",
+    category: "Bases de datos",
+    tags: ["database","down","import","data"],
+  },
+  {
+    name: "Database up",
+    file: "database-arrow-up-icon",
+    category: "Bases de datos",
+    tags: ["database","up","export","data"],
+  },
+  {
+    name: "Archive restore",
+    file: "archive-restore-icon",
+    category: "Bases de datos",
+    tags: ["archive","restore","recover","box"],
+  },
 ];
 
 export function getIconCount(): number {
