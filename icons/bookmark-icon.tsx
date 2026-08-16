@@ -13,14 +13,20 @@ const BookmarkIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
     const startAnimation = async () => {
       await animate(
-        ".icon-path",
-        { scale: [1, 1.12, 1, 1.2, 1] },
-        { duration: 0.6, ease: "easeOut" },
+        ".bookmark-body",
+        { scaleY: [1, 0.8, 1.15, 1], y: [0, 2, 0] },
+        { duration: 0.7, ease: "easeInOut" },
+      );
+      animate(
+        ".bookmark-flash",
+        { opacity: [0, 1, 0], x: [0, 2, 0] },
+        { duration: 0.5, delay: 0.15, ease: "easeOut" },
       );
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".bookmark-body", { scaleY: 1, y: 0 }, { duration: 0.2 });
+      animate(".bookmark-flash", { opacity: 0 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -44,11 +50,23 @@ const BookmarkIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         aria-hidden="true"
       >
         <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          className="bookmark-body"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
         >
-        <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+          <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
         </motion.g>
+        <motion.path
+          className="bookmark-flash"
+          d="M7 8h10"
+          initial={{ opacity: 0 }}
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
+        />
       </motion.svg>
     );
   },

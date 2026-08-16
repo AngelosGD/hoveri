@@ -13,14 +13,20 @@ const CopyIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
     const startAnimation = async () => {
       await animate(
-        ".icon-path",
-        { scale: [1, 1.12, 1, 1.2, 1] },
+        ".copy-front",
+        { x: [0, 5, 2, 4, 0], y: [0, -2, 0] },
+        { duration: 0.7, ease: "easeInOut" },
+      );
+      animate(
+        ".copy-back",
+        { x: [0, -3, 0], opacity: [1, 0.6, 1] },
         { duration: 0.6, ease: "easeOut" },
       );
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".copy-front", { x: 0, y: 0 }, { duration: 0.2 });
+      animate(".copy-back", { x: 0, opacity: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,13 +49,27 @@ const CopyIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-        >
-        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-        </motion.g>
+        <motion.path
+          className="copy-back"
+          d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
+        />
+        <motion.rect
+          className="copy-front"
+          width="14"
+          height="14"
+          x="8"
+          y="8"
+          rx="2"
+          ry="2"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
+        />
       </motion.svg>
     );
   },

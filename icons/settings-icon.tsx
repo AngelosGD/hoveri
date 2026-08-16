@@ -12,15 +12,21 @@ const SettingsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.12, 1, 1.2, 1] },
-        { duration: 0.6, ease: "easeOut" },
+      animate(
+        ".gear-outer",
+        { rotate: 360 },
+        { duration: 1.6, ease: "linear", repeat: 2 },
+      );
+      animate(
+        ".gear-inner",
+        { rotate: -360 },
+        { duration: 1.6, ease: "linear", repeat: 2 },
       );
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".gear-outer", { rotate: 0 }, { duration: 0.3, ease: "easeOut" });
+      animate(".gear-inner", { rotate: 0 }, { duration: 0.3, ease: "easeOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -44,12 +50,24 @@ const SettingsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         aria-hidden="true"
       >
         <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          className="gear-outer"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
         >
-        <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-        <circle cx="12" cy="12" r="3" />
+          <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
         </motion.g>
+        <motion.circle
+          className="gear-inner"
+          cx="12"
+          cy="12"
+          r="3"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
+        />
       </motion.svg>
     );
   },

@@ -13,14 +13,19 @@ const CheckIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
     const startAnimation = async () => {
       await animate(
-        ".icon-path",
-        { scale: [1, 1.12, 1, 1.2, 1] },
+        ".check-bounce",
+        { scale: [1, 1.2, 0.95, 1.1, 1] },
+        { duration: 0.5, ease: "easeInOut" },
+      );
+      animate(
+        ".check-draw",
+        { pathLength: [0.2, 1], opacity: [1, 1] },
         { duration: 0.6, ease: "easeOut" },
       );
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".check-bounce", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -44,10 +49,20 @@ const CheckIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         aria-hidden="true"
       >
         <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          className="check-bounce"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
         >
-        <path d="M20 6 9 17l-5-5" />
+          <motion.path
+            className="check-draw"
+            d="M20 6 9 17l-5-5"
+            style={{
+              transformOrigin: "50% 50%",
+              transformBox: "fill-box",
+            }}
+          />
         </motion.g>
       </motion.svg>
     );

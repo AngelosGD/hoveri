@@ -11,4 +11,5 @@ export { default as BellIcon } from "./bell-icon";
 export { default as SettingsIcon } from "./settings-icon";
 export { default as CoffeeIcon } from "./coffee-icon";
 export { default as CameraIcon } from "./camera-icon";
+export { default as GitHubIcon } from "./github-icon";
 export type { AnimatedIconHandle, AnimatedIconProps } from "./types";
