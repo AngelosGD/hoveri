@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeartIcon from "@/icons/heart-icon";
-import { getIconCount } from "@/icons/data";
+import IconCard from "@/components/icon-card";
+import { getFeaturedIcons, ICON_LIST } from "@/icons/data";
 
 const GITHUB_URL = "https://github.com/AngelosGD/hoveri";
 
@@ -26,35 +27,11 @@ const features = [
 ] as const;
 
 export default function Home() {
-  const iconCount = getIconCount();
+  const featured = getFeaturedIcons(5);
+  const recent = ICON_LIST.slice(0, 10);
 
   return (
     <main className="flex flex-1 flex-col">
-      <header className="flex items-center justify-between border-b border-zinc-200 bg-white/80 px-6 py-4 backdrop-blur">
-        <Link href="/" className="flex items-center gap-2">
-          <HeartIcon size={20} className="text-rose-500" />
-          <span className="text-sm font-semibold tracking-tight text-zinc-950">
-            hoveri
-          </span>
-        </Link>
-        <nav className="flex items-center gap-6 text-sm">
-          <a
-            href="#features"
-            className="hidden text-zinc-600 transition-colors hover:text-zinc-950 sm:block"
-          >
-            Librería
-          </a>
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-zinc-200 px-4 py-1.5 font-medium text-zinc-800 transition-colors hover:border-zinc-300 hover:text-zinc-950"
-          >
-            GitHub
-          </a>
-        </nav>
-      </header>
-
       <section className="flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-24 text-center">
         <a
           href={GITHUB_URL}
@@ -63,7 +40,7 @@ export default function Home() {
           className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          <span className="font-medium">Open source</span>
+          <span className="font-medium">Código abierto</span>
         </a>
 
         <h1 className="mt-8 max-w-3xl text-4xl font-semibold leading-tight tracking-tighter text-zinc-950 md:text-6xl">
@@ -86,44 +63,65 @@ export default function Home() {
           >
             Ver en GitHub
           </a>
-          <a
-            href="#features"
+          <Link
+            href="/icons"
             className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:border-zinc-300 hover:text-zinc-950"
           >
-            Conocer la librería
-          </a>
+            Ir a la librería
+          </Link>
         </div>
 
-        <a
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-16 flex items-center justify-center rounded-full border border-zinc-200 bg-white px-12 py-10 shadow-sm transition-colors hover:border-rose-200"
-          aria-label={`Ver el icono de corazón en ${GITHUB_URL}`}
-        >
-          <HeartIcon
-            size={72}
-            className="text-rose-500 transition-transform group-hover:scale-105"
-          />
-        </a>
+        <div className="mt-16 rounded-2xl border border-zinc-900 bg-white p-8">
+          <HeartIcon size={72} className="text-rose-500" />
+        </div>
         <p className="mt-4 font-mono text-xs text-zinc-400">pasa el mouse</p>
       </section>
 
-      <section id="features" className="border-t border-zinc-200 bg-zinc-50">
+      <section className="border-t border-zinc-200 bg-zinc-50">
+        <div className="mx-auto max-w-5xl px-6 py-24">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tighter text-zinc-950 md:text-4xl">
+                Últimos iconos añadidos
+              </h2>
+              <p className="mt-3 text-base leading-7 text-zinc-600">
+                Los 5 más recientes de la librería.
+              </p>
+            </div>
+            <Link
+              href="/icons"
+              className="hidden shrink-0 text-sm font-medium text-zinc-700 underline-offset-4 hover:underline sm:block"
+            >
+              Ver todos
+            </Link>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {featured.map((icon) => (
+              <IconCard key={icon.file} file={icon.file} name={icon.name} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-200 bg-white">
         <div className="mx-auto max-w-5xl px-6 py-24">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
             <div>
               <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tighter text-zinc-950 md:text-4xl">
                 Todo lo que necesitas para dar vida a tu interfaz
               </h2>
-              <p className="mt-4 max-w-sm text-base leading-7 text-zinc-600">
-                {iconCount} icono disponible hoy y creciendo. Cada uno animado,
-                accesible y listo para producción.
-              </p>
-
-              <div className="mt-10 flex h-40 items-center justify-center rounded-2xl border border-zinc-200 bg-white">
-                <HeartIcon size={56} className="text-rose-500" />
+              <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {recent.map((icon) => (
+                  <IconCard key={icon.file} file={icon.file} name={icon.name} />
+                ))}
               </div>
+              <Link
+                href="/icons"
+                className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:border-zinc-300 hover:text-zinc-950"
+              >
+                Ir a la librería
+              </Link>
             </div>
 
             <div className="flex flex-col justify-center divide-y divide-zinc-200 border-t border-zinc-200">
@@ -146,23 +144,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="border-t border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-          <p className="text-sm text-zinc-500">
-            hoveri <span className="text-zinc-300">/</span> icons that move with
-            intent
-          </p>
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-zinc-500 transition-colors hover:text-zinc-950"
-          >
-            MIT License en GitHub
-          </a>
-        </div>
-      </footer>
     </main>
   );
 }
