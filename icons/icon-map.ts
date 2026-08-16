@@ -291,6 +291,16 @@ import EllipsisVerticalIcon from "@/icons/ellipsis-vertical-icon";
 import MessageSquareShareIcon from "@/icons/message-square-share-icon";
 import MessageCircleHeartIcon from "@/icons/message-circle-heart-icon";
 import HeartHandshakeIcon from "@/icons/heart-handshake-icon";
+import DownloadIcon from "@/icons/download-icon";
+import UploadIcon from "@/icons/upload-icon";
+import StarOffIcon from "@/icons/star-off-icon";
+import HeartOffIcon from "@/icons/heart-off-icon";
+import Trash2Icon from "@/icons/trash-2-icon";
+import FlameIcon from "@/icons/flame-icon";
+import DropletsIcon from "@/icons/droplets-icon";
+import BanIcon from "@/icons/ban-icon";
+import AwardIcon from "@/icons/award-icon";
+import ZapIcon from "@/icons/zap-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -583,6 +593,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "message-square-share-icon": MessageSquareShareIcon,
   "message-circle-heart-icon": MessageCircleHeartIcon,
   "heart-handshake-icon": HeartHandshakeIcon,
+  "download-icon": DownloadIcon,
+  "upload-icon": UploadIcon,
+  "star-off-icon": StarOffIcon,
+  "heart-off-icon": HeartOffIcon,
+  "trash-2-icon": Trash2Icon,
+  "flame-icon": FlameIcon,
+  "droplets-icon": DropletsIcon,
+  "ban-icon": BanIcon,
+  "award-icon": AwardIcon,
+  "zap-icon": ZapIcon,
 };
 
 export function getIconComponent(file: string) {

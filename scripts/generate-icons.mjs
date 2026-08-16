@@ -435,6 +435,17 @@ const THEME_BY_NAME = {
   "message-square-share": "swirl",
   "message-circle-heart": "pulse-parts",
   "heart-handshake": "pulse-parts",
+  // otros
+  download: "inject",
+  upload: "climb",
+  "star-off": "crystal",
+  "heart-off": "swing-parts",
+  "trash-2": "swing-parts",
+  flame: "flicker",
+  droplets: "rain",
+  ban: "bounce-flat",
+  award: "shine-parts",
+  zap: "bolt",
 };
 
 const THEME_DEFAULTS = [
@@ -1306,6 +1317,13 @@ function buildStart(theme, parts, seedName) {
     case "click-part": {
       boxes.forEach((b) => {
         push(b.i, { scale: [1, 0.8, 1], y: [0, 2, 0] }, 0.3, 0.1 * b.i);
+      });
+      break;
+    }
+    case "flicker": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 4;
+        push(b.i, { x: [0, wob, 0], scale: [1, 1.08, 0.96, 1], opacity: [1, 0.85, 1] }, 0.6, 0.12 * b.i);
       });
       break;
     }

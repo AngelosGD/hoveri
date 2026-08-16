@@ -351,4 +351,16 @@ export const ICON_MANIFEST = [
   { file: "message-square-share-icon", name: "Message share", category: "Redes sociales", tags: ["message", "share", "chat", "social"] },
   { file: "message-circle-heart-icon", name: "Message heart", category: "Redes sociales", tags: ["message", "heart", "love", "chat"] },
   { file: "heart-handshake-icon", name: "Heart handshake", category: "Redes sociales", tags: ["heart", "handshake", "help", "care"] },
+
+  // Otros
+  { file: "download-icon", name: "Download", category: "Otros", tags: ["download", "save", "arrow", "inbox"] },
+  { file: "upload-icon", name: "Upload", category: "Otros", tags: ["upload", "share", "arrow", "outbox"] },
+  { file: "star-off-icon", name: "Star off", category: "Otros", tags: ["star", "off", "unfavorite", "rating"] },
+  { file: "heart-off-icon", name: "Heart off", category: "Otros", tags: ["heart", "off", "unfavorite", "broken"] },
+  { file: "trash-2-icon", name: "Trash", category: "Otros", tags: ["trash", "delete", "remove", "bin"] },
+  { file: "flame-icon", name: "Flame", category: "Otros", tags: ["flame", "fire", "hot", "streak"] },
+  { file: "droplets-icon", name: "Droplets", category: "Otros", tags: ["droplets", "water", "drop", "rain"] },
+  { file: "ban-icon", name: "Ban", category: "Otros", tags: ["ban", "forbidden", "no", "stop"] },
+  { file: "award-icon", name: "Award", category: "Otros", tags: ["award", "prize", "winner", "medal"] },
+  { file: "zap-icon", name: "Zap", category: "Otros", tags: ["zap", "lightning", "energy", "fast"] },
 ];

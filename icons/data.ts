@@ -1746,6 +1746,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Redes sociales",
     tags: ["heart","handshake","help","care"],
   },
+  {
+    name: "Download",
+    file: "download-icon",
+    category: "Otros",
+    tags: ["download","save","arrow","inbox"],
+  },
+  {
+    name: "Upload",
+    file: "upload-icon",
+    category: "Otros",
+    tags: ["upload","share","arrow","outbox"],
+  },
+  {
+    name: "Star off",
+    file: "star-off-icon",
+    category: "Otros",
+    tags: ["star","off","unfavorite","rating"],
+  },
+  {
+    name: "Heart off",
+    file: "heart-off-icon",
+    category: "Otros",
+    tags: ["heart","off","unfavorite","broken"],
+  },
+  {
+    name: "Trash",
+    file: "trash-2-icon",
+    category: "Otros",
+    tags: ["trash","delete","remove","bin"],
+  },
+  {
+    name: "Flame",
+    file: "flame-icon",
+    category: "Otros",
+    tags: ["flame","fire","hot","streak"],
+  },
+  {
+    name: "Droplets",
+    file: "droplets-icon",
+    category: "Otros",
+    tags: ["droplets","water","drop","rain"],
+  },
+  {
+    name: "Ban",
+    file: "ban-icon",
+    category: "Otros",
+    tags: ["ban","forbidden","no","stop"],
+  },
+  {
+    name: "Award",
+    file: "award-icon",
+    category: "Otros",
+    tags: ["award","prize","winner","medal"],
+  },
+  {
+    name: "Zap",
+    file: "zap-icon",
+    category: "Otros",
+    tags: ["zap","lightning","energy","fast"],
+  },
 ];
 
 export function getIconCount(): number {
