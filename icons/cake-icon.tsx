@@ -12,15 +12,15 @@ const CakeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.5 });
-    animate(".part-6", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.6000000000000001 });
-    animate(".part-7", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.7000000000000001 });
-    animate(".part-8", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.8 });
+    animate(".part-0", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+    animate(".part-5", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.5 });
+    animate(".part-6", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.6000000000000001 });
+    animate(".part-7", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.7000000000000001 });
+    animate(".part-8", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.8 });
     };
 
     const stopAnimation = () => {

@@ -12,7 +12,7 @@ const CloudIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,1.4072164948453607,0],"y":[0,-2.938144329896907,0]}, { duration: 1.2, ease: "easeInOut" });
+    animate(".part-0", {"x":[0,-1.036082474226804,0],"y":[0,-0.4948453608247423,0]}, { duration: 1.2, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {

@@ -12,8 +12,8 @@ const TagIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-2,2,0],"rotate":[0,2.345360824742268,0]}, { duration: 1.1, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-2,2,0],"rotate":[0,2.3969072164948453,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.12 });
+    animate(".part-0", {"y":[0,-2,2,0],"rotate":[0,-1.0051546391752577,0]}, { duration: 1.1, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-2,2,0],"rotate":[0,-0.9536082474226804,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {

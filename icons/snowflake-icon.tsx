@@ -12,18 +12,18 @@ const SnowflakeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":14.072164948453608,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"rotate":14.38144329896907,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"rotate":14.690721649484537,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
-    animate(".part-3", {"rotate":-15,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.44999999999999996 });
-    animate(".part-4", {"rotate":-14.690721649484535,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.6 });
-    animate(".part-5", {"rotate":-14.381443298969073,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.75 });
-    animate(".part-6", {"rotate":-14.072164948453608,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.8999999999999999 });
-    animate(".part-7", {"rotate":-13.762886597938143,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.05 });
-    animate(".part-8", {"rotate":-13.45360824742268,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.2 });
-    animate(".part-9", {"rotate":-13.144329896907216,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.3499999999999999 });
-    animate(".part-10", {"rotate":-12.835051546391753,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.5 });
-    animate(".part-11", {"rotate":-12.525773195876289,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.65 });
+    animate(".part-0", {"rotate":-4.175257731958763,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"rotate":-3.8659793814432986,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
+    animate(".part-2", {"rotate":-3.5567010309278357,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
+    animate(".part-3", {"rotate":-3.247422680412371,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.44999999999999996 });
+    animate(".part-4", {"rotate":-2.9381443298969065,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.6 });
+    animate(".part-5", {"rotate":-2.6288659793814437,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.75 });
+    animate(".part-6", {"rotate":-2.3195876288659796,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 0.8999999999999999 });
+    animate(".part-7", {"rotate":-2.010309278350515,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.05 });
+    animate(".part-8", {"rotate":-1.7010309278350522,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.2 });
+    animate(".part-9", {"rotate":-1.3917525773195876,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.3499999999999999 });
+    animate(".part-10", {"rotate":-1.0824742268041232,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.5 });
+    animate(".part-11", {"rotate":-0.7731958762886604,"scale":[1,0.85,1.1,1]}, { duration: 1, ease: "easeInOut", delay: 1.65 });
     };
 
     const stopAnimation = () => {

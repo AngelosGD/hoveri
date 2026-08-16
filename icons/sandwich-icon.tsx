@@ -12,11 +12,11 @@ const SandwichIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,6.56701030927835,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,6.711340206185566,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"rotate":[0,6.855670103092784,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"rotate":[0,-7,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
-    animate(".part-4", {"rotate":[0,-6.855670103092783,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.32 });
+    animate(".part-0", {"x":[0,2.690721649484536,-1.6144329896907215,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,2.752577319587629,-1.6515463917525772,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.13 });
+    animate(".part-2", {"x":[0,2.8144329896907214,-1.6886597938144328,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.26 });
+    animate(".part-3", {"x":[0,2.876288659793814,-1.7257731958762883,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.39 });
+    animate(".part-4", {"x":[0,2.9381443298969074,-1.7628865979381445,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.52 });
     };
 
     const stopAnimation = () => {

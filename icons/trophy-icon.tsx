@@ -12,12 +12,12 @@ const TrophyIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.752577319587629,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.835051546391752,0]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.917525773195877,0]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
-    animate(".part-3", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,0,0]}, { duration: 1, ease: "easeInOut", delay: 0.44999999999999996 });
-    animate(".part-4", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,0.08247422680412371,0]}, { duration: 1, ease: "easeInOut", delay: 0.6 });
-    animate(".part-5", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,0.16494845360824742,0]}, { duration: 1, ease: "easeInOut", delay: 0.75 });
+    animate(".part-0", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,6.927835051546392,0]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.010309278350515,0]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
+    animate(".part-2", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.092783505154639,0]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
+    animate(".part-3", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.175257731958763,0]}, { duration: 1, ease: "easeInOut", delay: 0.44999999999999996 });
+    animate(".part-4", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.257731958762887,0]}, { duration: 1, ease: "easeInOut", delay: 0.6 });
+    animate(".part-5", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.34020618556701,0]}, { duration: 1, ease: "easeInOut", delay: 0.75 });
     };
 
     const stopAnimation = () => {

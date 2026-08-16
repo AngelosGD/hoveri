@@ -12,7 +12,7 @@ const PlaneIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-3,0,-1,0],"rotate":[0,0.9381443298969072,-0.9381443298969072,0],"x":[0,1,0]}, { duration: 1.1, ease: "easeInOut" });
+    animate(".part-0", {"y":[0,-3,0,-1,0],"rotate":[0,-0.8350515463917526,0.8350515463917526,0],"x":[0,1,0]}, { duration: 1.1, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {

@@ -12,11 +12,11 @@ const CroissantIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,1.4072164948453607,0],"y":[0,-2.938144329896907,0]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,1.438144329896907,0],"y":[0,-2.9690721649484537,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"x":[0,1.4690721649484537,0],"y":[0,0,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"x":[0,-1.5,0],"y":[0,-0.030927835051546393,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.36 });
-    animate(".part-4", {"x":[0,-1.4690721649484535,0],"y":[0,-0.061855670103092786,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.48 });
+    animate(".part-0", {"rotate":[0,1.9587628865979378,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,2.1649484536082464,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.07 });
+    animate(".part-2", {"rotate":[0,2.371134020618557,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.14 });
+    animate(".part-3", {"rotate":[0,2.5773195876288657,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.21000000000000002 });
+    animate(".part-4", {"rotate":[0,2.7835051546391743,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.28 });
     };
 
     const stopAnimation = () => {

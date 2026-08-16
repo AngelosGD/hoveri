@@ -12,9 +12,9 @@ const WindIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,2.8144329896907214,-1.6886597938144328,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,2.876288659793814,-1.7257731958762883,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.13 });
-    animate(".part-2", {"x":[0,2.9381443298969074,-1.7628865979381445,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.26 });
+    animate(".part-0", {"x":[0,-2.0103092783505154,1.2061855670103092,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,-1.9484536082474229,1.1690721649484537,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.13 });
+    animate(".part-2", {"x":[0,-1.8865979381443299,1.131958762886598,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.26 });
     };
 
     const stopAnimation = () => {

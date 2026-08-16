@@ -12,9 +12,9 @@ const GemIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":7.505154639175258,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"rotate":7.6701030927835046,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
-    animate(".part-2", {"rotate":7.835051546391753,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.28 });
+    animate(".part-0", {"rotate":5.525773195876289,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"rotate":5.690721649484535,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-2", {"rotate":5.855670103092784,"scale":[0.9,1.12,1],"opacity":[0.6,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.28 });
     };
 
     const stopAnimation = () => {

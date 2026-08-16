@@ -12,9 +12,9 @@ const MusicIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-3,0],"rotate":[0,1.8762886597938144,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-3,0],"rotate":[0,1.9175257731958761,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.14 });
-    animate(".part-2", {"y":[0,-3,0],"rotate":[0,1.9587628865979383,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.28 });
+    animate(".part-0", {"y":[0,-3,0],"rotate":[0,-0.39175257731958757,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-3,0],"rotate":[0,-0.35051546391752586,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.14 });
+    animate(".part-2", {"y":[0,-3,0],"rotate":[0,-0.30927835051546393,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.28 });
     };
 
     const stopAnimation = () => {

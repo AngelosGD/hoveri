@@ -12,8 +12,8 @@ const DonutIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.1 });
+    animate(".part-0", {"rotate":[0,2.371134020618557,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,2.5773195876288657,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.07 });
     };
 
     const stopAnimation = () => {

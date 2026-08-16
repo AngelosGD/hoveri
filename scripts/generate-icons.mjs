@@ -107,7 +107,9 @@ const THEME_BY_NAME = {
 
 const THEME_DEFAULTS = [
   "stagger-pop", "stagger-bounce", "breathe", "drift", "stagger-grow",
-  "swing-parts", "orbit", "wave", "stagger-tilt",
+  "swing-parts", "orbit", "wave", "stagger-tilt", "draw", "cascade",
+  "drop-spring", "elastic-squash", "wave-x", "spin-burst", "ripple",
+  "shimmer", "planets", "squeeze", "draw-stagger",
 ];
 
 function hashStr(str) {
@@ -274,10 +276,10 @@ function json(v) {
   return JSON.stringify(v);
 }
 
-function buildStart(theme, parts) {
-  const boxes = parts.map((p, i) => ({ i, ...estimateBox(p[0]) }));
+function buildStart(theme, parts, seedName) {
+  const boxes = parts.map((p, i) => ({ i, tag: p[0][0], ...estimateBox(p[0]) }));
   const n = parts.length;
-  const seed = hashStr(parts[0][0].map((x) => x).join(""));
+  const seed = hashStr(seedName || parts[0][0][1].d || "");
   const r = (k) => (k % 97) / 97;
 
   const ease = "easeInOut";
@@ -738,6 +740,120 @@ function buildStart(theme, parts) {
       });
       break;
     }
+    case "draw": {
+      boxes.forEach((b) => {
+        if (b.tag === "path") {
+          push(b.i, { pathLength: [0, 1, 1] }, 0.7, 0.12 * b.i);
+        } else {
+          push(b.i, { scale: [0.6, 1.1, 1], opacity: [0, 1] }, 0.7, 0.12 * b.i);
+        }
+      });
+      break;
+    }
+    case "draw-stagger": {
+      boxes.forEach((b) => {
+        if (b.tag === "path") {
+          push(b.i, { pathLength: [0, 1], opacity: [0, 1] }, 0.8, 0.2 + 0.14 * b.i);
+        }
+      });
+      break;
+    }
+    case "ripple": {
+      const core = boxes.filter((b) => Math.hypot(b.cx - 12, b.cy - 12) < 4);
+      const ring = boxes.filter((b) => Math.hypot(b.cx - 12, b.cy - 12) >= 4);
+      core.forEach((b) => push(b.i, { scale: [1, 1.12, 1] }, 0.8, 0.05));
+      ring.forEach((b) => push(b.i, { scale: [0.7, 1.2, 1], opacity: [0.4, 1, 1] }, 0.9, 0.14 * b.i));
+      break;
+    }
+    case "pendulum": {
+      boxes.forEach((b) => {
+        if (b.cy > 15) return;
+        const dir = (left(b.cx) ? -1 : 1) * 8;
+        push(b.i, { rotate: [0, dir, -dir * 0.7, 0] }, 1.1, 0.04 * b.i);
+      });
+      break;
+    }
+    case "drop-spring": {
+      boxes.forEach((b) => {
+        push(b.i, { y: [0, -5, 1.5, -0.5, 0], scale: [1, 0.9, 1.04, 1] }, 0.9, 0.1 * b.i);
+      });
+      break;
+    }
+    case "elastic-squash": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 1.14, 0.92, 1.06, 1] }, 0.8, 0.1 * b.i);
+        if (b.cy < 13) push(b.i, { y: [0, 1, 0] }, 0.4, 0.1 * b.i);
+      });
+      break;
+    }
+    case "cascade": {
+      boxes.forEach((b) => {
+        const drop = (b.cy - 12) * (below(b.cy) ? 1 : -0.3);
+        push(b.i, { y: [0, drop, 0], opacity: [0.3, 1, 1] }, 0.8, 0.1 * b.i);
+      });
+      break;
+    }
+    case "wave-x": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 8;
+        push(b.i, { x: [0, wob, -wob * 0.5, 0], rotate: [0, wob * 0.8, 0] }, 1, 0.08 * b.i);
+      });
+      break;
+    }
+    case "spin-burst": {
+      boxes.forEach((b) => {
+        const dir = (r(seed + b.i) - 0.5) * 20;
+        push(b.i, { rotate: [0, dir, 0], scale: [0.8, 1.2, 1] }, 0.7, 0.07 * b.i);
+      });
+      break;
+    }
+    case "dash": {
+      const idx = Math.floor(r(seed) * n);
+      boxes.forEach((b) => {
+        if (b.i === idx) push(b.i, { opacity: [1, 0.3, 1], scale: [1, 0.9, 1] }, 0.5, 0);
+        else push(b.i, { scale: [1, 1.05, 1] }, 0.5, 0.05 * b.i);
+      });
+      break;
+    }
+    case "shimmer": {
+      boxes.forEach((b) => {
+        const flash = (r(seed + b.i) - 0.5) * 8;
+        push(b.i, { opacity: [1, 0.35, 1], x: [0, flash, 0] }, 0.9, 0.12 * b.i);
+      });
+      break;
+    }
+    case "sawtooth": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 4, -dir * 2, dir * 2, 0], rotate: [0, dir * 6, 0] }, 0.5, 0.06 * b.i);
+      });
+      break;
+    }
+    case "squeeze": {
+      const top = boxes.filter((b) => b.cy < 13);
+      const bot = boxes.filter((b) => b.cy >= 13);
+      top.forEach((b) => push(b.i, { scale: [1, 1.12, 1], y: [0, 0.5, 0] }, 0.8, 0.08 * b.i));
+      bot.forEach((b) => push(b.i, { y: [0, 1.5, 0], scale: [1, 0.94, 1] }, 0.8, 0.08 * b.i));
+      break;
+    }
+    case "planets": {
+      const core = boxes.filter((b) => Math.hypot(b.cx - 12, b.cy - 12) < 3.5);
+      const moons = boxes.filter((b) => Math.hypot(b.cx - 12, b.cy - 12) >= 3.5);
+      core.forEach((b) => push(b.i, { scale: [1, 1.08, 1] }, 1, 0));
+      moons.forEach((b) => {
+        const ox = b.cx - 12;
+        const oy = b.cy - 12;
+        push(b.i, { x: [0, ox * 0.3, -ox * 0.3, 0], y: [0, oy * 0.3, -oy * 0.3, 0] }, 1.3, 0.08 * b.i);
+      });
+      break;
+    }
+    case "inject": {
+      boxes.forEach((b) => {
+        const dir = below(b.cy) ? -1 : 1;
+        push(b.i, { y: [0, dir * 4, 0], scale: [1, 0.92, 1] }, 0.6, 0.08 * b.i);
+      });
+      break;
+    }
     default: {
       boxes.forEach((b) => {
         push(b.i, { scale: [0.85, 1.12, 1] }, 0.8, 0.08 * b.i);
@@ -762,7 +878,7 @@ for (const entry of ICON_MANIFEST) {
   if (!iconNode) continue;
 
   const parts = iconNode.map((node, i) => nodeToJsx(node, i));
-  const { start, stop } = buildStart(theme, iconNode.map((n) => [n]));
+  const { start, stop } = buildStart(theme, iconNode.map((n) => [n]), lucideName);
 
   const fileName = `${lucideName}-icon.tsx`;
   const className = `${toPascal(lucideName)}Icon`;
