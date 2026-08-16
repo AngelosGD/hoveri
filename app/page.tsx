@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HeartIcon from "@/icons/heart-icon";
 import { getIconCount } from "@/icons/data";
 
@@ -29,6 +30,31 @@ export default function Home() {
 
   return (
     <main className="flex flex-1 flex-col">
+      <header className="flex items-center justify-between border-b border-zinc-200 bg-white/80 px-6 py-4 backdrop-blur">
+        <Link href="/" className="flex items-center gap-2">
+          <HeartIcon size={20} className="text-rose-500" />
+          <span className="text-sm font-semibold tracking-tight text-zinc-950">
+            hoveri
+          </span>
+        </Link>
+        <nav className="flex items-center gap-6 text-sm">
+          <a
+            href="#features"
+            className="hidden text-zinc-600 transition-colors hover:text-zinc-950 sm:block"
+          >
+            Librería
+          </a>
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-zinc-200 px-4 py-1.5 font-medium text-zinc-800 transition-colors hover:border-zinc-300 hover:text-zinc-950"
+          >
+            GitHub
+          </a>
+        </nav>
+      </header>
+
       <section className="flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-24 text-center">
         <a
           href={GITHUB_URL}
@@ -120,6 +146,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="border-t border-zinc-200 bg-white">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
+          <p className="text-sm text-zinc-500">
+            hoveri <span className="text-zinc-300">/</span> icons that move with
+            intent
+          </p>
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-500 transition-colors hover:text-zinc-950"
+          >
+            MIT License en GitHub
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
