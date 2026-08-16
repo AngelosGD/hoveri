@@ -12,15 +12,21 @@ const SunIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.12, 1, 1.2, 1] },
-        { duration: 0.6, ease: "easeOut" },
+      animate(
+        ".sun-rays",
+        { rotate: 360 },
+        { duration: 1.2, ease: "linear", repeat: 2 },
+      );
+      animate(
+        ".sun-core",
+        { scale: [1, 1.15, 0.95, 1.2, 1] },
+        { duration: 0.6, ease: "easeInOut" },
       );
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".sun-rays", { rotate: 0 }, { duration: 0.3, ease: "easeOut" });
+      animate(".sun-core", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -44,19 +50,24 @@ const SunIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         aria-hidden="true"
       >
         <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          className="sun-rays"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
         >
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2" />
-        <path d="M12 20v2" />
-        <path d="m4.93 4.93 1.41 1.41" />
-        <path d="m17.66 17.66 1.41 1.41" />
-        <path d="M2 12h2" />
-        <path d="M20 12h2" />
-        <path d="m6.34 17.66-1.41 1.41" />
-        <path d="m19.07 4.93-1.41 1.41" />
+          <path d="M12 2v2M12 20v2M4.93 4.93 6.34 6.34M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66 4.93 19.07M19.07 4.93 17.66 6.34" />
         </motion.g>
+        <motion.circle
+          className="sun-core"
+          cx="12"
+          cy="12"
+          r="4"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
+        />
       </motion.svg>
     );
   },

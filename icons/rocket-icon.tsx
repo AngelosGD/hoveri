@@ -12,15 +12,31 @@ const RocketIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".icon-path",
-        { scale: [1, 1.12, 1, 1.2, 1] },
-        { duration: 0.6, ease: "easeOut" },
+      animate(
+        ".rocket-body",
+        { y: [0, -4, 0, -2, 0], x: [0, 1, 0, 0.5, 0] },
+        { duration: 0.9, ease: "easeInOut" },
+      );
+      animate(
+        ".rocket-flame",
+        { scaleY: [1, 1.5, 0.8, 1.3, 1], opacity: [0.6, 1, 0.4, 1, 0.6] },
+        { duration: 0.5, repeat: 3, ease: "easeInOut" },
+      );
+      animate(
+        ".rocket-spark",
+        { opacity: [0, 1, 0], y: [0, 6] },
+        { duration: 0.6, delay: 0.2, ease: "easeOut" },
       );
     };
 
     const stopAnimation = () => {
-      animate(".icon-path", { scale: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".rocket-body", { y: 0, x: 0 }, { duration: 0.2 });
+      animate(
+        ".rocket-flame",
+        { scaleY: 1, opacity: 1 },
+        { duration: 0.2 },
+      );
+      animate(".rocket-spark", { opacity: 0 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -44,14 +60,33 @@ const RocketIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         aria-hidden="true"
       >
         <motion.g
-          className="icon-path"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          className="rocket-body"
+          style={{
+            transformOrigin: "50% 50%",
+            transformBox: "fill-box",
+          }}
         >
-        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
-        <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
-        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+          <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
         </motion.g>
+        <motion.g
+          className="rocket-flame"
+          style={{
+            transformOrigin: "50% 100%",
+            transformBox: "fill-box",
+          }}
+        >
+          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+        </motion.g>
+        <motion.path
+          className="rocket-spark"
+          d="M12 19v1.5M8 18.5l0.5 1.5M16 18.5l-0.5 1.5M10 22v1M14 22v1"
+          initial={{ opacity: 0 }}
+          style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },
