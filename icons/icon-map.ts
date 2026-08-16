@@ -111,6 +111,16 @@ import ArrowLeftRightIcon from "@/icons/arrow-left-right-icon";
 import ArrowUpDownIcon from "@/icons/arrow-up-down-icon";
 import ArrowDownToLineIcon from "@/icons/arrow-down-to-line-icon";
 import ArrowUpFromLineIcon from "@/icons/arrow-up-from-line-icon";
+import ClockIcon from "@/icons/clock-icon";
+import AlarmClockIcon from "@/icons/alarm-clock-icon";
+import TimerIcon from "@/icons/timer-icon";
+import HourglassIcon from "@/icons/hourglass-icon";
+import WatchIcon from "@/icons/watch-icon";
+import Clock3Icon from "@/icons/clock-3-icon";
+import CalendarIcon from "@/icons/calendar-icon";
+import CalendarDaysIcon from "@/icons/calendar-days-icon";
+import CalendarCheckIcon from "@/icons/calendar-check-icon";
+import TimerResetIcon from "@/icons/timer-reset-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -223,6 +233,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "arrow-up-down-icon": ArrowUpDownIcon,
   "arrow-down-to-line-icon": ArrowDownToLineIcon,
   "arrow-up-from-line-icon": ArrowUpFromLineIcon,
+  "clock-icon": ClockIcon,
+  "alarm-clock-icon": AlarmClockIcon,
+  "timer-icon": TimerIcon,
+  "hourglass-icon": HourglassIcon,
+  "watch-icon": WatchIcon,
+  "clock-3-icon": Clock3Icon,
+  "calendar-icon": CalendarIcon,
+  "calendar-days-icon": CalendarDaysIcon,
+  "calendar-check-icon": CalendarCheckIcon,
+  "timer-reset-icon": TimerResetIcon,
 };
 
 export function getIconComponent(file: string) {

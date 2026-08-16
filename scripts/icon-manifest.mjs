@@ -135,4 +135,16 @@ export const ICON_MANIFEST = [
   { file: "arrow-up-down-icon", name: "Arrow up down", category: "Flechas", tags: ["arrow", "swap", "vertical", "between"] },
   { file: "arrow-down-to-line-icon", name: "Arrow down to line", category: "Flechas", tags: ["arrow", "download", "inbox", "bottom"] },
   { file: "arrow-up-from-line-icon", name: "Arrow up from line", category: "Flechas", tags: ["arrow", "upload", "outbox", "top"] },
+
+  // Tiempo
+  { file: "clock-icon", name: "Clock", category: "Tiempo", tags: ["clock", "time", "hour", "watch"] },
+  { file: "alarm-clock-icon", name: "Alarm clock", category: "Tiempo", tags: ["alarm", "clock", "wake", "time"] },
+  { file: "timer-icon", name: "Timer", category: "Tiempo", tags: ["timer", "time", "stopwatch", "countdown"] },
+  { file: "hourglass-icon", name: "Hourglass", category: "Tiempo", tags: ["hourglass", "time", "sand", "wait"] },
+  { file: "watch-icon", name: "Watch", category: "Tiempo", tags: ["watch", "time", "clock", "wearable"] },
+  { file: "clock-3-icon", name: "Clock", category: "Tiempo", tags: ["clock", "time", "hour", "watch", "3"] },
+  { file: "calendar-icon", name: "Calendar", category: "Tiempo", tags: ["calendar", "date", "event", "schedule"] },
+  { file: "calendar-days-icon", name: "Calendar days", category: "Tiempo", tags: ["calendar", "date", "days", "schedule"] },
+  { file: "calendar-check-icon", name: "Calendar check", category: "Tiempo", tags: ["calendar", "check", "done", "event"] },
+  { file: "timer-reset-icon", name: "Timer reset", category: "Tiempo", tags: ["timer", "reset", "restart", "reload"] },
 ];

@@ -666,6 +666,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Flechas",
     tags: ["arrow","upload","outbox","top"],
   },
+  {
+    name: "Clock",
+    file: "clock-icon",
+    category: "Tiempo",
+    tags: ["clock","time","hour","watch"],
+  },
+  {
+    name: "Alarm clock",
+    file: "alarm-clock-icon",
+    category: "Tiempo",
+    tags: ["alarm","clock","wake","time"],
+  },
+  {
+    name: "Timer",
+    file: "timer-icon",
+    category: "Tiempo",
+    tags: ["timer","time","stopwatch","countdown"],
+  },
+  {
+    name: "Hourglass",
+    file: "hourglass-icon",
+    category: "Tiempo",
+    tags: ["hourglass","time","sand","wait"],
+  },
+  {
+    name: "Watch",
+    file: "watch-icon",
+    category: "Tiempo",
+    tags: ["watch","time","clock","wearable"],
+  },
+  {
+    name: "Clock",
+    file: "clock-3-icon",
+    category: "Tiempo",
+    tags: ["clock","time","hour","watch","3"],
+  },
+  {
+    name: "Calendar",
+    file: "calendar-icon",
+    category: "Tiempo",
+    tags: ["calendar","date","event","schedule"],
+  },
+  {
+    name: "Calendar days",
+    file: "calendar-days-icon",
+    category: "Tiempo",
+    tags: ["calendar","date","days","schedule"],
+  },
+  {
+    name: "Calendar check",
+    file: "calendar-check-icon",
+    category: "Tiempo",
+    tags: ["calendar","check","done","event"],
+  },
+  {
+    name: "Timer reset",
+    file: "timer-reset-icon",
+    category: "Tiempo",
+    tags: ["timer","reset","restart","reload"],
+  },
 ];
 
 export function getIconCount(): number {
