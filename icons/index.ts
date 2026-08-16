@@ -1,2 +1,14 @@
 export { default as HeartIcon } from "./heart-icon";
+export { default as StarIcon } from "./star-icon";
+export { default as RocketIcon } from "./rocket-icon";
+export { default as SendIcon } from "./send-icon";
+export { default as MoonIcon } from "./moon-icon";
+export { default as SunIcon } from "./sun-icon";
+export { default as CopyIcon } from "./copy-icon";
+export { default as CheckIcon } from "./check-icon";
+export { default as BookmarkIcon } from "./bookmark-icon";
+export { default as BellIcon } from "./bell-icon";
+export { default as SettingsIcon } from "./settings-icon";
+export { default as CoffeeIcon } from "./coffee-icon";
+export { default as CameraIcon } from "./camera-icon";
 export type { AnimatedIconHandle, AnimatedIconProps } from "./types";
