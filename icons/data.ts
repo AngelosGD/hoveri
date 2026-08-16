@@ -1266,6 +1266,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Salud",
     tags: ["bandage","wound","plaster","medical"],
   },
+  {
+    name: "Tree pine",
+    file: "tree-pine-icon",
+    category: "Naturaleza",
+    tags: ["tree","pine","forest","nature"],
+  },
+  {
+    name: "Tree deciduous",
+    file: "tree-deciduous-icon",
+    category: "Naturaleza",
+    tags: ["tree","deciduous","forest","nature"],
+  },
+  {
+    name: "Flower",
+    file: "flower-2-icon",
+    category: "Naturaleza",
+    tags: ["flower","blossom","nature","spring"],
+  },
+  {
+    name: "Leaf",
+    file: "leaf-icon",
+    category: "Naturaleza",
+    tags: ["leaf","nature","green","plant"],
+  },
+  {
+    name: "Mountain snow",
+    file: "mountain-snow-icon",
+    category: "Naturaleza",
+    tags: ["mountain","snow","peak","alps"],
+  },
+  {
+    name: "Mountain",
+    file: "mountain-icon",
+    category: "Naturaleza",
+    tags: ["mountain","hill","peak","nature"],
+  },
+  {
+    name: "Sun moon",
+    file: "sun-moon-icon",
+    category: "Naturaleza",
+    tags: ["sun","moon","day","night"],
+  },
+  {
+    name: "Cloud fog",
+    file: "cloud-fog-icon",
+    category: "Clima",
+    tags: ["fog","cloud","mist","weather"],
+  },
+  {
+    name: "Sprout",
+    file: "sprout-icon",
+    category: "Naturaleza",
+    tags: ["sprout","plant","grow","spring"],
+  },
+  {
+    name: "Cloudy",
+    file: "cloudy-icon",
+    category: "Clima",
+    tags: ["cloudy","cloud","weather","overcast"],
+  },
 ];
 
 export function getIconCount(): number {

@@ -346,6 +346,18 @@ const THEME_BY_NAME = {
   dna: "helix",
   baby: "rock",
   bandage: "soft",
+  // naturaleza y clima
+  "tree-pine": "sway",
+  "tree-deciduous": "sway",
+  "flower-2": "petal",
+  flower: "petal",
+  leaf: "flutter",
+  "mountain-snow": "drift",
+  mountain: "drift",
+  "sun-moon": "orbit",
+  "cloud-fog": "drift",
+  "cloudy": "drift",
+  sprout: "rise-parts",
 };
 
 const THEME_DEFAULTS = [
@@ -1174,6 +1186,21 @@ function buildStart(theme, parts, seedName) {
       boxes.forEach((b) => {
         const dir = (r(seed + b.i) - 0.5) * 10;
         push(b.i, { rotate: dir, y: [0, -2, 2, 0], x: [0, dir, -dir, 0] }, 1, 0.15 * b.i);
+      });
+      break;
+    }
+    case "petal": {
+      const core = boxes.filter((b) => Math.hypot(b.cx - 12, b.cy - 12) < 4);
+      core.forEach((b) => push(b.i, { scale: [1, 1.08, 1] }, 0.9, 0));
+      boxes.forEach((b) => {
+        if (Math.hypot(b.cx - 12, b.cy - 12) >= 4) push(b.i, { rotate: [0, 8, -8, 0], scale: [0.85, 1.1, 1] }, 0.9, 0.1 * b.i);
+      });
+      break;
+    }
+    case "flutter": {
+      boxes.forEach((b) => {
+        const wob = (r(seed + b.i) - 0.5) * 8;
+        push(b.i, { x: [0, wob, -wob * 0.6, 0], y: [0, -3 * r(seed + b.i + 1), 0], rotate: [0, wob, 0] }, 1.2, 0.12 * b.i);
       });
       break;
     }

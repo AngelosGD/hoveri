@@ -211,6 +211,16 @@ import SyringeIcon from "@/icons/syringe-icon";
 import DnaIcon from "@/icons/dna-icon";
 import BabyIcon from "@/icons/baby-icon";
 import BandageIcon from "@/icons/bandage-icon";
+import TreePineIcon from "@/icons/tree-pine-icon";
+import TreeDeciduousIcon from "@/icons/tree-deciduous-icon";
+import Flower2Icon from "@/icons/flower-2-icon";
+import LeafIcon from "@/icons/leaf-icon";
+import MountainSnowIcon from "@/icons/mountain-snow-icon";
+import MountainIcon from "@/icons/mountain-icon";
+import SunMoonIcon from "@/icons/sun-moon-icon";
+import CloudFogIcon from "@/icons/cloud-fog-icon";
+import SproutIcon from "@/icons/sprout-icon";
+import CloudyIcon from "@/icons/cloudy-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -423,6 +433,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "dna-icon": DnaIcon,
   "baby-icon": BabyIcon,
   "bandage-icon": BandageIcon,
+  "tree-pine-icon": TreePineIcon,
+  "tree-deciduous-icon": TreeDeciduousIcon,
+  "flower-2-icon": Flower2Icon,
+  "leaf-icon": LeafIcon,
+  "mountain-snow-icon": MountainSnowIcon,
+  "mountain-icon": MountainIcon,
+  "sun-moon-icon": SunMoonIcon,
+  "cloud-fog-icon": CloudFogIcon,
+  "sprout-icon": SproutIcon,
+  "cloudy-icon": CloudyIcon,
 };
 
 export function getIconComponent(file: string) {

@@ -255,4 +255,16 @@ export const ICON_MANIFEST = [
   { file: "dna-icon", name: "DNA", category: "Salud", tags: ["dna", "genetics", "biology", "helix"] },
   { file: "baby-icon", name: "Baby", category: "Salud", tags: ["baby", "newborn", "child", "infant"] },
   { file: "bandage-icon", name: "Bandage", category: "Salud", tags: ["bandage", "wound", "plaster", "medical"] },
+
+  // Naturaleza y clima
+  { file: "tree-pine-icon", name: "Tree pine", category: "Naturaleza", tags: ["tree", "pine", "forest", "nature"] },
+  { file: "tree-deciduous-icon", name: "Tree deciduous", category: "Naturaleza", tags: ["tree", "deciduous", "forest", "nature"] },
+  { file: "flower-2-icon", name: "Flower", category: "Naturaleza", tags: ["flower", "blossom", "nature", "spring"] },
+  { file: "leaf-icon", name: "Leaf", category: "Naturaleza", tags: ["leaf", "nature", "green", "plant"] },
+  { file: "mountain-snow-icon", name: "Mountain snow", category: "Naturaleza", tags: ["mountain", "snow", "peak", "alps"] },
+  { file: "mountain-icon", name: "Mountain", category: "Naturaleza", tags: ["mountain", "hill", "peak", "nature"] },
+  { file: "sun-moon-icon", name: "Sun moon", category: "Naturaleza", tags: ["sun", "moon", "day", "night"] },
+  { file: "cloud-fog-icon", name: "Cloud fog", category: "Clima", tags: ["fog", "cloud", "mist", "weather"] },
+  { file: "sprout-icon", name: "Sprout", category: "Naturaleza", tags: ["sprout", "plant", "grow", "spring"] },
+  { file: "cloudy-icon", name: "Cloudy", category: "Clima", tags: ["cloudy", "cloud", "weather", "overcast"] },
 ];
