@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import IconLibrary from "@/components/icon-library";
+import InstallSection from "@/components/install-section";
 
 export const metadata: Metadata = {
   title: "Iconos - hoveri",
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function IconsPage() {
-  return <IconLibrary />;
+  return (
+    <>
+      <IconLibrary />
+      <InstallSection />
+    </>
+  );
 }

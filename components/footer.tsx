@@ -40,12 +40,7 @@ export default function Footer() {
             </h3>
             <div className="mt-4 grid grid-cols-5 gap-3">
               {featured.map((icon) => (
-                <IconCard
-                  key={icon.file}
-                  file={icon.file}
-                  name={icon.name}
-                  size={26}
-                />
+                <IconCard key={icon.file} file={icon.file} name={icon.name} />
               ))}
             </div>
           </div>
