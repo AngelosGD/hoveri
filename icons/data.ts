@@ -1086,6 +1086,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Multimedia",
     tags: ["image","video","play","picture"],
   },
+  {
+    name: "Shopping bag",
+    file: "shopping-bag-icon",
+    category: "Comercio",
+    tags: ["bag","shopping","buy","store"],
+  },
+  {
+    name: "Shopping basket",
+    file: "shopping-basket-icon",
+    category: "Comercio",
+    tags: ["basket","shopping","buy","store"],
+  },
+  {
+    name: "Store",
+    file: "store-icon",
+    category: "Comercio",
+    tags: ["store","shop","market","commerce"],
+  },
+  {
+    name: "Hand coins",
+    file: "hand-coins-icon",
+    category: "Finanzas",
+    tags: ["hand","coins","money","cash"],
+  },
+  {
+    name: "Piggy bank",
+    file: "piggy-bank-icon",
+    category: "Finanzas",
+    tags: ["piggy","bank","savings","money"],
+  },
+  {
+    name: "Vault",
+    file: "vault-icon",
+    category: "Finanzas",
+    tags: ["vault","safe","bank","secure"],
+  },
+  {
+    name: "Dollar circle",
+    file: "circle-dollar-sign-icon",
+    category: "Finanzas",
+    tags: ["dollar","money","currency","coin"],
+  },
+  {
+    name: "Euro circle",
+    file: "circle-euro-icon",
+    category: "Finanzas",
+    tags: ["euro","money","currency","coin"],
+  },
+  {
+    name: "Candlestick chart",
+    file: "chart-candlestick-icon",
+    category: "Finanzas",
+    tags: ["candlestick","chart","stocks","finance"],
+  },
+  {
+    name: "Trending down",
+    file: "trending-down-icon",
+    category: "Finanzas",
+    tags: ["trending","down","decrease","chart"],
+  },
 ];
 
 export function getIconCount(): number {

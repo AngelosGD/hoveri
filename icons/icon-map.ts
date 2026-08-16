@@ -181,6 +181,16 @@ import VideotapeIcon from "@/icons/videotape-icon";
 import ApertureIcon from "@/icons/aperture-icon";
 import ImagesIcon from "@/icons/images-icon";
 import ImagePlayIcon from "@/icons/image-play-icon";
+import ShoppingBagIcon from "@/icons/shopping-bag-icon";
+import ShoppingBasketIcon from "@/icons/shopping-basket-icon";
+import StoreIcon from "@/icons/store-icon";
+import HandCoinsIcon from "@/icons/hand-coins-icon";
+import PiggyBankIcon from "@/icons/piggy-bank-icon";
+import VaultIcon from "@/icons/vault-icon";
+import CircleDollarSignIcon from "@/icons/circle-dollar-sign-icon";
+import CircleEuroIcon from "@/icons/circle-euro-icon";
+import ChartCandlestickIcon from "@/icons/chart-candlestick-icon";
+import TrendingDownIcon from "@/icons/trending-down-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -363,6 +373,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "aperture-icon": ApertureIcon,
   "images-icon": ImagesIcon,
   "image-play-icon": ImagePlayIcon,
+  "shopping-bag-icon": ShoppingBagIcon,
+  "shopping-basket-icon": ShoppingBasketIcon,
+  "store-icon": StoreIcon,
+  "hand-coins-icon": HandCoinsIcon,
+  "piggy-bank-icon": PiggyBankIcon,
+  "vault-icon": VaultIcon,
+  "circle-dollar-sign-icon": CircleDollarSignIcon,
+  "circle-euro-icon": CircleEuroIcon,
+  "chart-candlestick-icon": ChartCandlestickIcon,
+  "trending-down-icon": TrendingDownIcon,
 };
 
 export function getIconComponent(file: string) {

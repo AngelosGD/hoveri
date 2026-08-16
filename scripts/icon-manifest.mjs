@@ -219,4 +219,16 @@ export const ICON_MANIFEST = [
   { file: "aperture-icon", name: "Aperture", category: "Multimedia", tags: ["aperture", "camera", "lens", "photo"] },
   { file: "images-icon", name: "Images", category: "Multimedia", tags: ["images", "photos", "gallery", "pictures"] },
   { file: "image-play-icon", name: "Image play", category: "Multimedia", tags: ["image", "video", "play", "picture"] },
+
+  // Comercio y finanzas
+  { file: "shopping-bag-icon", name: "Shopping bag", category: "Comercio", tags: ["bag", "shopping", "buy", "store"] },
+  { file: "shopping-basket-icon", name: "Shopping basket", category: "Comercio", tags: ["basket", "shopping", "buy", "store"] },
+  { file: "store-icon", name: "Store", category: "Comercio", tags: ["store", "shop", "market", "commerce"] },
+  { file: "hand-coins-icon", name: "Hand coins", category: "Finanzas", tags: ["hand", "coins", "money", "cash"] },
+  { file: "piggy-bank-icon", name: "Piggy bank", category: "Finanzas", tags: ["piggy", "bank", "savings", "money"] },
+  { file: "vault-icon", name: "Vault", category: "Finanzas", tags: ["vault", "safe", "bank", "secure"] },
+  { file: "circle-dollar-sign-icon", name: "Dollar circle", category: "Finanzas", tags: ["dollar", "money", "currency", "coin"] },
+  { file: "circle-euro-icon", name: "Euro circle", category: "Finanzas", tags: ["euro", "money", "currency", "coin"] },
+  { file: "chart-candlestick-icon", name: "Candlestick chart", category: "Finanzas", tags: ["candlestick", "chart", "stocks", "finance"] },
+  { file: "trending-down-icon", name: "Trending down", category: "Finanzas", tags: ["trending", "down", "decrease", "chart"] },
 ];

@@ -311,6 +311,17 @@ const THEME_BY_NAME = {
   "video-off": "spark",
   videotape: "reel",
   aperture: "orbit",
+  // comercio y finanzas
+  "shopping-bag": "swing-parts",
+  "shopping-basket": "roll",
+  store: "pop",
+  "hand-coins": "coin",
+  "piggy-bank": "coin",
+  vault: "stack",
+  "circle-dollar-sign": "coin",
+  "circle-euro": "coin",
+  "chart-candlestick": "bars-up",
+  "trending-down": "cascade",
 };
 
 const THEME_DEFAULTS = [
