@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeartIcon from "@/icons/heart-icon";
+import GitHubIcon from "@/icons/github-icon";
 
 const GITHUB_URL = "https://github.com/AngelosGD/hoveri";
 
@@ -23,8 +24,9 @@ export default function Navbar() {
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border border-zinc-950 px-4 py-1.5 font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white"
+          className="flex items-center gap-2 rounded-full border border-zinc-950 bg-white px-4 py-1.5 font-medium text-zinc-800 transition-all hover:bg-zinc-950 hover:text-white"
         >
+          <GitHubIcon size={16} />
           Código fuente
         </a>
       </nav>
