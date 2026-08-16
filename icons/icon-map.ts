@@ -101,6 +101,16 @@ import GiftIcon from "@/icons/gift-icon";
 import SparkleIcon from "@/icons/sparkle-icon";
 import PaletteIcon from "@/icons/palette-icon";
 import GemIcon from "@/icons/gem-icon";
+import ArrowUpIcon from "@/icons/arrow-up-icon";
+import ArrowDownIcon from "@/icons/arrow-down-icon";
+import ArrowRightIcon from "@/icons/arrow-right-icon";
+import ArrowLeftIcon from "@/icons/arrow-left-icon";
+import ArrowUpRightIcon from "@/icons/arrow-up-right-icon";
+import ArrowDownLeftIcon from "@/icons/arrow-down-left-icon";
+import ArrowLeftRightIcon from "@/icons/arrow-left-right-icon";
+import ArrowUpDownIcon from "@/icons/arrow-up-down-icon";
+import ArrowDownToLineIcon from "@/icons/arrow-down-to-line-icon";
+import ArrowUpFromLineIcon from "@/icons/arrow-up-from-line-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -203,6 +213,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "sparkle-icon": SparkleIcon,
   "palette-icon": PaletteIcon,
   "gem-icon": GemIcon,
+  "arrow-up-icon": ArrowUpIcon,
+  "arrow-down-icon": ArrowDownIcon,
+  "arrow-right-icon": ArrowRightIcon,
+  "arrow-left-icon": ArrowLeftIcon,
+  "arrow-up-right-icon": ArrowUpRightIcon,
+  "arrow-down-left-icon": ArrowDownLeftIcon,
+  "arrow-left-right-icon": ArrowLeftRightIcon,
+  "arrow-up-down-icon": ArrowUpDownIcon,
+  "arrow-down-to-line-icon": ArrowDownToLineIcon,
+  "arrow-up-from-line-icon": ArrowUpFromLineIcon,
 };
 
 export function getIconComponent(file: string) {

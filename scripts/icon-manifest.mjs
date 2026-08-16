@@ -123,4 +123,16 @@ export const ICON_MANIFEST = [
   { file: "sparkle-icon", name: "Sparkle", category: "Deportes", tags: ["sparkle", "shine", "glow", "star"] },
   { file: "palette-icon", name: "Palette", category: "Deportes", tags: ["palette", "colors", "art", "design"] },
   { file: "gem-icon", name: "Gem", category: "Deportes", tags: ["gem", "diamond", "jewel", "premium"] },
+
+  // Flechas
+  { file: "arrow-up-icon", name: "Arrow up", category: "Flechas", tags: ["arrow", "up", "direction", "navigation"] },
+  { file: "arrow-down-icon", name: "Arrow down", category: "Flechas", tags: ["arrow", "down", "direction", "navigation"] },
+  { file: "arrow-right-icon", name: "Arrow right", category: "Flechas", tags: ["arrow", "right", "direction", "navigation"] },
+  { file: "arrow-left-icon", name: "Arrow left", category: "Flechas", tags: ["arrow", "left", "direction", "navigation"] },
+  { file: "arrow-up-right-icon", name: "Arrow up right", category: "Flechas", tags: ["arrow", "diagonal", "direction"] },
+  { file: "arrow-down-left-icon", name: "Arrow down left", category: "Flechas", tags: ["arrow", "diagonal", "direction"] },
+  { file: "arrow-left-right-icon", name: "Arrow left right", category: "Flechas", tags: ["arrow", "swap", "exchange", "between"] },
+  { file: "arrow-up-down-icon", name: "Arrow up down", category: "Flechas", tags: ["arrow", "swap", "vertical", "between"] },
+  { file: "arrow-down-to-line-icon", name: "Arrow down to line", category: "Flechas", tags: ["arrow", "download", "inbox", "bottom"] },
+  { file: "arrow-up-from-line-icon", name: "Arrow up from line", category: "Flechas", tags: ["arrow", "upload", "outbox", "top"] },
 ];

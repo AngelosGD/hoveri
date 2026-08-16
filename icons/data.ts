@@ -606,6 +606,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Deportes",
     tags: ["gem","diamond","jewel","premium"],
   },
+  {
+    name: "Arrow up",
+    file: "arrow-up-icon",
+    category: "Flechas",
+    tags: ["arrow","up","direction","navigation"],
+  },
+  {
+    name: "Arrow down",
+    file: "arrow-down-icon",
+    category: "Flechas",
+    tags: ["arrow","down","direction","navigation"],
+  },
+  {
+    name: "Arrow right",
+    file: "arrow-right-icon",
+    category: "Flechas",
+    tags: ["arrow","right","direction","navigation"],
+  },
+  {
+    name: "Arrow left",
+    file: "arrow-left-icon",
+    category: "Flechas",
+    tags: ["arrow","left","direction","navigation"],
+  },
+  {
+    name: "Arrow up right",
+    file: "arrow-up-right-icon",
+    category: "Flechas",
+    tags: ["arrow","diagonal","direction"],
+  },
+  {
+    name: "Arrow down left",
+    file: "arrow-down-left-icon",
+    category: "Flechas",
+    tags: ["arrow","diagonal","direction"],
+  },
+  {
+    name: "Arrow left right",
+    file: "arrow-left-right-icon",
+    category: "Flechas",
+    tags: ["arrow","swap","exchange","between"],
+  },
+  {
+    name: "Arrow up down",
+    file: "arrow-up-down-icon",
+    category: "Flechas",
+    tags: ["arrow","swap","vertical","between"],
+  },
+  {
+    name: "Arrow down to line",
+    file: "arrow-down-to-line-icon",
+    category: "Flechas",
+    tags: ["arrow","download","inbox","bottom"],
+  },
+  {
+    name: "Arrow up from line",
+    file: "arrow-up-from-line-icon",
+    category: "Flechas",
+    tags: ["arrow","upload","outbox","top"],
+  },
 ];
 
 export function getIconCount(): number {

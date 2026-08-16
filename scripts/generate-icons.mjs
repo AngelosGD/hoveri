@@ -103,6 +103,56 @@ const THEME_BY_NAME = {
   sparkle: "spark",
   palette: "dab",
   gem: "facet",
+  // flechas
+  "arrow-up": "climb",
+  "arrow-down": "drop-spring",
+  "arrow-right": "draw",
+  "arrow-left": "draw",
+  "arrow-up-right": "climb",
+  "arrow-down-left": "inject",
+  "arrow-left-right": "split",
+  "arrow-up-down": "sway",
+  "arrow-down-to-line": "inject",
+  "arrow-up-from-line": "eject",
+  "corner-up-left": "pendulum",
+  "corner-down-left": "swing-parts",
+  "corner-up-right": "swing-parts",
+  "corner-down-right": "pendulum",
+  "arrow-right-to-line": "eject",
+  "arrow-left-to-line": "eject",
+  "move-vertical": "sway",
+  "move-horizontal": "split",
+  "mouse-pointer": "aim",
+  move: "unfold",
+  "chevrons-up": "rise-parts",
+  "chevrons-down": "cascade",
+  "chevrons-right": "slides",
+  "chevrons-left": "slides",
+  "folding-zone": "unbox",
+  "replace": "swap",
+  "arrow-big-up": "rise-parts",
+  "arrow-big-down": "drop-spring",
+  "arrow-big-left": "slides",
+  "arrow-big-right": "slides",
+  "arrow-big-up-dash": "dash",
+  "arrow-big-down-dash": "dash",
+  "arrow-big-left-dash": "dash",
+  "arrow-big-right-dash": "dash",
+  "wrap-text": "flow",
+  "rotate-3d": "orbit",
+  "rotate-3d-square": "orbit",
+  "move-diagonal": "unfold",
+  "move-down-right": "unfold",
+  "move-up-left": "unfold",
+  "move-up-right": "unfold",
+  "move-down-left": "unfold",
+  "maximize": "expand",
+  "minimize": "squeeze",
+  "maximize-2": "expand",
+  "minimize-2": "squeeze",
+  "scan": "scan",
+  "scan-line": "scan",
+  "scan-text": "scan",
 };
 
 const THEME_DEFAULTS = [
@@ -851,6 +901,40 @@ function buildStart(theme, parts, seedName) {
       boxes.forEach((b) => {
         const dir = below(b.cy) ? -1 : 1;
         push(b.i, { y: [0, dir * 4, 0], scale: [1, 0.92, 1] }, 0.6, 0.08 * b.i);
+      });
+      break;
+    }
+    case "slides": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 3, 0], opacity: [1, 0.4, 1] }, 0.6, 0.07 * b.i);
+      });
+      break;
+    }
+    case "flow": {
+      boxes.forEach((b) => {
+        const dir = below(b.cy) ? 1 : -1;
+        push(b.i, { y: [0, dir * 3, 0], opacity: [1, 0.5, 1] }, 0.7, 0.06 * b.i);
+      });
+      break;
+    }
+    case "swap": {
+      boxes.forEach((b) => {
+        const dir = left(b.cx) ? -1 : 1;
+        push(b.i, { x: [0, dir * 4, 0], rotate: [0, dir * 8, 0] }, 0.7, 0.1 * b.i);
+      });
+      break;
+    }
+    case "expand": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [0.8, 1.18, 1], opacity: [0.5, 1, 1] }, 0.7, 0.1 * b.i);
+      });
+      break;
+    }
+    case "scan": {
+      boxes.forEach((b) => {
+        if (b.cy < 13) push(b.i, { scale: [1, 1.1, 1], opacity: [1, 0.5, 1] }, 0.8, 0.1 * b.i);
+        else push(b.i, { y: [0, -6, 0] }, 0.8, 0.05);
       });
       break;
     }
