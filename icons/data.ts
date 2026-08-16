@@ -1386,6 +1386,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Viajes",
     tags: ["train","track","rail","railway"],
   },
+  {
+    name: "Lock",
+    file: "lock-icon",
+    category: "Seguridad",
+    tags: ["lock","secure","password","protected"],
+  },
+  {
+    name: "Lock keyhole",
+    file: "lock-keyhole-icon",
+    category: "Seguridad",
+    tags: ["lock","keyhole","secure","private"],
+  },
+  {
+    name: "Lock open",
+    file: "lock-keyhole-open-icon",
+    category: "Seguridad",
+    tags: ["lock","open","unlock","secure"],
+  },
+  {
+    name: "Key round",
+    file: "key-round-icon",
+    category: "Seguridad",
+    tags: ["key","round","password","access"],
+  },
+  {
+    name: "Key square",
+    file: "key-square-icon",
+    category: "Seguridad",
+    tags: ["key","square","password","access"],
+  },
+  {
+    name: "Shield check",
+    file: "shield-check-icon",
+    category: "Seguridad",
+    tags: ["shield","check","secure","verified"],
+  },
+  {
+    name: "Shield alert",
+    file: "shield-alert-icon",
+    category: "Seguridad",
+    tags: ["shield","alert","warning","danger"],
+  },
+  {
+    name: "Radar",
+    file: "radar-icon",
+    category: "Seguridad",
+    tags: ["radar","scan","detect","sonar"],
+  },
+  {
+    name: "Scan face",
+    file: "scan-face-icon",
+    category: "Seguridad",
+    tags: ["scan","face","id","biometric"],
+  },
+  {
+    name: "Fingerprint",
+    file: "fingerprint-pattern-icon",
+    category: "Seguridad",
+    tags: ["fingerprint","biometric","identity","touch"],
+  },
 ];
 
 export function getIconCount(): number {

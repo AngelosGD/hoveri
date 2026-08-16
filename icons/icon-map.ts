@@ -231,6 +231,16 @@ import LifeBuoyIcon from "@/icons/life-buoy-icon";
 import LuggageIcon from "@/icons/luggage-icon";
 import CarFrontIcon from "@/icons/car-front-icon";
 import TrainTrackIcon from "@/icons/train-track-icon";
+import LockIcon from "@/icons/lock-icon";
+import LockKeyholeIcon from "@/icons/lock-keyhole-icon";
+import LockKeyholeOpenIcon from "@/icons/lock-keyhole-open-icon";
+import KeyRoundIcon from "@/icons/key-round-icon";
+import KeySquareIcon from "@/icons/key-square-icon";
+import ShieldCheckIcon from "@/icons/shield-check-icon";
+import ShieldAlertIcon from "@/icons/shield-alert-icon";
+import RadarIcon from "@/icons/radar-icon";
+import ScanFaceIcon from "@/icons/scan-face-icon";
+import FingerprintPatternIcon from "@/icons/fingerprint-pattern-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -463,6 +473,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "luggage-icon": LuggageIcon,
   "car-front-icon": CarFrontIcon,
   "train-track-icon": TrainTrackIcon,
+  "lock-icon": LockIcon,
+  "lock-keyhole-icon": LockKeyholeIcon,
+  "lock-keyhole-open-icon": LockKeyholeOpenIcon,
+  "key-round-icon": KeyRoundIcon,
+  "key-square-icon": KeySquareIcon,
+  "shield-check-icon": ShieldCheckIcon,
+  "shield-alert-icon": ShieldAlertIcon,
+  "radar-icon": RadarIcon,
+  "scan-face-icon": ScanFaceIcon,
+  "fingerprint-pattern-icon": FingerprintPatternIcon,
 };
 
 export function getIconComponent(file: string) {

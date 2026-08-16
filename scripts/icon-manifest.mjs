@@ -279,4 +279,16 @@ export const ICON_MANIFEST = [
   { file: "luggage-icon", name: "Luggage", category: "Viajes", tags: ["luggage", "suitcase", "bag", "travel"] },
   { file: "car-front-icon", name: "Car front", category: "Viajes", tags: ["car", "front", "vehicle", "drive"] },
   { file: "train-track-icon", name: "Train track", category: "Viajes", tags: ["train", "track", "rail", "railway"] },
+
+  // Seguridad
+  { file: "lock-icon", name: "Lock", category: "Seguridad", tags: ["lock", "secure", "password", "protected"] },
+  { file: "lock-keyhole-icon", name: "Lock keyhole", category: "Seguridad", tags: ["lock", "keyhole", "secure", "private"] },
+  { file: "lock-keyhole-open-icon", name: "Lock open", category: "Seguridad", tags: ["lock", "open", "unlock", "secure"] },
+  { file: "key-round-icon", name: "Key round", category: "Seguridad", tags: ["key", "round", "password", "access"] },
+  { file: "key-square-icon", name: "Key square", category: "Seguridad", tags: ["key", "square", "password", "access"] },
+  { file: "shield-check-icon", name: "Shield check", category: "Seguridad", tags: ["shield", "check", "secure", "verified"] },
+  { file: "shield-alert-icon", name: "Shield alert", category: "Seguridad", tags: ["shield", "alert", "warning", "danger"] },
+  { file: "radar-icon", name: "Radar", category: "Seguridad", tags: ["radar", "scan", "detect", "sonar"] },
+  { file: "scan-face-icon", name: "Scan face", category: "Seguridad", tags: ["scan", "face", "id", "biometric"] },
+  { file: "fingerprint-pattern-icon", name: "Fingerprint", category: "Seguridad", tags: ["fingerprint", "biometric", "identity", "touch"] },
 ];

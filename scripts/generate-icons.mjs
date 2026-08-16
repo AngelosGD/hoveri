@@ -369,6 +369,17 @@ const THEME_BY_NAME = {
   luggage: "roll",
   "car-front": "drive",
   "train-track": "draw",
+  // seguridad
+  lock: "lock-bolt",
+  "lock-keyhole": "lock-bolt",
+  "lock-keyhole-open": "open-parts",
+  "key-round": "spin-burst",
+  "key-square": "spin-burst",
+  "shield-check": "guard",
+  "shield-alert": "bolt",
+  radar: "ripple",
+  "scan-face": "scan",
+  "fingerprint-pattern": "ripple",
 };
 
 const THEME_DEFAULTS = [
@@ -1228,6 +1239,13 @@ function buildStart(theme, parts, seedName) {
         const dir = (r(seed + b.i) - 0.5) * 60;
         push(b.i, { rotate: [0, dir, 0] }, 0.9, 0.12 * b.i);
       });
+      break;
+    }
+    case "lock-bolt": {
+      const top = boxes.filter((b) => b.cy < 10);
+      const rest = boxes.filter((b) => b.cy >= 10);
+      top.forEach((b) => push(b.i, { y: [0, -4, 1, 0], rotate: [0, -2, 0] }, 0.5, 0.05 * b.i));
+      rest.forEach((b) => push(b.i, { scale: [1, 1.1, 0.96, 1] }, 0.5, 0.1 * b.i));
       break;
     }
     default: {
