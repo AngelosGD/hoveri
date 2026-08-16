@@ -235,6 +235,18 @@ const THEME_BY_NAME = {
   "chat-bubble-square": "pop",
   "speech": "sound",
   voicemail: "sound",
+  // gráficas
+  "chart-line": "draw",
+  "chart-spline": "draw-stagger",
+  "chart-column": "bars-up",
+  "chart-column-big": "bars-up",
+  "chart-bar-big": "bars-up",
+  "chart-area": "amplify",
+  "chart-no-axes-combined": "draw-stagger",
+  "chart-no-axes-column": "bars-up",
+  "chart-no-axes-gantt": "slides",
+  "chart-scatter": "spark",
+  "chart-pie": "swirl",
 };
 
 const THEME_DEFAULTS = [
@@ -1017,6 +1029,12 @@ function buildStart(theme, parts, seedName) {
       boxes.forEach((b) => {
         if (b.cy < 13) push(b.i, { scale: [1, 1.1, 1], opacity: [1, 0.5, 1] }, 0.8, 0.1 * b.i);
         else push(b.i, { y: [0, -6, 0] }, 0.8, 0.05);
+      });
+      break;
+    }
+    case "bars-up": {
+      boxes.forEach((b) => {
+        push(b.i, { scaleY: [0.2, 1, 1], opacity: [0.3, 1, 1] }, 0.7, 0.1 * b.i);
       });
       break;
     }

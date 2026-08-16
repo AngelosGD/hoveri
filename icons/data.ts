@@ -786,6 +786,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Comunicación",
     tags: ["at","mention","email","signal"],
   },
+  {
+    name: "Chart line",
+    file: "chart-line-icon",
+    category: "Gráficas",
+    tags: ["chart","line","graph","stats"],
+  },
+  {
+    name: "Chart spline",
+    file: "chart-spline-icon",
+    category: "Gráficas",
+    tags: ["chart","spline","curved","stats"],
+  },
+  {
+    name: "Chart column",
+    file: "chart-column-icon",
+    category: "Gráficas",
+    tags: ["chart","bar","column","stats"],
+  },
+  {
+    name: "Chart column big",
+    file: "chart-column-big-icon",
+    category: "Gráficas",
+    tags: ["chart","bar","column","stats"],
+  },
+  {
+    name: "Chart area",
+    file: "chart-area-icon",
+    category: "Gráficas",
+    tags: ["chart","area","fill","stats"],
+  },
+  {
+    name: "Chart bar",
+    file: "chart-bar-big-icon",
+    category: "Gráficas",
+    tags: ["chart","bar","horizontal","stats"],
+  },
+  {
+    name: "Chart combined",
+    file: "chart-no-axes-combined-icon",
+    category: "Gráficas",
+    tags: ["chart","combined","line","bar"],
+  },
+  {
+    name: "Chart columns",
+    file: "chart-no-axes-column-icon",
+    category: "Gráficas",
+    tags: ["chart","columns","bar","stats"],
+  },
+  {
+    name: "Chart scatter",
+    file: "chart-scatter-icon",
+    category: "Gráficas",
+    tags: ["chart","scatter","dots","stats"],
+  },
+  {
+    name: "Chart gantt",
+    file: "chart-no-axes-gantt-icon",
+    category: "Gráficas",
+    tags: ["chart","gantt","timeline","project"],
+  },
 ];
 
 export function getIconCount(): number {

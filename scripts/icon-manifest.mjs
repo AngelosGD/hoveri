@@ -159,4 +159,16 @@ export const ICON_MANIFEST = [
   { file: "voicemail-icon", name: "Voicemail", category: "Comunicación", tags: ["voicemail", "voice", "audio", "message"] },
   { file: "mail-plus-icon", name: "Mail plus", category: "Comunicación", tags: ["mail", "email", "add", "compose"] },
   { file: "at-sign-icon", name: "At sign", category: "Comunicación", tags: ["at", "mention", "email", "signal"] },
+
+  // Gráficas
+  { file: "chart-line-icon", name: "Chart line", category: "Gráficas", tags: ["chart", "line", "graph", "stats"] },
+  { file: "chart-spline-icon", name: "Chart spline", category: "Gráficas", tags: ["chart", "spline", "curved", "stats"] },
+  { file: "chart-column-icon", name: "Chart column", category: "Gráficas", tags: ["chart", "bar", "column", "stats"] },
+  { file: "chart-column-big-icon", name: "Chart column big", category: "Gráficas", tags: ["chart", "bar", "column", "stats"] },
+  { file: "chart-area-icon", name: "Chart area", category: "Gráficas", tags: ["chart", "area", "fill", "stats"] },
+  { file: "chart-bar-big-icon", name: "Chart bar", category: "Gráficas", tags: ["chart", "bar", "horizontal", "stats"] },
+  { file: "chart-no-axes-combined-icon", name: "Chart combined", category: "Gráficas", tags: ["chart", "combined", "line", "bar"] },
+  { file: "chart-no-axes-column-icon", name: "Chart columns", category: "Gráficas", tags: ["chart", "columns", "bar", "stats"] },
+  { file: "chart-scatter-icon", name: "Chart scatter", category: "Gráficas", tags: ["chart", "scatter", "dots", "stats"] },
+  { file: "chart-no-axes-gantt-icon", name: "Chart gantt", category: "Gráficas", tags: ["chart", "gantt", "timeline", "project"] },
 ];

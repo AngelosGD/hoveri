@@ -131,6 +131,16 @@ import MessageSquarePlusIcon from "@/icons/message-square-plus-icon";
 import VoicemailIcon from "@/icons/voicemail-icon";
 import MailPlusIcon from "@/icons/mail-plus-icon";
 import AtSignIcon from "@/icons/at-sign-icon";
+import ChartLineIcon from "@/icons/chart-line-icon";
+import ChartSplineIcon from "@/icons/chart-spline-icon";
+import ChartColumnIcon from "@/icons/chart-column-icon";
+import ChartColumnBigIcon from "@/icons/chart-column-big-icon";
+import ChartAreaIcon from "@/icons/chart-area-icon";
+import ChartBarBigIcon from "@/icons/chart-bar-big-icon";
+import ChartNoAxesCombinedIcon from "@/icons/chart-no-axes-combined-icon";
+import ChartNoAxesColumnIcon from "@/icons/chart-no-axes-column-icon";
+import ChartScatterIcon from "@/icons/chart-scatter-icon";
+import ChartNoAxesGanttIcon from "@/icons/chart-no-axes-gantt-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -263,6 +273,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "voicemail-icon": VoicemailIcon,
   "mail-plus-icon": MailPlusIcon,
   "at-sign-icon": AtSignIcon,
+  "chart-line-icon": ChartLineIcon,
+  "chart-spline-icon": ChartSplineIcon,
+  "chart-column-icon": ChartColumnIcon,
+  "chart-column-big-icon": ChartColumnBigIcon,
+  "chart-area-icon": ChartAreaIcon,
+  "chart-bar-big-icon": ChartBarBigIcon,
+  "chart-no-axes-combined-icon": ChartNoAxesCombinedIcon,
+  "chart-no-axes-column-icon": ChartNoAxesColumnIcon,
+  "chart-scatter-icon": ChartScatterIcon,
+  "chart-no-axes-gantt-icon": ChartNoAxesGanttIcon,
 };
 
 export function getIconComponent(file: string) {
