@@ -271,6 +271,16 @@ import DatabaseXIcon from "@/icons/database-x-icon";
 import DatabaseArrowDownIcon from "@/icons/database-arrow-down-icon";
 import DatabaseArrowUpIcon from "@/icons/database-arrow-up-icon";
 import ArchiveRestoreIcon from "@/icons/archive-restore-icon";
+import BracesIcon from "@/icons/braces-icon";
+import BracketsIcon from "@/icons/brackets-icon";
+import CodeXmlIcon from "@/icons/code-xml-icon";
+import SquareTerminalIcon from "@/icons/square-terminal-icon";
+import FileTerminalIcon from "@/icons/file-terminal-icon";
+import GitMergeIcon from "@/icons/git-merge-icon";
+import GitCommitHorizontalIcon from "@/icons/git-commit-horizontal-icon";
+import GitPullRequestIcon from "@/icons/git-pull-request-icon";
+import Heading2Icon from "@/icons/heading-2-icon";
+import TextCursorInputIcon from "@/icons/text-cursor-input-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -543,6 +553,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "database-arrow-down-icon": DatabaseArrowDownIcon,
   "database-arrow-up-icon": DatabaseArrowUpIcon,
   "archive-restore-icon": ArchiveRestoreIcon,
+  "braces-icon": BracesIcon,
+  "brackets-icon": BracketsIcon,
+  "code-xml-icon": CodeXmlIcon,
+  "square-terminal-icon": SquareTerminalIcon,
+  "file-terminal-icon": FileTerminalIcon,
+  "git-merge-icon": GitMergeIcon,
+  "git-commit-horizontal-icon": GitCommitHorizontalIcon,
+  "git-pull-request-icon": GitPullRequestIcon,
+  "heading-2-icon": Heading2Icon,
+  "text-cursor-input-icon": TextCursorInputIcon,
 };
 
 export function getIconComponent(file: string) {

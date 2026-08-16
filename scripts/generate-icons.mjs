@@ -413,6 +413,17 @@ const THEME_BY_NAME = {
   "database-arrow-down": "inject",
   "database-arrow-up": "climb",
   "archive-restore": "unbox",
+  // desarrollo
+  braces: "split",
+  brackets: "spread",
+  "code-xml": "split",
+  "square-terminal": "blink",
+  "file-terminal": "blink",
+  "git-merge": "split",
+  "git-commit-horizontal": "swap",
+  "git-pull-request": "unfold",
+  "heading-2": "spin-burst",
+  "text-cursor-input": "blink",
 };
 
 const THEME_DEFAULTS = [

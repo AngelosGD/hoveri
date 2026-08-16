@@ -1626,6 +1626,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Bases de datos",
     tags: ["archive","restore","recover","box"],
   },
+  {
+    name: "Braces",
+    file: "braces-icon",
+    category: "Desarrollo",
+    tags: ["braces","code","json","dev"],
+  },
+  {
+    name: "Brackets",
+    file: "brackets-icon",
+    category: "Desarrollo",
+    tags: ["brackets","code","syntax","dev"],
+  },
+  {
+    name: "Code XML",
+    file: "code-xml-icon",
+    category: "Desarrollo",
+    tags: ["code","xml","html","tags"],
+  },
+  {
+    name: "Terminal square",
+    file: "square-terminal-icon",
+    category: "Desarrollo",
+    tags: ["terminal","console","command","shell"],
+  },
+  {
+    name: "File terminal",
+    file: "file-terminal-icon",
+    category: "Desarrollo",
+    tags: ["file","terminal","script","command"],
+  },
+  {
+    name: "Git merge",
+    file: "git-merge-icon",
+    category: "Desarrollo",
+    tags: ["git","merge","branch","version"],
+  },
+  {
+    name: "Git commit",
+    file: "git-commit-horizontal-icon",
+    category: "Desarrollo",
+    tags: ["git","commit","branch","version"],
+  },
+  {
+    name: "Pull request",
+    file: "git-pull-request-icon",
+    category: "Desarrollo",
+    tags: ["git","pull","request","merge"],
+  },
+  {
+    name: "Heading 2",
+    file: "heading-2-icon",
+    category: "Desarrollo",
+    tags: ["heading","title","text","format"],
+  },
+  {
+    name: "Cursor input",
+    file: "text-cursor-input-icon",
+    category: "Desarrollo",
+    tags: ["cursor","input","text","type"],
+  },
 ];
 
 export function getIconCount(): number {

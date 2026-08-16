@@ -327,4 +327,16 @@ export const ICON_MANIFEST = [
   { file: "database-arrow-down-icon", name: "Database down", category: "Bases de datos", tags: ["database", "down", "import", "data"] },
   { file: "database-arrow-up-icon", name: "Database up", category: "Bases de datos", tags: ["database", "up", "export", "data"] },
   { file: "archive-restore-icon", name: "Archive restore", category: "Bases de datos", tags: ["archive", "restore", "recover", "box"] },
+
+  // Desarrollo
+  { file: "braces-icon", name: "Braces", category: "Desarrollo", tags: ["braces", "code", "json", "dev"] },
+  { file: "brackets-icon", name: "Brackets", category: "Desarrollo", tags: ["brackets", "code", "syntax", "dev"] },
+  { file: "code-xml-icon", name: "Code XML", category: "Desarrollo", tags: ["code", "xml", "html", "tags"] },
+  { file: "square-terminal-icon", name: "Terminal square", category: "Desarrollo", tags: ["terminal", "console", "command", "shell"] },
+  { file: "file-terminal-icon", name: "File terminal", category: "Desarrollo", tags: ["file", "terminal", "script", "command"] },
+  { file: "git-merge-icon", name: "Git merge", category: "Desarrollo", tags: ["git", "merge", "branch", "version"] },
+  { file: "git-commit-horizontal-icon", name: "Git commit", category: "Desarrollo", tags: ["git", "commit", "branch", "version"] },
+  { file: "git-pull-request-icon", name: "Pull request", category: "Desarrollo", tags: ["git", "pull", "request", "merge"] },
+  { file: "heading-2-icon", name: "Heading 2", category: "Desarrollo", tags: ["heading", "title", "text", "format"] },
+  { file: "text-cursor-input-icon", name: "Cursor input", category: "Desarrollo", tags: ["cursor", "input", "text", "type"] },
 ];
