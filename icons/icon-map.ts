@@ -301,6 +301,35 @@ import DropletsIcon from "@/icons/droplets-icon";
 import BanIcon from "@/icons/ban-icon";
 import AwardIcon from "@/icons/award-icon";
 import ZapIcon from "@/icons/zap-icon";
+import ReactIcon from "@/icons/react-icon";
+import VercelIcon from "@/icons/vercel-icon";
+import NextIcon from "@/icons/next-icon";
+import VueIcon from "@/icons/vue-icon";
+import AngularIcon from "@/icons/angular-icon";
+import SvelteIcon from "@/icons/svelte-icon";
+import TypescriptIcon from "@/icons/typescript-icon";
+import PythonIcon from "@/icons/python-icon";
+import RustIcon from "@/icons/rust-icon";
+import NodeIcon from "@/icons/node-icon";
+import DockerIcon from "@/icons/docker-icon";
+import AwsIcon from "@/icons/aws-icon";
+import FigmaIcon from "@/icons/figma-icon";
+import TailwindIcon from "@/icons/tailwind-icon";
+import PrismaIcon from "@/icons/prisma-icon";
+import PostgresIcon from "@/icons/postgres-icon";
+import SupabaseIcon from "@/icons/supabase-icon";
+import ViteIcon from "@/icons/vite-icon";
+import StripeIcon from "@/icons/stripe-icon";
+import PaypalIcon from "@/icons/paypal-icon";
+import ShopifyIcon from "@/icons/shopify-icon";
+import GoogleIcon from "@/icons/google-icon";
+import XIcon from "@/icons/x-icon";
+import InstagramIcon from "@/icons/instagram-icon";
+import LinkedinIcon from "@/icons/linkedin-icon";
+import YoutubeIcon from "@/icons/youtube-icon";
+import DiscordIcon from "@/icons/discord-icon";
+import SlackIcon from "@/icons/slack-icon";
+import SpotifyIcon from "@/icons/spotify-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -603,6 +632,35 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "ban-icon": BanIcon,
   "award-icon": AwardIcon,
   "zap-icon": ZapIcon,
+  "react-icon": ReactIcon,
+  "vercel-icon": VercelIcon,
+  "next-icon": NextIcon,
+  "vue-icon": VueIcon,
+  "angular-icon": AngularIcon,
+  "svelte-icon": SvelteIcon,
+  "typescript-icon": TypescriptIcon,
+  "python-icon": PythonIcon,
+  "rust-icon": RustIcon,
+  "node-icon": NodeIcon,
+  "docker-icon": DockerIcon,
+  "aws-icon": AwsIcon,
+  "figma-icon": FigmaIcon,
+  "tailwind-icon": TailwindIcon,
+  "prisma-icon": PrismaIcon,
+  "postgres-icon": PostgresIcon,
+  "supabase-icon": SupabaseIcon,
+  "vite-icon": ViteIcon,
+  "stripe-icon": StripeIcon,
+  "paypal-icon": PaypalIcon,
+  "shopify-icon": ShopifyIcon,
+  "google-icon": GoogleIcon,
+  "x-icon": XIcon,
+  "instagram-icon": InstagramIcon,
+  "linkedin-icon": LinkedinIcon,
+  "youtube-icon": YoutubeIcon,
+  "discord-icon": DiscordIcon,
+  "slack-icon": SlackIcon,
+  "spotify-icon": SpotifyIcon,
 };
 
 export function getIconComponent(file: string) {

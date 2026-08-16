@@ -14,6 +14,12 @@ const LUCIDE_DIR = join(process.cwd(), "node_modules/lucide-react/dist/esm/icons
 const HANDCRAFTED = new Set([
   "heart", "star", "rocket", "send", "moon", "sun", "copy", "check",
   "bookmark", "bell", "settings", "coffee", "camera", "github",
+  // logos de marca (handcraft, no vienen de Lucide)
+  "react", "vercel", "vue", "angular", "svelte", "docker", "figma",
+  "tailwind", "node", "next", "typescript", "python", "rust", "aws",
+  "stripe", "x", "instagram", "linkedin", "youtube", "discord", "slack",
+  "google", "spotify", "shopify", "paypal", "vite", "postgres", "prisma",
+  "supabase",
 ]);
 
 const THEME_BY_NAME = {
