@@ -39,13 +39,16 @@ interface IconCardProps {
   size?: number;
 }
 
-export default function IconCard({ file, name, size = 40 }: IconCardProps) {
+export default function IconCard({ file, name, size = 30 }: IconCardProps) {
   const Icon = iconMap[file];
 
   if (!Icon) return null;
 
   return (
-    <div className="flex h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-zinc-900 bg-white transition-transform duration-300 hover:-translate-y-1">
+    <div
+      aria-label={`Icono ${name}`}
+      className="flex h-24 items-center justify-center rounded-xl border border-zinc-900 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_6px_16px_-6px_rgba(244,63,94,0.5)]"
+    >
       <Icon size={size} />
     </div>
   );
