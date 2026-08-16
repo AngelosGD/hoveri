@@ -151,6 +151,16 @@ import RouteIcon from "@/icons/route-icon";
 import SignpostBigIcon from "@/icons/signpost-big-icon";
 import EarthIcon from "@/icons/earth-icon";
 import GlobeIcon from "@/icons/globe-icon";
+import FileTextIcon from "@/icons/file-text-icon";
+import FilePlusIcon from "@/icons/file-plus-icon";
+import FileCheckIcon from "@/icons/file-check-icon";
+import FileSearchIcon from "@/icons/file-search-icon";
+import FolderIcon from "@/icons/folder-icon";
+import FolderOpenIcon from "@/icons/folder-open-icon";
+import ClipboardPasteIcon from "@/icons/clipboard-paste-icon";
+import ClipboardCheckIcon from "@/icons/clipboard-check-icon";
+import PencilIcon from "@/icons/pencil-icon";
+import GlassesIcon from "@/icons/glasses-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -303,6 +313,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "signpost-big-icon": SignpostBigIcon,
   "earth-icon": EarthIcon,
   "globe-icon": GlobeIcon,
+  "file-text-icon": FileTextIcon,
+  "file-plus-icon": FilePlusIcon,
+  "file-check-icon": FileCheckIcon,
+  "file-search-icon": FileSearchIcon,
+  "folder-icon": FolderIcon,
+  "folder-open-icon": FolderOpenIcon,
+  "clipboard-paste-icon": ClipboardPasteIcon,
+  "clipboard-check-icon": ClipboardCheckIcon,
+  "pencil-icon": PencilIcon,
+  "glasses-icon": GlassesIcon,
 };
 
 export function getIconComponent(file: string) {

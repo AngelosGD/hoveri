@@ -263,6 +263,26 @@ const THEME_BY_NAME = {
   "locate-fixed": "aim",
   locate: "ripple",
   "square-split-horizontal": "split",
+  // oficina
+  "file-text": "draw",
+  "file-plus": "stack",
+  "file-check": "spark",
+  "file-search": "sawtooth",
+  "file-image": "ripple",
+  "file-audio": "sound",
+  folder: "unfold",
+  "folder-open": "glow-parts",
+  "folder-plus": "stack",
+  "clipboard-paste": "unfold",
+  "clipboard-check": "spark",
+  "clipboard-x": "swing-parts",
+  pencil: "sawtooth",
+  eraser: "slides",
+  "sticky-note": "soft",
+  archive: "stack",
+  box: "unbox",
+  paperclip: "swing-parts",
+  glasses: "soft",
 };
 
 const THEME_DEFAULTS = [

@@ -906,6 +906,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Mapas",
     tags: ["globe","world","web","global"],
   },
+  {
+    name: "File text",
+    file: "file-text-icon",
+    category: "Oficina",
+    tags: ["file","document","text","report"],
+  },
+  {
+    name: "File plus",
+    file: "file-plus-icon",
+    category: "Oficina",
+    tags: ["file","document","add","new"],
+  },
+  {
+    name: "File check",
+    file: "file-check-icon",
+    category: "Oficina",
+    tags: ["file","document","check","done"],
+  },
+  {
+    name: "File search",
+    file: "file-search-icon",
+    category: "Oficina",
+    tags: ["file","search","find","document"],
+  },
+  {
+    name: "Folder",
+    file: "folder-icon",
+    category: "Oficina",
+    tags: ["folder","directory","files"],
+  },
+  {
+    name: "Folder open",
+    file: "folder-open-icon",
+    category: "Oficina",
+    tags: ["folder","open","directory","files"],
+  },
+  {
+    name: "Clipboard paste",
+    file: "clipboard-paste-icon",
+    category: "Oficina",
+    tags: ["clipboard","paste","copy","document"],
+  },
+  {
+    name: "Clipboard check",
+    file: "clipboard-check-icon",
+    category: "Oficina",
+    tags: ["clipboard","check","done","task"],
+  },
+  {
+    name: "Pencil",
+    file: "pencil-icon",
+    category: "Oficina",
+    tags: ["pencil","write","edit","draw"],
+  },
+  {
+    name: "Glasses",
+    file: "glasses-icon",
+    category: "Oficina",
+    tags: ["glasses","spectacles","vision","read"],
+  },
 ];
 
 export function getIconCount(): number {

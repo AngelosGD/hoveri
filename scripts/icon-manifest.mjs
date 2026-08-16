@@ -183,4 +183,16 @@ export const ICON_MANIFEST = [
   { file: "signpost-big-icon", name: "Signpost", category: "Mapas", tags: ["signpost", "direction", "street", "guide"] },
   { file: "earth-icon", name: "Earth", category: "Mapas", tags: ["earth", "globe", "world", "planet"] },
   { file: "globe-icon", name: "Globe", category: "Mapas", tags: ["globe", "world", "web", "global"] },
+
+  // Oficina
+  { file: "file-text-icon", name: "File text", category: "Oficina", tags: ["file", "document", "text", "report"] },
+  { file: "file-plus-icon", name: "File plus", category: "Oficina", tags: ["file", "document", "add", "new"] },
+  { file: "file-check-icon", name: "File check", category: "Oficina", tags: ["file", "document", "check", "done"] },
+  { file: "file-search-icon", name: "File search", category: "Oficina", tags: ["file", "search", "find", "document"] },
+  { file: "folder-icon", name: "Folder", category: "Oficina", tags: ["folder", "directory", "files"] },
+  { file: "folder-open-icon", name: "Folder open", category: "Oficina", tags: ["folder", "open", "directory", "files"] },
+  { file: "clipboard-paste-icon", name: "Clipboard paste", category: "Oficina", tags: ["clipboard", "paste", "copy", "document"] },
+  { file: "clipboard-check-icon", name: "Clipboard check", category: "Oficina", tags: ["clipboard", "check", "done", "task"] },
+  { file: "pencil-icon", name: "Pencil", category: "Oficina", tags: ["pencil", "write", "edit", "draw"] },
+  { file: "glasses-icon", name: "Glasses", category: "Oficina", tags: ["glasses", "spectacles", "vision", "read"] },
 ];
