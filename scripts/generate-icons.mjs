@@ -247,6 +247,22 @@ const THEME_BY_NAME = {
   "chart-no-axes-gantt": "slides",
   "chart-scatter": "spark",
   "chart-pie": "swirl",
+  // mapas
+  "map-pin": "pin-drop",
+  "map-pin-off": "swing-parts",
+  "map-pinned": "pin-drop",
+  "navigation-2": "needle",
+  "navigation-off": "swing-parts",
+  crosshair: "focus",
+  route: "draw",
+  "signpost-big": "pop",
+  earth: "orbit",
+  globe: "orbit",
+  globe_2: "orbit",
+  network: "planets",
+  "locate-fixed": "aim",
+  locate: "ripple",
+  "square-split-horizontal": "split",
 };
 
 const THEME_DEFAULTS = [

@@ -138,5 +138,15 @@ export { default as ChartNoAxesCombinedIcon } from "./chart-no-axes-combined-ico
 export { default as ChartNoAxesColumnIcon } from "./chart-no-axes-column-icon";
 export { default as ChartScatterIcon } from "./chart-scatter-icon";
 export { default as ChartNoAxesGanttIcon } from "./chart-no-axes-gantt-icon";
+export { default as LocateFixedIcon } from "./locate-fixed-icon";
+export { default as MapPinOffIcon } from "./map-pin-off-icon";
+export { default as MapPinnedIcon } from "./map-pinned-icon";
+export { default as Navigation2Icon } from "./navigation-2-icon";
+export { default as NavigationOffIcon } from "./navigation-off-icon";
+export { default as CrosshairIcon } from "./crosshair-icon";
+export { default as RouteIcon } from "./route-icon";
+export { default as SignpostBigIcon } from "./signpost-big-icon";
+export { default as EarthIcon } from "./earth-icon";
+export { default as GlobeIcon } from "./globe-icon";
 export { default as GitHubIcon } from "./github-icon";
 export type { AnimatedIconHandle, AnimatedIconProps } from "./types";

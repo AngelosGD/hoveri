@@ -141,6 +141,16 @@ import ChartNoAxesCombinedIcon from "@/icons/chart-no-axes-combined-icon";
 import ChartNoAxesColumnIcon from "@/icons/chart-no-axes-column-icon";
 import ChartScatterIcon from "@/icons/chart-scatter-icon";
 import ChartNoAxesGanttIcon from "@/icons/chart-no-axes-gantt-icon";
+import LocateFixedIcon from "@/icons/locate-fixed-icon";
+import MapPinOffIcon from "@/icons/map-pin-off-icon";
+import MapPinnedIcon from "@/icons/map-pinned-icon";
+import Navigation2Icon from "@/icons/navigation-2-icon";
+import NavigationOffIcon from "@/icons/navigation-off-icon";
+import CrosshairIcon from "@/icons/crosshair-icon";
+import RouteIcon from "@/icons/route-icon";
+import SignpostBigIcon from "@/icons/signpost-big-icon";
+import EarthIcon from "@/icons/earth-icon";
+import GlobeIcon from "@/icons/globe-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -283,6 +293,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "chart-no-axes-column-icon": ChartNoAxesColumnIcon,
   "chart-scatter-icon": ChartScatterIcon,
   "chart-no-axes-gantt-icon": ChartNoAxesGanttIcon,
+  "locate-fixed-icon": LocateFixedIcon,
+  "map-pin-off-icon": MapPinOffIcon,
+  "map-pinned-icon": MapPinnedIcon,
+  "navigation-2-icon": Navigation2Icon,
+  "navigation-off-icon": NavigationOffIcon,
+  "crosshair-icon": CrosshairIcon,
+  "route-icon": RouteIcon,
+  "signpost-big-icon": SignpostBigIcon,
+  "earth-icon": EarthIcon,
+  "globe-icon": GlobeIcon,
 };
 
 export function getIconComponent(file: string) {

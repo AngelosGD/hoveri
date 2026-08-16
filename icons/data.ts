@@ -846,6 +846,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Gráficas",
     tags: ["chart","gantt","timeline","project"],
   },
+  {
+    name: "Locate fixed",
+    file: "locate-fixed-icon",
+    category: "Mapas",
+    tags: ["locate","position","gps","pin"],
+  },
+  {
+    name: "Map pin off",
+    file: "map-pin-off-icon",
+    category: "Mapas",
+    tags: ["map","pin","off","location"],
+  },
+  {
+    name: "Map pinned",
+    file: "map-pinned-icon",
+    category: "Mapas",
+    tags: ["map","pin","location","save"],
+  },
+  {
+    name: "Navigation",
+    file: "navigation-2-icon",
+    category: "Mapas",
+    tags: ["navigation","gps","direction","compass"],
+  },
+  {
+    name: "Navigation off",
+    file: "navigation-off-icon",
+    category: "Mapas",
+    tags: ["navigation","gps","off","direction"],
+  },
+  {
+    name: "Crosshair",
+    file: "crosshair-icon",
+    category: "Mapas",
+    tags: ["crosshair","aim","target","center"],
+  },
+  {
+    name: "Route",
+    file: "route-icon",
+    category: "Mapas",
+    tags: ["route","path","travel","journey"],
+  },
+  {
+    name: "Signpost",
+    file: "signpost-big-icon",
+    category: "Mapas",
+    tags: ["signpost","direction","street","guide"],
+  },
+  {
+    name: "Earth",
+    file: "earth-icon",
+    category: "Mapas",
+    tags: ["earth","globe","world","planet"],
+  },
+  {
+    name: "Globe",
+    file: "globe-icon",
+    category: "Mapas",
+    tags: ["globe","world","web","global"],
+  },
 ];
 
 export function getIconCount(): number {

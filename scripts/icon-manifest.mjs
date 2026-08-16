@@ -171,4 +171,16 @@ export const ICON_MANIFEST = [
   { file: "chart-no-axes-column-icon", name: "Chart columns", category: "Gráficas", tags: ["chart", "columns", "bar", "stats"] },
   { file: "chart-scatter-icon", name: "Chart scatter", category: "Gráficas", tags: ["chart", "scatter", "dots", "stats"] },
   { file: "chart-no-axes-gantt-icon", name: "Chart gantt", category: "Gráficas", tags: ["chart", "gantt", "timeline", "project"] },
+
+  // Mapas
+  { file: "locate-fixed-icon", name: "Locate fixed", category: "Mapas", tags: ["locate", "position", "gps", "pin"] },
+  { file: "map-pin-off-icon", name: "Map pin off", category: "Mapas", tags: ["map", "pin", "off", "location"] },
+  { file: "map-pinned-icon", name: "Map pinned", category: "Mapas", tags: ["map", "pin", "location", "save"] },
+  { file: "navigation-2-icon", name: "Navigation", category: "Mapas", tags: ["navigation", "gps", "direction", "compass"] },
+  { file: "navigation-off-icon", name: "Navigation off", category: "Mapas", tags: ["navigation", "gps", "off", "direction"] },
+  { file: "crosshair-icon", name: "Crosshair", category: "Mapas", tags: ["crosshair", "aim", "target", "center"] },
+  { file: "route-icon", name: "Route", category: "Mapas", tags: ["route", "path", "travel", "journey"] },
+  { file: "signpost-big-icon", name: "Signpost", category: "Mapas", tags: ["signpost", "direction", "street", "guide"] },
+  { file: "earth-icon", name: "Earth", category: "Mapas", tags: ["earth", "globe", "world", "planet"] },
+  { file: "globe-icon", name: "Globe", category: "Mapas", tags: ["globe", "world", "web", "global"] },
 ];
