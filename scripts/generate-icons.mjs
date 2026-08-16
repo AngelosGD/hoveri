@@ -283,6 +283,23 @@ const THEME_BY_NAME = {
   box: "unbox",
   paperclip: "swing-parts",
   glasses: "soft",
+  // dispositivos
+  "laptop-2": "hinge",
+  "laptop-minimal": "hinge",
+  mouse: "drive",
+  "gamepad-2": "play-pulse",
+  "keyboard-music": "type",
+  webcam: "screen",
+  "hard-drive": "stack",
+  "hard-drive-upload": "climb",
+  usb: "sway",
+  "phone-call": "ring",
+  "mic-2": "amplify",
+  "mic-vocal": "amplify",
+  speaker: "sound",
+  router: "signal",
+  "camera-off": "swing-parts",
+  projector: "glow-parts",
 };
 
 const THEME_DEFAULTS = [

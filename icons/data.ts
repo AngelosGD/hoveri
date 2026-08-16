@@ -966,6 +966,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Oficina",
     tags: ["glasses","spectacles","vision","read"],
   },
+  {
+    name: "Laptop",
+    file: "laptop-minimal-icon",
+    category: "Dispositivos",
+    tags: ["laptop","computer","notebook"],
+  },
+  {
+    name: "Mouse",
+    file: "mouse-icon",
+    category: "Dispositivos",
+    tags: ["mouse","pointer","computer","input"],
+  },
+  {
+    name: "Gamepad",
+    file: "gamepad-2-icon",
+    category: "Dispositivos",
+    tags: ["gamepad","controller","gaming","play"],
+  },
+  {
+    name: "Keyboard music",
+    file: "keyboard-music-icon",
+    category: "Dispositivos",
+    tags: ["keyboard","music","piano","keys"],
+  },
+  {
+    name: "Webcam",
+    file: "webcam-icon",
+    category: "Dispositivos",
+    tags: ["webcam","camera","video","stream"],
+  },
+  {
+    name: "Hard drive",
+    file: "hard-drive-icon",
+    category: "Dispositivos",
+    tags: ["hard","drive","storage","disk"],
+  },
+  {
+    name: "USB",
+    file: "usb-icon",
+    category: "Dispositivos",
+    tags: ["usb","connect","cable","port"],
+  },
+  {
+    name: "Phone call",
+    file: "phone-call-icon",
+    category: "Dispositivos",
+    tags: ["phone","call","ring","talk"],
+  },
+  {
+    name: "Microphone",
+    file: "mic-vocal-icon",
+    category: "Dispositivos",
+    tags: ["mic","microphone","voice","record"],
+  },
+  {
+    name: "Router",
+    file: "router-icon",
+    category: "Dispositivos",
+    tags: ["router","network","wifi","internet"],
+  },
 ];
 
 export function getIconCount(): number {

@@ -161,6 +161,16 @@ import ClipboardPasteIcon from "@/icons/clipboard-paste-icon";
 import ClipboardCheckIcon from "@/icons/clipboard-check-icon";
 import PencilIcon from "@/icons/pencil-icon";
 import GlassesIcon from "@/icons/glasses-icon";
+import LaptopMinimalIcon from "@/icons/laptop-minimal-icon";
+import MouseIcon from "@/icons/mouse-icon";
+import Gamepad2Icon from "@/icons/gamepad-2-icon";
+import KeyboardMusicIcon from "@/icons/keyboard-music-icon";
+import WebcamIcon from "@/icons/webcam-icon";
+import HardDriveIcon from "@/icons/hard-drive-icon";
+import UsbIcon from "@/icons/usb-icon";
+import PhoneCallIcon from "@/icons/phone-call-icon";
+import MicVocalIcon from "@/icons/mic-vocal-icon";
+import RouterIcon from "@/icons/router-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -323,6 +333,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "clipboard-check-icon": ClipboardCheckIcon,
   "pencil-icon": PencilIcon,
   "glasses-icon": GlassesIcon,
+  "laptop-minimal-icon": LaptopMinimalIcon,
+  "mouse-icon": MouseIcon,
+  "gamepad-2-icon": Gamepad2Icon,
+  "keyboard-music-icon": KeyboardMusicIcon,
+  "webcam-icon": WebcamIcon,
+  "hard-drive-icon": HardDriveIcon,
+  "usb-icon": UsbIcon,
+  "phone-call-icon": PhoneCallIcon,
+  "mic-vocal-icon": MicVocalIcon,
+  "router-icon": RouterIcon,
 };
 
 export function getIconComponent(file: string) {

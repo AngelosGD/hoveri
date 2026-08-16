@@ -195,4 +195,16 @@ export const ICON_MANIFEST = [
   { file: "clipboard-check-icon", name: "Clipboard check", category: "Oficina", tags: ["clipboard", "check", "done", "task"] },
   { file: "pencil-icon", name: "Pencil", category: "Oficina", tags: ["pencil", "write", "edit", "draw"] },
   { file: "glasses-icon", name: "Glasses", category: "Oficina", tags: ["glasses", "spectacles", "vision", "read"] },
+
+  // Dispositivos
+  { file: "laptop-minimal-icon", name: "Laptop", category: "Dispositivos", tags: ["laptop", "computer", "notebook"] },
+  { file: "mouse-icon", name: "Mouse", category: "Dispositivos", tags: ["mouse", "pointer", "computer", "input"] },
+  { file: "gamepad-2-icon", name: "Gamepad", category: "Dispositivos", tags: ["gamepad", "controller", "gaming", "play"] },
+  { file: "keyboard-music-icon", name: "Keyboard music", category: "Dispositivos", tags: ["keyboard", "music", "piano", "keys"] },
+  { file: "webcam-icon", name: "Webcam", category: "Dispositivos", tags: ["webcam", "camera", "video", "stream"] },
+  { file: "hard-drive-icon", name: "Hard drive", category: "Dispositivos", tags: ["hard", "drive", "storage", "disk"] },
+  { file: "usb-icon", name: "USB", category: "Dispositivos", tags: ["usb", "connect", "cable", "port"] },
+  { file: "phone-call-icon", name: "Phone call", category: "Dispositivos", tags: ["phone", "call", "ring", "talk"] },
+  { file: "mic-vocal-icon", name: "Microphone", category: "Dispositivos", tags: ["mic", "microphone", "voice", "record"] },
+  { file: "router-icon", name: "Router", category: "Dispositivos", tags: ["router", "network", "wifi", "internet"] },
 ];
