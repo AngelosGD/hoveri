@@ -281,6 +281,16 @@ import GitCommitHorizontalIcon from "@/icons/git-commit-horizontal-icon";
 import GitPullRequestIcon from "@/icons/git-pull-request-icon";
 import Heading2Icon from "@/icons/heading-2-icon";
 import TextCursorInputIcon from "@/icons/text-cursor-input-icon";
+import ShareIcon from "@/icons/share-icon";
+import Share2Icon from "@/icons/share-2-icon";
+import RssIcon from "@/icons/rss-icon";
+import MegaphoneIcon from "@/icons/megaphone-icon";
+import RadioIcon from "@/icons/radio-icon";
+import EllipsisIcon from "@/icons/ellipsis-icon";
+import EllipsisVerticalIcon from "@/icons/ellipsis-vertical-icon";
+import MessageSquareShareIcon from "@/icons/message-square-share-icon";
+import MessageCircleHeartIcon from "@/icons/message-circle-heart-icon";
+import HeartHandshakeIcon from "@/icons/heart-handshake-icon";
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -563,6 +573,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "git-pull-request-icon": GitPullRequestIcon,
   "heading-2-icon": Heading2Icon,
   "text-cursor-input-icon": TextCursorInputIcon,
+  "share-icon": ShareIcon,
+  "share-2-icon": Share2Icon,
+  "rss-icon": RssIcon,
+  "megaphone-icon": MegaphoneIcon,
+  "radio-icon": RadioIcon,
+  "ellipsis-icon": EllipsisIcon,
+  "ellipsis-vertical-icon": EllipsisVerticalIcon,
+  "message-square-share-icon": MessageSquareShareIcon,
+  "message-circle-heart-icon": MessageCircleHeartIcon,
+  "heart-handshake-icon": HeartHandshakeIcon,
 };
 
 export function getIconComponent(file: string) {

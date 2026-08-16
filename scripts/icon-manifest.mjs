@@ -339,4 +339,16 @@ export const ICON_MANIFEST = [
   { file: "git-pull-request-icon", name: "Pull request", category: "Desarrollo", tags: ["git", "pull", "request", "merge"] },
   { file: "heading-2-icon", name: "Heading 2", category: "Desarrollo", tags: ["heading", "title", "text", "format"] },
   { file: "text-cursor-input-icon", name: "Cursor input", category: "Desarrollo", tags: ["cursor", "input", "text", "type"] },
+
+  // Redes sociales
+  { file: "share-icon", name: "Share", category: "Redes sociales", tags: ["share", "social", "network", "forward"] },
+  { file: "share-2-icon", name: "Share nodes", category: "Redes sociales", tags: ["share", "nodes", "network", "connect"] },
+  { file: "rss-icon", name: "RSS", category: "Redes sociales", tags: ["rss", "feed", "subscribe", "news"] },
+  { file: "megaphone-icon", name: "Megaphone", category: "Redes sociales", tags: ["megaphone", "announce", "loud", "speaker"] },
+  { file: "radio-icon", name: "Radio", category: "Redes sociales", tags: ["radio", "broadcast", "music", "waves"] },
+  { file: "ellipsis-icon", name: "Ellipsis", category: "Redes sociales", tags: ["ellipsis", "more", "menu", "dots"] },
+  { file: "ellipsis-vertical-icon", name: "Ellipsis vertical", category: "Redes sociales", tags: ["ellipsis", "more", "menu", "dots"] },
+  { file: "message-square-share-icon", name: "Message share", category: "Redes sociales", tags: ["message", "share", "chat", "social"] },
+  { file: "message-circle-heart-icon", name: "Message heart", category: "Redes sociales", tags: ["message", "heart", "love", "chat"] },
+  { file: "heart-handshake-icon", name: "Heart handshake", category: "Redes sociales", tags: ["heart", "handshake", "help", "care"] },
 ];

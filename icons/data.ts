@@ -1686,6 +1686,66 @@ export const ICON_LIST: IconMeta[] = [
     category: "Desarrollo",
     tags: ["cursor","input","text","type"],
   },
+  {
+    name: "Share",
+    file: "share-icon",
+    category: "Redes sociales",
+    tags: ["share","social","network","forward"],
+  },
+  {
+    name: "Share nodes",
+    file: "share-2-icon",
+    category: "Redes sociales",
+    tags: ["share","nodes","network","connect"],
+  },
+  {
+    name: "RSS",
+    file: "rss-icon",
+    category: "Redes sociales",
+    tags: ["rss","feed","subscribe","news"],
+  },
+  {
+    name: "Megaphone",
+    file: "megaphone-icon",
+    category: "Redes sociales",
+    tags: ["megaphone","announce","loud","speaker"],
+  },
+  {
+    name: "Radio",
+    file: "radio-icon",
+    category: "Redes sociales",
+    tags: ["radio","broadcast","music","waves"],
+  },
+  {
+    name: "Ellipsis",
+    file: "ellipsis-icon",
+    category: "Redes sociales",
+    tags: ["ellipsis","more","menu","dots"],
+  },
+  {
+    name: "Ellipsis vertical",
+    file: "ellipsis-vertical-icon",
+    category: "Redes sociales",
+    tags: ["ellipsis","more","menu","dots"],
+  },
+  {
+    name: "Message share",
+    file: "message-square-share-icon",
+    category: "Redes sociales",
+    tags: ["message","share","chat","social"],
+  },
+  {
+    name: "Message heart",
+    file: "message-circle-heart-icon",
+    category: "Redes sociales",
+    tags: ["message","heart","love","chat"],
+  },
+  {
+    name: "Heart handshake",
+    file: "heart-handshake-icon",
+    category: "Redes sociales",
+    tags: ["heart","handshake","help","care"],
+  },
 ];
 
 export function getIconCount(): number {

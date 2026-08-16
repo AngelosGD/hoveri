@@ -424,6 +424,17 @@ const THEME_BY_NAME = {
   "git-pull-request": "unfold",
   "heading-2": "spin-burst",
   "text-cursor-input": "blink",
+  // redes sociales
+  share: "expand",
+  "share-2": "swirl",
+  rss: "signal",
+  megaphone: "amplify",
+  radio: "sound",
+  ellipsis: "stagger-pop",
+  "ellipsis-vertical": "stagger-pop",
+  "message-square-share": "swirl",
+  "message-circle-heart": "pulse-parts",
+  "heart-handshake": "pulse-parts",
 };
 
 const THEME_DEFAULTS = [

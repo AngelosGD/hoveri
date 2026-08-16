@@ -278,5 +278,15 @@ export { default as GitCommitHorizontalIcon } from "./git-commit-horizontal-icon
 export { default as GitPullRequestIcon } from "./git-pull-request-icon";
 export { default as Heading2Icon } from "./heading-2-icon";
 export { default as TextCursorInputIcon } from "./text-cursor-input-icon";
+export { default as ShareIcon } from "./share-icon";
+export { default as Share2Icon } from "./share-2-icon";
+export { default as RssIcon } from "./rss-icon";
+export { default as MegaphoneIcon } from "./megaphone-icon";
+export { default as RadioIcon } from "./radio-icon";
+export { default as EllipsisIcon } from "./ellipsis-icon";
+export { default as EllipsisVerticalIcon } from "./ellipsis-vertical-icon";
+export { default as MessageSquareShareIcon } from "./message-square-share-icon";
+export { default as MessageCircleHeartIcon } from "./message-circle-heart-icon";
+export { default as HeartHandshakeIcon } from "./heart-handshake-icon";
 export { default as GitHubIcon } from "./github-icon";
 export type { AnimatedIconHandle, AnimatedIconProps } from "./types";
