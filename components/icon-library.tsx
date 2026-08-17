@@ -16,6 +16,13 @@ export default function IconLibrary() {
   const reduce = useReducedMotion();
   const total = getIconCount();
   const categories = useMemo(() => getCategories(), []);
+  const categoryCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const icon of ICON_LIST) {
+      counts.set(icon.category, (counts.get(icon.category) ?? 0) + 1);
+    }
+    return counts;
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -41,12 +48,12 @@ export default function IconLibrary() {
   return (
     <>
       <section className="border-b border-zinc-200 bg-white dark:border-zinc-800/60 dark:bg-zinc-950">
-        <div className="mx-auto max-w-5xl px-6 py-20">
+        <div className="mx-auto max-w-7xl px-6 py-16">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
           >
             <div>
               <p className="font-mono text-xs uppercase tracking-widest text-rose-500">
@@ -61,81 +68,102 @@ export default function IconLibrary() {
               </p>
             </div>
 
-            <motion.div
-              initial={reduce ? false : { opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-              className="w-full md:w-72"
+            <motion.p
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="text-sm text-zinc-400 dark:text-zinc-500"
             >
-              <label htmlFor="icon-search" className="sr-only">
-                Buscar iconos
-              </label>
-              <input
-                id="icon-search"
-                type="search"
-                value={query}
-                onChange={(e) => reset(() => setQuery(e.target.value))}
-                placeholder="Buscar icono..."
-                className="w-full rounded-full border border-zinc-200 bg-zinc-50 px-5 py-3 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-rose-500 dark:focus:bg-zinc-900 dark:focus:ring-rose-500/10"
-              />
-            </motion.div>
+              {query || category
+                ? `${filtered.length} de ${total} iconos`
+                : `${total} iconos en la librería`}
+            </motion.p>
           </motion.div>
 
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18, ease: EASE }}
+            transition={{ duration: 0.6, delay: 0.12, ease: EASE }}
             className="mt-8 flex flex-wrap items-center gap-2"
           >
+            <span className="mr-2 font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+              Categorías
+            </span>
             <button
               type="button"
               onClick={() => reset(() => setCategory(null))}
-              className={`rounded-full border px-4 py-1.5 text-sm transition-all ${
+              className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                 category === null
-                  ? "border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950"
-                  : "border-zinc-200 bg-transparent text-zinc-600 hover:border-zinc-400 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                  ? "border-rose-500 bg-rose-500 text-white dark:border-rose-500"
+                  : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:text-zinc-100"
               }`}
             >
               Todas
+              <span
+                className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] ${
+                  category === null
+                    ? "bg-white/20 text-white"
+                    : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
+                }`}
+              >
+                {total}
+              </span>
             </button>
             {categories.map((c) => (
               <button
                 key={c}
                 type="button"
                 onClick={() => reset(() => setCategory(category === c ? null : c))}
-                className={`rounded-full border px-4 py-1.5 text-sm transition-all ${
+                className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                   category === c
-                    ? "border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950"
-                    : "border-zinc-200 bg-transparent text-zinc-600 hover:border-zinc-400 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                    ? "border-rose-500 bg-rose-500 text-white dark:border-rose-500"
+                    : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:text-zinc-100"
                 }`}
               >
                 {c}
+                <span
+                  className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] ${
+                    category === c
+                      ? "bg-white/20 text-white"
+                      : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
+                  }`}
+                >
+                  {categoryCounts.get(c) ?? 0}
+                </span>
               </button>
             ))}
           </motion.div>
 
-          <motion.p
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.24 }}
-            className="mt-5 text-sm text-zinc-400 dark:text-zinc-500"
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18, ease: EASE }}
+            className="mt-6"
           >
-            {query || category
-              ? `${filtered.length} de ${total} iconos`
-              : `${total} iconos en la librería`}
-          </motion.p>
+            <label htmlFor="icon-search" className="sr-only">
+              Buscar iconos
+            </label>
+            <input
+              id="icon-search"
+              type="search"
+              value={query}
+              onChange={(e) => reset(() => setQuery(e.target.value))}
+              placeholder="Buscar icono..."
+              className="w-full rounded-full border border-zinc-200 bg-zinc-50 px-5 py-3 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-rose-500 dark:focus:bg-zinc-900 dark:focus:ring-rose-500/10"
+            />
+          </motion.div>
         </div>
       </section>
 
       <section className="bg-white dark:bg-zinc-950">
-        <div className="mx-auto max-w-5xl px-6 py-14">
+        <div className="mx-auto max-w-7xl px-6 py-14">
           {shown.length > 0 ? (
             <motion.div
               key={category ?? query}
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: EASE }}
-              className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+              className="grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8"
             >
               {shown.map((icon, i) => (
                 <motion.div
