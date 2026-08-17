@@ -21,7 +21,7 @@ export default function IconCard({ file, name }: IconCardProps) {
         onClick={() => setOpen(true)}
         className="flex aspect-square items-center justify-center rounded-xl border border-zinc-900 bg-white text-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_6px_16px_-6px_rgba(244,63,94,0.5)] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
       >
-        <IconPreview file={file} size={32} />
+        <IconPreview file={file} size={40} />
       </button>
 
       <AnimatePresence>

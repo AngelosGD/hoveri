@@ -92,7 +92,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {showcase.map((icon) => (
                   <IconCard key={icon.file} file={icon.file} name={icon.name} />
                 ))}
