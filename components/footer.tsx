@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
       <div className="mx-auto max-w-5xl px-6 py-12">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
             <div className="flex items-center gap-2">
               <span className="text-lg font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
@@ -27,26 +27,22 @@ export default function Footer() {
               Librería abierta construida con Motion y Lucide. Cada icono tiene
               su propio movimiento.
             </p>
-            <Link
-              href="/invitame-un-cafe"
-              className="mt-6 inline-flex items-center gap-2 rounded-full border border-zinc-950 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
-            >
-              <CoffeeIcon size={16} />
-              Invítame un café
-            </Link>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium text-rose-500">Librería</h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/icons"
-                  className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
-                >
-                  Ir a la librería
-                </Link>
-              </li>
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              <Link
+                href="/invitame-un-cafe"
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-950 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
+              >
+                <CoffeeIcon size={16} />
+                Invítame un café
+              </Link>
+              <Link
+                href="/icons"
+                className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:border-rose-300 hover:text-rose-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-rose-500 dark:hover:text-rose-400"
+              >
+                Explorar la librería
+              </Link>
+            </div>
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
               <li>
                 <Link
                   href="/sugerir-icono"
