@@ -4,6 +4,7 @@ import GitHubIcon from "@/icons/github-icon";
 import IconCard from "@/components/icon-card";
 import FeaturesSection from "@/components/features-section";
 import FloatingIcons from "@/components/floating-icons";
+import Reveal from "@/components/reveal";
 import { ICON_LIST } from "@/icons/data";
 
 const GITHUB_URL = "https://github.com/AngelosGD/hoveri";
@@ -71,28 +72,32 @@ export default function Home() {
       <section className="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto max-w-5xl px-6 py-24">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-            <div>
-              <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tighter text-zinc-950 md:text-4xl dark:text-zinc-50">
-                Todo lo que necesitas para dar vida a tu interfaz
-              </h2>
-              <p className="mt-4 max-w-sm text-base leading-7 text-zinc-600 dark:text-zinc-400">
-                {ICON_LIST.length} iconos disponibles y creciendo. Cada uno
-                animado, accesible y listo para producción.
-              </p>
+            <Reveal>
+              <div>
+                <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tighter text-zinc-950 md:text-4xl dark:text-zinc-50">
+                  Todo lo que necesitas para dar vida a tu interfaz
+                </h2>
+                <p className="mt-4 max-w-sm text-base leading-7 text-zinc-600 dark:text-zinc-400">
+                  {ICON_LIST.length} iconos disponibles y creciendo. Cada uno
+                  animado, accesible y listo para producción.
+                </p>
 
-              <Link
-                href="/icons"
-                className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-zinc-950 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
-              >
-                Ir a la librería
-              </Link>
-            </div>
+                <Link
+                  href="/icons"
+                  className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-zinc-950 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
+                >
+                  Ir a la librería
+                </Link>
+              </div>
+            </Reveal>
 
-            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
-              {showcase.map((icon) => (
-                <IconCard key={icon.file} file={icon.file} name={icon.name} />
-              ))}
-            </div>
+            <Reveal delay={0.15}>
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
+                {showcase.map((icon) => (
+                  <IconCard key={icon.file} file={icon.file} name={icon.name} />
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
