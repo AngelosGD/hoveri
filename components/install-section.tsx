@@ -19,11 +19,19 @@ export default function App() {
 }`,
     },
     {
-      title: "Con motion (manual)",
-      code: `import { Rocket, useAnimate } from "hoveri";
-// Pasa el mouse: cada icono anima solo.
-// Quieres control total? usa el ref:
-// <Rocket ref={handle} size={32} />`,
+      title: "Control manual",
+      code: `import { useRef } from "react";
+import { Rocket } from "hoveri";
+// Cada icono expone startAnimation y
+// stopAnimation a través del ref.
+const ref = useRef<AnimatedIconHandle>(null);
+
+<button
+  onClick={() => ref.current?.startAnimation()}
+  onMouseLeave={() => ref.current?.stopAnimation()}
+>
+  <Rocket ref={ref} size={32} />
+</button>`,
     },
   ];
 
