@@ -27,6 +27,12 @@ export default function Navbar() {
         >
           Cómo se hace
         </Link>
+        <Link
+          href="/sugerir-icono"
+          className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Sugerir un icono
+        </Link>
         <ThemeToggle />
         <a
           href={GITHUB_URL}
