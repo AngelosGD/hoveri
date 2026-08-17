@@ -21,8 +21,7 @@ const TABS = [
 type TabId = (typeof TABS)[number]["id"];
 type ManagerId = (typeof MANAGERS)[number]["id"];
 
-const SOURCE_URL = (file: string) =>
-  `https://raw.githubusercontent.com/AngelosGD/hoveri/master/icons/${file}.tsx`;
+const SOURCE_URL = (file: string) => `/api/icon-source?file=${file}`;
 
 export default function IconModal({
   file,
@@ -57,9 +56,9 @@ export default function IconModal({
   useEffect(() => {
     let alive = true;
     fetch(SOURCE_URL(file))
-      .then((r) => (r.ok ? r.text() : Promise.reject(new Error("error"))))
-      .then((text) => {
-        if (alive) setSource(text);
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("error"))))
+      .then((data) => {
+        if (alive) setSource(data.source as string);
       })
       .catch(() => {
         if (alive) setSourceError(true);
@@ -107,9 +106,9 @@ ${usageCode}`;
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97, y: 8 }}
         transition={{ type: "spring", stiffness: 320, damping: 28 }}
-        className="w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl"
+        className="flex max-h-[90dvh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl"
       >
-        <div className="flex items-center justify-between border-b border-zinc-200 px-5 py-3">
+        <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-5 py-3">
           <div className="flex items-baseline gap-3">
             <h3 className="text-sm font-semibold text-zinc-900">{name}</h3>
             <span className="font-mono text-xs text-zinc-400">
@@ -127,7 +126,7 @@ ${usageCode}`;
           </motion.button>
         </div>
 
-        <div className="grid md:grid-cols-[240px_1fr]">
+        <div className="grid min-h-0 flex-1 overflow-hidden md:grid-cols-[240px_1fr]">
           <div className="flex flex-col items-center justify-between gap-6 border-b border-zinc-200 bg-zinc-50 p-6 md:border-b-0 md:border-r">
             <div className="flex h-40 items-center justify-center">
               <IconPreview file={file} size={size} />
@@ -147,8 +146,8 @@ ${usageCode}`;
             </label>
           </div>
 
-          <div className="flex flex-col">
-            <div className="border-b border-zinc-200 px-5">
+          <div className="flex min-h-0 flex-col">
+            <div className="shrink-0 border-b border-zinc-200 px-5">
               <div className="flex gap-1">
                 {TABS.map((t) => (
                   <button
@@ -173,9 +172,9 @@ ${usageCode}`;
               </div>
             </div>
 
-            <div className="flex flex-1 flex-col gap-4 p-5">
+            <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-5">
               {tab === "install" && (
-                <div className="flex gap-1.5">
+                <div className="flex shrink-0 gap-1.5">
                   {MANAGERS.map((m) => (
                     <button
                       key={m.id}
@@ -199,9 +198,9 @@ ${usageCode}`;
                 </div>
               )}
 
-              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
-                <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-                  <p className="text-xs text-zinc-400">
+              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+                <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-4 py-2">
+                  <p className="text-xs font-medium text-zinc-500">
                     {tab === "install"
                       ? `Instalar con ${manager}`
                       : tab === "code"
@@ -212,20 +211,20 @@ ${usageCode}`;
                     type="button"
                     onClick={copyText}
                     whileTap={{ scale: 0.95 }}
-                    className="rounded-md border border-zinc-700 px-3 py-1 text-xs text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white"
+                    className="rounded-md border border-zinc-300 bg-white px-3 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-950"
                   >
                     {copied ? "Copiado" : "Copiar"}
                   </motion.button>
                 </div>
 
                 {tab === "install" && (
-                  <pre className="flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-100">
+                  <pre className="min-h-0 flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-800">
                     <code>{installCode}</code>
                   </pre>
                 )}
 
                 {tab === "code" && (
-                  <pre className="flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-100">
+                  <pre className="min-h-0 flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-800">
                     <code>
                       {sourceError
                         ? "No se pudo cargar el código del icono."
@@ -235,7 +234,7 @@ ${usageCode}`;
                 )}
 
                 {tab === "steps" && (
-                  <div className="flex-1 space-y-4 p-5 text-sm text-zinc-300">
+                  <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-5 text-sm text-zinc-800">
                     {[
                       {
                         n: "1",
@@ -267,13 +266,13 @@ ${usageCode}`;
                           {s.n}
                         </span>
                         <div className="min-w-0">
-                          <p className="font-medium text-zinc-100">{s.title}</p>
+                          <p className="font-medium text-zinc-900">{s.title}</p>
                           {s.mono ? (
-                            <pre className="mt-1 overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-2 font-mono text-xs text-rose-300">
+                            <pre className="mt-1 overflow-x-auto rounded-lg border border-zinc-200 bg-white px-3 py-2 font-mono text-xs text-rose-600">
                               {s.body}
                             </pre>
                           ) : (
-                            <p className="mt-1 text-xs leading-5 text-zinc-400">
+                            <p className="mt-1 text-xs leading-5 text-zinc-500">
                               {s.body}
                             </p>
                           )}
@@ -284,7 +283,7 @@ ${usageCode}`;
                 )}
               </div>
 
-              <p className="text-xs leading-5 text-zinc-400">
+              <p className="shrink-0 text-xs leading-5 text-zinc-400">
                 {tab === "install"
                   ? "Instala toda la librería y exporta solo el icono que necesitas. Cada componente pesa apenas lo suyo."
                   : tab === "code"
