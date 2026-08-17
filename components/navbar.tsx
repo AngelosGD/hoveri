@@ -21,6 +21,12 @@ export default function Navbar() {
         >
           Iconos
         </Link>
+        <Link
+          href="/como-se-hace"
+          className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Cómo se hace
+        </Link>
         <ThemeToggle />
         <a
           href={GITHUB_URL}
