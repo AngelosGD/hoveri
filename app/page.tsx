@@ -2,37 +2,22 @@ import Link from "next/link";
 import HeartIcon from "@/icons/heart-icon";
 import GitHubIcon from "@/icons/github-icon";
 import IconCard from "@/components/icon-card";
+import FeaturesSection from "@/components/features-section";
 import { ICON_LIST } from "@/icons/data";
 
 const GITHUB_URL = "https://github.com/AngelosGD/hoveri";
-
-const features = [
-  {
-    title: "Componentes React",
-    description:
-      "Cada icono es un componente editable con Motion. Tómalo, modifícalo y hazlo tuyo.",
-    badge: "<Motion />",
-  },
-  {
-    title: "Se mueve con intención",
-    description:
-      "Cada icono tiene su propio movimiento: destellos, vapor, giros y vuelos. Nada de sacudidas genéricas.",
-    badge: "hover",
-  },
-  {
-    title: "Construido con Lucide",
-    description:
-      "Trazo de Lucide, una librería libre y abierta. Los iconos son tuyos para siempre.",
-    badge: "MIT",
-  },
-] as const;
 
 export default function Home() {
   const showcase = ICON_LIST.slice(0, 10);
 
   return (
     <main className="flex flex-1 flex-col">
-      <section className="flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-24 text-center">
+      <section className="relative flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-24 text-center">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-rose-100/60 blur-3xl" />
+          <div className="absolute -bottom-32 left-1/4 h-64 w-64 rounded-full bg-zinc-100 blur-3xl" />
+        </div>
+
         <a
           href={GITHUB_URL}
           target="_blank"
@@ -73,16 +58,20 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-14 flex items-center justify-center gap-6">
-          <HeartIcon
-            size={56}
-            className="text-rose-500"
-          />
+        <div className="mt-16 flex flex-col items-center">
+          <div className="grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-8">
+            {showcase.map((icon) => (
+              <IconCard key={icon.file} file={icon.file} name={icon.name} />
+            ))}
+          </div>
+          <div className="mt-6 flex items-center gap-2 text-xs text-zinc-400">
+            <HeartIcon size={14} className="text-rose-400" />
+            <span>pasa el mouse, cada icono se mueve a su manera</span>
+          </div>
         </div>
-        <p className="mt-3 font-mono text-xs text-rose-400">
-          pasa el mouse sobre el corazón
-        </p>
       </section>
+
+      <FeaturesSection />
 
       <section className="border-t border-zinc-200 bg-white">
         <div className="mx-auto max-w-5xl px-6 py-24">
@@ -96,12 +85,6 @@ export default function Home() {
                 animado, accesible y listo para producción.
               </p>
 
-              <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
-                {showcase.map((icon) => (
-                  <IconCard key={icon.file} file={icon.file} name={icon.name} />
-                ))}
-              </div>
-
               <Link
                 href="/icons"
                 className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-zinc-950 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white"
@@ -110,21 +93,9 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex flex-col justify-center divide-y divide-zinc-200 border-t border-zinc-200">
-              {features.map((feature) => (
-                <div key={feature.title} className="py-6 first:pt-8 last:pb-0">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-rose-500">
-                      {feature.badge}
-                    </span>
-                    <h3 className="text-base font-semibold tracking-tight text-zinc-950">
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 text-zinc-600">
-                    {feature.description}
-                  </p>
-                </div>
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
+              {showcase.map((icon) => (
+                <IconCard key={icon.file} file={icon.file} name={icon.name} />
               ))}
             </div>
           </div>
