@@ -35,7 +35,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800/60 dark:bg-zinc-900/50 dark:backdrop-blur-xl dark:[background-image:linear-gradient(rgba(255,255,255,0.04),rgba(255,255,255,0))]">
       <div className="mx-auto max-w-5xl px-6 py-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -64,9 +64,9 @@ export default function FeaturesSection() {
                 delay: i * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-rose-200 hover:shadow-[0_10px_24px_-12px_rgba(244,63,94,0.25)] dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-rose-500/40"
+              className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-rose-200 hover:shadow-[0_10px_24px_-12px_rgba(244,63,94,0.25)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none dark:backdrop-blur-xl dark:hover:border-rose-400/40"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 transition-colors group-hover:border-rose-200 group-hover:bg-rose-50 group-hover:text-rose-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:group-hover:border-rose-500/40 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 transition-colors group-hover:border-rose-200 group-hover:bg-rose-50 group-hover:text-rose-500 dark:border-white/10 dark:bg-white/[0.06] dark:text-zinc-100 dark:group-hover:border-rose-400/40 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400">
                 <feature.icon size={28} />
               </div>
               <h3 className="mt-5 text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">

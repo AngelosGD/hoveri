@@ -42,7 +42,7 @@ const ref = useRef<AnimatedIconHandle>(null);
   };
 
   return (
-    <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800/60 dark:bg-zinc-900/50 dark:backdrop-blur-xl dark:[background-image:linear-gradient(rgba(255,255,255,0.04),rgba(255,255,255,0))]">
       <div className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="text-2xl font-semibold tracking-tighter text-zinc-950 dark:text-zinc-50">
           Instalación
@@ -56,7 +56,7 @@ const ref = useRef<AnimatedIconHandle>(null);
           {blocks.map((b) => (
             <div
               key={b.title}
-              className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950"
+              className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl"
             >
               <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-2 dark:border-zinc-800">
                 <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400">{b.title}</p>
