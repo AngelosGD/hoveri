@@ -16,9 +16,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "hoveri - Iconos que se mueven con intención",
+  metadataBase: new URL("https://hoveri.dev"),
+  title: {
+    default: "hoveri - Iconos que se mueven con intención",
+    template: "%s · hoveri",
+  },
   description:
-    "Librería de iconos animados para React y Next.js, construida con Motion y Lucide.",
+    "Librería de iconos animados para React y Next.js, construida con Motion y Lucide. 329 iconos con movimiento propio.",
+  keywords: [
+    "iconos animados",
+    "animated icons",
+    "react icons",
+    "motion",
+    "lucide",
+    "hoveri",
+  ],
+  openGraph: {
+    type: "website",
+    title: "hoveri - Iconos que se mueven con intención",
+    description:
+      "Librería de iconos animados para React y Next.js, construida con Motion y Lucide.",
+    siteName: "hoveri",
+    url: "https://hoveri.dev",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "hoveri - Iconos que se mueven con intención",
+    description:
+      "Librería de iconos animados para React y Next.js, construida con Motion y Lucide.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

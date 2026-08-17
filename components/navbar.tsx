@@ -7,7 +7,7 @@ const GITHUB_URL = "https://github.com/AngelosGD/hoveri";
 
 export default function Navbar() {
   return (
-    <header className="flex items-center justify-between border-b border-zinc-200 bg-white/80 px-6 py-4 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
+    <header className="sticky top-0 z-40 flex items-center justify-between border-b border-zinc-200 bg-white/80 px-6 py-4 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
       <Link href="/" className="flex items-center gap-2">
         <HeartIcon size={20} className="text-rose-500" />
         <span className="text-sm font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
