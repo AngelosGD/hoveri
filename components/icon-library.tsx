@@ -113,7 +113,9 @@ export default function IconLibrary() {
               <button
                 key={c}
                 type="button"
-                onClick={() => reset(() => setCategory(category === c ? null : c))}
+                onClick={() =>
+                  reset(() => setCategory(category === c ? null : c))
+                }
                 className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                   category === c
                     ? "border-rose-500 bg-rose-500 text-white dark:border-rose-500"
@@ -156,14 +158,14 @@ export default function IconLibrary() {
       </section>
 
       <section className="bg-white dark:bg-zinc-950">
-        <div className="mx-auto max-w-7xl px-6 py-14">
+        <div className="mx-auto  max-w-7xl px-6 py-14">
           {shown.length > 0 ? (
             <motion.div
               key={category ?? query}
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: EASE }}
-              className="grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8"
+              className="grid grid-cols-4 gap-1.5 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8"
             >
               {shown.map((icon, i) => (
                 <motion.div
