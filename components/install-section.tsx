@@ -42,12 +42,12 @@ const ref = useRef<AnimatedIconHandle>(null);
   };
 
   return (
-    <section className="border-t border-zinc-200 bg-zinc-50">
+    <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
       <div className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-semibold tracking-tighter text-zinc-950">
+        <h2 className="text-2xl font-semibold tracking-tighter text-zinc-950 dark:text-zinc-50">
           Instalación
         </h2>
-        <p className="mt-2 max-w-xl text-sm leading-7 text-zinc-600">
+        <p className="mt-2 max-w-xl text-sm leading-7 text-zinc-600 dark:text-zinc-400">
           Instala la librería, elige tu icono y pásale el mouse. Cada icono
           anima sus partes con un movimiento propio, sin configuración.
         </p>
@@ -56,19 +56,19 @@ const ref = useRef<AnimatedIconHandle>(null);
           {blocks.map((b) => (
             <div
               key={b.title}
-              className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50"
+              className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950"
             >
-              <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-2">
-                <p className="text-xs font-medium text-zinc-500">{b.title}</p>
+              <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-2 dark:border-zinc-800">
+                <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400">{b.title}</p>
                 <button
                   type="button"
                   onClick={() => copy(b.code, b.title)}
-                  className="rounded-md border border-zinc-300 bg-white px-2.5 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-950"
+                  className="rounded-md border border-zinc-300 bg-white px-2.5 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-950 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-white"
                 >
                   {copied === b.title ? "Copiado" : "Copiar"}
                 </button>
               </div>
-              <pre className="overflow-x-auto p-4 text-xs leading-6 text-zinc-800">
+              <pre className="overflow-x-auto p-4 text-xs leading-6 text-zinc-800 dark:text-zinc-300">
                 <code>{b.code}</code>
               </pre>
             </div>

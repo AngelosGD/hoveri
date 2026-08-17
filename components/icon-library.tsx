@@ -25,12 +25,12 @@ export default function IconLibrary() {
 
   return (
     <>
-      <section className="border-b border-zinc-200 bg-zinc-50">
+      <section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <h1 className="text-3xl font-semibold tracking-tighter text-zinc-950 md:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tighter text-zinc-950 md:text-4xl dark:text-zinc-50">
             Librería de iconos
           </h1>
-          <p className="mt-3 max-w-lg text-base leading-7 text-zinc-600">
+          <p className="mt-3 max-w-lg text-base leading-7 text-zinc-600 dark:text-zinc-400">
             {total} iconos animados listos para usar. Pasa el mouse por cada uno
             y descubre su movimiento propio.
           </p>
@@ -45,9 +45,9 @@ export default function IconLibrary() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar entre todos los iconos..."
-              className="w-full rounded-full border border-zinc-300 bg-white px-5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+              className="w-full rounded-full border border-zinc-300 bg-white px-5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:ring-rose-500/30"
             />
-            <p className="mt-3 text-sm text-zinc-500">
+            <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
               {query || category
                 ? `${filtered.length} de ${total} iconos`
                 : `${total} iconos en la librería`}
@@ -60,8 +60,8 @@ export default function IconLibrary() {
               onClick={() => setCategory(null)}
               className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
                 category === null
-                  ? "border-zinc-950 bg-zinc-950 text-white"
-                  : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500"
+                  ? "border-zinc-950 bg-zinc-950 text-white dark:border-zinc-100 dark:bg-white dark:text-zinc-950"
+                  : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-500"
               }`}
             >
               Todas
@@ -73,8 +73,8 @@ export default function IconLibrary() {
                 onClick={() => setCategory(category === c ? null : c)}
                 className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
                   category === c
-                    ? "border-zinc-950 bg-zinc-950 text-white"
-                    : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500"
+                    ? "border-zinc-950 bg-zinc-950 text-white dark:border-zinc-100 dark:bg-white dark:text-zinc-950"
+                    : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-500"
                 }`}
               >
                 {c}
@@ -84,7 +84,7 @@ export default function IconLibrary() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-white dark:bg-zinc-950">
         <div className="mx-auto max-w-5xl px-6 py-12">
           {filtered.length > 0 ? (
             <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
@@ -93,7 +93,7 @@ export default function IconLibrary() {
               ))}
             </div>
           ) : (
-            <p className="py-10 text-center text-sm text-zinc-500">
+            <p className="py-10 text-center text-sm text-zinc-500 dark:text-zinc-400">
               No hay iconos que coincidan con {`"${query}"`}.
             </p>
           )}

@@ -106,11 +106,11 @@ ${usageCode}`;
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97, y: 8 }}
         transition={{ type: "spring", stiffness: 320, damping: 28 }}
-        className="flex max-h-[90dvh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl"
+        className="flex max-h-[90dvh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950"
       >
-        <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-5 py-3">
+        <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-5 py-3 dark:border-zinc-800">
           <div className="flex items-baseline gap-3">
-            <h3 className="text-sm font-semibold text-zinc-900">{name}</h3>
+            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">{name}</h3>
             <span className="font-mono text-xs text-zinc-400">
               {componentName}
             </span>
@@ -120,19 +120,19 @@ ${usageCode}`;
             onClick={onClose}
             aria-label="Cerrar"
             whileTap={{ scale: 0.9 }}
-            className="rounded-md px-2 py-1 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+            className="rounded-md px-2 py-1 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
           >
             Esc
           </motion.button>
         </div>
 
         <div className="grid min-h-0 flex-1 overflow-hidden md:grid-cols-[240px_1fr]">
-          <div className="flex flex-col items-center justify-between gap-6 border-b border-zinc-200 bg-zinc-50 p-6 md:border-b-0 md:border-r">
+          <div className="flex flex-col items-center justify-between gap-6 border-b border-zinc-200 bg-zinc-50 p-6 md:border-b-0 md:border-r dark:border-zinc-800 dark:bg-zinc-900">
             <div className="flex h-40 items-center justify-center">
               <IconPreview file={file} size={size} />
             </div>
             <label className="block w-full">
-              <span className="text-xs font-medium text-zinc-500">
+              <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
                 Tamaño: {size}px
               </span>
               <input
@@ -147,7 +147,7 @@ ${usageCode}`;
           </div>
 
           <div className="flex min-h-0 flex-col">
-            <div className="shrink-0 border-b border-zinc-200 px-5">
+            <div className="shrink-0 border-b border-zinc-200 px-5 dark:border-zinc-800">
               <div className="flex gap-1">
                 {TABS.map((t) => (
                   <button
@@ -156,8 +156,8 @@ ${usageCode}`;
                     onClick={() => setTab(t.id)}
                     className={`relative px-3 py-2.5 text-sm transition-colors ${
                       tab === t.id
-                        ? "font-medium text-zinc-950"
-                        : "text-zinc-500 hover:text-zinc-800"
+                        ? "font-medium text-zinc-950 dark:text-zinc-50"
+                        : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
                     }`}
                   >
                     {tab === t.id && (
@@ -182,8 +182,8 @@ ${usageCode}`;
                       onClick={() => setManager(m.id)}
                       className={`relative flex-1 rounded-lg border px-3 py-2 font-mono text-xs transition-colors ${
                         manager === m.id
-                          ? "border-rose-500 text-rose-600"
-                          : "border-zinc-200 text-zinc-600 hover:border-zinc-400"
+                          ? "border-rose-500 text-rose-600 dark:text-rose-400"
+                          : "border-zinc-200 text-zinc-600 hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
                       }`}
                     >
                       {manager === m.id && (
@@ -198,9 +198,9 @@ ${usageCode}`;
                 </div>
               )}
 
-              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
-                <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-4 py-2">
-                  <p className="text-xs font-medium text-zinc-500">
+              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-4 py-2 dark:border-zinc-800">
+                  <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
                     {tab === "install"
                       ? `Instalar con ${manager}`
                       : tab === "code"
@@ -211,20 +211,20 @@ ${usageCode}`;
                     type="button"
                     onClick={copyText}
                     whileTap={{ scale: 0.95 }}
-                    className="rounded-md border border-zinc-300 bg-white px-3 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-950"
+                    className="rounded-md border border-zinc-300 bg-white px-3 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-950 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-white"
                   >
                     {copied ? "Copiado" : "Copiar"}
                   </motion.button>
                 </div>
 
                 {tab === "install" && (
-                  <pre className="min-h-0 flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-800">
+                  <pre className="min-h-0 flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-800 dark:text-zinc-300">
                     <code>{installCode}</code>
                   </pre>
                 )}
 
                 {tab === "code" && (
-                  <pre className="min-h-0 flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-800">
+                  <pre className="min-h-0 flex-1 overflow-auto p-4 text-xs leading-6 text-zinc-800 dark:text-zinc-300">
                     <code>
                       {sourceError
                         ? "No se pudo cargar el código del icono."
@@ -234,7 +234,7 @@ ${usageCode}`;
                 )}
 
                 {tab === "steps" && (
-                  <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-5 text-sm text-zinc-800">
+                  <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-5 text-sm text-zinc-800 dark:text-zinc-300">
                     {[
                       {
                         n: "1",
@@ -266,13 +266,13 @@ ${usageCode}`;
                           {s.n}
                         </span>
                         <div className="min-w-0">
-                          <p className="font-medium text-zinc-900">{s.title}</p>
+                          <p className="font-medium text-zinc-900 dark:text-zinc-100">{s.title}</p>
                           {s.mono ? (
-                            <pre className="mt-1 overflow-x-auto rounded-lg border border-zinc-200 bg-white px-3 py-2 font-mono text-xs text-rose-600">
+                            <pre className="mt-1 overflow-x-auto rounded-lg border border-zinc-200 bg-white px-3 py-2 font-mono text-xs text-rose-600 dark:border-zinc-700 dark:bg-zinc-950 dark:text-rose-400">
                               {s.body}
                             </pre>
                           ) : (
-                            <p className="mt-1 text-xs leading-5 text-zinc-500">
+                            <p className="mt-1 text-xs leading-5 text-zinc-500 dark:text-zinc-400">
                               {s.body}
                             </p>
                           )}
@@ -283,7 +283,7 @@ ${usageCode}`;
                 )}
               </div>
 
-              <p className="shrink-0 text-xs leading-5 text-zinc-400">
+              <p className="shrink-0 text-xs leading-5 text-zinc-400 dark:text-zinc-500">
                 {tab === "install"
                   ? "Instala toda la librería y exporta solo el icono que necesitas. Cada componente pesa apenas lo suyo."
                   : tab === "code"
