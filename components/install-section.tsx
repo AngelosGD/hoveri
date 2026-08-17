@@ -56,19 +56,19 @@ const ref = useRef<AnimatedIconHandle>(null);
           {blocks.map((b) => (
             <div
               key={b.title}
-              className="flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950"
+              className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50"
             >
-              <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-                <p className="text-xs font-medium text-zinc-400">{b.title}</p>
+              <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-2">
+                <p className="text-xs font-medium text-zinc-500">{b.title}</p>
                 <button
                   type="button"
                   onClick={() => copy(b.code, b.title)}
-                  className="rounded-md border border-zinc-700 px-2.5 py-1 text-xs text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white"
+                  className="rounded-md border border-zinc-300 bg-white px-2.5 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-950"
                 >
                   {copied === b.title ? "Copiado" : "Copiar"}
                 </button>
               </div>
-              <pre className="overflow-x-auto p-4 text-xs leading-6 text-zinc-100">
+              <pre className="overflow-x-auto p-4 text-xs leading-6 text-zinc-800">
                 <code>{b.code}</code>
               </pre>
             </div>
