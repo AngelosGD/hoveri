@@ -1,6 +1,6 @@
 "use client";
 
-import { createElement, useEffect, useRef, useState } from "react";
+import { Suspense, createElement, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { getIconComponent } from "@/icons/icon-map";
 import type { AnimatedIconHandle } from "@/icons/types";
@@ -315,7 +315,16 @@ function IconPreview({ file, size }: { file: string; size: number }) {
       onMouseLeave={() => ref.current?.stopAnimation()}
       className="flex h-full w-full items-center justify-center"
     >
-      {createElement(Icon as never, { ref, size })}
+      <Suspense
+        fallback={
+          <div
+            className="animate-pulse rounded-md bg-zinc-200 dark:bg-zinc-800"
+            style={{ width: size, height: size }}
+          />
+        }
+      >
+        {createElement(Icon as never, { ref, size })}
+      </Suspense>
     </div>
   );
 }

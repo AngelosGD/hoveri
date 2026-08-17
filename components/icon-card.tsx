@@ -1,6 +1,6 @@
 "use client";
 
-import { createElement, useState } from "react";
+import { Suspense, createElement, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { getIconComponent } from "@/icons/icon-map";
 import IconModal from "./icon-modal";
@@ -36,5 +36,16 @@ export default function IconCard({ file, name }: IconCardProps) {
 function IconPreview({ file, size }: { file: string; size: number }) {
   const Icon = getIconComponent(file);
   if (!Icon) return null;
-  return createElement(Icon, { size });
+  return (
+    <Suspense
+      fallback={
+        <div
+          className="animate-pulse rounded-md bg-zinc-200 dark:bg-zinc-800"
+          style={{ width: size, height: size }}
+        />
+      }
+    >
+      {createElement(Icon, { size })}
+    </Suspense>
+  );
 }

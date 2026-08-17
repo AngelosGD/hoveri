@@ -64,13 +64,14 @@ export type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 
 function buildIconMap() {
   const imports = ICON_MANIFEST.map(
-    (i) => `import ${pascalFromFile(i.file)} from "@/icons/${i.file}";`,
+    (i) => `const ${pascalFromFile(i.file)} = lazy(() => import("@/icons/${i.file}"));`,
   ).join("\n");
   const map = ICON_MANIFEST.map(
     (i) => `  "${i.file}": ${pascalFromFile(i.file)},`,
   ).join("\n");
   return `"use client";
 
+import { lazy } from "react";
 import type { ComponentType } from "react";
 ${imports}
 
