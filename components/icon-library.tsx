@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import IconCard from "./icon-card";
 import { getCategories, getIconCount, ICON_LIST } from "@/icons/data";
 
@@ -129,45 +129,41 @@ export default function IconLibrary() {
 
       <section className="bg-white dark:bg-zinc-950">
         <div className="mx-auto max-w-5xl px-6 py-14">
-          <AnimatePresence mode="popLayout">
-            {shown.length > 0 ? (
-              <motion.div
-                key={category ?? query}
-                initial={reduce ? false : { opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? undefined : { opacity: 0, y: -8, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.4, ease: EASE }}
-                className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
-              >
-                {shown.map((icon, i) => (
-                  <motion.div
-                    key={icon.file}
-                    initial={reduce ? false : { opacity: 0, scale: 0.9, y: 8 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{
-                      duration: 0.35,
-                      delay: (i % PAGE_SIZE) * 0.01,
-                      ease: EASE,
-                    }}
-                  >
-                    <IconCard file={icon.file} name={icon.name} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.p
-                initial={reduce ? false : { opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={reduce ? undefined : { opacity: 0 }}
-                className="py-16 text-center text-sm text-zinc-500 dark:text-zinc-400"
-              >
-                No hay iconos que coincidan con {`"${query}"`}.
-              </motion.p>
-            )}
-          </AnimatePresence>
+          {shown.length > 0 ? (
+            <motion.div
+              key={category ?? query}
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: EASE }}
+              className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+            >
+              {shown.map((icon, i) => (
+                <motion.div
+                  key={icon.file}
+                  initial={reduce ? false : { opacity: 0, scale: 0.9, y: 8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    duration: 0.35,
+                    delay: (i % PAGE_SIZE) * 0.01,
+                    ease: EASE,
+                  }}
+                >
+                  <IconCard file={icon.file} name={icon.name} />
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.p
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="py-16 text-center text-sm text-zinc-500 dark:text-zinc-400"
+            >
+              No hay iconos que coincidan con {`"${query}"`}.
+            </motion.p>
+          )}
 
           {hasMore && (
-            <div className="mt-12 flex justify-center">
+            <div className="mt-12 flex items-center justify-center gap-3">
               <motion.button
                 type="button"
                 onClick={() => setVisible((v) => v + PAGE_SIZE)}
@@ -175,6 +171,14 @@ export default function IconLibrary() {
                 className="rounded-full border border-zinc-200 bg-white px-8 py-3 text-sm font-medium text-zinc-700 transition-all hover:border-zinc-950 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-100 dark:hover:text-white"
               >
                 Cargar más ({filtered.length - visible} restantes)
+              </motion.button>
+              <motion.button
+                type="button"
+                onClick={() => setVisible(filtered.length)}
+                whileTap={reduce ? undefined : { scale: 0.97 }}
+                className="rounded-full border border-zinc-950 bg-zinc-950 px-8 py-3 text-sm font-medium text-white transition-all hover:bg-zinc-700 dark:border-white dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+              >
+                Mostrar todos
               </motion.button>
             </div>
           )}
