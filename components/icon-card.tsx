@@ -38,9 +38,11 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
           type="button"
           aria-label={`Icono ${name}`}
           onClick={() => setOpen(true)}
-          className="flex min-h-16 flex-1 items-center justify-center p-3 text-zinc-900 transition-colors duration-200 group-hover:bg-zinc-50 dark:text-zinc-100 dark:group-hover:bg-zinc-800/60"
+          className={`flex flex-1 items-center justify-center text-zinc-900 transition-colors duration-200 group-hover:bg-zinc-50 dark:text-zinc-100 dark:group-hover:bg-zinc-800/60 ${
+            compact ? "min-h-12 p-2" : "min-h-16 p-3"
+          }`}
         >
-          <IconPreview file={file} size={compact ? 40 : 64} />
+          <IconPreview file={file} size={compact ? 28 : 64} />
         </button>
 
         {!compact && (

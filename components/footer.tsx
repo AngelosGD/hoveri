@@ -42,7 +42,13 @@ export default function Footer() {
                 Explorar la librería
               </Link>
             </div>
-            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          </div>
+
+          <div>
+            <h3 className="text-sm font-medium text-rose-500">
+              ¿Falta algo?
+            </h3>
+            <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <Link
                   href="/sugerir-icono"
@@ -59,23 +65,31 @@ export default function Footer() {
                   Cómo funciona
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/invitame-un-cafe"
+                  className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+                >
+                  Invítame un café
+                </Link>
+              </li>
             </ul>
           </div>
+        </div>
 
-          <div>
-            <h3 className="text-sm font-medium text-rose-500">
-              Últimos iconos añadidos
-            </h3>
-            <div className="mt-4 grid grid-cols-5 gap-3 md:grid-cols-10 md:gap-2">
-              {featured.map((icon) => (
-                <IconCard
-                  key={icon.file}
-                  file={icon.file}
-                  name={icon.name}
-                  compact
-                />
-              ))}
-            </div>
+        <div className="mt-12">
+          <h3 className="text-sm font-medium text-rose-500">
+            Últimos iconos añadidos
+          </h3>
+          <div className="mt-4 grid grid-cols-5 gap-1.5 md:grid-cols-10 md:gap-2">
+            {featured.map((icon) => (
+              <IconCard
+                key={icon.file}
+                file={icon.file}
+                name={icon.name}
+                compact
+              />
+            ))}
           </div>
         </div>
 
