@@ -33,12 +33,12 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
 
   return (
     <>
-      <div className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-colors duration-200 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:border-zinc-500">
+      <div className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-colors duration-200 hover:border-zinc-300 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-600">
         <button
           type="button"
           aria-label={`Icono ${name}`}
           onClick={() => setOpen(true)}
-          className={`flex flex-1 items-center justify-center text-zinc-900 transition-colors duration-200 group-hover:bg-zinc-50 dark:text-zinc-100 dark:group-hover:bg-zinc-800/60 ${
+          className={`flex flex-1 items-center justify-center text-zinc-900 transition-colors duration-200 group-hover:bg-zinc-50 dark:text-zinc-50 dark:group-hover:bg-zinc-800/40 ${
             compact ? "min-h-12 p-2" : "min-h-16 p-3"
           }`}
         >
@@ -46,13 +46,13 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
         </button>
 
         {!compact && (
-          <div className="flex items-center justify-center gap-1 border-t border-zinc-200 px-1 py-1.5 dark:border-zinc-700">
+          <div className="flex items-center justify-center gap-1 border-t border-zinc-200 px-1 py-1.5 dark:border-zinc-800/80">
             <button
               type="button"
               onClick={copyShadcn}
               aria-label="Copiar comando shadcn"
               title="Copiar comando shadcn"
-              className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+              className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50"
             >
               <CopyIcon size={13} />
             </button>
@@ -61,7 +61,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
               onClick={copySource}
               aria-label="Copiar código fuente"
               title="Copiar código fuente"
-              className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+              className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50"
             >
               <CodeXmlIcon size={13} />
             </button>
@@ -70,7 +70,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
 
         {!compact && (
           <div className="pointer-events-none absolute bottom-[calc(100%+8px)] left-1/2 z-20 w-max max-w-[240px] -translate-x-1/2 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-            <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
+            <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 shadow-lg dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40">
               <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-50">
                 {name}
               </p>
