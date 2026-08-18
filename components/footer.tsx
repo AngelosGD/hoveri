@@ -7,7 +7,7 @@ import { getFeaturedIcons } from "@/icons/data";
 const GITHUB_URL = "https://github.com/AngelosGD/hoveri";
 
 export default function Footer() {
-  const featured = getFeaturedIcons(5);
+  const featured = getFeaturedIcons(20);
 
   return (
     <footer className="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
@@ -66,9 +66,14 @@ export default function Footer() {
             <h3 className="text-sm font-medium text-rose-500">
               Últimos iconos añadidos
             </h3>
-            <div className="mt-4 grid grid-cols-5 gap-3">
+            <div className="mt-4 grid grid-cols-5 gap-3 md:grid-cols-10 md:gap-2">
               {featured.map((icon) => (
-                <IconCard key={icon.file} file={icon.file} name={icon.name} />
+                <IconCard
+                  key={icon.file}
+                  file={icon.file}
+                  name={icon.name}
+                  compact
+                />
               ))}
             </div>
           </div>
