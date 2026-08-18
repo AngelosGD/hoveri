@@ -306,6 +306,16 @@ const Trash2Icon = lazy(() => import("@/icons/trash-2-icon"));
 const FlameIcon = lazy(() => import("@/icons/flame-icon"));
 const DropletsIcon = lazy(() => import("@/icons/droplets-icon"));
 const BanIcon = lazy(() => import("@/icons/ban-icon"));
+const RunSprintIcon = lazy(() => import("@/icons/run-sprint-icon"));
+const PlayBugIcon = lazy(() => import("@/icons/play-bug-icon"));
+const TreasureChestIcon = lazy(() => import("@/icons/treasure-chest-icon"));
+const TwigIcon = lazy(() => import("@/icons/twig-icon"));
+const RockingChairIcon = lazy(() => import("@/icons/rocking-chair-icon"));
+const RemoteControlIcon = lazy(() => import("@/icons/remote-control-icon"));
+const YarnIcon = lazy(() => import("@/icons/yarn-icon"));
+const ThinkingMediumIcon = lazy(() => import("@/icons/thinking-medium-icon"));
+const TagsChevronRightIcon = lazy(() => import("@/icons/tags-chevron-right-icon"));
+const TabsIcon = lazy(() => import("@/icons/tabs-icon"));
 const MagnetIcon = lazy(() => import("@/icons/magnet-icon"));
 const PuzzleIcon = lazy(() => import("@/icons/puzzle-icon"));
 const PawPrintIcon = lazy(() => import("@/icons/paw-print-icon"));
@@ -647,6 +657,16 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "flame-icon": FlameIcon,
   "droplets-icon": DropletsIcon,
   "ban-icon": BanIcon,
+  "run-sprint-icon": RunSprintIcon,
+  "play-bug-icon": PlayBugIcon,
+  "treasure-chest-icon": TreasureChestIcon,
+  "twig-icon": TwigIcon,
+  "rocking-chair-icon": RockingChairIcon,
+  "remote-control-icon": RemoteControlIcon,
+  "yarn-icon": YarnIcon,
+  "thinking-medium-icon": ThinkingMediumIcon,
+  "tags-chevron-right-icon": TagsChevronRightIcon,
+  "tabs-icon": TabsIcon,
   "magnet-icon": MagnetIcon,
   "puzzle-icon": PuzzleIcon,
   "paw-print-icon": PawPrintIcon,

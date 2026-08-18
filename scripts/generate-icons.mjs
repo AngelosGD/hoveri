@@ -20,6 +20,9 @@ const HANDCRAFTED = new Set([
   "stripe", "x", "instagram", "linkedin", "youtube", "discord", "slack",
   "google", "spotify", "shopify", "paypal", "vite", "postgres", "prisma",
   "supabase",
+  // tabler.io (MIT)
+  "run-sprint", "play-bug", "treasure-chest", "twig", "rocking-chair",
+  "remote-control", "yarn", "thinking-medium", "tags-chevron-right", "tabs",
 ]);
 
 const THEME_BY_NAME = {
