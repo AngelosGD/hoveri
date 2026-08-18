@@ -52,7 +52,13 @@ export const ICON_MANIFEST = [
   { file: "apple-icon", name: "Apple", category: "Comida", tags: ["apple", "fruit", "healthy"] },
   { file: "sandwich-icon", name: "Sandwich", category: "Comida", tags: ["sandwich", "food", "lunch"] },
   { file: "utensils-icon", name: "Utensils", category: "Comida", tags: ["utensils", "fork", "knife", "eat", "food"] },
-  { file: "croissant-icon", name: "Croissant", category: "Comida", tags: ["croissant", "bread", "breakfast", "pastry"] },
+  { file: "cherry-icon", name: "Cherry", category: "Comida", tags: ["cherry", "fruit", "sweet"] },
+  { file: "salad-icon", name: "Salad", category: "Comida", tags: ["salad", "vegetables", "healthy", "food"] },
+  { file: "croissant-icon", name: "Croissant", category: "Comida", tags: ["croissant", "bread", "breakfast"] },
+  { file: "fish-icon", name: "Fish", category: "Comida", tags: ["fish", "seafood", "food"] },
+  { file: "carrot-icon", name: "Carrot", category: "Comida", tags: ["carrot", "vegetable", "healthy", "rabbit"] },
+  { file: "hamburger-icon", name: "Hamburger", category: "Comida", tags: ["hamburger", "burger", "fast food", "food"] },
+  { file: "drumstick-icon", name: "Drumstick", category: "Comida", tags: ["drumstick", "chicken", "food", "meat"] },
   { file: "popcorn-icon", name: "Popcorn", category: "Comida", tags: ["popcorn", "movie", "snack"] },
 
   // Clima y naturaleza
@@ -361,6 +367,10 @@ export const ICON_MANIFEST = [
   { file: "flame-icon", name: "Flame", category: "Otros", tags: ["flame", "fire", "hot", "streak"] },
   { file: "droplets-icon", name: "Droplets", category: "Otros", tags: ["droplets", "water", "drop", "rain"] },
   { file: "ban-icon", name: "Ban", category: "Otros", tags: ["ban", "forbidden", "no", "stop"] },
+  { file: "magnet-icon", name: "Magnet", category: "Otros", tags: ["magnet", "magnetic", "attract", "pull"] },
+  { file: "puzzle-icon", name: "Puzzle", category: "Otros", tags: ["puzzle", "piece", "game", "connect"] },
+  { file: "paw-print-icon", name: "Paw print", category: "Otros", tags: ["paw", "pet", "animal", "dog"] },
+  { file: "pencil-ruler-icon", name: "Pencil ruler", category: "Otros", tags: ["pencil", "ruler", "design", "measure"] },
   { file: "award-icon", name: "Award", category: "Otros", tags: ["award", "prize", "winner", "medal"] },
   { file: "zap-icon", name: "Zap", category: "Otros", tags: ["zap", "lightning", "energy", "fast"] },
 

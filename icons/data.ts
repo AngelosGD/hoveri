@@ -253,10 +253,46 @@ export const ICON_LIST: IconMeta[] = [
     tags: ["utensils","fork","knife","eat","food"],
   },
   {
+    name: "Cherry",
+    file: "cherry-icon",
+    category: "Comida",
+    tags: ["cherry","fruit","sweet"],
+  },
+  {
+    name: "Salad",
+    file: "salad-icon",
+    category: "Comida",
+    tags: ["salad","vegetables","healthy","food"],
+  },
+  {
     name: "Croissant",
     file: "croissant-icon",
     category: "Comida",
-    tags: ["croissant","bread","breakfast","pastry"],
+    tags: ["croissant","bread","breakfast"],
+  },
+  {
+    name: "Fish",
+    file: "fish-icon",
+    category: "Comida",
+    tags: ["fish","seafood","food"],
+  },
+  {
+    name: "Carrot",
+    file: "carrot-icon",
+    category: "Comida",
+    tags: ["carrot","vegetable","healthy","rabbit"],
+  },
+  {
+    name: "Hamburger",
+    file: "hamburger-icon",
+    category: "Comida",
+    tags: ["hamburger","burger","fast food","food"],
+  },
+  {
+    name: "Drumstick",
+    file: "drumstick-icon",
+    category: "Comida",
+    tags: ["drumstick","chicken","food","meat"],
   },
   {
     name: "Popcorn",
@@ -1793,6 +1829,30 @@ export const ICON_LIST: IconMeta[] = [
     file: "ban-icon",
     category: "Otros",
     tags: ["ban","forbidden","no","stop"],
+  },
+  {
+    name: "Magnet",
+    file: "magnet-icon",
+    category: "Otros",
+    tags: ["magnet","magnetic","attract","pull"],
+  },
+  {
+    name: "Puzzle",
+    file: "puzzle-icon",
+    category: "Otros",
+    tags: ["puzzle","piece","game","connect"],
+  },
+  {
+    name: "Paw print",
+    file: "paw-print-icon",
+    category: "Otros",
+    tags: ["paw","pet","animal","dog"],
+  },
+  {
+    name: "Pencil ruler",
+    file: "pencil-ruler-icon",
+    category: "Otros",
+    tags: ["pencil","ruler","design","measure"],
   },
   {
     name: "Award",

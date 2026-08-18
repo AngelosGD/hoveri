@@ -43,7 +43,13 @@ const CakeIcon = lazy(() => import("@/icons/cake-icon"));
 const AppleIcon = lazy(() => import("@/icons/apple-icon"));
 const SandwichIcon = lazy(() => import("@/icons/sandwich-icon"));
 const UtensilsIcon = lazy(() => import("@/icons/utensils-icon"));
+const CherryIcon = lazy(() => import("@/icons/cherry-icon"));
+const SaladIcon = lazy(() => import("@/icons/salad-icon"));
 const CroissantIcon = lazy(() => import("@/icons/croissant-icon"));
+const FishIcon = lazy(() => import("@/icons/fish-icon"));
+const CarrotIcon = lazy(() => import("@/icons/carrot-icon"));
+const HamburgerIcon = lazy(() => import("@/icons/hamburger-icon"));
+const DrumstickIcon = lazy(() => import("@/icons/drumstick-icon"));
 const PopcornIcon = lazy(() => import("@/icons/popcorn-icon"));
 const CloudIcon = lazy(() => import("@/icons/cloud-icon"));
 const CloudRainIcon = lazy(() => import("@/icons/cloud-rain-icon"));
@@ -300,6 +306,10 @@ const Trash2Icon = lazy(() => import("@/icons/trash-2-icon"));
 const FlameIcon = lazy(() => import("@/icons/flame-icon"));
 const DropletsIcon = lazy(() => import("@/icons/droplets-icon"));
 const BanIcon = lazy(() => import("@/icons/ban-icon"));
+const MagnetIcon = lazy(() => import("@/icons/magnet-icon"));
+const PuzzleIcon = lazy(() => import("@/icons/puzzle-icon"));
+const PawPrintIcon = lazy(() => import("@/icons/paw-print-icon"));
+const PencilRulerIcon = lazy(() => import("@/icons/pencil-ruler-icon"));
 const AwardIcon = lazy(() => import("@/icons/award-icon"));
 const ZapIcon = lazy(() => import("@/icons/zap-icon"));
 const ReactIcon = lazy(() => import("@/icons/react-icon"));
@@ -374,7 +384,13 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "apple-icon": AppleIcon,
   "sandwich-icon": SandwichIcon,
   "utensils-icon": UtensilsIcon,
+  "cherry-icon": CherryIcon,
+  "salad-icon": SaladIcon,
   "croissant-icon": CroissantIcon,
+  "fish-icon": FishIcon,
+  "carrot-icon": CarrotIcon,
+  "hamburger-icon": HamburgerIcon,
+  "drumstick-icon": DrumstickIcon,
   "popcorn-icon": PopcornIcon,
   "cloud-icon": CloudIcon,
   "cloud-rain-icon": CloudRainIcon,
@@ -631,6 +647,10 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "flame-icon": FlameIcon,
   "droplets-icon": DropletsIcon,
   "ban-icon": BanIcon,
+  "magnet-icon": MagnetIcon,
+  "puzzle-icon": PuzzleIcon,
+  "paw-print-icon": PawPrintIcon,
+  "pencil-ruler-icon": PencilRulerIcon,
   "award-icon": AwardIcon,
   "zap-icon": ZapIcon,
   "react-icon": ReactIcon,
