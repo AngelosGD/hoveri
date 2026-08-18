@@ -11,12 +11,12 @@ const SlackIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".slack-bright",
-        { opacity: [1, 0.4, 1], rotate: [0, 6, 0] },
+        { opacity: [1, 0.3, 1], rotate: [0, -10, 0] },
         { duration: 0.7, ease: "easeInOut" },
       );
       animate(
         ".slack-mid",
-        { y: [0, 2, 0], x: [0, -2, 0], rotate: [0, -6, 0] },
+        { y: [0, 3, 0], x: [0, -3, 0], rotate: [0, 10, 0] },
         { duration: 0.7, ease: "easeInOut", delay: 0.1 },
       );
     };

@@ -11,12 +11,12 @@ const XIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".x-line-a",
-        { rotate: [0, 14, 0], x: [0, 0.8, 0] },
+        { rotate: [0, -22, 0], x: [0, 1.2, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".x-line-b",
-        { rotate: [0, -14, 0], x: [0, -0.8, 0] },
+        { rotate: [0, 22, 0], x: [0, -1.2, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
     };

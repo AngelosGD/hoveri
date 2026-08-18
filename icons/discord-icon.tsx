@@ -11,12 +11,12 @@ const DiscordIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".discord-body",
-        { y: [0, -1.5, 0] },
+        { y: [0, -3, 0], rotate: [0, -3, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".discord-hint",
-        { opacity: [1, 0.5, 1], scale: [1, 1.12, 1] },
+        { opacity: [1, 0.4, 1], scale: [1, 1.25, 1] },
         { duration: 0.5, ease: "easeInOut", delay: 0.15 },
       );
     };

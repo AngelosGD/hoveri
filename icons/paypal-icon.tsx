@@ -11,12 +11,12 @@ const PayPalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".pplo-big",
-        { y: [0, -2, 0], scale: [1, 1.06, 1] },
+        { y: [0, -3, 0], rotate: [0, -4, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".pplo-small",
-        { opacity: [1, 0.4, 1], x: [0, 1.5, 0] },
+        { opacity: [1, 0.3, 1], x: [0, 2.5, 0], y: [0, -1, 0] },
         { duration: 0.7, ease: "easeInOut", delay: 0.15 },
       );
     };

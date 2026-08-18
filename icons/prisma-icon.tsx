@@ -11,18 +11,18 @@ const PrismaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".prisma-prism",
-        { y: [0, -1.5, 0], scale: [1, 1.04, 1] },
-        { duration: 0.6, ease: "easeInOut" },
+        { rotate: [0, 6, -6, 0], y: [0, -2, 0] },
+        { duration: 0.7, ease: "easeInOut" },
       );
       animate(
         ".prisma-line",
-        { y: [0, 3, 0], opacity: [1, 0.5, 1] },
-        { duration: 0.6, ease: "easeInOut", delay: 0.15 },
+        { y: [0, 4, 0], opacity: [1, 0.4, 1] },
+        { duration: 0.7, ease: "easeInOut", delay: 0.15 },
       );
       animate(
         ".prisma-tip",
-        { scale: [1, 1.3, 1] },
-        { duration: 0.45, ease: "easeInOut", delay: 0.3 },
+        { scale: [1, 1.4, 1], opacity: [1, 0.5, 1] },
+        { duration: 0.5, ease: "easeInOut", delay: 0.3 },
       );
     };
 

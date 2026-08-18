@@ -11,12 +11,12 @@ const ViteIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".vite-bolt",
-        { pathLength: [0, 1], opacity: [0, 1] },
+        { pathLength: [0, 1], opacity: [0, 1], y: [0, 1, 0] },
         { duration: 0.5, ease: "easeInOut" },
       );
       animate(
         ".vite-frame",
-        { y: [0, -2, 0] },
+        { y: [0, -3, 0], rotate: [0, 3, 0] },
         { duration: 0.7, ease: "easeInOut", delay: 0.1 },
       );
     };

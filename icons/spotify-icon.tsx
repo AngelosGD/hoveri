@@ -11,17 +11,17 @@ const SpotifyIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".spotify-wave",
-        { pathLength: [0, 1], opacity: [0.4, 1] },
+        { pathLength: [0, 1], opacity: [0.4, 1], y: [0, 1.5, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".spotify-circle",
-        { scale: [1, 1.1, 1, 1.05, 1] },
-        { duration: 0.6, ease: "easeInOut", delay: 0.15 },
+        { scale: [1, 1.14, 1, 1.06, 1] },
+        { duration: 0.7, ease: "easeInOut", delay: 0.15 },
       );
       animate(
         ".spotify-dot",
-        { scale: [1, 1.5, 1] },
+        { scale: [1, 1.6, 1], opacity: [1, 0.4, 1] },
         { duration: 0.45, ease: "easeInOut", delay: 0.25 },
       );
     };

@@ -11,18 +11,18 @@ const InstagramIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".ig-ring",
-        { rotate: [0, 6, 0] },
+        { rotate: [0, -12, 0] },
         { duration: 0.7, ease: "easeInOut" },
       );
       animate(
         ".ig-dot",
-        { scale: [1, 1.5, 1], opacity: [1, 0.6, 1] },
+        { scale: [1, 1.7, 1], opacity: [1, 0.4, 1] },
         { duration: 0.6, ease: "easeInOut", delay: 0.1 },
       );
       animate(
         ".ig-shutter",
-        { scale: [1, 1.12, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.25 },
+        { scale: [1, 1.15, 1], rotate: [0, 8, 0] },
+        { duration: 0.6, ease: "easeInOut", delay: 0.25 },
       );
     };
 

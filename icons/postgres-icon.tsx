@@ -11,17 +11,17 @@ const PostgresIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".pg-elephant",
-        { y: [0, -2, 0], scale: [1, 1.04, 1] },
+        { y: [0, -3, 0], rotate: [0, 3, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".pg-ear",
-        { rotate: [0, 12, 0], x: [0, 0.8, 0] },
+        { rotate: [0, -16, 0], x: [0, 1.2, 0] },
         { duration: 0.6, ease: "easeInOut", delay: 0.15 },
       );
       animate(
         ".pg-trunk",
-        { x: [0, -2, 0], scaleY: [1, 1.15, 1] },
+        { scale: [1, 1.8, 1], opacity: [1, 0.4, 1] },
         { duration: 0.5, ease: "easeInOut", delay: 0.25 },
       );
     };

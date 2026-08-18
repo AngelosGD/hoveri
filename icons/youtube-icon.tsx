@@ -11,12 +11,12 @@ const YouTubeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".yt-play",
-        { scale: [1, 1.25, 1], opacity: [1, 0.7, 1] },
+        { scale: [1, 1.4, 1], opacity: [1, 0.5, 1] },
         { duration: 0.45, ease: "easeInOut" },
       );
       animate(
         ".yt-frame",
-        { scale: [1, 1.03, 1], rotate: [0, -1.5, 0] },
+        { scale: [1, 1.06, 1], rotate: [0, -3, 0] },
         { duration: 0.55, ease: "easeInOut", delay: 0.1 },
       );
     };

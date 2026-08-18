@@ -11,13 +11,13 @@ const AwsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".aws-smile",
-        { strokeDasharray: [0, 140], opacity: [1, 0.7, 1] },
+        { strokeDasharray: [0, 140], opacity: [1, 0.6, 1] },
         { duration: 0.7, ease: "easeInOut" },
       );
       animate(
         ".aws-word",
-        { pathLength: [0, 1], opacity: [0, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.25 },
+        { pathLength: [0, 1], opacity: [0, 1], y: [0, -1, 0] },
+        { duration: 0.6, ease: "easeInOut", delay: 0.25 },
       );
     };
 

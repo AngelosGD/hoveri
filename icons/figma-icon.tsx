@@ -11,18 +11,18 @@ const FigmaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".figma-top",
-        { y: [0, -2, 0], scale: [1, 1.08, 1] },
-        { duration: 0.6, ease: "easeInOut" },
+        { y: [0, -3, 0], scale: [1, 1.1, 1] },
+        { duration: 0.55, ease: "easeInOut" },
       );
       animate(
         ".figma-bottom",
-        { y: [0, 1.5, 0], scale: [1, 0.92, 1] },
-        { duration: 0.6, ease: "easeInOut", delay: 0.1 },
+        { y: [0, 2, 0], scale: [1, 0.9, 1] },
+        { duration: 0.55, ease: "easeInOut", delay: 0.12 },
       );
       animate(
         ".figma-stem",
-        { rotate: [0, 8, 0] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.2 },
+        { rotate: [0, -10, 0], x: [0, 1.5, 0] },
+        { duration: 0.6, ease: "easeInOut", delay: 0.2 },
       );
     };
 

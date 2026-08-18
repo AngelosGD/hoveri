@@ -11,12 +11,12 @@ const StripeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".stripe-bar",
-        { x: [0, 3, 0], opacity: [1, 0.4, 1] },
-        { duration: 0.8, ease: "easeInOut" },
+        { x: [0, 4, 0], opacity: [1, 0.3, 1] },
+        { duration: 0.7, ease: "easeInOut" },
       );
       animate(
         ".stripe-s",
-        { y: [0, -2, 0], scale: [1, 1.06, 1] },
+        { y: [0, -3, 0], rotate: [0, -5, 0] },
         { duration: 0.7, ease: "easeInOut" },
       );
     };

@@ -11,17 +11,17 @@ const LinkedInIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".in-dot",
-        { scale: [1, 1.4, 1] },
+        { scale: [1, 1.6, 1], opacity: [1, 0.5, 1] },
         { duration: 0.5, ease: "easeInOut" },
       );
       animate(
         ".in-stem",
-        { scaleY: [1, 1.15, 1] },
+        { scaleY: [1, 1.2, 1], y: [0, -1, 0] },
         { duration: 0.5, ease: "easeInOut", delay: 0.15 },
       );
       animate(
         ".in-frame",
-        { scale: [1, 1.04, 1] },
+        { scale: [1, 1.06, 1], rotate: [0, 3, 0] },
         { duration: 0.5, ease: "easeInOut", delay: 0.25 },
       );
     };

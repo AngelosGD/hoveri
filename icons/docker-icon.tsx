@@ -11,18 +11,18 @@ const DockerIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".docker-box",
-        { y: [0, -3, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-      animate(
-        ".docker-lines",
-        { x: [0, 2, 0] },
-        { duration: 0.8, ease: "easeInOut", delay: 0.15 },
+        { y: [0, -5, 0] },
+        { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".docker-boat",
-        { y: [0, 1.4, 0], scale: [1, 1.03, 1] },
-        { duration: 0.7, ease: "easeInOut", delay: 0.1 },
+        { y: [0, 2.5, 0], rotate: [0, -3, 0, 3, 0] },
+        { duration: 0.8, ease: "easeInOut", delay: 0.1 },
+      );
+      animate(
+        ".docker-lines",
+        { x: [0, 3, -3, 0], opacity: [1, 0.4, 1] },
+        { duration: 0.9, ease: "easeInOut", delay: 0.15 },
       );
     };
 

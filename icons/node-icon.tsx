@@ -11,13 +11,13 @@ const NodeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".node-hex",
-        { rotate: [0, 15, 0], scale: [1, 1.04, 1] },
-        { duration: 0.7, ease: "easeInOut" },
+        { rotate: [0, 30, -8, 0], scale: [1, 1.06, 0.98, 1] },
+        { duration: 0.8, ease: "easeInOut" },
       );
       animate(
         ".node-slice",
-        { opacity: [1, 0.4, 1], scale: [1, 0.9, 1] },
-        { duration: 0.6, ease: "easeInOut", delay: 0.2 },
+        { opacity: [1, 0.2, 1], scale: [1, 0.6, 1.2, 1] },
+        { duration: 0.8, ease: "easeInOut", delay: 0.2 },
       );
     };
 

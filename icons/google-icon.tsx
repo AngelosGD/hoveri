@@ -11,12 +11,12 @@ const GoogleIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".google-g",
-        { rotate: [0, 8, 0], scale: [1, 1.05, 1] },
+        { rotate: [0, -12, 0], scale: [1, 1.08, 1] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".google-dot",
-        { scale: [1, 1.6, 1], opacity: [1, 0.6, 1] },
+        { scale: [1, 1.8, 1], opacity: [1, 0.5, 1] },
         { duration: 0.5, ease: "easeInOut", delay: 0.2 },
       );
     };

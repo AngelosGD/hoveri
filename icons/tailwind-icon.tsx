@@ -11,18 +11,18 @@ const TailwindIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".tailwind-wave",
-        { x: [0, 2, -2, 0] },
+        { x: [0, 3, -3, 0], y: [0, -1, 1, 0] },
         { duration: 0.8, ease: "easeInOut" },
       );
       animate(
         ".tailwind-guide",
-        { x: [0, -2.5, 0] },
-        { duration: 0.8, ease: "easeInOut", delay: 0.1 },
+        { x: [0, -4, 0], y: [0, 1, 0] },
+        { duration: 0.8, ease: "easeInOut", delay: 0.12 },
       );
       animate(
         ".tailwind-tip",
-        { opacity: [1, 0.5, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.2 },
+        { scale: [1, 1.8, 1], opacity: [1, 0.4, 1] },
+        { duration: 0.6, ease: "easeInOut", delay: 0.2 },
       );
     };
 

@@ -11,17 +11,17 @@ const SupabaseIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".supa-tri",
-        { y: [0, -2, 0] },
+        { y: [0, -3, 0], rotate: [0, -4, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".supa-bolt",
-        { pathLength: [0, 1], opacity: [0.4, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.15 },
+        { pathLength: [0, 1], opacity: [0.4, 1], x: [0, 1.5, 0] },
+        { duration: 0.55, ease: "easeInOut", delay: 0.15 },
       );
       animate(
         ".supa-splash",
-        { scale: [1, 1.2, 1], opacity: [1, 0.5, 1] },
+        { scale: [1, 1.3, 1], opacity: [1, 0.4, 1] },
         { duration: 0.5, ease: "easeInOut", delay: 0.1 },
       );
     };
