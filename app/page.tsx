@@ -1,9 +1,9 @@
 import Link from "next/link";
-import HeartIcon from "@/icons/heart-icon";
 import GitHubIcon from "@/icons/github-icon";
 import IconCard from "@/components/icon-card";
 import FeaturesSection from "@/components/features-section";
 import FloatingIcons from "@/components/floating-icons";
+import MorphDemo from "@/components/morph-demo";
 import Reveal from "@/components/reveal";
 import { ICON_LIST } from "@/icons/data";
 
@@ -61,9 +61,8 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-12 flex items-center gap-2 text-xs text-zinc-400 dark:text-zinc-500">
-          <HeartIcon size={14} className="text-rose-400" />
-          <span>pasa el mouse, cada icono se mueve a su manera</span>
+        <div className="mt-12">
+          <MorphDemo />
         </div>
       </section>
 
