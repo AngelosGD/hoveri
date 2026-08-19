@@ -397,6 +397,61 @@ const CheckCheckIcon = lazy(() => import("@/icons/check-check-icon"));
 const DrumIcon = lazy(() => import("@/icons/drum-icon"));
 const KeyframeIcon = lazy(() => import("@/icons/keyframe-icon"));
 const ToggleRightIcon = lazy(() => import("@/icons/toggle-right-icon"));
+const AccessibilityIcon = lazy(() => import("@/icons/accessibility-icon"));
+const AlarmClockPlusIcon = lazy(() => import("@/icons/alarm-clock-plus-icon"));
+const BellOffIcon = lazy(() => import("@/icons/bell-off-icon"));
+const BluetoothConnectedIcon = lazy(() => import("@/icons/bluetooth-connected-icon"));
+const BookIcon = lazy(() => import("@/icons/book-icon"));
+const CandyCaneIcon = lazy(() => import("@/icons/candy-cane-icon"));
+const ChartBarIcon = lazy(() => import("@/icons/chart-bar-icon"));
+const CopyrightIcon = lazy(() => import("@/icons/copyright-icon"));
+const ExpandIcon = lazy(() => import("@/icons/expand-icon"));
+const ExternalLinkIcon = lazy(() => import("@/icons/external-link-icon"));
+const EyeIcon = lazy(() => import("@/icons/eye-icon"));
+const FilterIcon = lazy(() => import("@/icons/filter-icon"));
+const FocusIcon = lazy(() => import("@/icons/focus-icon"));
+const GaugeIcon = lazy(() => import("@/icons/gauge-icon"));
+const HotelIcon = lazy(() => import("@/icons/hotel-icon"));
+const LibraryIcon = lazy(() => import("@/icons/library-icon"));
+const LocateIcon = lazy(() => import("@/icons/locate-icon"));
+const PenIcon = lazy(() => import("@/icons/pen-icon"));
+const SendHorizontalIcon = lazy(() => import("@/icons/send-horizontal-icon"));
+const SoupIcon = lazy(() => import("@/icons/soup-icon"));
+const SubscriptIcon = lazy(() => import("@/icons/subscript-icon"));
+const TruckElectricIcon = lazy(() => import("@/icons/truck-electric-icon"));
+const UnlinkIcon = lazy(() => import("@/icons/unlink-icon"));
+const VolumeXIcon = lazy(() => import("@/icons/volume-x-icon"));
+const WifiOffIcon = lazy(() => import("@/icons/wifi-off-icon"));
+const ArrowBigDownDashIcon = lazy(() => import("@/icons/arrow-big-down-dash-icon"));
+const ArrowBigLeftDashIcon = lazy(() => import("@/icons/arrow-big-left-dash-icon"));
+const ArrowBigRightDashIcon = lazy(() => import("@/icons/arrow-big-right-dash-icon"));
+const ArrowBigUpDashIcon = lazy(() => import("@/icons/arrow-big-up-dash-icon"));
+const BriefcaseBusinessIcon = lazy(() => import("@/icons/briefcase-business-icon"));
+const CameraOffIcon = lazy(() => import("@/icons/camera-off-icon"));
+const Clock1Icon = lazy(() => import("@/icons/clock-1-icon"));
+const CloudDrizzleIcon = lazy(() => import("@/icons/cloud-drizzle-icon"));
+const DiamondIcon = lazy(() => import("@/icons/diamond-icon"));
+const Dice6Icon = lazy(() => import("@/icons/dice-6-icon"));
+const DownloadCloudIcon = lazy(() => import("@/icons/download-cloud-icon"));
+const EditIcon = lazy(() => import("@/icons/edit-icon"));
+const EyeOffIcon = lazy(() => import("@/icons/eye-off-icon"));
+const FileClockIcon = lazy(() => import("@/icons/file-clock-icon"));
+const FileJsonIcon = lazy(() => import("@/icons/file-json-icon"));
+const FolderPlusIcon = lazy(() => import("@/icons/folder-plus-icon"));
+const Globe2Icon = lazy(() => import("@/icons/globe-2-icon"));
+const HeartCrackIcon = lazy(() => import("@/icons/heart-crack-icon"));
+const MailboxIcon = lazy(() => import("@/icons/mailbox-icon"));
+const MessageCircleCheckIcon = lazy(() => import("@/icons/message-circle-check-icon"));
+const Mic2Icon = lazy(() => import("@/icons/mic-2-icon"));
+const PaperclipIcon = lazy(() => import("@/icons/paperclip-icon"));
+const PercentIcon = lazy(() => import("@/icons/percent-icon"));
+const PlugZapIcon = lazy(() => import("@/icons/plug-zap-icon"));
+const SearchIcon = lazy(() => import("@/icons/search-icon"));
+const ShieldXIcon = lazy(() => import("@/icons/shield-x-icon"));
+const TrashIcon = lazy(() => import("@/icons/trash-icon"));
+const Wallet2Icon = lazy(() => import("@/icons/wallet-2-icon"));
+const Wand2Icon = lazy(() => import("@/icons/wand-2-icon"));
+const Link2Icon = lazy(() => import("@/icons/link-2-icon"));
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -794,6 +849,61 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "drum-icon": DrumIcon,
   "keyframe-icon": KeyframeIcon,
   "toggle-right-icon": ToggleRightIcon,
+  "accessibility-icon": AccessibilityIcon,
+  "alarm-clock-plus-icon": AlarmClockPlusIcon,
+  "bell-off-icon": BellOffIcon,
+  "bluetooth-connected-icon": BluetoothConnectedIcon,
+  "book-icon": BookIcon,
+  "candy-cane-icon": CandyCaneIcon,
+  "chart-bar-icon": ChartBarIcon,
+  "copyright-icon": CopyrightIcon,
+  "expand-icon": ExpandIcon,
+  "external-link-icon": ExternalLinkIcon,
+  "eye-icon": EyeIcon,
+  "filter-icon": FilterIcon,
+  "focus-icon": FocusIcon,
+  "gauge-icon": GaugeIcon,
+  "hotel-icon": HotelIcon,
+  "library-icon": LibraryIcon,
+  "locate-icon": LocateIcon,
+  "pen-icon": PenIcon,
+  "send-horizontal-icon": SendHorizontalIcon,
+  "soup-icon": SoupIcon,
+  "subscript-icon": SubscriptIcon,
+  "truck-electric-icon": TruckElectricIcon,
+  "unlink-icon": UnlinkIcon,
+  "volume-x-icon": VolumeXIcon,
+  "wifi-off-icon": WifiOffIcon,
+  "arrow-big-down-dash-icon": ArrowBigDownDashIcon,
+  "arrow-big-left-dash-icon": ArrowBigLeftDashIcon,
+  "arrow-big-right-dash-icon": ArrowBigRightDashIcon,
+  "arrow-big-up-dash-icon": ArrowBigUpDashIcon,
+  "briefcase-business-icon": BriefcaseBusinessIcon,
+  "camera-off-icon": CameraOffIcon,
+  "clock-1-icon": Clock1Icon,
+  "cloud-drizzle-icon": CloudDrizzleIcon,
+  "diamond-icon": DiamondIcon,
+  "dice-6-icon": Dice6Icon,
+  "download-cloud-icon": DownloadCloudIcon,
+  "edit-icon": EditIcon,
+  "eye-off-icon": EyeOffIcon,
+  "file-clock-icon": FileClockIcon,
+  "file-json-icon": FileJsonIcon,
+  "folder-plus-icon": FolderPlusIcon,
+  "globe-2-icon": Globe2Icon,
+  "heart-crack-icon": HeartCrackIcon,
+  "mailbox-icon": MailboxIcon,
+  "message-circle-check-icon": MessageCircleCheckIcon,
+  "mic-2-icon": Mic2Icon,
+  "paperclip-icon": PaperclipIcon,
+  "percent-icon": PercentIcon,
+  "plug-zap-icon": PlugZapIcon,
+  "search-icon": SearchIcon,
+  "shield-x-icon": ShieldXIcon,
+  "trash-icon": TrashIcon,
+  "wallet-2-icon": Wallet2Icon,
+  "wand-2-icon": Wand2Icon,
+  "link-2-icon": Link2Icon,
 };
 
 export function getIconComponent(file: string) {
