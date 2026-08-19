@@ -12,13 +12,13 @@ const DLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      animate(".part-0", { pathLength: [0, 1], opacity: [0, 1] }, { duration: 0.5, ease: "easeInOut", delay: 0.00 });
-      animate(".part-1", { pathLength: [0, 1], opacity: [0, 1] }, { duration: 0.5, ease: "easeInOut", delay: 0.12 });
+      animate(".part-0", {"scale":[0.6,1.15,0.95,1],"opacity":[0.3,1,1,1]}, { duration: 0.6, ease: "easeInOut" });
+      animate(".part-1", {"scale":[0.6,1.15,0.95,1],"opacity":[0.3,1,1,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {
-      animate(".part-0", { pathLength: 1, opacity: 1 }, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", { pathLength: 1, opacity: 1 }, { duration: 0.2, ease: "easeInOut" });
+      animate(".part-0", {"scale":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".part-1", {"scale":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));

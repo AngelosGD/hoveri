@@ -12,11 +12,11 @@ const WLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      animate(".part-0", { pathLength: [0, 1], opacity: [0, 1] }, { duration: 0.5, ease: "easeInOut", delay: 0.00 });
+      animate(".part-0", {"y":[0,-3,3,-1,0],"rotate":[0,4,-4,0]}, { duration: 0.9, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".part-0", { pathLength: 1, opacity: 1 }, { duration: 0.2, ease: "easeInOut" });
+      animate(".part-0", {"y":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
