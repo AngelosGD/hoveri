@@ -12,7 +12,7 @@ const RunSprintIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      animate(".part-0", { y: [0, -2.5, 0], scale: [1, 1.06, 1] }, { duration: 0.7, ease: "easeInOut", delay: 0.00 });
+      animate(".part-0", { y: [0, -1.5, 0], scale: [1, 1.08, 1] }, { duration: 0.5, ease: "easeInOut", delay: 0.2 });
       animate(".part-1", { rotate: [0, 18, 0], x: [0, 2, 0] }, { duration: 0.55, ease: "easeInOut" });
       animate(".part-3", { rotate: [0, -18, 0], x: [0, -2, 0] }, { duration: 0.55, ease: "easeInOut", delay: 0.1 });
       animate(".part-2", { rotate: [0, 6, 0], x: [0, 1.5, 0] }, { duration: 0.55, ease: "easeInOut", delay: 0.05 });

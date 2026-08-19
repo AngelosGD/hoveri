@@ -12,13 +12,13 @@ const BanIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+      animate(".slash", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.4, ease: "easeInOut" });
+      animate(".ring", {"scale":[1,1.06,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+      animate(".slash", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".ring", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -41,8 +41,8 @@ const BanIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.circle className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="10" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4.929 4.929 19.07 19.071" />
+        <motion.circle className="ring" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={12} cy={12} r={10} />
+        <motion.path className="slash" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4.929 4.929 19.07 19.071" />
       </motion.svg>
     );
   },

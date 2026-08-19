@@ -12,15 +12,15 @@ const UploadIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
+      animate(".arrow", {"y":[0,-3,0]}, { duration: 0.5, ease: "easeInOut" });
+      animate(".stem", {"scaleY":[1,1.2,1]}, { duration: 0.5, ease: "easeInOut" });
+      animate(".box", {"y":[0,1,0]}, { duration: 0.5, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+      animate(".arrow", {"y":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".stem", {"scaleY":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".box", {"y":0}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,9 +43,9 @@ const UploadIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 3v12" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m17 8-5-5-5 5" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <motion.path className="stem" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 3v12" />
+        <motion.path className="arrow" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m17 8-5-5-5 5" />
+        <motion.path className="box" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
       </motion.svg>
     );
   },

@@ -12,15 +12,15 @@ const MessageSquareShareIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":-30,"x":[0,-2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.2 });
+      animate(".arrow", {"pathLength":[0,1]}, { duration: 0.4, ease: "easeInOut" });
+      animate(".head", {"pathLength":[0,1]}, { duration: 0.4, ease: "easeInOut", delay: 0.15 });
+      animate(".bubble", {"scale":[1,1.02,1]}, { duration: 0.6, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+      animate(".arrow", {"pathLength":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".head", {"pathLength":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".bubble", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,9 +43,9 @@ const MessageSquareShareIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 3h6v6" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m16 9 6-6" />
+        <motion.path className="bubble" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 3H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H20a2 2 0 0 0 2-2v-4" />
+        <motion.path className="arrow" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 3h6v6" />
+        <motion.path className="head" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m16 9 6-6" />
       </motion.svg>
     );
   },

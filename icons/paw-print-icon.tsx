@@ -12,17 +12,17 @@ const PawPrintIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.12,1],"y":[0,0.5,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.12,1],"y":[0,0.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"y":[0,1.5,0],"scale":[1,0.94,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"y":[0,1.5,0],"scale":[1,0.94,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+      animate(".pad", {"scale":[1,1.06,1],"y":[0,1,0]}, { duration: 0.6, ease: "easeInOut" });
+      animate(".toe-a", {"y":[0,-2,0],"scale":[1,1.15,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
+      animate(".toe-b", {"y":[0,-2,0],"scale":[1,1.15,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.2 });
+      animate(".toe-c", {"y":[0,-2,0],"scale":[1,1.15,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.3 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+      animate(".pad", {"scale":1,"y":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".toe-a", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".toe-b", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".toe-c", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -45,10 +45,10 @@ const PawPrintIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.circle className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="11" cy="4" r="2" />
-        <motion.circle className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="18" cy="8" r="2" />
-        <motion.circle className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="20" cy="16" r="2" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
+        <motion.circle className="toe-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={11} cy={4} r={2} />
+        <motion.circle className="toe-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={18} cy={8} r={2} />
+        <motion.circle className="toe-c" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={20} cy={16} r={2} />
+        <motion.path className="pad" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
       </motion.svg>
     );
   },

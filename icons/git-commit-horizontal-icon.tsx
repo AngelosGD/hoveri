@@ -12,15 +12,15 @@ const GitCommitHorizontalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,4,0],"rotate":[0,8,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,4,0],"rotate":[0,8,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"x":[0,4,0],"rotate":[0,8,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
+      animate(".dot", {"scale":[1,1.35,1]}, { duration: 0.5, ease: "easeInOut" });
+      animate(".left", {"x1":[3,1,3],"opacity":[0.4,1,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
+      animate(".right", {"x2":[21,23,21],"opacity":[0.4,1,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+      animate(".dot", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".left", {"x1":3,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".right", {"x2":21,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,9 +43,9 @@ const GitCommitHorizontalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.circle className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="3" />
-        <motion.line className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="3" x2="9" y1="12" y2="12" />
-        <motion.line className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="15" x2="21" y1="12" y2="12" />
+        <motion.circle className="dot" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={12} cy={12} r={3} />
+        <motion.line className="left" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1={3} x2={9} y1={12} y2={12} />
+        <motion.line className="right" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1={15} x2={21} y1={12} y2={12} />
       </motion.svg>
     );
   },

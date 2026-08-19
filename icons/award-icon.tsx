@@ -12,13 +12,13 @@ const AwardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,1.4845360824742269,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,1.5670103092783505,0]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
+      animate(".ribbon", {"scale":[1,1.08,1],"y":[0,-2,0]}, { duration: 0.7, ease: "easeInOut" });
+      animate(".medal", {"scale":[1,1.06,0.97,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+      animate(".ribbon", {"scale":1,"y":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".medal", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -41,8 +41,8 @@ const AwardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
-        <motion.circle className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="8" r="6" />
+        <motion.path className="ribbon" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+        <motion.circle className="medal" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={12} cy={8} r={6} />
       </motion.svg>
     );
   },

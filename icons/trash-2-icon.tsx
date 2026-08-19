@@ -12,19 +12,18 @@ const Trash2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+      animate(".line-a", {"y":[0,2,0],"opacity":[1,0.4,1]}, { duration: 0.4, ease: "easeInOut" });
+      animate(".line-b", {"y":[0,2,0],"opacity":[1,0.4,1]}, { duration: 0.4, ease: "easeInOut", delay: 0.08 });
+      animate(".top", {"x":[0,-2,0],"rotate":[0,-8,0]}, { duration: 0.5, ease: "easeInOut" });
+      animate(".can", {"scale":[1,1.04,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
+      animate(".line-a", {"y":0,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".line-b", {"y":0,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".top", {"x":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".can", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".handle", {"x":0}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -47,11 +46,11 @@ const Trash2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10 11v6" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 11v6" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 6h18" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <motion.path className="line-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10 11v6" />
+        <motion.path className="line-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 11v6" />
+        <motion.path className="can" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+        <motion.path className="top" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 6h18" />
+        <motion.path className="handle" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
       </motion.svg>
     );
   },

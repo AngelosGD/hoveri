@@ -12,13 +12,13 @@ const DropletsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,2,0]}, { duration: 0.6, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,2,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
+      animate(".drop-a", {"y":[0,1.5,0],"scale":[1,1.04,1]}, { duration: 0.6, ease: "easeInOut" });
+      animate(".drop-b", {"y":[0,2,0],"scale":[1,1.04,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+      animate(".drop-a", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".drop-b", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -41,8 +41,8 @@ const DropletsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+        <motion.path className="drop-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+        <motion.path className="drop-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
       </motion.svg>
     );
   },

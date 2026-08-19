@@ -12,19 +12,17 @@ const RadioIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.05,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.05,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-2", {"scale":[1,1.05,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-3", {"scale":[1,1.05,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-4", {"scale":[1,1.05,1]}, { duration: 0.8, ease: "easeInOut" });
+      animate(".arc-a", {"scale":[0.9,1.08,1]}, { duration: 0.7, ease: "easeInOut" });
+      animate(".arc-b", {"scale":[0.95,1.05,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+      animate(".arc-c", {"scale":[0.95,1.05,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.14 });
+      animate(".arc-d", {"scale":[0.9,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
+      animate(".arc-a", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".arc-b", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".arc-c", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".arc-d", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -47,11 +45,10 @@ const RadioIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16.247 7.761a6 6 0 0 1 0 8.478" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M19.075 4.933a10 10 0 0 1 0 14.134" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4.925 19.067a10 10 0 0 1 0-14.134" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7.753 16.239a6 6 0 0 1 0-8.478" />
-        <motion.circle className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="2" />
+        <motion.path className="arc-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16.247 7.761a6 6 0 0 1 0 8.478" />
+        <motion.path className="arc-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M19.075 4.933a10 10 0 0 1 0 14.134" />
+        <motion.path className="arc-c" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4.925 19.067a10 10 0 0 1 0-14.134" />
+        <motion.path className="arc-d" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7.753 16.239a6 6 0 0 1 0-8.478" />
       </motion.svg>
     );
   },

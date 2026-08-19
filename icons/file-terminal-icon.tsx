@@ -12,17 +12,17 @@ const FileTerminalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.36 });
+      animate(".fold", {"pathLength":[0,1]}, { duration: 0.4, ease: "easeInOut" });
+      animate(".chevron", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.35, ease: "easeInOut", delay: 0.2 });
+      animate(".prompt", {"x":[0,2,0]}, { duration: 0.5, ease: "easeInOut", delay: 0.3 });
+      animate(".file", {"scale":[1,1.02,1]}, { duration: 0.6, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+      animate(".fold", {"pathLength":1,"x":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".chevron", {"pathLength":1,"opacity":1,"x":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".prompt", {"x":0}, { duration: 0.2, ease: "easeInOut" });
+      animate(".file", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -45,10 +45,10 @@ const FileTerminalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 2v5a1 1 0 0 0 1 1h5" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m8 16 2-2-2-2" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 18h4" />
+        <motion.path className="file" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+        <motion.path className="fold" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 2v5a1 1 0 0 0 1 1h5" />
+        <motion.path className="chevron" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m8 16 2-2-2-2" />
+        <motion.path className="prompt" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 18h4" />
       </motion.svg>
     );
   },

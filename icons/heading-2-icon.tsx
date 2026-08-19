@@ -12,17 +12,17 @@ const Heading2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-1.5463917525773196,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-1.34020618556701,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.07 });
-    animate(".part-2", {"rotate":[0,-1.1340206185567014,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.14 });
-    animate(".part-3", {"rotate":[0,-0.9278350515463918,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.21000000000000002 });
+      animate(".rule", {"scaleX":[0.3,1]}, { duration: 0.4, ease: "easeInOut" });
+      animate(".col-a", {"scaleY":[0.5,1]}, { duration: 0.4, ease: "easeInOut", delay: 0.1 });
+      animate(".col-b", {"scaleY":[0.5,1]}, { duration: 0.4, ease: "easeInOut", delay: 0.15 });
+      animate(".num", {"pathLength":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+      animate(".rule", {"scaleX":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".col-a", {"scaleY":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".col-b", {"scaleY":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".num", {"pathLength":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -45,10 +45,10 @@ const Heading2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 12h8" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 18V6" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 18V6" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 18h-4c0-4 4-3 4-6 0-1.5-2-2.5-4-1" />
+        <motion.path className="rule" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 12h8" />
+        <motion.path className="col-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 18V6" />
+        <motion.path className="col-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 18V6" />
+        <motion.path className="num" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 18h-4c0-4 4-3 4-6 0-1.5-2-2.5-4-1" />
       </motion.svg>
     );
   },

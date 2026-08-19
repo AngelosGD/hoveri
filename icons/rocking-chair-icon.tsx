@@ -12,7 +12,7 @@ const RockingChairIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      animate(".part-0", { y: [0, -2.5, 0], scale: [1, 1.06, 1] }, { duration: 0.7, ease: "easeInOut", delay: 0.00 });
+      animate(".part-0", { rotate: [0, 4, 0], y: [0, -0.5, 0] }, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
       animate(".part-3", { rotate: [0, -6, 6, -4, 0], y: [0, 0.5, 0] }, { duration: 0.9, ease: "easeInOut" });
       animate(".part-0", { rotate: [0, 4, 0], y: [0, -0.5, 0] }, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
     };

@@ -12,15 +12,15 @@ const RssIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.18 });
-    animate(".part-2", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.36 });
+      animate(".arc-a", {"scale":[0.9,1.06,1]}, { duration: 0.7, ease: "easeInOut" });
+      animate(".arc-b", {"scale":[0.95,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.12 });
+      animate(".dot", {"scale":[1,1.4,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+      animate(".arc-a", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".arc-b", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".dot", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,9 +43,9 @@ const RssIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 11a9 9 0 0 1 9 9" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 4a16 16 0 0 1 16 16" />
-        <motion.circle className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="5" cy="19" r="1" />
+        <motion.path className="arc-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 11a9 9 0 0 1 9 9" />
+        <motion.path className="arc-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 4a16 16 0 0 1 16 16" />
+        <motion.circle className="dot" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx={4} cy={20} r={1} />
       </motion.svg>
     );
   },

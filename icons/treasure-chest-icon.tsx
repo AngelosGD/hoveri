@@ -12,7 +12,7 @@ const TreasureChestIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      animate(".part-0", { y: [0, -2.5, 0], scale: [1, 1.06, 1] }, { duration: 0.7, ease: "easeInOut", delay: 0.00 });
+      animate(".part-0", { scale: [1, 1.05, 1] }, { duration: 0.6, ease: "easeInOut", delay: 0.1 });
       animate(".part-4", { scale: [1, 1.5, 1], opacity: [1, 0.4, 1] }, { duration: 0.5, ease: "easeInOut", delay: 0.15 });
       animate(".part-1", { y: [0, -1.5, 0] }, { duration: 0.6, ease: "easeInOut" });
       animate(".part-0", { scale: [1, 1.05, 1] }, { duration: 0.6, ease: "easeInOut", delay: 0.1 });

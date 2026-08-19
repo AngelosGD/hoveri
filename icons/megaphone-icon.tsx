@@ -12,15 +12,15 @@ const MegaphoneIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.12,0.96,1.08,1],"opacity":[1,0.8,1,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.12,0.96,1.08,1],"opacity":[1,0.8,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"scale":[1,1.12,0.96,1.08,1],"opacity":[1,0.8,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
+      animate(".bolt", {"opacity":[0.4,1,0.4]}, { duration: 0.8, ease: "easeInOut" });
+      animate(".echo", {"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
+      animate(".horn", {"scale":[1,1.03,1],"rotate":[0,-1,0]}, { duration: 0.6, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+      animate(".bolt", {"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".echo", {"scale":1}, { duration: 0.2, ease: "easeInOut" });
+      animate(".horn", {"scale":1,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,9 +43,9 @@ const MegaphoneIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 6v8" />
+        <motion.path className="horn" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+        <motion.path className="echo" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
+        <motion.path className="bolt" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 6v8" />
       </motion.svg>
     );
   },

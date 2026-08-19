@@ -23,6 +23,14 @@ const HANDCRAFTED = new Set([
   // tabler.io (MIT)
   "run-sprint", "play-bug", "treasure-chest", "twig", "rocking-chair",
   "remote-control", "yarn", "thinking-medium", "tags-chevron-right", "tabs",
+  // cola de UI con animaciones hechas a mano (forma, no partes)
+  "square-terminal", "file-terminal", "git-merge", "git-commit-horizontal",
+  "git-pull-request", "heading-2", "text-cursor-input", "share", "share-2",
+  "rss", "megaphone", "radio", "ellipsis", "ellipsis-vertical",
+  "message-square-share", "message-circle-heart", "heart-handshake",
+  "download", "upload", "star-off", "heart-off", "trash-2", "flame",
+  "droplets", "ban", "magnet", "puzzle", "paw-print", "pencil-ruler",
+  "award", "zap",
 ]);
 
 const THEME_BY_NAME = {
