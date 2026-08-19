@@ -45,6 +45,18 @@ const HANDCRAFTED = new Set([
   "letter-y", "letter-z",
   // orbitan alrededor del centro real (transformBox view-box)
   "rotate-cw", "rotate-ccw", "undo-2", "redo-2",
+  // 64 iconos reemplazados por las versiones de itshover (MIT)
+  "accessibility", "alarm-clock-plus", "arrow-big-down-dash", "arrow-big-left-dash",
+  "arrow-big-right-dash", "arrow-big-up-dash", "at-sign", "battery-charging",
+  "battery", "bell-off", "bluetooth-connected", "book", "bug", "camera-off",
+  "candy-cane", "chart-bar", "chart-line", "chart-pie", "clock", "code", "code-xml",
+  "copyright", "cpu", "expand", "external-link", "eye", "eye-off", "focus",
+  "gamepad", "gauge", "globe", "hotel", "layers", "layout-dashboard", "library",
+  "locate", "lock", "map-pin", "message-circle", "mouse-pointer-2", "pen",
+  "rainbow", "router", "send-horizontal", "shopping-cart", "soup", "sparkles",
+  "subscript", "target", "terminal", "trash", "triangle-alert", "trophy",
+  "truck-electric", "unlink", "user-check", "user", "user-plus", "volume-2",
+  "volume-x", "wallet", "washing-machine", "wifi", "wifi-off",
 ]);
 
 const THEME_BY_NAME = {

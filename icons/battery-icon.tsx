@@ -1,49 +1,110 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const BatteryIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
-    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    { size = 24, color = "currentColor", strokeWidth = 2.5, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.65,1],"scale":[1,1.04,1]}, { duration: 1.1, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.65,1],"scale":[1,1.04,1]}, { duration: 1.1, ease: "easeInOut", delay: 0.12 });
+    const start = async () => {
+      await animate(
+        ".battery-bolt",
+        { pathLength: 0, opacity: 0 },
+        { duration: 0 },
+      );
+      animate(
+        ".battery-bolt",
+        {
+          pathLength: [0, 1],
+          opacity: [0, 1],
+        },
+        {
+          duration: 0.6,
+          ease: "easeInOut",
+        },
+      );
+      animate(
+        ".battery-body",
+        {
+          scale: [1, 1.04, 1],
+        },
+        {
+          duration: 0.6,
+          ease: "easeInOut",
+        },
+      );
+      await animate(
+        ".battery-bolt",
+        {
+          opacity: [1, 0.4, 1],
+        },
+        {
+          duration: 0.3,
+          ease: "easeInOut",
+        },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = () => {
+      animate(
+        ".battery-bolt",
+        { pathLength: 1, opacity: 1 },
+        { duration: 0.2 },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
-      <motion.svg
+      <motion.div
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
-        xmlns="http://www.w3.org/2000/svg"
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
+        className={`inline-flex cursor-pointer ${className}`}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M 22 14 L 22 10" />
-        <motion.rect className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="2" y="6" width="16" height="12" rx="2" />
-      </motion.svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
+          height={size}
+          viewBox="0 0 48 48"
+          fill="none"
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeMiterlimit="10"
+          strokeLinecap="square"
+        >
+          <motion.path className="battery-terminal" d="M46 20V28" />
+
+          <motion.path
+            className="battery-body"
+            style={{ transformOrigin: "50% 50%" }}
+            d="M37 10H8C5.23858 10 3 12.2386 3 15V33C3 35.7614 5.23858 38 8 38H37C39.7614 38 42 35.7614 42 33V15C42 12.2386 39.7614 10 37 10Z"
+          />
+
+          <motion.path
+            className="battery-bolt"
+            style={{ transformOrigin: "22.5px 24px" }}
+            d="M33.5 25.6667L22.5 19V29L11.5 22.3333"
+          />
+        </svg>
+      </motion.div>
     );
   },
 );

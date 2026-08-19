@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,39 +10,36 @@ const HotelIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.5 });
-    animate(".part-6", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.6000000000000001 });
-    animate(".part-7", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.7000000000000001 });
-    animate(".part-8", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.8 });
-    animate(".part-9", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.9 });
-    };
+    const start = useCallback(() => {
+      animate(
+        ".building",
+        { scaleY: [1, 1.2, 1], y: [0, -2, 0] },
+        { duration: 0.4, ease: "easeInOut" },
+      );
+    }, [animate]);
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    animate(".part-6", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.36 });
-    animate(".part-7", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.42 });
-    animate(".part-8", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.48 });
-    animate(".part-9", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.54 });
-    };
+    const stop = useCallback(() => {
+      animate(
+        ".building",
+        { scaleY: 1, y: 0 },
+        { duration: 0.3, ease: "easeIn" },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(
+      ref,
+      () => ({
+        startAnimation: start,
+        stopAnimation: stop,
+      }),
+      [start, stop],
+    );
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -54,24 +50,23 @@ const HotelIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10 22v-6.57" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 11h.01" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 7h.01" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 15.43V22" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M15 16a5 5 0 0 0-6 0" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 11h.01" />
-        <motion.path className="part-6" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 7h.01" />
-        <motion.path className="part-7" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 11h.01" />
-        <motion.path className="part-8" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 7h.01" />
-        <motion.rect className="part-9" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="4" y="2" width="16" height="20" rx="2" />
+        <motion.path
+          className="building"
+          d="M4.75 6.75h1m-1 4h1m-1 4h1m10-8h1m-1 4h1m-1 4h1M12.75 20.75v-4a2 2 0 0 0-4 0v4M.75 2.75h6c.64-1.173 2.19-2 4-2s3.36.827 4 2h6"
+        ></motion.path>
+        <motion.path
+          className="building"
+          d="M8.75 5.75v2m0 2v-2m0 0h4v-2 4"
+        ></motion.path>
+        <motion.path
+          className="building"
+          d="M1.75 3.75v16c0 .943 0 1.414.293 1.707s.764.293 1.707.293h14c.943 0 1.414 0 1.707-.293s.293-.764.293-1.707v-16"
+        ></motion.path>
       </motion.svg>
     );
   },
 );
 
 HotelIcon.displayName = "HotelIcon";
-
 export default HotelIcon;

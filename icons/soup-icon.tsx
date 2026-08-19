@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,31 +10,64 @@ const SoupIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-0.15463917525773208,0.09278350515463925,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-0.09278350515463918,0.05567010309278351,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.13 });
-    animate(".part-2", {"x":[0,-0.030927835051546282,0.01855670103092777,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.26 });
-    animate(".part-3", {"x":[0,0.030927835051546282,-0.01855670103092777,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.39 });
-    animate(".part-4", {"x":[0,0.09278350515463885,-0.05567010309278331,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.52 });
-    animate(".part-5", {"x":[0,0.15463917525773208,-0.09278350515463925,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.65 });
-    };
+    const start = useCallback(async () => {
+      animate(
+        ".steam",
+        {
+          y: [-2, -4],
+          opacity: [1, 0],
+        },
+        {
+          duration: 0.8,
+          ease: "easeOut",
+          repeat: 2,
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    };
+      await animate(
+        ".bowl",
+        {
+          rotate: [0, 1, -1, 0],
+        },
+        {
+          duration: 0.4,
+          ease: "easeInOut",
+        },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(() => {
+      animate(
+        ".steam",
+        {
+          y: 0,
+          opacity: 1,
+        },
+        {
+          duration: 0.3,
+        },
+      );
+      animate(
+        ".bowl",
+        {
+          rotate: 0,
+        },
+        {
+          duration: 0.3,
+        },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -47,19 +79,22 @@ const SoupIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 21h10" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M19.5 12 22 6" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62" />
+        <motion.g className="bowl" style={{ transformOrigin: "12px 16px" }}>
+          <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z" />
+          <path d="M7 21h10" />
+          <path d="M19.5 12 22 6" />
+        </motion.g>
+
+        <motion.g className="steam">
+          <path d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62" />
+          <path d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62" />
+          <path d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62" />
+        </motion.g>
       </motion.svg>
     );
   },
 );
 
 SoupIcon.displayName = "SoupIcon";
-
 export default SoupIcon;

@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,41 +10,62 @@ const LayersIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.3 });
+    const start = async () => {
+      await animate(
+        ".top-block",
+        { x: -20 },
+        { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
+    const stop = async () => {
+      await animate(
+        ".top-block",
+        { x: 0 },
+        { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
-        xmlns="http://www.w3.org/2000/svg"
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         width={size}
         height={size}
-        viewBox="0 0 24 24"
+        viewBox="0 0 120 120"
         fill="none"
-        stroke={color}
         strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        xmlns="http://www.w3.org/2000/svg"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+        {/* Top block */}
+        <motion.rect
+          className="top-block"
+          x="44"
+          y="22"
+          width="56"
+          height="36"
+          rx="10"
+          fill={color}
+        />
+
+        {/* Bottom block */}
+        <rect x="20" y="62" width="64" height="40" rx="12" fill={color} />
       </motion.svg>
     );
   },

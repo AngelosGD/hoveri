@@ -1,33 +1,49 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const LockIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
-    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    { size = 48, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-1", {"y":[0,-4,1,0],"rotate":[0,-2,0]}, { duration: 0.5, ease: "easeInOut", delay: 0.05 });
-    animate(".part-0", {"scale":[1,1.1,0.96,1]}, { duration: 0.5, ease: "easeInOut" });
+    const start = async () => {
+      await animate(
+        ".lock-upper-body",
+        { rotate: 40, y: -1.7, x: 3 },
+        { duration: 0.28, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = async () => {
+      await animate(
+        ".lock-upper-body",
+        { rotate: 0, x: 0, y: 0 },
+        { duration: 0.22, ease: "easeInOut" },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,10 +55,21 @@ const LockIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.rect className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} width="18" height="11" x="3" y="11" rx="2" ry="2" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 11V7a5 5 0 0 1 10 0v4" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+        {/* Lock body */}
+        <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
+
+        {/* Keyhole */}
+        <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+
+        {/* Lock shackle */}
+        <motion.path
+          className="lock-upper-body"
+          d="M8 11v-4a4 4 0 1 1 8 0v4"
+          style={{ transformOrigin: "50% 100%" }}
+        />
       </motion.svg>
     );
   },

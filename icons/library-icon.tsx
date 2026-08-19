@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,27 +10,43 @@ const LibraryIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.3 });
-    animate(".part-3", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.44999999999999996 });
-    };
+    const start = useCallback(() => {
+      // The Book Pick Cycle
+      // Book 2 (Selected): Lifts and tilts
+      animate(
+        ".book-2",
+        { y: -3, rotate: -8 },
+        { duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }, // BackOut feel
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    };
+      // Book 3 (Neighbor): Leans Left
+      animate(".book-3", { rotate: -12 }, { duration: 0.4, ease: "easeOut" });
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+      // Book 4 (Outer): Subtle Lean Left
+      animate(".book-4", { rotate: -5 }, { duration: 0.4, ease: "easeOut" });
+
+      // Book 1 (Tilted Book): Leans further Right
+      animate(".book-1", { rotate: 12 }, { duration: 0.4, ease: "easeOut" });
+    }, [animate]);
+
+    const stop = useCallback(() => {
+      animate(
+        ".book-1, .book-2, .book-3, .book-4",
+        { rotate: 0, y: 0 },
+        { duration: 0.3, ease: "easeInOut" },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -43,17 +58,35 @@ const LibraryIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m16 6 4 14" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 6v14" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 8v12" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 4v16" />
+        {/* Book 1 (The tilted book) */}
+        <motion.path
+          className="book-1"
+          d="m16 6 4 14"
+          style={{ transformOrigin: "18px 20px" }}
+        />
+        {/* Book 2 (The picked book) */}
+        <motion.path
+          className="book-2"
+          d="M12 6v14"
+          style={{ transformOrigin: "12px 20px" }}
+        />
+        {/* Book 3 */}
+        <motion.path
+          className="book-3"
+          d="M8 8v12"
+          style={{ transformOrigin: "8px 20px" }}
+        />
+        {/* Book 4 */}
+        <motion.path
+          className="book-4"
+          d="M4 4v16"
+          style={{ transformOrigin: "4px 20px" }}
+        />
       </motion.svg>
     );
   },
 );
 
 LibraryIcon.displayName = "LibraryIcon";
-
 export default LibraryIcon;

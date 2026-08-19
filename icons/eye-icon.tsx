@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,23 +10,54 @@ const EyeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.12 });
-    };
+    const start = useCallback(async () => {
+      // Pupil contracts (blink effect)
+      animate(
+        ".eye-pupil",
+        {
+          scale: 0.7,
+        },
+        {
+          duration: 0.15,
+          ease: "easeOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    };
+      // Eye shape slightly narrows
+      animate(
+        ".eye-shape",
+        {
+          scaleY: 0.9,
+        },
+        {
+          duration: 0.15,
+          ease: "easeOut",
+        },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(async () => {
+      animate(
+        ".eye-pupil, .eye-shape",
+        {
+          scale: 1,
+          scaleY: 1,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,16 +68,28 @@ const EyeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
-        <motion.circle className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="3" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+        {/* Pupil */}
+        <motion.path
+          d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"
+          className="eye-pupil"
+          style={{ transformOrigin: "50% 50%" }}
+        />
+
+        {/* Eye shape */}
+        <motion.path
+          d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+          className="eye-shape"
+          style={{ transformOrigin: "50% 50%" }}
+        />
       </motion.svg>
     );
   },
 );
 
 EyeIcon.displayName = "EyeIcon";
-
 export default EyeIcon;

@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,47 +10,52 @@ const CpuIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.5 });
-    animate(".part-6", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.6000000000000001 });
-    animate(".part-7", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.7000000000000001 });
-    animate(".part-8", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.8 });
-    animate(".part-9", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.9 });
-    animate(".part-10", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 1 });
-    animate(".part-11", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 1.1 });
-    animate(".part-12", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 1.2000000000000002 });
-    animate(".part-13", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 1.3 });
+    const start = async () => {
+      animate(
+        ".pins",
+        { scale: [1, 1.15, 1] },
+        { duration: 0.5, ease: "easeInOut" },
+      );
+      animate(
+        ".inner",
+        { scale: [1, 0.9, 1] },
+        { duration: 0.5, ease: "easeInOut" },
+      );
+      animate(
+        ".outer",
+        { scale: [1, 1.05, 1] },
+        { duration: 0.5, ease: "easeInOut" },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    animate(".part-6", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.36 });
-    animate(".part-7", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.42 });
-    animate(".part-8", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.48 });
-    animate(".part-9", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.54 });
-    animate(".part-10", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.60 });
-    animate(".part-11", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.66 });
-    animate(".part-12", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.72 });
-    animate(".part-13", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.78 });
+    const stop = () => {
+      animate(
+        ".pins, .inner, .outer",
+        { scale: 1 },
+        { duration: 0.2, ease: "easeInOut" },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -62,23 +66,39 @@ const CpuIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 20v2" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 2v2" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17 20v2" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17 2v2" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 12h2" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 17h2" />
-        <motion.path className="part-6" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 7h2" />
-        <motion.path className="part-7" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M20 12h2" />
-        <motion.path className="part-8" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M20 17h2" />
-        <motion.path className="part-9" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M20 7h2" />
-        <motion.path className="part-10" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 20v2" />
-        <motion.path className="part-11" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 2v2" />
-        <motion.rect className="part-12" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="4" y="4" width="16" height="16" rx="2" />
-        <motion.rect className="part-13" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x="8" y="8" width="8" height="8" rx="1" />
+        <motion.g className="pins">
+          <path d="M12 20v2" />
+          <path d="M12 2v2" />
+          <path d="M17 20v2" />
+          <path d="M17 2v2" />
+          <path d="M2 12h2" />
+          <path d="M2 17h2" />
+          <path d="M2 7h2" />
+          <path d="M20 12h2" />
+          <path d="M20 17h2" />
+          <path d="M20 7h2" />
+          <path d="M7 20v2" />
+          <path d="M7 2v2" />
+        </motion.g>
+        <motion.rect
+          className="outer"
+          style={{ transformOrigin: "12px 12px" }}
+          x="4"
+          y="4"
+          width="16"
+          height="16"
+          rx="2"
+        />
+        <motion.rect
+          className="inner"
+          style={{ transformOrigin: "12px 12px" }}
+          x="8"
+          y="8"
+          width="8"
+          height="8"
+          rx="1"
+        />
       </motion.svg>
     );
   },

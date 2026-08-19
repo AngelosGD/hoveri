@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,23 +10,26 @@ const GaugeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.06,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.06,1]}, { duration: 0.8, ease: "easeInOut" });
-    };
+    const start = useCallback(async () => {
+      animate(
+        ".needle",
+        { rotate: [0, 45, -20, 30, 0] },
+        { duration: 0.8, ease: "easeInOut" },
+      );
+    }, [animate]);
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    };
+    const stop = useCallback(() => {
+      animate(".needle", { rotate: 0 }, { duration: 0.3, ease: "easeInOut" });
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,16 +40,19 @@ const GaugeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m12 14 4-4" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3.34 19a10 10 0 1 1 17.32 0" />
+        <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+        <motion.path
+          className="needle"
+          style={{ transformOrigin: "12px 14px" }}
+          d="m12 14 4-4"
+        />
       </motion.svg>
     );
   },
 );
 
 GaugeIcon.displayName = "GaugeIcon";
-
 export default GaugeIcon;

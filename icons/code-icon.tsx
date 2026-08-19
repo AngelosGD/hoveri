@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,23 +10,36 @@ const CodeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3,0],"rotate":[0,36,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-3,0],"rotate":[0,-36,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    const start = async () => {
+      animate(".left-bracket", { x: -3 }, { duration: 0.3, ease: "easeOut" });
+      animate(".right-bracket", { x: 3 }, { duration: 0.3, ease: "easeOut" });
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = () => {
+      animate(".left-bracket", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
+      animate(".right-bracket", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,11 +50,9 @@ const CodeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m16 18 6-6-6-6" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m8 6-6 6 6 6" />
+        <motion.path className="right-bracket" d="m16 18 6-6-6-6" />
+        <motion.path className="left-bracket" d="m8 6-6 6 6 6" />
       </motion.svg>
     );
   },

@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,31 +10,67 @@ const TrophyIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,6.927835051546392,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.010309278350515,0]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.092783505154639,0]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
-    animate(".part-3", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.175257731958763,0]}, { duration: 1, ease: "easeInOut", delay: 0.44999999999999996 });
-    animate(".part-4", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.257731958762887,0]}, { duration: 1, ease: "easeInOut", delay: 0.6 });
-    animate(".part-5", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,7.34020618556701,0]}, { duration: 1, ease: "easeInOut", delay: 0.75 });
-    };
+    const start = useCallback(async () => {
+      // Victory Lift and Tilt
+      animate(
+        ".trophy-group",
+        {
+          y: [0, -4, -4, 0],
+          rotate: [0, -10, 10, 0],
+        },
+        {
+          duration: 0.8,
+          ease: "easeOut",
+          times: [0, 0.4, 0.7, 1],
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    };
+      // Confetti Burst
+      const confettiSequences = [
+        { selector: ".confetti-1", x: [0, -12], y: [0, -15], rotate: [0, 140] },
+        { selector: ".confetti-2", x: [0, -5], y: [0, -18], rotate: [0, -100] },
+        { selector: ".confetti-3", x: [0, 5], y: [0, -18], rotate: [0, 120] },
+        { selector: ".confetti-4", x: [0, 12], y: [0, -15], rotate: [0, -140] },
+      ];
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+      confettiSequences.forEach((conf) => {
+        animate(
+          conf.selector,
+          {
+            x: conf.x,
+            y: conf.y,
+            rotate: conf.rotate,
+            opacity: [0, 1, 0],
+            scale: [0, 1, 0.5],
+          },
+          {
+            duration: 0.8,
+            ease: "easeOut",
+            delay: 0.1,
+          },
+        );
+      });
+    }, [animate]);
+
+    const stop = useCallback(() => {
+      animate(".trophy-group", { y: 0, rotate: 0 }, { duration: 0.3 });
+      animate(
+        ".confetti-1, .confetti-2, .confetti-3, .confetti-4",
+        { opacity: 0, scale: 0 },
+        { duration: 0.2 },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -47,19 +82,77 @@ const TrophyIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 22h16" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
+        <motion.g
+          className="trophy-group"
+          style={{ transformOrigin: "center 20px" }}
+        >
+          {/* Handles */}
+          <path d="M6 9H4.5a1 1 0 0 1 0-5H6" />
+          <path d="M18 9h1.5a1 1 0 0 0 0-5H18" />
+
+          {/* Base */}
+          <path d="M4 22h16" />
+          <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978" />
+          <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978" />
+
+          {/* Cup Body */}
+          <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
+
+          {/* Confetti Pieces */}
+          <motion.rect
+            className="confetti-1"
+            x="11"
+            y="6"
+            width="2"
+            height="2"
+            rx="0.5"
+            fill="#FFD700"
+            stroke="none"
+            opacity={0}
+            style={{ transformOrigin: "center" }}
+          />
+          <motion.rect
+            className="confetti-2"
+            x="12"
+            y="5"
+            width="2"
+            height="2"
+            rx="0.5"
+            fill="#FF4500"
+            stroke="none"
+            opacity={0}
+            style={{ transformOrigin: "center" }}
+          />
+          <motion.rect
+            className="confetti-3"
+            x="13"
+            y="6"
+            width="2"
+            height="2"
+            rx="0.5"
+            fill="#00BFFF"
+            stroke="none"
+            opacity={0}
+            style={{ transformOrigin: "center" }}
+          />
+          <motion.rect
+            className="confetti-4"
+            x="12"
+            y="7"
+            width="2"
+            height="2"
+            rx="0.5"
+            fill="#32CD32"
+            stroke="none"
+            opacity={0}
+            style={{ transformOrigin: "center" }}
+          />
+        </motion.g>
       </motion.svg>
     );
   },
 );
 
 TrophyIcon.displayName = "TrophyIcon";
-
 export default TrophyIcon;

@@ -2,6 +2,27 @@ import type { SVGProps } from "react";
 
 export const DEFAULT_STROKE_WIDTH = 2;
 
+/** Scale stroke to match DEFAULT_STROKE_WIDTH on non-24 viewBoxes */
+export function scaledStrokeWidth(
+  strokeWidth: number,
+  viewBoxSize: number,
+): number {
+  return strokeWidth * (viewBoxSize / 24);
+}
+
+export type IconEasing =
+  | "linear"
+  | "easeIn"
+  | "easeOut"
+  | "easeInOut"
+  | "circIn"
+  | "circOut"
+  | "circInOut"
+  | "backIn"
+  | "backOut"
+  | "backInOut"
+  | "anticipate";
+
 export interface AnimatedIconProps
   extends Omit<
     SVGProps<SVGSVGElement>,

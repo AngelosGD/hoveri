@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,31 +10,61 @@ const RouterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.18 });
-    animate(".part-2", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.36 });
-    animate(".part-3", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.54 });
-    animate(".part-4", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.72 });
-    animate(".part-5", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.8999999999999999 });
-    };
+    const start = useCallback(async () => {
+      animate(
+        ".signal-inner",
+        {
+          scale: [1, 1.2, 1],
+          opacity: [1, 0.6, 1],
+        },
+        {
+          duration: 0.6,
+          ease: "easeInOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    };
+      await animate(
+        ".signal-outer",
+        {
+          scale: [1, 1.3, 1],
+          opacity: [1, 0.4, 1],
+        },
+        {
+          duration: 0.7,
+          ease: "easeInOut",
+          delay: 0.1,
+        },
+      );
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+      // Blink the indicator lights
+      animate(
+        ".indicator",
+        {
+          opacity: [1, 0.3, 1],
+        },
+        {
+          duration: 0.3,
+          ease: "easeInOut",
+        },
+      );
+    }, [animate]);
+
+    const stop = useCallback(() => {
+      animate(
+        ".signal-inner, .signal-outer, .indicator",
+        { scale: 1, opacity: 1 },
+        { duration: 0.2, ease: "easeInOut" },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -46,20 +75,33 @@ const RouterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.rect className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} width="20" height="8" x="2" y="14" rx="2" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6.01 18H6" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10.01 18H10" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M15 10v4" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17.84 7.17a4 4 0 0 0-5.66 0" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M20.66 4.34a8 8 0 0 0-11.31 0" />
+        <rect width="20" height="8" x="2" y="14" rx="2" />
+
+        <motion.g className="indicator">
+          <path d="M6.01 18H6" />
+          <path d="M10.01 18H10" />
+        </motion.g>
+
+        <path d="M15 10v4" />
+
+        <motion.path
+          className="signal-inner"
+          d="M17.84 7.17a4 4 0 0 0-5.66 0"
+          style={{ transformOrigin: "15px 7px" }}
+        />
+
+        <motion.path
+          className="signal-outer"
+          d="M20.66 4.34a8 8 0 0 0-11.31 0"
+          style={{ transformOrigin: "15px 4px" }}
+        />
       </motion.svg>
     );
   },
 );
 
 RouterIcon.displayName = "RouterIcon";
-
 export default RouterIcon;

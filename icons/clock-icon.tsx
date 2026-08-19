@@ -1,6 +1,6 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
+
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,23 +11,50 @@ const ClockIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-1", {"rotate":40}, { duration: 1.1, ease: "easeInOut", delay: 0.1 });
-    animate(".part-0", {"scale":[1,1.06,1]}, { duration: 0.8, ease: "easeInOut" });
+    const start = async () => {
+      await animate(
+        ".clock-hands",
+        {
+          rotate: 360,
+        },
+        {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = async () => {
+      await animate(
+        ".clock-hands",
+        {
+          rotate: 0,
+        },
+        {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,11 +65,15 @@ const ClockIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
       >
-        <motion.circle className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="10" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 6v6l4 2" />
+        <motion.path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <motion.path
+          d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"
+          className="clock-body"
+        />
+        <motion.path d="M12 7v5l3 3" className="clock-hands" />
       </motion.svg>
     );
   },

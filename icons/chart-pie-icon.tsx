@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,23 +10,75 @@ const ChartPieIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.1 });
+    const start = async () => {
+      animate(
+        ".pie-main",
+        {
+          pathLength: [0, 1],
+        },
+        {
+          duration: 0.5,
+          ease: "easeOut",
+        },
+      );
+
+      animate(
+        ".pie-slice",
+        {
+          pathLength: [0, 1],
+          rotate: [0, 5],
+        },
+        {
+          duration: 0.4,
+          ease: "easeOut",
+          delay: 0.2,
+        },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = async () => {
+      animate(
+        ".pie-main",
+        {
+          pathLength: 1,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
+
+      animate(
+        ".pie-slice",
+        {
+          pathLength: 1,
+          rotate: 0,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,11 +89,25 @@ const ChartPieIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+        {/* Main pie */}
+        <motion.path
+          d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a.9 .9 0 0 0 -1 -.8"
+          className="pie-main"
+          initial={{ pathLength: 1 }}
+        />
+
+        {/* Pie slice */}
+        <motion.path
+          d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5"
+          className="pie-slice"
+          style={{ transformOrigin: "17.5px 6px" }}
+          initial={{ pathLength: 1 }}
+        />
       </motion.svg>
     );
   },

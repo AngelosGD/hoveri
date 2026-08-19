@@ -503,7 +503,8 @@ const Undo2Icon = lazy(() => import("@/icons/undo-2-icon"));
 const Redo2Icon = lazy(() => import("@/icons/redo-2-icon"));
 const SquareXIcon = lazy(() => import("@/icons/square-x-icon"));
 
-const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- los iconos aceptan props extra opcionales (p.ej. shakeOnClick, duration)
+const iconMap: Record<string, ComponentType<any>> = {
   "heart-icon": HeartIcon,
   "star-icon": StarIcon,
   "moon-icon": MoonIcon,

@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,23 +10,48 @@ const SendHorizontalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-3,0],"opacity":[1,0.4,1]}, { duration: 0.6, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,3,0],"opacity":[1,0.4,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.07 });
-    };
+    const start = useCallback(async () => {
+      await animate(
+        ".paper-plane",
+        {
+          x: [0, 2],
+          opacity: [1, 0.7],
+        },
+        {
+          duration: 0.4,
+          ease: "easeOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    };
+      animate(
+        ".paper-plane",
+        {
+          x: 0,
+          opacity: 1,
+        },
+        {
+          duration: 0.3,
+          ease: "easeIn",
+        },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(() => {
+      animate(
+        ".paper-plane",
+        { x: 0, opacity: 1 },
+        { duration: 0.2, ease: "easeInOut" },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,16 +62,17 @@ const SendHorizontalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 12h16" />
+        <motion.g className="paper-plane">
+          <path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
+          <path d="M6 12h16" />
+        </motion.g>
       </motion.svg>
     );
   },
 );
 
 SendHorizontalIcon.displayName = "SendHorizontalIcon";
-
 export default SendHorizontalIcon;

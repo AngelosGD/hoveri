@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,25 +10,67 @@ const TriangleAlertIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,0.85,1.2,1],"opacity":[1,0.3,1,1]}, { duration: 0.4, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,0.85,1.2,1],"opacity":[1,0.3,1,1]}, { duration: 0.4, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"scale":[1,0.85,1.2,1],"opacity":[1,0.3,1,1]}, { duration: 0.4, ease: "easeInOut", delay: 0.24 });
-    };
+    const start = useCallback(async () => {
+      await animate(
+        ".triangle",
+        {
+          y: [0, -1.5, 0],
+        },
+        {
+          duration: 0.25,
+          ease: "easeOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    };
+      animate(
+        ".exclamation-line",
+        {
+          scaleY: [1, 1.35, 1],
+        },
+        {
+          duration: 0.3,
+          ease: "easeOut",
+        },
+      );
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+      animate(
+        ".exclamation-dot",
+        {
+          scale: [1, 1.4, 1],
+          opacity: [1, 0.6, 1],
+        },
+        {
+          duration: 0.25,
+          delay: 0.05,
+          ease: "easeOut",
+        },
+      );
+    }, [animate]);
+
+    const stop = useCallback(() => {
+      animate(".triangle", { y: 0 }, { duration: 0.2, ease: "easeOut" });
+      animate(
+        ".exclamation-line",
+        { scaleY: 1 },
+        { duration: 0.2, ease: "easeOut" },
+      );
+      animate(
+        ".exclamation-dot",
+        { scale: 1, opacity: 1 },
+        { duration: 0.2, ease: "easeOut" },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -40,17 +81,28 @@ const TriangleAlertIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 9v4" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 17h.01" />
+        <motion.path
+          className="triangle"
+          d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"
+        />
+
+        <g>
+          <motion.path
+            className="exclamation-line"
+            d="M12 9v4"
+            style={{ transformOrigin: "12px 11px" }}
+          />
+          <motion.path
+            className="exclamation-dot"
+            d="M12 17h.01"
+            style={{ transformOrigin: "12px 17px" }}
+          />
+        </g>
       </motion.svg>
     );
   },
 );
 
 TriangleAlertIcon.displayName = "TriangleAlertIcon";
-
 export default TriangleAlertIcon;

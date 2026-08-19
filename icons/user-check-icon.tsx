@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,25 +10,68 @@ const UserCheckIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
-    };
+    const start = useCallback(async () => {
+      // User bounces slightly
+      animate(
+        ".user-avatar",
+        {
+          scale: 1.05,
+          y: -1,
+        },
+        {
+          duration: 0.25,
+          ease: "easeOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    };
+      // Checkmark draws in and scales
+      animate(
+        ".check-mark",
+        {
+          pathLength: [0, 1],
+          scale: 1.1,
+        },
+        {
+          duration: 0.4,
+          ease: "easeOut",
+        },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(async () => {
+      animate(
+        ".user-avatar",
+        {
+          scale: 1,
+          y: 0,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
+
+      animate(
+        ".check-mark",
+        {
+          pathLength: 1,
+          scale: 1,
+        },
+        {
+          duration: 0.25,
+          ease: "easeInOut",
+        },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -40,17 +82,31 @@ const UserCheckIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m16 11 2 2 4-4" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <motion.circle className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="9" cy="7" r="4" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+        {/* User avatar */}
+        <motion.g
+          className="user-avatar"
+          style={{ transformOrigin: "50% 50%" }}
+        >
+          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+          <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+        </motion.g>
+
+        {/* Checkmark */}
+        <motion.path
+          d="M15 19l2 2l4 -4"
+          className="check-mark"
+          style={{ transformOrigin: "18px 19px" }}
+          initial={{ pathLength: 1 }}
+        />
       </motion.svg>
     );
   },
 );
 
 UserCheckIcon.displayName = "UserCheckIcon";
-
 export default UserCheckIcon;

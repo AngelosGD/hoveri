@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -10,22 +9,43 @@ const MousePointer2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     ref,
   ) => {
     const [scope, animate] = useAnimate();
+    const animationControls = useRef<Array<ReturnType<typeof animate>>>([]);
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,0.8,1],"y":[0,2,0]}, { duration: 0.3, ease: "easeInOut" });
+    const start = async () => {
+      animationControls.current.forEach((control) => control.stop());
+      animationControls.current = [];
+
+      animationControls.current.push(
+        animate(
+          ".pointer",
+          {
+            x: [0, 3, 0, -3, 0],
+            y: [0, -3, 0, 3, 0],
+          },
+          {
+            duration: 1.2,
+            ease: "easeInOut",
+            repeat: Infinity,
+          },
+        ),
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    const stop = () => {
+      animationControls.current.forEach((control) => control.stop());
+      animationControls.current = [];
+
+      animate(".pointer", { x: 0, y: 0 }, { duration: 0.3 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -36,15 +56,18 @@ const MousePointer2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z" />
+        <motion.path
+          className="pointer"
+          style={{ transformOrigin: "center" }}
+          d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"
+        />
       </motion.svg>
     );
   },
 );
 
 MousePointer2Icon.displayName = "MousePointer2Icon";
-
 export default MousePointer2Icon;

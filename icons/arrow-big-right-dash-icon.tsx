@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,23 +10,44 @@ const ArrowBigRightDashIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.3,1],"scale":[1,0.9,1]}, { duration: 0.5, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.05,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.05 });
+    const start = async () => {
+      animate(".arrow", { x: 4 }, { duration: 0.3, ease: "easeOut" });
+      animate(
+        ".dash",
+        { scale: 1.2, opacity: 0.7 },
+        { duration: 0.3, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = () => {
+      animate(".arrow", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
+      animate(
+        ".dash",
+        { scale: 1, opacity: 1 },
+        { duration: 0.2, ease: "easeInOut" },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,11 +58,16 @@ const ArrowBigRightDashIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11 9a1 1 0 0 0 1-1V4.707a.707.707 0 0 1 1.207-.5l6.94 6.94a1.207 1.207 0 0 1 0 1.707l-6.94 6.94a.707.707 0 0 1-1.207-.5V16a1 1 0 0 0-1-1H9a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 9v6" />
+        <motion.path
+          className="arrow"
+          d="M11 9a1 1 0 0 0 1-1V5.061a1 1 0 0 1 1.811-.75l6.836 6.836a1.207 1.207 0 0 1 0 1.707l-6.836 6.835a1 1 0 0 1-1.811-.75V16a1 1 0 0 0-1-1H9a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"
+        />
+        <motion.path
+          className="dash"
+          style={{ transformOrigin: "4px 12px" }}
+          d="M4 9v6"
+        />
       </motion.svg>
     );
   },

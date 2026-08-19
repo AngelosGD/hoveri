@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,29 +10,44 @@ const LocateIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-4", {"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
-    animate(".part-0", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
-    animate(".part-2", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.28 });
-    animate(".part-3", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.42000000000000004 });
-    };
+    const start = useCallback(() => {
+      // 1. Snappy Appearance of center target
+      animate(
+        ".locate-target",
+        { opacity: 1, scale: 1 },
+        { duration: 0.3, ease: "backOut" },
+      );
+      // 2. Subtle rotation for mechanical feel
+      animate(
+        ".locate-crosshairs",
+        { rotate: 90 },
+        { duration: 0.3, ease: "easeInOut" },
+      );
+    }, [animate]);
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    };
+    const stop = useCallback(() => {
+      animate(
+        ".locate-target",
+        { opacity: 0, scale: 0 },
+        { duration: 0.2, ease: "easeIn" },
+      );
+      animate(
+        ".locate-crosshairs",
+        { rotate: 0 },
+        { duration: 0.3, ease: "easeInOut" },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -45,18 +59,33 @@ const LocateIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.line className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="2" x2="5" y1="12" y2="12" />
-        <motion.line className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="19" x2="22" y1="12" y2="12" />
-        <motion.line className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="12" x2="12" y1="2" y2="5" />
-        <motion.line className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} x1="12" x2="12" y1="19" y2="22" />
-        <motion.circle className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="7" />
+        <motion.g
+          className="locate-crosshairs"
+          style={{ transformOrigin: "center" }}
+        >
+          <line x1="2" x2="5" y1="12" y2="12" />
+          <line x1="19" x2="22" y1="12" y2="12" />
+          <line x1="12" x2="12" y1="2" y2="5" />
+          <line x1="12" x2="12" y1="19" y2="22" />
+        </motion.g>
+
+        {/* Ring */}
+        <circle cx="12" cy="12" r="7" />
+
+        {/* The "Fix" Target - Appears on Hover */}
+        <motion.circle
+          className="locate-target"
+          cx="12"
+          cy="12"
+          r="3"
+          initial={{ opacity: 0, scale: 0 }}
+          style={{ transformOrigin: "center" }}
+        />
       </motion.svg>
     );
   },
 );
 
 LocateIcon.displayName = "LocateIcon";
-
 export default LocateIcon;

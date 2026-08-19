@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,25 +10,36 @@ const RainbowIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"y":[6,-1,0],"opacity":[0.2,1,1],"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[6,-1,0],"opacity":[0.2,1,1],"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"y":[6,-1,0],"opacity":[0.2,1,1],"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.24 });
-    };
+    const start = useCallback(async () => {
+      animate(
+        ".arc1",
+        { pathLength: [0, 1] },
+        { duration: 0.6, ease: "easeOut" },
+      );
+      animate(
+        ".arc2",
+        { pathLength: [0, 1] },
+        { duration: 0.6, ease: "easeOut", delay: 0.1 },
+      );
+      await animate(
+        ".arc3",
+        { pathLength: [0, 1] },
+        { duration: 0.6, ease: "easeOut", delay: 0.2 },
+      );
+    }, [animate]);
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    };
+    const stop = useCallback(() => {
+      animate(".arc1, .arc2, .arc3", { pathLength: 1 }, { duration: 0.2 });
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -40,17 +50,28 @@ const RainbowIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M22 17a10 10 0 0 0-20 0" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 17a6 6 0 0 1 12 0" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10 17a2 2 0 0 1 4 0" />
+        <motion.path
+          className="arc1"
+          d="M22 17a10 10 0 0 0-20 0"
+          initial={{ pathLength: 1 }}
+        />
+        <motion.path
+          className="arc2"
+          d="M6 17a6 6 0 0 1 12 0"
+          initial={{ pathLength: 1 }}
+        />
+        <motion.path
+          className="arc3"
+          d="M10 17a2 2 0 0 1 4 0"
+          initial={{ pathLength: 1 }}
+        />
       </motion.svg>
     );
   },
 );
 
 RainbowIcon.displayName = "RainbowIcon";
-
 export default RainbowIcon;

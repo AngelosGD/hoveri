@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,27 +10,57 @@ const EyeOffIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
-    };
+    const start = useCallback(async () => {
+      // Strike-through line extends
+      animate(
+        ".eye-strike",
+        {
+          pathLength: [0, 1],
+          opacity: [0.5, 1],
+        },
+        {
+          duration: 0.3,
+          ease: "easeOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    };
+      // Eye parts fade slightly
+      animate(
+        ".eye-parts",
+        {
+          opacity: 0.6,
+          scale: 0.98,
+        },
+        {
+          duration: 0.3,
+          ease: "easeOut",
+        },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(async () => {
+      animate(
+        ".eye-strike, .eye-parts",
+        {
+          pathLength: 1,
+          opacity: 1,
+          scale: 1,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -42,18 +71,27 @@ const EyeOffIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m2 2 20 20" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+        {/* Eye parts */}
+        <motion.g className="eye-parts" style={{ transformOrigin: "50% 50%" }}>
+          <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828" />
+          <path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87" />
+        </motion.g>
+
+        {/* Strike-through line */}
+        <motion.path
+          d="M3 3l18 18"
+          className="eye-strike"
+          initial={{ pathLength: 1 }}
+        />
       </motion.svg>
     );
   },
 );
 
 EyeOffIcon.displayName = "EyeOffIcon";
-
 export default EyeOffIcon;

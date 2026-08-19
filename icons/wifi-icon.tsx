@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,27 +10,40 @@ const WifiIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.18 });
-    animate(".part-2", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.36 });
-    animate(".part-3", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.54 });
-    };
+    const start = useCallback(async () => {
+      animate(
+        ".wave-1",
+        { opacity: [1, 0.3, 1] },
+        { duration: 0.6, ease: "easeInOut" },
+      );
+      animate(
+        ".wave-2",
+        { opacity: [1, 0.3, 1] },
+        { duration: 0.6, ease: "easeInOut", delay: 0.15 },
+      );
+      animate(
+        ".wave-3",
+        { opacity: [1, 0.3, 1] },
+        { duration: 0.6, ease: "easeInOut", delay: 0.3 },
+      );
+    }, [animate]);
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    };
+    const stop = useCallback(() => {
+      animate(".wave-1", { opacity: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".wave-2", { opacity: 1 }, { duration: 0.2, ease: "easeOut" });
+      animate(".wave-3", { opacity: 1 }, { duration: 0.2, ease: "easeOut" });
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -42,18 +54,19 @@ const WifiIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 20h.01" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M2 8.82a15 15 0 0 1 20 0" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 12.859a10 10 0 0 1 14 0" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8.5 16.429a5 5 0 0 1 7 0" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 18l.01 0" />
+        <motion.path className="wave-1" d="M9.172 15.172a4 4 0 0 1 5.656 0" />
+        <motion.path className="wave-2" d="M6.343 12.343a8 8 0 0 1 11.314 0" />
+        <motion.path
+          className="wave-3"
+          d="M3.515 9.515c4.686 -4.687 12.284 -4.687 17 0"
+        />
       </motion.svg>
     );
   },
 );
 
 WifiIcon.displayName = "WifiIcon";
-
 export default WifiIcon;

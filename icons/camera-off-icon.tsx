@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,27 +10,44 @@ const CameraOffIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    const start = async () => {
+      animate(
+        ".slash",
+        { scale: 1.1, rotate: 5 },
+        { duration: 0.3, ease: "easeOut" },
+      );
+      animate(".camera", { opacity: 0.4 }, { duration: 0.3, ease: "easeOut" });
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
+    const stop = () => {
+      animate(
+        ".slash",
+        { scale: 1, rotate: 0 },
+        { duration: 0.2, ease: "easeInOut" },
+      );
+      animate(".camera", { opacity: 1 }, { duration: 0.2, ease: "easeInOut" });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -42,13 +58,17 @@ const CameraOffIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14.564 14.558a3 3 0 1 1-4.122-4.121" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m2 2 20 20" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M20 20H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 .819-.175" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9.695 4.024A2 2 0 0 1 10.004 4h3.993a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v7.344" />
+        <motion.g className="camera">
+          <path d="M14.564 14.558a3 3 0 1 1-4.122-4.121" />
+          <path d="M20 20H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 .819-.175" />
+          <path d="M9.695 4.024A2 2 0 0 1 10.004 4h3.993a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v7.344" />
+        </motion.g>
+        <motion.path
+          className="slash"
+          style={{ transformOrigin: "12px 12px" }}
+          d="m2 2 20 20"
+        />
       </motion.svg>
     );
   },

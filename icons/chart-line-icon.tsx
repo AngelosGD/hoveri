@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,23 +10,72 @@ const ChartLineIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.12 });
+    const start = async () => {
+      animate(
+        ".chart-line",
+        {
+          pathLength: [0, 1],
+        },
+        {
+          duration: 0.6,
+          ease: "easeInOut",
+        },
+      );
+
+      animate(
+        ".base-line",
+        {
+          scaleX: [0, 1],
+        },
+        {
+          duration: 0.4,
+          ease: "easeOut",
+        },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+    const stop = async () => {
+      animate(
+        ".chart-line",
+        {
+          pathLength: 1,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
+
+      animate(
+        ".base-line",
+        {
+          scaleX: 1,
+        },
+        {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -38,11 +86,24 @@ const ChartLineIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 3v16a2 2 0 0 0 2 2h16" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m19 9-5 5-4-4-3 3" />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+        {/* Base line */}
+        <motion.path
+          d="M4 19l16 0"
+          className="base-line"
+          style={{ transformOrigin: "4px 19px" }}
+        />
+
+        {/* Chart line */}
+        <motion.path
+          d="M4 15l4 -6l4 2l4 -5l4 4"
+          className="chart-line"
+          initial={{ pathLength: 1 }}
+        />
       </motion.svg>
     );
   },

@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,23 +10,45 @@ const CopyrightIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.15,0.95,1.1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
-    animate(".part-1", {"scale":[1,1.15,0.95,1.1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
-    };
+    const start = useCallback(() => {
+      // Outer Circle Sweep
+      animate(
+        "circle",
+        { pathLength: [1, 0.9, 1], rotate: [0, 360] },
+        {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    };
+      // Central 'C' Pulse
+      animate(
+        "path",
+        { scale: [1, 1.1, 1] },
+        {
+          duration: 1,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      );
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(() => {
+      animate("circle", { pathLength: 1, rotate: 0 }, { duration: 0.3 });
+      animate("path", { scale: 1 }, { duration: 0.3 });
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +60,21 @@ const CopyrightIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.circle className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="12" r="10" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M14.83 14.83a4 4 0 1 1 0-5.66" />
+        <motion.circle
+          cx="12"
+          cy="12"
+          r="10"
+          style={{ transformOrigin: "center" }}
+        />
+        <motion.path
+          d="M14.83 14.83a4 4 0 1 1 0-5.66"
+          style={{ transformOrigin: "center" }}
+        />
       </motion.svg>
     );
   },
 );
 
 CopyrightIcon.displayName = "CopyrightIcon";
-
 export default CopyrightIcon;

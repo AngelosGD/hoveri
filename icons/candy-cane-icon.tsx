@@ -1,5 +1,4 @@
 "use client";
-
 import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
@@ -11,29 +10,38 @@ const CandyCaneIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.36 });
-    animate(".part-4", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.48 });
+    const start = async () => {
+      animate(
+        ".cane",
+        { rotate: [0, -10, 10, -5, 5, 0] },
+        { duration: 0.6, ease: "easeInOut" },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
+    const stop = () => {
+      animate(".cane", { rotate: 0 }, { duration: 0.2, ease: "easeInOut" });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -44,14 +52,14 @@ const CandyCaneIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m10.8 5 2.111 4.223" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17.75 7 15 2.1" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m4.874 14.647 2.12 4.24" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.464-2 2 2 0 1 0-3.464-2z" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m7.906 9.712 2.005 4.411" />
+        <motion.g className="cane" style={{ transformOrigin: "12px 12px" }}>
+          <path d="M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.464-2 2 2 0 1 0-3.464-2Z" />
+          <path d="M17.75 7 15 2.1" />
+          <path d="M10.9 4.8 13 9" />
+          <path d="m7.9 9.7 2 4.4" />
+          <path d="M4.9 14.7 7 18.9" />
+        </motion.g>
       </motion.svg>
     );
   },

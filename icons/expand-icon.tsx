@@ -1,6 +1,5 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useCallback } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
@@ -11,35 +10,48 @@ const ExpandIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.5 });
-    animate(".part-6", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.6000000000000001 });
-    animate(".part-7", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.7000000000000001 });
-    };
+    const start = useCallback(async () => {
+      animate(
+        ".arrows-tr",
+        { x: 2, y: -2 },
+        { duration: 0.25, ease: "easeOut" },
+      );
+      animate(
+        ".arrows-tl",
+        { x: -2, y: -2 },
+        { duration: 0.25, ease: "easeOut" },
+      );
+      animate(
+        ".arrows-br",
+        { x: 2, y: 2 },
+        { duration: 0.25, ease: "easeOut" },
+      );
+      animate(
+        ".arrows-bl",
+        { x: -2, y: 2 },
+        { duration: 0.25, ease: "easeOut" },
+      );
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    animate(".part-6", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.36 });
-    animate(".part-7", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.42 });
-    };
+      animate(".corners", { scale: 1.08 }, { duration: 0.25, ease: "easeOut" });
+    }, [animate]);
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    const stop = useCallback(() => {
+      animate(
+        ".arrows-tr, .arrows-tl, .arrows-br, .arrows-bl",
+        { x: 0, y: 0 },
+        { duration: 0.2, ease: "easeInOut" },
+      );
+      animate(".corners", { scale: 1 }, { duration: 0.2, ease: "easeInOut" });
+    }, [animate]);
+
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -50,22 +62,21 @@ const ExpandIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        onHoverStart={start}
+        onHoverEnd={stop}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m15 15 6 6" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m15 9 6-6" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 16v5h-5" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M21 8V3h-5" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 16v5h5" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m3 21 6-6" />
-        <motion.path className="part-6" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 8V3h5" />
-        <motion.path className="part-7" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 9 3 3" />
+        <motion.path className="arrows-br" d="m15 15 6 6" />
+        <motion.path className="arrows-tr" d="m15 9 6-6" />
+        <motion.path className="corners arrows-br" d="M21 16v5h-5" />
+        <motion.path className="corners arrows-tr" d="M21 8V3h-5" />
+        <motion.path className="corners arrows-bl" d="M3 16v5h5" />
+        <motion.path className="arrows-bl" d="m3 21 6-6" />
+        <motion.path className="corners arrows-tl" d="M3 8V3h5" />
+        <motion.path className="arrows-tl" d="M9 9 3 3" />
       </motion.svg>
     );
   },
 );
 
 ExpandIcon.displayName = "ExpandIcon";
-
 export default ExpandIcon;

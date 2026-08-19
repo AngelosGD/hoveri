@@ -1,43 +1,120 @@
 "use client";
-
-import { forwardRef, useImperativeHandle } from "react";
-import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
+import { forwardRef, useImperativeHandle, useRef } from "react";
+import type {
+  AnimatedIconHandle,
+  AnimatedIconProps,
+  IconEasing,
+} from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const AlarmClockPlusIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+type CustomStyleProps = {
+  stiffness?: number;
+  damping?: number;
+  durationY?: number;
+  durationX?: number;
+  ease?: IconEasing;
+};
+
+const AlarmClockPlusIcon = forwardRef<
+  AnimatedIconHandle,
+  AnimatedIconProps & CustomStyleProps
+>(
   (
-    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    {
+      size = 24,
+      color = "currentColor",
+      strokeWidth = 2,
+      className = "",
+      stiffness = 200,
+      damping = 25,
+      durationY = 0.2,
+      durationX = 0.3,
+      ease = "linear",
+      ...props
+    },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
+    const animationControls = useRef<Array<ReturnType<typeof animate>>>([]);
 
-    const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
-    animate(".part-1", {"rotate":[0,-10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
-    animate(".part-2", {"rotate":[0,10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
-    animate(".part-3", {"rotate":[0,-10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
-    animate(".part-4", {"rotate":[0,10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
-    animate(".part-5", {"rotate":[0,10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
-    animate(".part-6", {"rotate":[0,10,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.03 });
+    const start = async () => {
+      animationControls.current.forEach((control) => control.stop());
+      animationControls.current = [];
+
+      animationControls.current.push(
+        animate(
+          ".clock",
+          {
+            y: -1.5,
+            x: [-1, 1, -1, 1, -1, 0],
+          },
+          {
+            y: {
+              duration: durationY,
+              type: "spring",
+              stiffness: stiffness,
+              damping: damping,
+            },
+            x: { duration: durationX, repeat: Infinity, ease: ease },
+          },
+        ),
+      );
+
+      animationControls.current.push(
+        animate(
+          ".bells",
+          {
+            y: -2.5,
+            x: [-2, 2, -2, 2, -2, 0],
+          },
+          {
+            y: {
+              duration: durationY,
+              type: "spring",
+              stiffness: stiffness,
+              damping: damping,
+            },
+            x: { duration: durationX, repeat: Infinity, ease: ease },
+          },
+        ),
+      );
+
+      await animate(
+        ".plus",
+        { scale: [1, 1.2, 1] },
+        { duration: durationY, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
-    animate(".part-2", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.12 });
-    animate(".part-3", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.18 });
-    animate(".part-4", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.24 });
-    animate(".part-5", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.30 });
-    animate(".part-6", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.36 });
+    const stop = () => {
+      animationControls.current.forEach((control) => control.stop());
+      animationControls.current = [];
+
+      animate(".clock", { y: 0, x: 0 }, { duration: durationY * 2 });
+      animate(".bells", { y: 0, x: 0 }, { duration: durationY * 2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => {
+      return {
+        startAnimation: start,
+        stopAnimation: stop,
+      };
+    });
+
+    // 🖱 hover logic (only when NOT controlled)
+    const handleHoverStart = () => {
+      start();
+    };
+
+    const handleHoverEnd = () => {
+      stop();
+    };
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -50,14 +127,25 @@ const AlarmClockPlusIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
+        {...props}
       >
-        <motion.circle className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} cx="12" cy="13" r="8" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 3 2 6" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="m22 6-3-3" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6.38 18.7 4 21" />
-        <motion.path className="part-4" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17.64 18.67 20 21" />
-        <motion.path className="part-5" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 10v6" />
-        <motion.path className="part-6" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 13h6" />
+        <motion.circle className="clock" cx="12" cy="13" r="8" />
+        <motion.path
+          className="bells"
+          style={{ transformOrigin: "3.5px 4.5px" }}
+          d="M5 3 2 6"
+        />
+        <motion.path
+          className="bells"
+          style={{ transformOrigin: "20.5px 4.5px" }}
+          d="m22 6-3-3"
+        />
+        <motion.path className="clock" d="M6.38 18.7 4 21" />
+        <motion.path className="clock" d="M17.64 18.67 20 21" />
+        <motion.g className="plus" style={{ transformOrigin: "12px 13px" }}>
+          <path d="M12 10v6" />
+          <path d="M9 13h6" />
+        </motion.g>
       </motion.svg>
     );
   },
