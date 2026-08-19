@@ -133,12 +133,12 @@ const THEME_BY_NAME = {
   palette: "dab",
   gem: "facet",
   // flechas
-  "arrow-up": "climb",
-  "arrow-down": "drop-spring",
-  "arrow-right": "draw",
-  "arrow-left": "draw",
-  "arrow-up-right": "climb",
-  "arrow-down-left": "inject",
+  "arrow-up": "arrow",
+  "arrow-down": "arrow",
+  "arrow-right": "arrow",
+  "arrow-left": "arrow",
+  "arrow-up-right": "arrow",
+  "arrow-down-left": "arrow",
   "arrow-left-right": "split",
   "arrow-up-down": "sway",
   "arrow-down-to-line": "inject",
@@ -297,7 +297,7 @@ const THEME_BY_NAME = {
   "file-plus": "stack",
   "file-check": "spark",
   "file-search": "sawtooth",
-  "file-image": "ripple",
+  "file-image": "photo",
   "file-audio": "sound",
   folder: "unfold",
   "folder-open": "glow-parts",
@@ -330,12 +330,12 @@ const THEME_BY_NAME = {
   "camera-off": "swing-parts",
   projector: "glow-parts",
   // multimedia
-  image: "ripple",
-  "image-plus": "stack",
-  "image-up": "climb",
-  "image-down": "inject",
-  "image-play": "play-pulse",
-  images: "wave-x",
+  image: "photo",
+  "image-plus": "photo",
+  "image-up": "photo",
+  "image-down": "photo",
+  "image-play": "photo",
+  images: "photo",
   video: "screen",
   "video-off": "spark",
   videotape: "reel",
@@ -740,6 +740,17 @@ function nodeToJsx(node, partIndex) {
 
 function json(v) {
   return JSON.stringify(v);
+}
+
+function arrowDir(name) {
+  let x = 0;
+  let y = 0;
+  if (name.includes("up")) y = -1;
+  if (name.includes("down")) y = 1;
+  if (name.includes("left")) x = -1;
+  if (name.includes("right")) x = 1;
+  if (!x && !y) x = 1;
+  return { x, y };
 }
 
 function buildStart(theme, parts, seedName) {
@@ -1212,6 +1223,37 @@ function buildStart(theme, parts, seedName) {
           push(b.i, { pathLength: [0, 1, 1] }, 0.7, 0.12 * b.i);
         } else {
           push(b.i, { scale: [0.6, 1.1, 1], opacity: [0, 1] }, 0.7, 0.12 * b.i);
+        }
+      });
+      break;
+    }
+    case "arrow": {
+      const dir = arrowDir(seedName);
+      const mag = Math.hypot(dir.x, dir.y) || 1;
+      let head = null;
+      let headScore = -Infinity;
+      boxes.forEach((b) => {
+        const score = (dir.x * b.cx + dir.y * b.cy) / mag;
+        if (score > headScore) {
+          headScore = score;
+          head = b;
+        }
+      });
+      boxes.forEach((b) => {
+        if (b.tag === "path") {
+          push(b.i, { pathLength: [0, 1, 1] }, 0.7, 0.08);
+        }
+        const lead = b === head ? 3 : 1.5;
+        push(b.i, { x: [0, dir.x * lead, 0], y: [0, dir.y * lead, 0], opacity: [0.6, 1, 1] }, 0.8, 0.05);
+      });
+      break;
+    }
+    case "photo": {
+      boxes.forEach((b) => {
+        if (b.tag === "rect") {
+          push(b.i, { scale: [1, 1.05, 0.98, 1] }, 0.8, 0.05);
+        } else {
+          push(b.i, { y: [6, -1, 0], opacity: [0.2, 1, 1], scale: [0.92, 1.03, 1] }, 0.9, 0.14);
         }
       });
       break;

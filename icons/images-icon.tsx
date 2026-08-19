@@ -12,10 +12,10 @@ const ImagesIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-3.8350515463917527,1.9175257731958764,0],"rotate":[0,-3.0680412371134023,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-3.752577319587629,1.8762886597938144,0],"rotate":[0,-3.002061855670103,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,-3.670103092783505,1.8350515463917525,0],"rotate":[0,-2.9360824742268044,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"x":[0,-3.5876288659793816,1.7938144329896908,0],"rotate":[0,-2.8701030927835056,0]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-1", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-2", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-3", {"scale":[1,1.05,0.98,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {
