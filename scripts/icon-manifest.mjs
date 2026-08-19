@@ -1,10 +1,4 @@
-/**
- * Central manifest for the icon library.
- * `file` must match the exported component file in icons/.
- * `category` groups icons on the library page.
- */
-export const ICON_MANIFEST = [
-  // UI essentials
+  export const ICON_MANIFEST = [
   { file: "heart-icon", name: "Heart", category: "UI essentials", tags: ["heart", "love", "favorite", "like"] },
   { file: "star-icon", name: "Star", category: "UI essentials", tags: ["star", "favorite", "rating"] },
   { file: "moon-icon", name: "Moon", category: "UI essentials", tags: ["moon", "night", "dark"] },
@@ -18,8 +12,6 @@ export const ICON_MANIFEST = [
   { file: "camera-icon", name: "Camera", category: "Media", tags: ["camera", "photo", "image", "lens"] },
   { file: "coffee-icon", name: "Coffee", category: "Comida", tags: ["coffee", "cafe", "drink", "break"] },
   { file: "rocket-icon", name: "Rocket", category: "UI essentials", tags: ["rocket", "launch", "ship"] },
-
-  // Celular y móvil
   { file: "smartphone-icon", name: "Smartphone", category: "Celular", tags: ["smartphone", "phone", "mobile", "cell"] },
   { file: "tablet-icon", name: "Tablet", category: "Celular", tags: ["tablet", "screen", "device"] },
   { file: "laptop-icon", name: "Laptop", category: "Celular", tags: ["laptop", "computer", "notebook"] },
@@ -30,8 +22,6 @@ export const ICON_MANIFEST = [
   { file: "bluetooth-icon", name: "Bluetooth", category: "Celular", tags: ["bluetooth", "wireless", "connect"] },
   { file: "signal-icon", name: "Signal", category: "Celular", tags: ["signal", "antenna", "bars", "network"] },
   { file: "phone-icon", name: "Phone", category: "Celular", tags: ["phone", "call", "telephone"] },
-
-  // Desarrollo y código
   { file: "code-icon", name: "Code", category: "Desarrollo", tags: ["code", "coding", "developer", "programming"] },
   { file: "terminal-icon", name: "Terminal", category: "Desarrollo", tags: ["terminal", "console", "command", "shell"] },
   { file: "git-branch-icon", name: "Git branch", category: "Desarrollo", tags: ["git", "branch", "version", "control"] },
@@ -42,8 +32,6 @@ export const ICON_MANIFEST = [
   { file: "languages-icon", name: "Languages", category: "Desarrollo", tags: ["languages", "translate", "code", "i18n"] },
   { file: "calculator-icon", name: "Calculator", category: "Desarrollo", tags: ["calculator", "math", "numbers"] },
   { file: "bug-icon", name: "Bug", category: "Desarrollo", tags: ["bug", "insect", "error", "debug"] },
-
-  // Comida
   { file: "pizza-icon", name: "Pizza", category: "Comida", tags: ["pizza", "food", "italian"] },
   { file: "beer-icon", name: "Beer", category: "Comida", tags: ["beer", "drink", "bar"] },
   { file: "donut-icon", name: "Donut", category: "Comida", tags: ["donut", "doughnut", "sweet", "dessert"] },
@@ -60,8 +48,6 @@ export const ICON_MANIFEST = [
   { file: "hamburger-icon", name: "Hamburger", category: "Comida", tags: ["hamburger", "burger", "fast food", "food"] },
   { file: "drumstick-icon", name: "Drumstick", category: "Comida", tags: ["drumstick", "chicken", "food", "meat"] },
   { file: "popcorn-icon", name: "Popcorn", category: "Comida", tags: ["popcorn", "movie", "snack"] },
-
-  // Clima y naturaleza
   { file: "cloud-icon", name: "Cloud", category: "Clima", tags: ["cloud", "weather", "sky"] },
   { file: "cloud-rain-icon", name: "Cloud rain", category: "Clima", tags: ["cloud", "rain", "weather", "water"] },
   { file: "cloud-snow-icon", name: "Cloud snow", category: "Clima", tags: ["cloud", "snow", "winter", "cold"] },
@@ -72,8 +58,6 @@ export const ICON_MANIFEST = [
   { file: "umbrella-icon", name: "Umbrella", category: "Clima", tags: ["umbrella", "rain", "protection"] },
   { file: "rainbow-icon", name: "Rainbow", category: "Clima", tags: ["rainbow", "colors", "sky", "rain"] },
   { file: "tornado-icon", name: "Tornado", category: "Clima", tags: ["tornado", "wind", "storm", "spin"] },
-
-  // Música y audio
   { file: "music-icon", name: "Music", category: "Música", tags: ["music", "note", "song"] },
   { file: "music-2-icon", name: "Music note", category: "Música", tags: ["music", "note", "song"] },
   { file: "headphones-icon", name: "Headphones", category: "Música", tags: ["headphones", "audio", "listen", "music"] },
@@ -84,8 +68,6 @@ export const ICON_MANIFEST = [
   { file: "clapperboard-icon", name: "Clapperboard", category: "Música", tags: ["clapperboard", "film", "movie", "action"] },
   { file: "gamepad-icon", name: "Gamepad", category: "Música", tags: ["gamepad", "controller", "gaming", "play"] },
   { file: "film-icon", name: "Film", category: "Música", tags: ["film", "movie", "video", "reel"] },
-
-  // Viajes y mapas
   { file: "plane-icon", name: "Plane", category: "Viajes", tags: ["plane", "airplane", "travel", "flight"] },
   { file: "car-icon", name: "Car", category: "Viajes", tags: ["car", "vehicle", "travel", "drive"] },
   { file: "bus-icon", name: "Bus", category: "Viajes", tags: ["bus", "vehicle", "transport"] },
@@ -96,8 +78,6 @@ export const ICON_MANIFEST = [
   { file: "map-pin-icon", name: "Map pin", category: "Viajes", tags: ["pin", "location", "map", "address"] },
   { file: "ticket-icon", name: "Ticket", category: "Viajes", tags: ["ticket", "entrance", "event"] },
   { file: "anchor-icon", name: "Anchor", category: "Viajes", tags: ["anchor", "ship", "sea", "marine"] },
-
-  // Hogar
   { file: "house-icon", name: "Home", category: "Hogar", tags: ["home", "house", "living"] },
   { file: "lamp-icon", name: "Lamp", category: "Hogar", tags: ["lamp", "light", "desk"] },
   { file: "sofa-icon", name: "Sofa", category: "Hogar", tags: ["sofa", "couch", "furniture", "living"] },
@@ -108,8 +88,6 @@ export const ICON_MANIFEST = [
   { file: "printer-icon", name: "Printer", category: "Hogar", tags: ["printer", "print", "paper"] },
   { file: "thermometer-icon", name: "Thermometer", category: "Hogar", tags: ["thermometer", "temperature", "hot"] },
   { file: "washing-machine-icon", name: "Washing machine", category: "Hogar", tags: ["washing", "machine", "laundry", "clean"] },
-
-  // Negocios y dinero
   { file: "dollar-sign-icon", name: "Dollar", category: "Negocios", tags: ["dollar", "money", "currency", "cash"] },
   { file: "bitcoin-icon", name: "Bitcoin", category: "Negocios", tags: ["bitcoin", "crypto", "money", "currency"] },
   { file: "credit-card-icon", name: "Credit card", category: "Negocios", tags: ["card", "credit", "payment", "money"] },
@@ -120,8 +98,6 @@ export const ICON_MANIFEST = [
   { file: "trending-up-icon", name: "Trending up", category: "Negocios", tags: ["trending", "up", "growth", "chart"] },
   { file: "chart-pie-icon", name: "Pie chart", category: "Negocios", tags: ["pie", "chart", "stats", "data"] },
   { file: "coins-icon", name: "Coins", category: "Negocios", tags: ["coins", "money", "currency", "cash"] },
-
-  // Deportes y recompensas
   { file: "trophy-icon", name: "Trophy", category: "Deportes", tags: ["trophy", "award", "winner", "prize"] },
   { file: "medal-icon", name: "Medal", category: "Deportes", tags: ["medal", "award", "winner", "olympics"] },
   { file: "target-icon", name: "Target", category: "Deportes", tags: ["target", "goal", "aim", "shoot"] },
@@ -129,8 +105,6 @@ export const ICON_MANIFEST = [
   { file: "sparkle-icon", name: "Sparkle", category: "Deportes", tags: ["sparkle", "shine", "glow", "star"] },
   { file: "palette-icon", name: "Palette", category: "Deportes", tags: ["palette", "colors", "art", "design"] },
   { file: "gem-icon", name: "Gem", category: "Deportes", tags: ["gem", "diamond", "jewel", "premium"] },
-
-  // Flechas
   { file: "arrow-up-icon", name: "Arrow up", category: "Flechas", tags: ["arrow", "up", "direction", "navigation"] },
   { file: "arrow-down-icon", name: "Arrow down", category: "Flechas", tags: ["arrow", "down", "direction", "navigation"] },
   { file: "arrow-right-icon", name: "Arrow right", category: "Flechas", tags: ["arrow", "right", "direction", "navigation"] },
@@ -141,8 +115,6 @@ export const ICON_MANIFEST = [
   { file: "arrow-up-down-icon", name: "Arrow up down", category: "Flechas", tags: ["arrow", "swap", "vertical", "between"] },
   { file: "arrow-down-to-line-icon", name: "Arrow down to line", category: "Flechas", tags: ["arrow", "download", "inbox", "bottom"] },
   { file: "arrow-up-from-line-icon", name: "Arrow up from line", category: "Flechas", tags: ["arrow", "upload", "outbox", "top"] },
-
-  // Tiempo
   { file: "clock-icon", name: "Clock", category: "Tiempo", tags: ["clock", "time", "hour", "watch"] },
   { file: "alarm-clock-icon", name: "Alarm clock", category: "Tiempo", tags: ["alarm", "clock", "wake", "time"] },
   { file: "timer-icon", name: "Timer", category: "Tiempo", tags: ["timer", "time", "stopwatch", "countdown"] },
@@ -153,8 +125,6 @@ export const ICON_MANIFEST = [
   { file: "calendar-days-icon", name: "Calendar days", category: "Tiempo", tags: ["calendar", "date", "days", "schedule"] },
   { file: "calendar-check-icon", name: "Calendar check", category: "Tiempo", tags: ["calendar", "check", "done", "event"] },
   { file: "timer-reset-icon", name: "Timer reset", category: "Tiempo", tags: ["timer", "reset", "restart", "reload"] },
-
-  // Comunicación
   { file: "mail-icon", name: "Mail", category: "Comunicación", tags: ["mail", "email", "message", "letter"] },
   { file: "message-circle-icon", name: "Message circle", category: "Comunicación", tags: ["message", "chat", "talk", "bubble"] },
   { file: "message-square-icon", name: "Message square", category: "Comunicación", tags: ["message", "chat", "talk", "bubble"] },
@@ -165,8 +135,6 @@ export const ICON_MANIFEST = [
   { file: "voicemail-icon", name: "Voicemail", category: "Comunicación", tags: ["voicemail", "voice", "audio", "message"] },
   { file: "mail-plus-icon", name: "Mail plus", category: "Comunicación", tags: ["mail", "email", "add", "compose"] },
   { file: "at-sign-icon", name: "At sign", category: "Comunicación", tags: ["at", "mention", "email", "signal"] },
-
-  // Gráficas
   { file: "chart-line-icon", name: "Chart line", category: "Gráficas", tags: ["chart", "line", "graph", "stats"] },
   { file: "chart-spline-icon", name: "Chart spline", category: "Gráficas", tags: ["chart", "spline", "curved", "stats"] },
   { file: "chart-column-icon", name: "Chart column", category: "Gráficas", tags: ["chart", "bar", "column", "stats"] },
@@ -177,8 +145,6 @@ export const ICON_MANIFEST = [
   { file: "chart-no-axes-column-icon", name: "Chart columns", category: "Gráficas", tags: ["chart", "columns", "bar", "stats"] },
   { file: "chart-scatter-icon", name: "Chart scatter", category: "Gráficas", tags: ["chart", "scatter", "dots", "stats"] },
   { file: "chart-no-axes-gantt-icon", name: "Chart gantt", category: "Gráficas", tags: ["chart", "gantt", "timeline", "project"] },
-
-  // Mapas
   { file: "locate-fixed-icon", name: "Locate fixed", category: "Mapas", tags: ["locate", "position", "gps", "pin"] },
   { file: "map-pin-off-icon", name: "Map pin off", category: "Mapas", tags: ["map", "pin", "off", "location"] },
   { file: "map-pinned-icon", name: "Map pinned", category: "Mapas", tags: ["map", "pin", "location", "save"] },
@@ -189,8 +155,6 @@ export const ICON_MANIFEST = [
   { file: "signpost-big-icon", name: "Signpost", category: "Mapas", tags: ["signpost", "direction", "street", "guide"] },
   { file: "earth-icon", name: "Earth", category: "Mapas", tags: ["earth", "globe", "world", "planet"] },
   { file: "globe-icon", name: "Globe", category: "Mapas", tags: ["globe", "world", "web", "global"] },
-
-  // Oficina
   { file: "file-text-icon", name: "File text", category: "Oficina", tags: ["file", "document", "text", "report"] },
   { file: "file-plus-icon", name: "File plus", category: "Oficina", tags: ["file", "document", "add", "new"] },
   { file: "file-check-icon", name: "File check", category: "Oficina", tags: ["file", "document", "check", "done"] },
@@ -201,8 +165,6 @@ export const ICON_MANIFEST = [
   { file: "clipboard-check-icon", name: "Clipboard check", category: "Oficina", tags: ["clipboard", "check", "done", "task"] },
   { file: "pencil-icon", name: "Pencil", category: "Oficina", tags: ["pencil", "write", "edit", "draw"] },
   { file: "glasses-icon", name: "Glasses", category: "Oficina", tags: ["glasses", "spectacles", "vision", "read"] },
-
-  // Dispositivos
   { file: "laptop-minimal-icon", name: "Laptop", category: "Dispositivos", tags: ["laptop", "computer", "notebook"] },
   { file: "mouse-icon", name: "Mouse", category: "Dispositivos", tags: ["mouse", "pointer", "computer", "input"] },
   { file: "gamepad-2-icon", name: "Gamepad", category: "Dispositivos", tags: ["gamepad", "controller", "gaming", "play"] },
@@ -213,8 +175,6 @@ export const ICON_MANIFEST = [
   { file: "phone-call-icon", name: "Phone call", category: "Dispositivos", tags: ["phone", "call", "ring", "talk"] },
   { file: "mic-vocal-icon", name: "Microphone", category: "Dispositivos", tags: ["mic", "microphone", "voice", "record"] },
   { file: "router-icon", name: "Router", category: "Dispositivos", tags: ["router", "network", "wifi", "internet"] },
-
-  // Multimedia
   { file: "image-icon", name: "Image", category: "Multimedia", tags: ["image", "picture", "photo", "graphic"] },
   { file: "image-plus-icon", name: "Image plus", category: "Multimedia", tags: ["image", "picture", "add", "photo"] },
   { file: "image-up-icon", name: "Image upload", category: "Multimedia", tags: ["image", "upload", "share", "picture"] },
@@ -225,8 +185,6 @@ export const ICON_MANIFEST = [
   { file: "aperture-icon", name: "Aperture", category: "Multimedia", tags: ["aperture", "camera", "lens", "photo"] },
   { file: "images-icon", name: "Images", category: "Multimedia", tags: ["images", "photos", "gallery", "pictures"] },
   { file: "image-play-icon", name: "Image play", category: "Multimedia", tags: ["image", "video", "play", "picture"] },
-
-  // Comercio y finanzas
   { file: "shopping-bag-icon", name: "Shopping bag", category: "Comercio", tags: ["bag", "shopping", "buy", "store"] },
   { file: "shopping-basket-icon", name: "Shopping basket", category: "Comercio", tags: ["basket", "shopping", "buy", "store"] },
   { file: "store-icon", name: "Store", category: "Comercio", tags: ["store", "shop", "market", "commerce"] },
@@ -237,8 +195,6 @@ export const ICON_MANIFEST = [
   { file: "circle-euro-icon", name: "Euro circle", category: "Finanzas", tags: ["euro", "money", "currency", "coin"] },
   { file: "chart-candlestick-icon", name: "Candlestick chart", category: "Finanzas", tags: ["candlestick", "chart", "stocks", "finance"] },
   { file: "trending-down-icon", name: "Trending down", category: "Finanzas", tags: ["trending", "down", "decrease", "chart"] },
-
-  // Juegos
   { file: "dice-1-icon", name: "Dice 1", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
   { file: "dice-2-icon", name: "Dice 2", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
   { file: "dice-3-icon", name: "Dice 3", category: "Juegos", tags: ["dice", "game", "random", "luck"] },
@@ -249,8 +205,6 @@ export const ICON_MANIFEST = [
   { file: "shield-icon", name: "Shield", category: "Juegos", tags: ["shield", "defense", "protect", "guard"] },
   { file: "shield-half-icon", name: "Shield half", category: "Juegos", tags: ["shield", "defense", "half", "protect"] },
   { file: "castle-icon", name: "Castle", category: "Juegos", tags: ["castle", "fort", "king", "chess"] },
-
-  // Salud
   { file: "heart-pulse-icon", name: "Heart pulse", category: "Salud", tags: ["heart", "pulse", "heartbeat", "health"] },
   { file: "stethoscope-icon", name: "Stethoscope", category: "Salud", tags: ["stethoscope", "doctor", "medical", "health"] },
   { file: "activity-icon", name: "Activity", category: "Salud", tags: ["activity", "pulse", "heartbeat", "ecg"] },
@@ -261,8 +215,6 @@ export const ICON_MANIFEST = [
   { file: "dna-icon", name: "DNA", category: "Salud", tags: ["dna", "genetics", "biology", "helix"] },
   { file: "baby-icon", name: "Baby", category: "Salud", tags: ["baby", "newborn", "child", "infant"] },
   { file: "bandage-icon", name: "Bandage", category: "Salud", tags: ["bandage", "wound", "plaster", "medical"] },
-
-  // Naturaleza y clima
   { file: "tree-pine-icon", name: "Tree pine", category: "Naturaleza", tags: ["tree", "pine", "forest", "nature"] },
   { file: "tree-deciduous-icon", name: "Tree deciduous", category: "Naturaleza", tags: ["tree", "deciduous", "forest", "nature"] },
   { file: "flower-2-icon", name: "Flower", category: "Naturaleza", tags: ["flower", "blossom", "nature", "spring"] },
@@ -273,8 +225,6 @@ export const ICON_MANIFEST = [
   { file: "cloud-fog-icon", name: "Cloud fog", category: "Clima", tags: ["fog", "cloud", "mist", "weather"] },
   { file: "sprout-icon", name: "Sprout", category: "Naturaleza", tags: ["sprout", "plant", "grow", "spring"] },
   { file: "cloudy-icon", name: "Cloudy", category: "Clima", tags: ["cloudy", "cloud", "weather", "overcast"] },
-
-  // Viajes
   { file: "train-front-icon", name: "Train", category: "Viajes", tags: ["train", "rail", "transport", "station"] },
   { file: "tram-front-icon", name: "Tram", category: "Viajes", tags: ["tram", "streetcar", "transport", "city"] },
   { file: "bus-front-icon", name: "Bus", category: "Viajes", tags: ["bus", "transport", "vehicle"] },
@@ -285,8 +235,6 @@ export const ICON_MANIFEST = [
   { file: "luggage-icon", name: "Luggage", category: "Viajes", tags: ["luggage", "suitcase", "bag", "travel"] },
   { file: "car-front-icon", name: "Car front", category: "Viajes", tags: ["car", "front", "vehicle", "drive"] },
   { file: "train-track-icon", name: "Train track", category: "Viajes", tags: ["train", "track", "rail", "railway"] },
-
-  // Seguridad
   { file: "lock-icon", name: "Lock", category: "Seguridad", tags: ["lock", "secure", "password", "protected"] },
   { file: "lock-keyhole-icon", name: "Lock keyhole", category: "Seguridad", tags: ["lock", "keyhole", "secure", "private"] },
   { file: "lock-keyhole-open-icon", name: "Lock open", category: "Seguridad", tags: ["lock", "open", "unlock", "secure"] },
@@ -297,8 +245,6 @@ export const ICON_MANIFEST = [
   { file: "radar-icon", name: "Radar", category: "Seguridad", tags: ["radar", "scan", "detect", "sonar"] },
   { file: "scan-face-icon", name: "Scan face", category: "Seguridad", tags: ["scan", "face", "id", "biometric"] },
   { file: "fingerprint-pattern-icon", name: "Fingerprint", category: "Seguridad", tags: ["fingerprint", "biometric", "identity", "touch"] },
-
-  // Usuarios
   { file: "user-round-icon", name: "User", category: "Usuarios", tags: ["user", "person", "profile", "account"] },
   { file: "user-round-plus-icon", name: "User plus", category: "Usuarios", tags: ["user", "add", "invite", "person"] },
   { file: "user-round-check-icon", name: "User check", category: "Usuarios", tags: ["user", "check", "verified", "person"] },
@@ -309,8 +255,6 @@ export const ICON_MANIFEST = [
   { file: "user-search-icon", name: "User search", category: "Usuarios", tags: ["user", "search", "find", "person"] },
   { file: "contact-round-icon", name: "Contact", category: "Usuarios", tags: ["contact", "user", "person", "avatar"] },
   { file: "user-round-x-icon", name: "User remove", category: "Usuarios", tags: ["user", "remove", "delete", "person"] },
-
-  // Diseño
   { file: "shapes-icon", name: "Shapes", category: "Diseño", tags: ["shapes", "geometry", "design", "forms"] },
   { file: "pen-tool-icon", name: "Pen tool", category: "Diseño", tags: ["pen", "tool", "vector", "design"] },
   { file: "brush-icon", name: "Brush", category: "Diseño", tags: ["brush", "paint", "art", "draw"] },
@@ -321,8 +265,6 @@ export const ICON_MANIFEST = [
   { file: "layers-icon", name: "Layers", category: "Diseño", tags: ["layers", "stack", "depth", "design"] },
   { file: "layout-grid-icon", name: "Layout grid", category: "Diseño", tags: ["layout", "grid", "cells", "design"] },
   { file: "layout-dashboard-icon", name: "Layout dashboard", category: "Diseño", tags: ["layout", "dashboard", "panels", "ui"] },
-
-  // Bases de datos
   { file: "database-zap-icon", name: "Database zap", category: "Bases de datos", tags: ["database", "zap", "fast", "data"] },
   { file: "database-plus-icon", name: "Database plus", category: "Bases de datos", tags: ["database", "add", "create", "data"] },
   { file: "database-search-icon", name: "Database search", category: "Bases de datos", tags: ["database", "search", "find", "data"] },
@@ -333,8 +275,6 @@ export const ICON_MANIFEST = [
   { file: "database-arrow-down-icon", name: "Database down", category: "Bases de datos", tags: ["database", "down", "import", "data"] },
   { file: "database-arrow-up-icon", name: "Database up", category: "Bases de datos", tags: ["database", "up", "export", "data"] },
   { file: "archive-restore-icon", name: "Archive restore", category: "Bases de datos", tags: ["archive", "restore", "recover", "box"] },
-
-  // Desarrollo
   { file: "braces-icon", name: "Braces", category: "Desarrollo", tags: ["braces", "code", "json", "dev"] },
   { file: "brackets-icon", name: "Brackets", category: "Desarrollo", tags: ["brackets", "code", "syntax", "dev"] },
   { file: "code-xml-icon", name: "Code XML", category: "Desarrollo", tags: ["code", "xml", "html", "tags"] },
@@ -345,8 +285,6 @@ export const ICON_MANIFEST = [
   { file: "git-pull-request-icon", name: "Pull request", category: "Desarrollo", tags: ["git", "pull", "request", "merge"] },
   { file: "heading-2-icon", name: "Heading 2", category: "Desarrollo", tags: ["heading", "title", "text", "format"] },
   { file: "text-cursor-input-icon", name: "Cursor input", category: "Desarrollo", tags: ["cursor", "input", "text", "type"] },
-
-  // Redes sociales
   { file: "share-icon", name: "Share", category: "Redes sociales", tags: ["share", "social", "network", "forward"] },
   { file: "share-2-icon", name: "Share nodes", category: "Redes sociales", tags: ["share", "nodes", "network", "connect"] },
   { file: "rss-icon", name: "RSS", category: "Redes sociales", tags: ["rss", "feed", "subscribe", "news"] },
@@ -357,8 +295,6 @@ export const ICON_MANIFEST = [
   { file: "message-square-share-icon", name: "Message share", category: "Redes sociales", tags: ["message", "share", "chat", "social"] },
   { file: "message-circle-heart-icon", name: "Message heart", category: "Redes sociales", tags: ["message", "heart", "love", "chat"] },
   { file: "heart-handshake-icon", name: "Heart handshake", category: "Redes sociales", tags: ["heart", "handshake", "help", "care"] },
-
-  // Otros
   { file: "download-icon", name: "Download", category: "Otros", tags: ["download", "save", "arrow", "inbox"] },
   { file: "upload-icon", name: "Upload", category: "Otros", tags: ["upload", "share", "arrow", "outbox"] },
   { file: "star-off-icon", name: "Star off", category: "Otros", tags: ["star", "off", "unfavorite", "rating"] },
@@ -367,7 +303,6 @@ export const ICON_MANIFEST = [
   { file: "flame-icon", name: "Flame", category: "Otros", tags: ["flame", "fire", "hot", "streak"] },
   { file: "droplets-icon", name: "Droplets", category: "Otros", tags: ["droplets", "water", "drop", "rain"] },
   { file: "ban-icon", name: "Ban", category: "Otros", tags: ["ban", "forbidden", "no", "stop"] },
-  // tabler.io (MIT)
   { file: "run-sprint-icon", name: "Run sprint", category: "Deporte", tags: ["run", "sprint", "jog", "sport", "speed"] },
   { file: "play-bug-icon", name: "Play bug", category: "Deporte", tags: ["bug", "game", "play", "sport"] },
   { file: "treasure-chest-icon", name: "Treasure chest", category: "Juegos", tags: ["treasure", "chest", "loot", "pirate", "game"] },
@@ -384,8 +319,6 @@ export const ICON_MANIFEST = [
   { file: "pencil-ruler-icon", name: "Pencil ruler", category: "Otros", tags: ["pencil", "ruler", "design", "measure"] },
   { file: "award-icon", name: "Award", category: "Otros", tags: ["award", "prize", "winner", "medal"] },
   { file: "zap-icon", name: "Zap", category: "Otros", tags: ["zap", "lightning", "energy", "fast"] },
-
-  // Marcas
   { file: "react-icon", name: "React", category: "Marcas", tags: ["react", "framework", "ui", "javascript"] },
   { file: "vercel-icon", name: "Vercel", category: "Marcas", tags: ["vercel", "next", "deploy", "hosting"] },
   { file: "next-icon", name: "Next.js", category: "Marcas", tags: ["next", "nextjs", "framework", "react"] },
@@ -415,7 +348,6 @@ export const ICON_MANIFEST = [
   { file: "discord-icon", name: "Discord", category: "Marcas", tags: ["discord", "chat", "gaming", "voice"] },
   { file: "slack-icon", name: "Slack", category: "Marcas", tags: ["slack", "chat", "team", "work"] },
   { file: "spotify-icon", name: "Spotify", category: "Marcas", tags: ["spotify", "music", "audio", "stream"] },
-  // Abecedario (A-Z)
   { file: "letter-a-icon", name: "A", category: "Abecedario", tags: ["letra", "a", "abecedario", "alphabet"] },
   { file: "letter-b-icon", name: "B", category: "Abecedario", tags: ["letra", "b", "abecedario", "alphabet"] },
   { file: "letter-c-icon", name: "C", category: "Abecedario", tags: ["letra", "c", "abecedario", "alphabet"] },
@@ -442,7 +374,6 @@ export const ICON_MANIFEST = [
   { file: "letter-x-icon", name: "X", category: "Abecedario", tags: ["letra", "x", "abecedario", "alphabet"] },
   { file: "letter-y-icon", name: "Y", category: "Abecedario", tags: ["letra", "y", "abecedario", "alphabet"] },
   { file: "letter-z-icon", name: "Z", category: "Abecedario", tags: ["letra", "z", "abecedario", "alphabet"] },
-  // itshover / morphicons (MIT)
   { file: "banana-icon", name: "Banana", category: "Comida", tags: ["banana", "fruta", "comida", "peel"] },
   { file: "brain-circuit-icon", name: "Brain Circuit", category: "Tecnología", tags: ["brain", "cerebro", "circuito", "ia"] },
   { file: "hand-heart-icon", name: "Hand Heart", category: "Emociones", tags: ["hand", "mano", "corazón", "ayuda"] },
@@ -518,4 +449,54 @@ export const ICON_MANIFEST = [
   { file: "wallet-2-icon", name: "Wallet", category: "Finanzas", tags: ["billetera", "dinero", "pago", "cartera"] },
   { file: "wand-2-icon", name: "Wand", category: "Diseño", tags: ["varita", "magia", "herramienta", "crear"] },
   { file: "link-2-icon", name: "Link 2", category: "Comunicación", tags: ["enlace", "link", "vínculo", "cadena"] },
+  { file: "circle-check-icon", name: "Circle Check", category: "UI", tags: ["check", "circulo", "ok", "verificado"] },
+  { file: "circle-x-icon", name: "Circle X", category: "UI", tags: ["x", "circulo", "cancelar", "cerrar"] },
+  { file: "circle-alert-icon", name: "Circle Alert", category: "UI", tags: ["alerta", "circulo", "aviso", "warning"] },
+  { file: "info-icon", name: "Info", category: "UI", tags: ["info", "informacion", "detalle", "ayuda"] },
+  { file: "menu-icon", name: "Menu", category: "UI", tags: ["menu", "hamburguesa", "navegacion", "listar"] },
+  { file: "minus-icon", name: "Minus", category: "UI", tags: ["menos", "restar", "quitar", "collapse"] },
+  { file: "plus-icon", name: "Plus", category: "UI", tags: ["mas", "agregar", "nuevo", "expand"] },
+  { file: "user-icon", name: "User", category: "Usuarios", tags: ["usuario", "persona", "perfil", "avatar"] },
+  { file: "log-in-icon", name: "Log In", category: "Usuarios", tags: ["entrar", "login", "acceso", "ingresar"] },
+  { file: "log-out-icon", name: "Log Out", category: "Usuarios", tags: ["salir", "logout", "cerrar", "sesion"] },
+  { file: "list-icon", name: "List", category: "UI", tags: ["lista", "items", "ordenar", "contenido"] },
+  { file: "list-ordered-icon", name: "List Ordered", category: "UI", tags: ["lista", "numerada", "orden", "items"] },
+  { file: "grid-3x3-icon", name: "Grid 3x3", category: "UI", tags: ["cuadricula", "grid", "coleccion", "galeria"] },
+  { file: "grid-2x2-icon", name: "Grid 2x2", category: "UI", tags: ["cuadricula", "grid", "cuadros", "galeria"] },
+  { file: "command-icon", name: "Command", category: "UI", tags: ["comando", "cmd", "tecla", "atajo"] },
+  { file: "sparkles-icon", name: "Sparkles", category: "UI", tags: ["brillos", "magia", "destellos", "nuevo"] },
+  { file: "highlighter-icon", name: "Highlighter", category: "Oficina", tags: ["resaltador", "marcador", "texto", "subrayar"] },
+  { file: "pen-line-icon", name: "Pen Line", category: "Oficina", tags: ["pluma", "linea", "escribir", "trazo"] },
+  { file: "key-icon", name: "Key", category: "Seguridad", tags: ["llave", "clave", "acceso", "contraseña"] },
+  { file: "lock-open-icon", name: "Lock Open", category: "Seguridad", tags: ["candado", "abierto", "desbloqueado", "seguridad"] },
+  { file: "package-icon", name: "Package", category: "Hogar", tags: ["paquete", "caja", "envio", "entrega"] },
+  { file: "refresh-cw-icon", name: "Refresh", category: "UI", tags: ["recargar", "refrescar", "actualizar", "sync"] },
+  { file: "rotate-cw-icon", name: "Rotate Cw", category: "Flechas", tags: ["rotar", "derecha", "giro", "cambio"] },
+  { file: "rotate-ccw-icon", name: "Rotate Ccw", category: "Flechas", tags: ["rotar", "izquierda", "giro", "atras"] },
+  { file: "unplug-icon", name: "Unplug", category: "Dispositivos", tags: ["desconectar", "enchufe", "off", "energia"] },
+  { file: "badge-info-icon", name: "Badge Info", category: "UI", tags: ["insignia", "info", "etiqueta", "detalle"] },
+  { file: "triangle-alert-icon", name: "Triangle Alert", category: "UI", tags: ["triangulo", "alerta", "warning", "peligro"] },
+  { file: "panel-left-icon", name: "Panel Left", category: "UI", tags: ["panel", "izquierda", "sidebar", "layout"] },
+  { file: "panel-right-icon", name: "Panel Right", category: "UI", tags: ["panel", "derecha", "sidebar", "layout"] },
+  { file: "panel-top-icon", name: "Panel Top", category: "UI", tags: ["panel", "arriba", "header", "layout"] },
+  { file: "circle-dot-icon", name: "Circle Dot", category: "UI", tags: ["circulo", "punto", "estado", "indicador"] },
+  { file: "face-slightly-smiling-icon", name: "Smile", category: "Emociones", tags: ["cara", "sonrisa", "feliz", "emoji"] },
+  { file: "face-slightly-frowning-icon", name: "Frown", category: "Emociones", tags: ["cara", "triste", "disgusto", "emoji"] },
+  { file: "circle-question-mark-icon", name: "Help Circle", category: "UI", tags: ["ayuda", "pregunta", "soporte", "circulo"] },
+  { file: "folder-sync-icon", name: "Folder Sync", category: "Oficina", tags: ["carpeta", "sincronizar", "sync", "archivo"] },
+  { file: "file-type-corner-icon", name: "File Type", category: "Desarrollo", tags: ["archivo", "tipo", "formato", "documento"] },
+  { file: "file-input-icon", name: "File Input", category: "Desarrollo", tags: ["archivo", "entrada", "importar", "cargar"] },
+  { file: "file-output-icon", name: "File Output", category: "Desarrollo", tags: ["archivo", "salida", "exportar", "guardar"] },
+  { file: "crop-icon", name: "Crop", category: "Diseño", tags: ["recortar", "crop", "imagen", "editar"] },
+  { file: "scissors-icon", name: "Scissors", category: "Diseño", tags: ["tijeras", "cortar", "recortar", "edicion"] },
+  { file: "text-align-start-icon", name: "Text Align", category: "Oficina", tags: ["texto", "alinear", "izquierda", "formato"] },
+  { file: "audio-lines-icon", name: "Audio Lines", category: "Música", tags: ["audio", "ondas", "sonido", "volumen"] },
+  { file: "badge-check-icon", name: "Badge Check", category: "UI", tags: ["insignia", "verificado", "check", "certificado"] },
+  { file: "stamp-icon", name: "Stamp", category: "Oficina", tags: ["sello", "estampilla", "firma", "aprobado"] },
+  { file: "signpost-icon", name: "Signpost", category: "Viajes", tags: ["señal", "poste", "direccion", "ruta"] },
+  { file: "sunset-icon", name: "Sunset", category: "Clima", tags: ["atardecer", "sol", "ocaso", "anochecer"] },
+  { file: "sunrise-icon", name: "Sunrise", category: "Clima", tags: ["amanecer", "sol", "alba", "madrugada"] },
+  { file: "undo-2-icon", name: "Undo", category: "Flechas", tags: ["deshacer", "atras", "revertir", "flecha"] },
+  { file: "redo-2-icon", name: "Redo", category: "Flechas", tags: ["rehacer", "adelante", "repetir", "flecha"] },
+  { file: "square-x-icon", name: "Square X", category: "UI", tags: ["cuadrado", "x", "cancelar", "cerrar"] },
 ];

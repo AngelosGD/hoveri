@@ -452,6 +452,56 @@ const TrashIcon = lazy(() => import("@/icons/trash-icon"));
 const Wallet2Icon = lazy(() => import("@/icons/wallet-2-icon"));
 const Wand2Icon = lazy(() => import("@/icons/wand-2-icon"));
 const Link2Icon = lazy(() => import("@/icons/link-2-icon"));
+const CircleCheckIcon = lazy(() => import("@/icons/circle-check-icon"));
+const CircleXIcon = lazy(() => import("@/icons/circle-x-icon"));
+const CircleAlertIcon = lazy(() => import("@/icons/circle-alert-icon"));
+const InfoIcon = lazy(() => import("@/icons/info-icon"));
+const MenuIcon = lazy(() => import("@/icons/menu-icon"));
+const MinusIcon = lazy(() => import("@/icons/minus-icon"));
+const PlusIcon = lazy(() => import("@/icons/plus-icon"));
+const UserIcon = lazy(() => import("@/icons/user-icon"));
+const LogInIcon = lazy(() => import("@/icons/log-in-icon"));
+const LogOutIcon = lazy(() => import("@/icons/log-out-icon"));
+const ListIcon = lazy(() => import("@/icons/list-icon"));
+const ListOrderedIcon = lazy(() => import("@/icons/list-ordered-icon"));
+const Grid3x3Icon = lazy(() => import("@/icons/grid-3x3-icon"));
+const Grid2x2Icon = lazy(() => import("@/icons/grid-2x2-icon"));
+const CommandIcon = lazy(() => import("@/icons/command-icon"));
+const SparklesIcon = lazy(() => import("@/icons/sparkles-icon"));
+const HighlighterIcon = lazy(() => import("@/icons/highlighter-icon"));
+const PenLineIcon = lazy(() => import("@/icons/pen-line-icon"));
+const KeyIcon = lazy(() => import("@/icons/key-icon"));
+const LockOpenIcon = lazy(() => import("@/icons/lock-open-icon"));
+const PackageIcon = lazy(() => import("@/icons/package-icon"));
+const RefreshCwIcon = lazy(() => import("@/icons/refresh-cw-icon"));
+const RotateCwIcon = lazy(() => import("@/icons/rotate-cw-icon"));
+const RotateCcwIcon = lazy(() => import("@/icons/rotate-ccw-icon"));
+const UnplugIcon = lazy(() => import("@/icons/unplug-icon"));
+const BadgeInfoIcon = lazy(() => import("@/icons/badge-info-icon"));
+const TriangleAlertIcon = lazy(() => import("@/icons/triangle-alert-icon"));
+const PanelLeftIcon = lazy(() => import("@/icons/panel-left-icon"));
+const PanelRightIcon = lazy(() => import("@/icons/panel-right-icon"));
+const PanelTopIcon = lazy(() => import("@/icons/panel-top-icon"));
+const CircleDotIcon = lazy(() => import("@/icons/circle-dot-icon"));
+const FaceSlightlySmilingIcon = lazy(() => import("@/icons/face-slightly-smiling-icon"));
+const FaceSlightlyFrowningIcon = lazy(() => import("@/icons/face-slightly-frowning-icon"));
+const CircleQuestionMarkIcon = lazy(() => import("@/icons/circle-question-mark-icon"));
+const FolderSyncIcon = lazy(() => import("@/icons/folder-sync-icon"));
+const FileTypeCornerIcon = lazy(() => import("@/icons/file-type-corner-icon"));
+const FileInputIcon = lazy(() => import("@/icons/file-input-icon"));
+const FileOutputIcon = lazy(() => import("@/icons/file-output-icon"));
+const CropIcon = lazy(() => import("@/icons/crop-icon"));
+const ScissorsIcon = lazy(() => import("@/icons/scissors-icon"));
+const TextAlignStartIcon = lazy(() => import("@/icons/text-align-start-icon"));
+const AudioLinesIcon = lazy(() => import("@/icons/audio-lines-icon"));
+const BadgeCheckIcon = lazy(() => import("@/icons/badge-check-icon"));
+const StampIcon = lazy(() => import("@/icons/stamp-icon"));
+const SignpostIcon = lazy(() => import("@/icons/signpost-icon"));
+const SunsetIcon = lazy(() => import("@/icons/sunset-icon"));
+const SunriseIcon = lazy(() => import("@/icons/sunrise-icon"));
+const Undo2Icon = lazy(() => import("@/icons/undo-2-icon"));
+const Redo2Icon = lazy(() => import("@/icons/redo-2-icon"));
+const SquareXIcon = lazy(() => import("@/icons/square-x-icon"));
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -904,6 +954,56 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "wallet-2-icon": Wallet2Icon,
   "wand-2-icon": Wand2Icon,
   "link-2-icon": Link2Icon,
+  "circle-check-icon": CircleCheckIcon,
+  "circle-x-icon": CircleXIcon,
+  "circle-alert-icon": CircleAlertIcon,
+  "info-icon": InfoIcon,
+  "menu-icon": MenuIcon,
+  "minus-icon": MinusIcon,
+  "plus-icon": PlusIcon,
+  "user-icon": UserIcon,
+  "log-in-icon": LogInIcon,
+  "log-out-icon": LogOutIcon,
+  "list-icon": ListIcon,
+  "list-ordered-icon": ListOrderedIcon,
+  "grid-3x3-icon": Grid3x3Icon,
+  "grid-2x2-icon": Grid2x2Icon,
+  "command-icon": CommandIcon,
+  "sparkles-icon": SparklesIcon,
+  "highlighter-icon": HighlighterIcon,
+  "pen-line-icon": PenLineIcon,
+  "key-icon": KeyIcon,
+  "lock-open-icon": LockOpenIcon,
+  "package-icon": PackageIcon,
+  "refresh-cw-icon": RefreshCwIcon,
+  "rotate-cw-icon": RotateCwIcon,
+  "rotate-ccw-icon": RotateCcwIcon,
+  "unplug-icon": UnplugIcon,
+  "badge-info-icon": BadgeInfoIcon,
+  "triangle-alert-icon": TriangleAlertIcon,
+  "panel-left-icon": PanelLeftIcon,
+  "panel-right-icon": PanelRightIcon,
+  "panel-top-icon": PanelTopIcon,
+  "circle-dot-icon": CircleDotIcon,
+  "face-slightly-smiling-icon": FaceSlightlySmilingIcon,
+  "face-slightly-frowning-icon": FaceSlightlyFrowningIcon,
+  "circle-question-mark-icon": CircleQuestionMarkIcon,
+  "folder-sync-icon": FolderSyncIcon,
+  "file-type-corner-icon": FileTypeCornerIcon,
+  "file-input-icon": FileInputIcon,
+  "file-output-icon": FileOutputIcon,
+  "crop-icon": CropIcon,
+  "scissors-icon": ScissorsIcon,
+  "text-align-start-icon": TextAlignStartIcon,
+  "audio-lines-icon": AudioLinesIcon,
+  "badge-check-icon": BadgeCheckIcon,
+  "stamp-icon": StampIcon,
+  "signpost-icon": SignpostIcon,
+  "sunset-icon": SunsetIcon,
+  "sunrise-icon": SunriseIcon,
+  "undo-2-icon": Undo2Icon,
+  "redo-2-icon": Redo2Icon,
+  "square-x-icon": SquareXIcon,
 };
 
 export function getIconComponent(file: string) {
