@@ -39,7 +39,7 @@ const WLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 6l4 14 4-14 4 14 4-14 2 14" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 20l4-14 4 14 4-14 4 14" />
       </motion.svg>
     );
   },

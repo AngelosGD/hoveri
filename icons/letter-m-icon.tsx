@@ -39,7 +39,7 @@ const MLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 20V6l4 14 4-14 4 14 4-14v14" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 6v14l7-14 7 14V6" />
       </motion.svg>
     );
   },

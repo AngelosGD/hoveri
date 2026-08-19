@@ -41,8 +41,8 @@ const DLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 20V6h1a5.5 5.5 0 0 1 0 11h-1" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 17h1.5a3.5 3.5 0 0 0 0-7H12" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 5v14" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 5a7 7 0 0 1 0 14" />
       </motion.svg>
     );
   },

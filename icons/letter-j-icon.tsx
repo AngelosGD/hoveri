@@ -41,8 +41,8 @@ const JLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 7v7a4.5 4.5 0 0 0 9 0" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 6v8a4 4 0 0 1 8 0v-1.5" />
       </motion.svg>
     );
   },

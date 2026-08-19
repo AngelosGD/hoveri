@@ -13,16 +13,12 @@ const ALetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
     const startAnimation = async () => {
       animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.12 });
-      animate(".part-2", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.24 });
-      animate(".part-3", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.36 });
+      animate(".part-1", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {
       animate(".part-0", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
       animate(".part-1", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-2", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-3", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -45,10 +41,8 @@ const ALetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 20l3-9 3 9" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4.8 16.5h4.4" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 20l3-9 3 9" />
-        <motion.path className="part-3" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12.8 16.5h4.4" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 20l7-14 7 14" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6.8 15.5h10.4" />
       </motion.svg>
     );
   },
