@@ -11,19 +11,19 @@ const PayPalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".pplo-big",
-        { y: [0, -3, 0], rotate: [0, -4, 0] },
+        { y: [0, -2, 0], rotate: [0, -4, 0] },
         { duration: 0.6, ease: "easeInOut" },
       );
       animate(
         ".pplo-small",
-        { opacity: [1, 0.3, 1], x: [0, 2.5, 0], y: [0, -1, 0] },
+        { opacity: [0, 1, 1, 0], scale: [0.9, 1, 1, 0.9] },
         { duration: 0.7, ease: "easeInOut", delay: 0.15 },
       );
     };
 
     const stopAnimation = () => {
-      animate(".pplo-big", { y: 0, scale: 1 }, { duration: 0.25 });
-      animate(".pplo-small", { opacity: 1, x: 0 }, { duration: 0.25 });
+      animate(".pplo-big", { y: 0, rotate: 0 }, { duration: 0.25 });
+      animate(".pplo-small", { opacity: 0, scale: 0.9 }, { duration: 0.25 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -46,10 +46,14 @@ const PayPalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="pplo-big" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M4 21l1.2-6.3M4.6 21c4.5 0 6-1.5 6.9-4M4.6 21h3M5.6 16.8c3.2-.4 5-1.7 5.9-4.4 1-3 .3-5-1.5-6.1M6 5.2h3.3c1.5 0 2.4.6 2.9 1.8M4.2 11.8h3.5c1.6 0 2.8.8 3.2 2.2.5 1.8-.4 3.6-2.4 4.2" />
-        </g>
-        <path className="pplo-small" d="M16.5 15.5c.9-2.4 2-4.5 4-6.2M17 9.6c1.8-1.8 3.4-2.6 4.6-2.1" />
+        <path
+          className="pplo-big"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          fill={color}
+          stroke="none"
+          d="M15.607 4.653H8.941L6.645 19.251H1.82L4.862 0h7.995c3.754 0 6.375 2.294 6.473 5.513-.648-.478-2.105-.86-3.722-.86m6.57 5.546c0 3.41-3.01 6.853-6.958 6.853h-2.493L11.595 24H6.74l1.845-11.538h3.592c4.208 0 7.346-3.634 7.153-6.949a5.24 5.24 0 0 1 2.848 4.686M9.653 5.546h6.408c.907 0 1.942.222 2.363.541-.195 2.741-2.655 5.483-6.441 5.483H8.714Z"
+        />
+        <path className="pplo-small" d="M5 4h12" opacity="0" strokeWidth={strokeWidth * 0.6} />
       </motion.svg>
     );
   },

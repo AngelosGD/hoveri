@@ -11,19 +11,19 @@ const NextIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       await animate(
         ".next-ring",
-        { scale: [1, 1.06, 1], opacity: [1, 0.8, 1] },
+        { scale: [1, 1.06, 1], opacity: [1, 0.85, 1] },
         { duration: 0.6, ease: "easeInOut" },
       );
-      await animate(
+      animate(
         ".next-n",
-        { pathLength: [0, 1], opacity: [0, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.1 },
+        { y: [0, -2, 0], x: [0, 1, 0], opacity: [1, 0.7, 1] },
+        { duration: 0.55, ease: "easeInOut", delay: 0.12 },
       );
     };
 
     const stopAnimation = () => {
       animate(".next-ring", { scale: 1, opacity: 1 }, { duration: 0.25 });
-      animate(".next-n", { pathLength: 1, opacity: 1 }, { duration: 0.25 });
+      animate(".next-n", { y: 0, x: 0, opacity: 1 }, { duration: 0.25 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -40,18 +40,23 @@ const NextIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         fill="none"
         stroke={color}
         strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <circle className="next-ring" cx="12" cy="12" r="9.5"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} />
+        <path
+          className="next-ring"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          fill={color}
+          stroke="none"
+          d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001Z"
+        />
         <path
           className="next-n"
-          d="M5 8l7 6V8M16 8a1.6 1.6 0 0 1 0 3.2A1.6 1.6 0 0 1 16 14.4V16"
           style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+          fill={color}
+          stroke="none"
+          d="M18.665 21.978L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Z"
         />
       </motion.svg>
     );
