@@ -22,6 +22,12 @@ export default function Navbar() {
           Iconos
         </Link>
         <Link
+          href="/fusionar"
+          className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          Fusionar
+        </Link>
+        <Link
           href="/como-se-hace"
           className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
         >
