@@ -351,6 +351,32 @@ const YoutubeIcon = lazy(() => import("@/icons/youtube-icon"));
 const DiscordIcon = lazy(() => import("@/icons/discord-icon"));
 const SlackIcon = lazy(() => import("@/icons/slack-icon"));
 const SpotifyIcon = lazy(() => import("@/icons/spotify-icon"));
+const LetterAIcon = lazy(() => import("@/icons/letter-a-icon"));
+const LetterBIcon = lazy(() => import("@/icons/letter-b-icon"));
+const LetterCIcon = lazy(() => import("@/icons/letter-c-icon"));
+const LetterDIcon = lazy(() => import("@/icons/letter-d-icon"));
+const LetterEIcon = lazy(() => import("@/icons/letter-e-icon"));
+const LetterFIcon = lazy(() => import("@/icons/letter-f-icon"));
+const LetterGIcon = lazy(() => import("@/icons/letter-g-icon"));
+const LetterHIcon = lazy(() => import("@/icons/letter-h-icon"));
+const LetterIIcon = lazy(() => import("@/icons/letter-i-icon"));
+const LetterJIcon = lazy(() => import("@/icons/letter-j-icon"));
+const LetterKIcon = lazy(() => import("@/icons/letter-k-icon"));
+const LetterLIcon = lazy(() => import("@/icons/letter-l-icon"));
+const LetterMIcon = lazy(() => import("@/icons/letter-m-icon"));
+const LetterNIcon = lazy(() => import("@/icons/letter-n-icon"));
+const LetterOIcon = lazy(() => import("@/icons/letter-o-icon"));
+const LetterPIcon = lazy(() => import("@/icons/letter-p-icon"));
+const LetterQIcon = lazy(() => import("@/icons/letter-q-icon"));
+const LetterRIcon = lazy(() => import("@/icons/letter-r-icon"));
+const LetterSIcon = lazy(() => import("@/icons/letter-s-icon"));
+const LetterTIcon = lazy(() => import("@/icons/letter-t-icon"));
+const LetterUIcon = lazy(() => import("@/icons/letter-u-icon"));
+const LetterVIcon = lazy(() => import("@/icons/letter-v-icon"));
+const LetterWIcon = lazy(() => import("@/icons/letter-w-icon"));
+const LetterXIcon = lazy(() => import("@/icons/letter-x-icon"));
+const LetterYIcon = lazy(() => import("@/icons/letter-y-icon"));
+const LetterZIcon = lazy(() => import("@/icons/letter-z-icon"));
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -702,6 +728,32 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "discord-icon": DiscordIcon,
   "slack-icon": SlackIcon,
   "spotify-icon": SpotifyIcon,
+  "letter-a-icon": LetterAIcon,
+  "letter-b-icon": LetterBIcon,
+  "letter-c-icon": LetterCIcon,
+  "letter-d-icon": LetterDIcon,
+  "letter-e-icon": LetterEIcon,
+  "letter-f-icon": LetterFIcon,
+  "letter-g-icon": LetterGIcon,
+  "letter-h-icon": LetterHIcon,
+  "letter-i-icon": LetterIIcon,
+  "letter-j-icon": LetterJIcon,
+  "letter-k-icon": LetterKIcon,
+  "letter-l-icon": LetterLIcon,
+  "letter-m-icon": LetterMIcon,
+  "letter-n-icon": LetterNIcon,
+  "letter-o-icon": LetterOIcon,
+  "letter-p-icon": LetterPIcon,
+  "letter-q-icon": LetterQIcon,
+  "letter-r-icon": LetterRIcon,
+  "letter-s-icon": LetterSIcon,
+  "letter-t-icon": LetterTIcon,
+  "letter-u-icon": LetterUIcon,
+  "letter-v-icon": LetterVIcon,
+  "letter-w-icon": LetterWIcon,
+  "letter-x-icon": LetterXIcon,
+  "letter-y-icon": LetterYIcon,
+  "letter-z-icon": LetterZIcon,
 };
 
 export function getIconComponent(file: string) {
