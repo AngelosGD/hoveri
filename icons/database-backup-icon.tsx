@@ -12,12 +12,12 @@ const DatabaseBackupIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"y":[0,-3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.3 });
-    animate(".part-3", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.44999999999999996 });
-    animate(".part-4", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.6 });
-    animate(".part-5", {"y":[0,3,0],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.75 });
+    animate(".part-0", {"y":[0,-2,0],"scale":[1,1.08,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.05 });
+    animate(".part-1", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"y":[0,-2,0],"scale":[1,1.08,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.05 });
+    animate(".part-3", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+    animate(".part-5", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.5 });
     };
 
     const stopAnimation = () => {

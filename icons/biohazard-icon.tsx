@@ -12,16 +12,16 @@ const BiohazardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"rotate":-30,"x":[0,-2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":-30,"x":[0,-2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.5 });
-    animate(".part-6", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.6000000000000001 });
-    animate(".part-7", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.7000000000000001 });
-    animate(".part-8", {"rotate":30,"x":[0,2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.8 });
-    animate(".part-9", {"rotate":-30,"x":[0,-2,0],"scale":[1,0.9,1]}, { duration: 1.2, ease: "easeInOut", delay: 0.9 });
+    animate(".part-0", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
+    animate(".part-2", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
+    animate(".part-3", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
+    animate(".part-4", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.32 });
+    animate(".part-5", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.4 });
+    animate(".part-6", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.48 });
+    animate(".part-7", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.56 });
+    animate(".part-8", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.64 });
+    animate(".part-9", {"scale":[1,1.08,0.97,1],"opacity":[1,0.85,1]}, { duration: 1, ease: "easeInOut", delay: 0.72 });
     };
 
     const stopAnimation = () => {

@@ -12,12 +12,12 @@ const TrainFrontIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3,0],"y":[0,-1,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"scale":[1,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"scale":[1,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
-    animate(".part-4", {"scale":[1,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.32 });
-    animate(".part-5", {"scale":[1,1.08,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.4 });
+    animate(".part-0", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.24 });
+    animate(".part-5", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.3 });
     };
 
     const stopAnimation = () => {

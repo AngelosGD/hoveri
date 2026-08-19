@@ -12,11 +12,11 @@ const ShipIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-8,8,-4,0],"y":[0,1,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-8,8,-4,0],"y":[0,1,0]}, { duration: 1, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":[0,-8,8,-4,0],"y":[0,1,0]}, { duration: 1, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":[0,-8,8,-4,0],"y":[0,1,0]}, { duration: 1, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"rotate":[0,-8,8,-4,0],"y":[0,1,0]}, { duration: 1, ease: "easeInOut", delay: 0.4 });
+    animate(".part-0", {"rotate":[0,-6,6,-3,0],"y":[0,2,-2,0],"x":[0,1.5,0]}, { duration: 1.2, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,-6,6,-3,0],"y":[0,2,-2,0],"x":[0,1.5,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.08 });
+    animate(".part-2", {"rotate":[0,-6,6,-3,0],"y":[0,2,-2,0],"x":[0,1.5,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.16 });
+    animate(".part-3", {"rotate":[0,-6,6,-3,0],"y":[0,2,-2,0],"x":[0,1.5,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
+    animate(".part-4", {"rotate":[0,-6,6,-3,0],"y":[0,2,-2,0],"x":[0,1.5,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.32 });
     };
 
     const stopAnimation = () => {

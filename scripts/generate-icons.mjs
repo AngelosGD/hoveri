@@ -52,7 +52,7 @@ const THEME_BY_NAME = {
   terminal: "blink",
   languages: "spread",
   "git-branch": "branch",
-  database: "stack",
+  database: "db",
   server: "stack",
   cpu: "chip",
   calculator: "stack",
@@ -66,9 +66,13 @@ const THEME_BY_NAME = {
   snowflake: "crystal",
   tornado: "swirl",
   rainbow: "rise-parts",
-  umbrella: "pop",
+  umbrella: "umbrella",
   cloud: "drift",
   "cloud-drizzle": "rain",
+  // comida
+  "ice-cream-bowl": "bounce-flat",
+  sandwich: "bounce-flat",
+  croissant: "bounce-flat",
   // celular
   smartphone: "screen",
   tablet: "screen",
@@ -93,11 +97,14 @@ const THEME_BY_NAME = {
   gamepad: "play-pulse",
   // viajes
   plane: "air",
-  car: "drive",
-  bus: "drive",
-  ship: "rock",
+  car: "vehicle",
+  "car-front": "vehicle",
+  bus: "vehicle",
+  "bus-front": "vehicle",
+  "train-front": "vehicle",
+  ship: "sea",
   compass: "needle",
-  map: "unfold",
+  map: "map-draw",
   navigation: "aim",
   "map-pin": "pin-drop",
   ticket: "rip",
@@ -352,12 +359,12 @@ const THEME_BY_NAME = {
   "chart-candlestick": "bars-up",
   "trending-down": "cascade",
   // juegos
-  "dice-1": "bounce-flat",
-  "dice-2": "bounce-flat",
-  "dice-3": "bounce-flat",
-  "dice-4": "bounce-flat",
-  "dice-5": "bounce-flat",
-  "dice-6": "bounce-flat",
+  "dice-1": "dice",
+  "dice-2": "dice",
+  "dice-3": "dice",
+  "dice-4": "dice",
+  "dice-5": "dice",
+  "dice-6": "dice",
   sword: "slash",
   swords: "clash",
   shield: "guard",
@@ -369,7 +376,7 @@ const THEME_BY_NAME = {
   stethoscope: "swing-parts",
   activity: "ecg",
   pill: "roll",
-  biohazard: "swirl",
+  biohazard: "hazard",
   bone: "stagger-bounce",
   syringe: "inject",
   dna: "helix",
@@ -388,15 +395,15 @@ const THEME_BY_NAME = {
   "cloudy": "drift",
   sprout: "rise-parts",
   // viajes
-  "train-front": "rail",
+  "train-front": "vehicle",
   "tram-front": "rail",
-  "bus-front": "drive",
+  "bus-front": "vehicle",
   sailboat: "rock",
   tent: "rise-parts",
   bike: "wheel",
   "life-buoy": "orbit",
   luggage: "roll",
-  "car-front": "drive",
+  "car-front": "vehicle",
   "train-track": "draw",
   // seguridad
   lock: "lock-bolt",
@@ -432,15 +439,15 @@ const THEME_BY_NAME = {
   "layout-grid": "stagger-pop",
   "layout-dashboard": "stagger-pop",
   // bases de datos
-  "database-zap": "bolt",
-  "database-plus": "stagger-pop",
-  "database-search": "sawtooth",
-  "database-backup": "stack",
-  "database-check": "spark",
-  "database-minus": "stagger-pop",
-  "database-x": "swing-parts",
-  "database-arrow-down": "inject",
-  "database-arrow-up": "climb",
+  "database-zap": "db",
+  "database-plus": "db",
+  "database-search": "db",
+  "database-backup": "db",
+  "database-check": "db",
+  "database-minus": "db",
+  "database-x": "db",
+  "database-arrow-down": "db",
+  "database-arrow-up": "db",
   "archive-restore": "unbox",
   // desarrollo
   braces: "split",
@@ -541,8 +548,8 @@ const THEME_BY_NAME = {
   "lock-open": "open-parts",
   package: "unbox",
   "refresh-cw": "swirl",
-  "rotate-cw": "orbit",
-  "rotate-ccw": "orbit",
+  "rotate-cw": "spin",
+  "rotate-ccw": "spin",
   unplug: "eject",
   "badge-info": "ring",
   "triangle-alert": "bolt",
@@ -564,10 +571,10 @@ const THEME_BY_NAME = {
   "badge-check": "spark",
   stamp: "soft",
   signpost: "pop",
-  sunset: "rise-parts",
-  sunrise: "climb",
-  "undo-2": "pendulum",
-  "redo-2": "pendulum",
+  sunset: "sun-set",
+  sunrise: "sun-rise",
+  "undo-2": "undo",
+  "redo-2": "undo",
   "square-x": "swing-parts",
 };
 
@@ -947,10 +954,10 @@ function buildStart(theme, parts, seedName) {
       break;
     }
     case "clap": {
-      boxes.forEach((b) => {
-        const dir = left(b.cx) ? -1 : 1;
-        push(b.i, { x: [0, dir * 3, 0], rotate: [0, dir * 8, 0] }, 0.6, 0.06);
-      });
+      const top = boxes.filter((b) => b.cy < 8);
+      const rest = boxes.filter((b) => b.cy >= 8);
+      top.forEach((b) => push(b.i, { rotate: [0, -24, 0], y: [0, 1.5, 0] }, 0.5, 0.05));
+      rest.forEach((b) => push(b.i, { y: [0, -1, 0], scale: [1, 1.04, 1] }, 0.5, 0.08 * b.i));
       break;
     }
     case "reel": {
@@ -1005,15 +1012,91 @@ function buildStart(theme, parts, seedName) {
     }
     case "pin-drop": {
       const pin = boxes.find((b) => below(b.cy));
-      if (pin) push(pin.i, { y: [0, 4, 0], rotate: [0, 12, 0] }, 0.7, 0.08);
       const top = boxes.find((b) => b.cy < 12);
-      if (top) push(top.i, { y: [0, -1, 0] }, 0.7, 0.05);
+      if (pin) push(pin.i, { y: [0, 3, -0.5, 0], rotate: [0, 6, 0] }, 0.7, 0.08);
+      if (top) push(top.i, { scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }, 0.5, 0.2);
       break;
     }
     case "rip": {
       boxes.forEach((b) => {
         const dir = left(b.cx) ? -1 : 1;
-        push(b.i, { x: [0, dir * 4, 0], rotate: [0, dir * 10, 0] }, 0.7, 0.05 * b.i);
+        push(b.i, { x: [0, dir * 2, 0], rotate: [0, dir * 5, 0] }, 0.8, 0.08 * b.i);
+      });
+      break;
+    }
+    case "vehicle": {
+      boxes.forEach((b) => {
+        push(b.i, { x: [0, 4, 0], y: [0, -5, 1.5, 0], rotate: [0, 3, -2, 0] }, 0.9, 0.06 * b.i);
+      });
+      break;
+    }
+    case "sea": {
+      boxes.forEach((b) => {
+        push(b.i, { rotate: [0, -6, 6, -3, 0], y: [0, 2, -2, 0], x: [0, 1.5, 0] }, 1.2, 0.08 * b.i);
+      });
+      break;
+    }
+    case "map-draw": {
+      boxes.forEach((b) => {
+        if (b.tag === "path") push(b.i, { pathLength: [0, 1, 1], opacity: [0.2, 1, 1] }, 0.9, 0.18 * b.i);
+        else push(b.i, { scale: [1, 1.05, 1] }, 0.7);
+      });
+      break;
+    }
+    case "dice": {
+      boxes.forEach((b) => {
+        if (b.tag === "rect") push(b.i, { rotate: [0, 90, 180, 270, 360], y: [0, -2, 0], scale: [1, 1.06, 1] }, 0.7, 0);
+        else push(b.i, { scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }, 0.5, 0.12 * b.i);
+      });
+      break;
+    }
+    case "hazard": {
+      boxes.forEach((b) => {
+        push(b.i, { scale: [1, 1.08, 0.97, 1], opacity: [1, 0.85, 1] }, 1, 0.08 * b.i);
+      });
+      break;
+    }
+    case "db": {
+      boxes.forEach((b) => {
+        if (b.cy < 8) push(b.i, { y: [0, -2, 0], scale: [1, 1.08, 1] }, 0.6, 0.05);
+        else push(b.i, { scale: [1, 1.06, 1], opacity: [1, 0.8, 1] }, 0.8, 0.1 * b.i);
+      });
+      break;
+    }
+    case "spin": {
+      boxes.forEach((b) => {
+        const dir = seedName.includes("ccw") ? -1 : 1;
+        if (b.cy < 11) push(b.i, { rotate: [0, 120 * dir, 0], scale: [1, 1.12, 1] }, 0.8, 0.05);
+        else push(b.i, { rotate: [0, 25 * dir, 0], opacity: [1, 0.7, 1] }, 0.8, 0.1);
+      });
+      break;
+    }
+    case "sun-rise": {
+      const horizon = boxes.filter((b) => below(b.cy));
+      const sun = boxes.filter((b) => !below(b.cy));
+      horizon.forEach((b) => push(b.i, { scale: [1, 1.04, 1] }, 0.8, 0.05));
+      sun.forEach((b) => push(b.i, { y: [0, -4, 0], opacity: [0.4, 1, 1], scale: [0.95, 1.05, 1] }, 0.9, 0.1));
+      break;
+    }
+    case "sun-set": {
+      const horizon = boxes.filter((b) => below(b.cy));
+      const sun = boxes.filter((b) => !below(b.cy));
+      horizon.forEach((b) => push(b.i, { scale: [1, 1.04, 1] }, 0.8, 0.05));
+      sun.forEach((b) => push(b.i, { y: [0, 4, 0], opacity: [1, 0.4, 0.7], scale: [1, 0.97, 1] }, 0.9, 0.1));
+      break;
+    }
+    case "undo": {
+      boxes.forEach((b) => {
+        const dir = seedName.includes("redo") ? -1 : 1;
+        if (b.cy < 12) push(b.i, { rotate: [0, 60 * dir, 0], y: [0, -1, 0] }, 0.7, 0.05);
+        else push(b.i, { pathLength: [0, 1, 1], opacity: [0.4, 1, 1] }, 0.7, 0.15);
+      });
+      break;
+    }
+    case "umbrella": {
+      boxes.forEach((b) => {
+        if (below(b.cy)) push(b.i, { rotate: [0, 6, -6, 3, 0], y: [0, 1, 0] }, 0.7, 0.08 * b.i);
+        else push(b.i, { scaleY: [1, 1.15, 1], scaleX: [1, 0.9, 1] }, 0.7, 0.05);
       });
       break;
     }
@@ -1130,11 +1213,8 @@ function buildStart(theme, parts, seedName) {
     case "unbox": {
       const lid = boxes.filter((b) => b.cy < 10);
       const rest = boxes.filter((b) => b.cy >= 10);
-      lid.forEach((b) => push(b.i, { y: [0, -4, 0], rotate: [0, 6, 0] }, 0.8, 0.05));
-      rest.forEach((b) => {
-        const side = left(b.cx) ? -1 : 1;
-        push(b.i, { x: [0, side * 2, 0], scale: [0.9, 1.08, 1] }, 0.9, 0.12 * b.i);
-      });
+      lid.forEach((b) => push(b.i, { y: [0, -4, 0], rotate: [0, 4, 0], opacity: [1, 0.6, 1] }, 0.8, 0.05));
+      rest.forEach((b) => push(b.i, { scale: [1, 1.06, 1], y: [0, 1, 0] }, 0.8, 0.1));
       break;
     }
     case "spark": {

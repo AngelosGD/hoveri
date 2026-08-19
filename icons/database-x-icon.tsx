@@ -12,13 +12,13 @@ const DatabaseXIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.5 });
-    animate(".part-6", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.6000000000000001 });
+    animate(".part-0", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+    animate(".part-5", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.5 });
+    animate(".part-6", {"y":[0,-2,0],"scale":[1,1.08,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {

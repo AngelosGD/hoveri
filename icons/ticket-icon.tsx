@@ -12,10 +12,10 @@ const TicketIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-4,0],"rotate":[0,-10,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,4,0],"rotate":[0,10,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
-    animate(".part-2", {"x":[0,4,0],"rotate":[0,10,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
-    animate(".part-3", {"x":[0,4,0],"rotate":[0,10,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.15000000000000002 });
+    animate(".part-0", {"x":[0,-2,0],"rotate":[0,-5,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,2,0],"rotate":[0,5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.08 });
+    animate(".part-2", {"x":[0,2,0],"rotate":[0,5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.16 });
+    animate(".part-3", {"x":[0,2,0],"rotate":[0,5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
     };
 
     const stopAnimation = () => {

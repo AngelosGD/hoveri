@@ -12,9 +12,9 @@ const Dice2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"rotate":[0,90,180,270,360],"y":[0,-2,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"scale":[1,1.4,1],"opacity":[1,0.5,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"scale":[1,1.4,1],"opacity":[1,0.5,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.24 });
     };
 
     const stopAnimation = () => {

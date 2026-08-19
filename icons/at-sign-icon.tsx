@@ -12,7 +12,7 @@ const AtSignIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-1", {"y":[0,4,0],"rotate":[0,12,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"y":[0,3,-0.5,0],"rotate":[0,6,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
     };
 
     const stopAnimation = () => {

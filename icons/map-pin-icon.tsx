@@ -12,8 +12,8 @@ const MapPinIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,4,0],"rotate":[0,12,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-1", {"y":[0,-1,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-0", {"y":[0,3,-0.5,0],"rotate":[0,6,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"scale":[1,1.3,1],"opacity":[1,0.6,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {

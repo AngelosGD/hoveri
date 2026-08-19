@@ -12,9 +12,9 @@ const UmbrellaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
+    animate(".part-0", {"rotate":[0,6,-6,3,0],"y":[0,1,0]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"scaleY":[1,1.15,1],"scaleX":[1,0.9,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-2", {"scaleY":[1,1.15,1],"scaleX":[1,0.9,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {

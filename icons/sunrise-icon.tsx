@@ -12,14 +12,14 @@ const SunriseIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
-    animate(".part-2", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.3 });
-    animate(".part-3", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.44999999999999996 });
-    animate(".part-4", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.6 });
-    animate(".part-5", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.75 });
-    animate(".part-6", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 0.8999999999999999 });
-    animate(".part-7", {"y":[6,-2,0],"opacity":[0.2,1,1]}, { duration: 1, ease: "easeInOut", delay: 1.05 });
+    animate(".part-2", {"scale":[1,1.04,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-3", {"scale":[1,1.04,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-5", {"scale":[1,1.04,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-7", {"scale":[1,1.04,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-0", {"y":[0,-4,0],"opacity":[0.4,1,1],"scale":[0.95,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-1", {"y":[0,-4,0],"opacity":[0.4,1,1],"scale":[0.95,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-4", {"y":[0,-4,0],"opacity":[0.4,1,1],"scale":[0.95,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-6", {"y":[0,-4,0],"opacity":[0.4,1,1],"scale":[0.95,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {

@@ -12,8 +12,8 @@ const Redo2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,8,-5.6,0]}, { duration: 1.1, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-8,5.6,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.04 });
+    animate(".part-0", {"rotate":[0,-60,0],"y":[0,-1,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
+    animate(".part-1", {"pathLength":[0,1,1],"opacity":[0.4,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {

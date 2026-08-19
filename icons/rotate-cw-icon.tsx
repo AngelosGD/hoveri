@@ -12,8 +12,8 @@ const RotateCwIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":90}, { duration: 1.4, ease: "easeInOut" });
-    animate(".part-1", {"rotate":90}, { duration: 1.4, ease: "easeInOut", delay: 0.02 });
+    animate(".part-0", {"rotate":[0,120,0],"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-1", {"rotate":[0,120,0],"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {
