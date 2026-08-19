@@ -43,6 +43,8 @@ const HANDCRAFTED = new Set([
   "letter-m", "letter-n", "letter-o", "letter-p", "letter-q", "letter-r",
   "letter-s", "letter-t", "letter-u", "letter-v", "letter-w", "letter-x",
   "letter-y", "letter-z",
+  // orbitan alrededor del centro real (transformBox view-box)
+  "rotate-cw", "rotate-ccw", "undo-2", "redo-2",
 ]);
 
 const THEME_BY_NAME = {

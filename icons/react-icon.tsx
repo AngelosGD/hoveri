@@ -14,7 +14,6 @@ const ReactIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         { rotate: 120 },
         { duration: 1.2, ease: "linear" },
       );
-      animate(".react-halo", { rotate: -60 }, { duration: 1.2, ease: "linear" });
       animate(
         ".react-core",
         { scale: [1, 1.18, 0.94, 1] },
@@ -24,7 +23,6 @@ const ReactIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
     const stopAnimation = () => {
       animate(".react-ring", { rotate: 0 }, { duration: 0.3 });
-      animate(".react-halo", { rotate: 0 }, { duration: 0.3 });
       animate(".react-core", { scale: 1 }, { duration: 0.3 });
     };
 

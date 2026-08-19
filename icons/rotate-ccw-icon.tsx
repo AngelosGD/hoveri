@@ -5,20 +5,25 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const RotateCcwIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  (
-    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
-    ref,
-  ) => {
+  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-120,0],"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
-    animate(".part-1", {"rotate":[0,-120,0],"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+      await animate(
+        ".rot-arc",
+        { rotate: [0, -25, 0] },
+        { duration: 0.9, ease: "easeInOut" },
+      );
+      animate(
+        ".rot-head",
+        { rotate: [0, -110, 0] },
+        { duration: 0.9, ease: "easeInOut", delay: 0.1 },
+      );
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+      animate(".rot-arc", { rotate: 0 }, { duration: 0.25 });
+      animate(".rot-head", { rotate: 0 }, { duration: 0.25 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -41,8 +46,16 @@ const RotateCcwIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M3 3v5h5" />
+        <motion.path
+          className="rot-arc"
+          style={{ transformBox: "view-box", transformOrigin: "50% 50%" }}
+          d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+        />
+        <motion.path
+          className="rot-head"
+          style={{ transformBox: "view-box", transformOrigin: "50% 50%" }}
+          d="M3 3v5h5"
+        />
       </motion.svg>
     );
   },

@@ -39,7 +39,7 @@ const SLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M13 8.5a2.5 2.5 0 0 0-5 0 2.5 2.5 0 0 0 5 2.5 2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1-5 0" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 7c.4-2.2 2.6-3.4 5-3.4 2.6 0 4.6 1.4 4.6 3.6 0 2.2-2.4 3.4-5 4.8-2.2 1.2-4.2 2.6-4.2 5 0 1.8 1.8 3 4.4 3 2 0 3.4-.8 4-2.2" />
       </motion.svg>
     );
   },

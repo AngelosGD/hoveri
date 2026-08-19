@@ -14,13 +14,11 @@ const Mic2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const startAnimation = async () => {
       animate(".mic-arm", { scale: [1, 1.08, 0.97, 1.04, 1], rotate: [0, 3, -2, 0] }, { duration: 0.7, ease: "easeInOut" });
       animate(".mic-head", { scale: [1, 1.1, 0.95, 1.05, 1], opacity: [1, 0.8, 1, 1] }, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
-      animate(".sound-wave", { scale: [0.8, 1.2, 0.9, 1.1, 1], opacity: [0.4, 1, 0.7, 1] }, { duration: 0.8, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {
       animate(".mic-arm", { scale: 1, rotate: 0 }, { duration: 0.25, ease: "easeInOut" });
       animate(".mic-head", { scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut" });
-      animate(".sound-wave", { scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut" });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));

@@ -41,8 +41,8 @@ const GLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 20V8.5A2.5 2.5 0 0 1 11.5 6H13" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M13 14h-6.5V20a4 4 0 0 0 7.5 1.5" />
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7.5 10a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0" />
+        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11.8 14.4C9.4 16.3 9.4 18.6 11.6 20c1.5 0.9 2.7 0 2.7-1.5" />
       </motion.svg>
     );
   },

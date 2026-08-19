@@ -5,20 +5,25 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const Undo2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  (
-    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
-    ref,
-  ) => {
+  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,60,0],"y":[0,-1,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.05 });
-    animate(".part-1", {"pathLength":[0,1,1],"opacity":[0.4,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.15 });
+      await animate(
+        ".undo-arc",
+        { rotate: [0, -15, 8, 0] },
+        { duration: 0.9, ease: "easeInOut" },
+      );
+      animate(
+        ".undo-head",
+        { rotate: [0, -55, 22, 0] },
+        { duration: 0.9, ease: "easeInOut", delay: 0.1 },
+      );
     };
 
     const stopAnimation = () => {
-    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
-    animate(".part-1", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.06 });
+      animate(".undo-arc", { rotate: 0 }, { duration: 0.25 });
+      animate(".undo-head", { rotate: 0 }, { duration: 0.25 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -41,8 +46,16 @@ const Undo2Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 14 4 9l5-5" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11" />
+        <motion.path
+          className="undo-arc"
+          style={{ transformBox: "view-box", transformOrigin: "60% 60%" }}
+          d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"
+        />
+        <motion.path
+          className="undo-head"
+          style={{ transformBox: "view-box", transformOrigin: "60% 60%" }}
+          d="M9 14 4 9l5-5"
+        />
       </motion.svg>
     );
   },
