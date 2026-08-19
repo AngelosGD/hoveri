@@ -377,6 +377,26 @@ const LetterWIcon = lazy(() => import("@/icons/letter-w-icon"));
 const LetterXIcon = lazy(() => import("@/icons/letter-x-icon"));
 const LetterYIcon = lazy(() => import("@/icons/letter-y-icon"));
 const LetterZIcon = lazy(() => import("@/icons/letter-z-icon"));
+const BananaIcon = lazy(() => import("@/icons/banana-icon"));
+const BrainCircuitIcon = lazy(() => import("@/icons/brain-circuit-icon"));
+const HandHeartIcon = lazy(() => import("@/icons/hand-heart-icon"));
+const PartyPopperIcon = lazy(() => import("@/icons/party-popper-icon"));
+const QrCodeIcon = lazy(() => import("@/icons/qr-code-icon"));
+const SaveIcon = lazy(() => import("@/icons/save-icon"));
+const AngryIcon = lazy(() => import("@/icons/angry-icon"));
+const AnnoyedIcon = lazy(() => import("@/icons/annoyed-icon"));
+const MehIcon = lazy(() => import("@/icons/meh-icon"));
+const AmbulanceIcon = lazy(() => import("@/icons/ambulance-icon"));
+const SkullIcon = lazy(() => import("@/icons/skull-icon"));
+const GhostIcon = lazy(() => import("@/icons/ghost-icon"));
+const SatelliteDishIcon = lazy(() => import("@/icons/satellite-dish-icon"));
+const ScanBarcodeIcon = lazy(() => import("@/icons/scan-barcode-icon"));
+const ScanHeartIcon = lazy(() => import("@/icons/scan-heart-icon"));
+const BatteryLowIcon = lazy(() => import("@/icons/battery-low-icon"));
+const CheckCheckIcon = lazy(() => import("@/icons/check-check-icon"));
+const DrumIcon = lazy(() => import("@/icons/drum-icon"));
+const KeyframeIcon = lazy(() => import("@/icons/keyframe-icon"));
+const ToggleRightIcon = lazy(() => import("@/icons/toggle-right-icon"));
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   "heart-icon": HeartIcon,
@@ -754,6 +774,26 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   "letter-x-icon": LetterXIcon,
   "letter-y-icon": LetterYIcon,
   "letter-z-icon": LetterZIcon,
+  "banana-icon": BananaIcon,
+  "brain-circuit-icon": BrainCircuitIcon,
+  "hand-heart-icon": HandHeartIcon,
+  "party-popper-icon": PartyPopperIcon,
+  "qr-code-icon": QrCodeIcon,
+  "save-icon": SaveIcon,
+  "angry-icon": AngryIcon,
+  "annoyed-icon": AnnoyedIcon,
+  "meh-icon": MehIcon,
+  "ambulance-icon": AmbulanceIcon,
+  "skull-icon": SkullIcon,
+  "ghost-icon": GhostIcon,
+  "satellite-dish-icon": SatelliteDishIcon,
+  "scan-barcode-icon": ScanBarcodeIcon,
+  "scan-heart-icon": ScanHeartIcon,
+  "battery-low-icon": BatteryLowIcon,
+  "check-check-icon": CheckCheckIcon,
+  "drum-icon": DrumIcon,
+  "keyframe-icon": KeyframeIcon,
+  "toggle-right-icon": ToggleRightIcon,
 };
 
 export function getIconComponent(file: string) {

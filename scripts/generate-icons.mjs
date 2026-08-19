@@ -31,6 +31,11 @@ const HANDCRAFTED = new Set([
   "download", "upload", "star-off", "heart-off", "trash-2", "flame",
   "droplets", "ban", "magnet", "puzzle", "paw-print", "pencil-ruler",
   "award", "zap",
+  // itshover / morphicons (MIT, animaciones con forma hechas a mano)
+  "banana", "brain-circuit", "hand-heart", "party-popper", "qr-code", "save",
+  "angry", "annoyed", "meh", "ambulance", "skull", "ghost", "satellite-dish",
+  "scan-barcode", "scan-heart", "battery-low", "check-check", "drum", "keyframe",
+  "toggle-right",
   // abecedario (A-Z, paths hechos a mano)
   "letter-a", "letter-b", "letter-c", "letter-d", "letter-e", "letter-f",
   "letter-g", "letter-h", "letter-i", "letter-j", "letter-k", "letter-l",
