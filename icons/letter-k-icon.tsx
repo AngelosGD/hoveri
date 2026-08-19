@@ -4,32 +4,43 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const KLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterKIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"x":[0,-4,0],"rotate":[0,-8,0]}, { duration: 0.6, ease: "easeInOut" });
-      animate(".part-1", {"x":[0,4,0],"rotate":[0,8,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.08 });
-      animate(".part-2", {"x":[0,-4,0],"rotate":[0,-8,0]}, { duration: 0.6, ease: "easeInOut", delay: 0.16 });
+    const start = async () => {
+      // Upper arm kicks up
+      animate(
+        ".arm-upper",
+        { rotate: [0, -20, 0], x: [0, 3, 0] },
+        { duration: 0.3, ease: "easeOut" },
+      );
+
+      // Lower arm (leg) kicks down
+      animate(
+        ".arm-lower",
+        { rotate: [0, 20, 0], x: [0, 3, 0] },
+        { duration: 0.3, ease: "easeOut", delay: 0.1 },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"x":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"x":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-2", {"x":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".arm-upper, .arm-lower", { rotate: 0, x: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -41,16 +52,27 @@ const KLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 20V6" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 13l10-7" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 13l10 7" />
+        {/* Vertical stem */}
+        <motion.path d="M6 4V20" />
+
+        {/* Upper arm - kicks up */}
+        <motion.path
+          className="arm-upper"
+          d="M6 12L18 4"
+          style={{ transformOrigin: "6px 12px" }}
+        />
+
+        {/* Lower arm (leg) - kicks down */}
+        <motion.path
+          className="arm-lower"
+          d="M6 12L18 20"
+          style={{ transformOrigin: "6px 12px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-KLetterIcon.displayName = "KLetterIcon";
-
-export default KLetterIcon;
+LetterKIcon.displayName = "LetterKIcon";
+export default LetterKIcon;

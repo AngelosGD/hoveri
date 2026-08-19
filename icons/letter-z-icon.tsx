@@ -4,28 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const ZLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterZIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"y":[8,0],"opacity":[0,1],"scale":[0.9,1]}, { duration: 0.7, ease: "easeInOut" });
+    const start = async () => {
+      // Zigzag zap animation
+      animate(
+        ".z-shape",
+        { x: [0, 2, -2, 1, 0] },
+        { duration: 0.3, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"y":0,"opacity":1,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".z-shape", { x: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -37,14 +45,12 @@ const ZLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 6h12l-12 12h12" />
+        <motion.path className="z-shape" d="M7 4h10l-10 16h10" />
       </motion.svg>
     );
   },
 );
 
-ZLetterIcon.displayName = "ZLetterIcon";
-
-export default ZLetterIcon;
+LetterZIcon.displayName = "LetterZIcon";
+export default LetterZIcon;

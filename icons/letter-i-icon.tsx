@@ -4,30 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const ILetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterIIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.12 });
+    const start = async () => {
+      // Pillar drop - I drops down and bounces
+      animate(
+        ".i-shape",
+        { y: [0, 3, -1, 1, 0], scaleY: [1, 0.95, 1.02, 0.99, 1] },
+        { duration: 0.4, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".i-shape", { y: 0, scaleY: 1 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +45,16 @@ const ILetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 8.5V20" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 5v.5" />
+        <motion.path
+          className="i-shape"
+          d="M8 4H16M12 4V20M8 20H16"
+          style={{ transformOrigin: "12px 20px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-ILetterIcon.displayName = "ILetterIcon";
-
-export default ILetterIcon;
+LetterIIcon.displayName = "LetterIIcon";
+export default LetterIIcon;

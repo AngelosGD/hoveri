@@ -4,32 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const HLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterHIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"y":[0,-5,1,0],"scale":[1,1.08,0.96,1]}, { duration: 0.7, ease: "easeInOut" });
-      animate(".part-1", {"y":[0,-5,1,0],"scale":[1,1.08,0.96,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
-      animate(".part-2", {"y":[0,-5,1,0],"scale":[1,1.08,0.96,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
+    const start = async () => {
+      // Handshake shake animation
+      animate(
+        ".h-group",
+        { x: [0, 2, -2, 1.5, -1, 0] },
+        { duration: 0.4, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-2", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".h-group", { x: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -41,16 +45,16 @@ const HLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 20V6" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7 13h10" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M17 6v14" />
+        <motion.g className="h-group">
+          <motion.path d="M17 4l0 16" />
+          <motion.path d="M7 12l10 0" />
+          <motion.path d="M7 4l0 16" />
+        </motion.g>
       </motion.svg>
     );
   },
 );
 
-HLetterIcon.displayName = "HLetterIcon";
-
-export default HLetterIcon;
+LetterHIcon.displayName = "LetterHIcon";
+export default LetterHIcon;

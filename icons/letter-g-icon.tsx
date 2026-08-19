@@ -4,30 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const GLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterGIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"y":[0,-5,1,0],"scale":[1,1.08,0.96,1]}, { duration: 0.7, ease: "easeInOut" });
-      animate(".part-1", {"y":[0,-5,1,0],"scale":[1,1.08,0.96,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
+    const start = async () => {
+      // G swings with the arm sliding in
+      animate(
+        ".g-shape",
+        { rotate: [0, 5, -3, 2, 0] },
+        { duration: 0.4, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"y":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".g-shape", { rotate: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +45,16 @@ const GLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M7.5 10a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11.8 14.4C9.4 16.3 9.4 18.6 11.6 20c1.5 0.9 2.7 0 2.7-1.5" />
+        <motion.path
+          className="g-shape"
+          d="M18 9a5 5 0 0 0 -5 -5h-2a5 5 0 0 0 -5 5v6a5 5 0 0 0 5 5h2a5 5 0 0 0 5 -5v-2h-4"
+          style={{ transformOrigin: "12px 12px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-GLetterIcon.displayName = "GLetterIcon";
-
-export default GLetterIcon;
+LetterGIcon.displayName = "LetterGIcon";
+export default LetterGIcon;

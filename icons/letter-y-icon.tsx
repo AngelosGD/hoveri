@@ -4,30 +4,37 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const YLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterYIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.12 });
+    const start = async () => {
+      // Yoyo drop animation
+      animate(
+        ".y-stem",
+        { scaleY: [1, 1.2, 0.9, 1.1, 1] },
+        { duration: 0.4, ease: "easeOut" },
+      );
+      animate(".y-arms", { y: [0, -2, 0] }, { duration: 0.3, ease: "easeOut" });
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".y-stem, .y-arms", { scaleY: 1, y: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +46,17 @@ const YLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 6l7 9 7-9" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 15v5" />
+        <motion.path className="y-arms" d="M7 4l5 9l5 -9" />
+        <motion.path
+          className="y-stem"
+          d="M12 13l0 7"
+          style={{ transformOrigin: "12px 13px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-YLetterIcon.displayName = "YLetterIcon";
-
-export default YLetterIcon;
+LetterYIcon.displayName = "LetterYIcon";
+export default LetterYIcon;

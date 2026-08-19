@@ -4,30 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const JLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterJIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.12 });
+    const start = async () => {
+      // Fishing hook swings side to side
+      animate(
+        ".j-hook",
+        { rotate: [0, 15, -15, 10, -10, 5, 0] },
+        { duration: 0.7, ease: "easeInOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".j-hook", { rotate: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +45,21 @@ const JLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M9 6v8a2.5 2.5 0 0 0-5 0" />
+        <motion.g className="j-hook" style={{ transformOrigin: "14px 4px" }}>
+          {/* Top serif */}
+          <motion.path d="M10 4H18" />
+
+          {/* Stem */}
+          <motion.path d="M14 4V16" />
+
+          {/* Hook curve */}
+          <motion.path d="M14 16C14 18.2091 12.2091 20 10 20H8" />
+        </motion.g>
       </motion.svg>
     );
   },
 );
 
-JLetterIcon.displayName = "JLetterIcon";
-
-export default JLetterIcon;
+LetterJIcon.displayName = "LetterJIcon";
+export default LetterJIcon;

@@ -4,30 +4,45 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const XLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterXIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"rotate":[0,25,-12,0],"scale":[0.85,1.1,1]}, { duration: 0.8, ease: "easeInOut" });
-      animate(".part-1", {"rotate":[0,25,-12,0],"scale":[0.85,1.1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.08 });
+    const start = async () => {
+      // X-ray flash animation
+      animate(
+        ".x-stroke-1",
+        { opacity: [1, 0.3, 1], scale: [1, 1.05, 1] },
+        { duration: 0.3, ease: "easeOut" },
+      );
+      animate(
+        ".x-stroke-2",
+        { opacity: [1, 0.3, 1], scale: [1, 1.05, 1] },
+        { duration: 0.3, ease: "easeOut", delay: 0.05 },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"rotate":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"rotate":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(
+        ".x-stroke-1, .x-stroke-2",
+        { opacity: 1, scale: 1 },
+        { duration: 0.2 },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +54,21 @@ const XLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M6 6l12 14" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M18 6L6 20" />
+        <motion.path
+          className="x-stroke-1"
+          d="M7 4l10 16"
+          style={{ transformOrigin: "12px 12px" }}
+        />
+        <motion.path
+          className="x-stroke-2"
+          d="M17 4l-10 16"
+          style={{ transformOrigin: "12px 12px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-XLetterIcon.displayName = "XLetterIcon";
-
-export default XLetterIcon;
+LetterXIcon.displayName = "LetterXIcon";
+export default LetterXIcon;

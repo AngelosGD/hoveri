@@ -4,28 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const PLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterPIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.5, ease: "easeInOut" });
+    const start = async () => {
+      // Head bob animation
+      animate(
+        ".p-shape",
+        { x: [0, 2, -1, 1, 0] },
+        { duration: 0.4, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"pathLength":1,"opacity":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".p-shape", { x: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -37,14 +45,12 @@ const PLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M8 20V6l5 .3a4 4 0 0 1 0 8H8" />
+        <motion.path className="p-shape" d="M7 20v-16h5.5a4 4 0 0 1 0 9h-5.5" />
       </motion.svg>
     );
   },
 );
 
-PLetterIcon.displayName = "PLetterIcon";
-
-export default PLetterIcon;
+LetterPIcon.displayName = "LetterPIcon";
+export default LetterPIcon;

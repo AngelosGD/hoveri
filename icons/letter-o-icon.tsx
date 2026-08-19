@@ -4,28 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const OLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterOIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"rotate":[0,25,-12,0],"scale":[0.85,1.1,1]}, { duration: 0.8, ease: "easeInOut" });
+    const start = async () => {
+      // Portal spin - 3D rotation like a spinning portal
+      animate(
+        ".o-circle",
+        { rotateY: [0, 360] },
+        { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"rotate":0,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".o-circle", { rotateY: 0 }, { duration: 0.3 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -36,15 +44,19 @@ const OLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
-        style={{ overflow: "visible" }}
-        aria-hidden="true"
+        style={{ overflow: "visible", perspective: "100px" }}
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 7a5 5 0 1 0 0 10 5 5 0 1 0 0-10" />
+        <motion.circle
+          className="o-circle"
+          cx="12"
+          cy="12"
+          r="8"
+          style={{ transformOrigin: "12px 12px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-OLetterIcon.displayName = "OLetterIcon";
-
-export default OLetterIcon;
+LetterOIcon.displayName = "LetterOIcon";
+export default LetterOIcon;

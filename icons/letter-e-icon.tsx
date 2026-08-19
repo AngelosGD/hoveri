@@ -4,32 +4,54 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const ELetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterEIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"y":[8,0],"opacity":[0,1],"scale":[0.9,1]}, { duration: 0.7, ease: "easeInOut" });
-      animate(".part-1", {"y":[8,0],"opacity":[0,1],"scale":[0.9,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.12 });
-      animate(".part-2", {"y":[8,0],"opacity":[0,1],"scale":[0.9,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
+    const start = async () => {
+      // Top arm extends
+      animate(
+        ".arm-top",
+        { scaleX: [0.3, 1.1, 1] },
+        { duration: 0.25, ease: "easeOut" },
+      );
+
+      // Middle arm extends
+      animate(
+        ".arm-middle",
+        { scaleX: [0.3, 1.1, 1] },
+        { duration: 0.25, ease: "easeOut", delay: 0.1 },
+      );
+
+      // Bottom arm extends
+      animate(
+        ".arm-bottom",
+        { scaleX: [0.3, 1.1, 1] },
+        { duration: 0.25, ease: "easeOut", delay: 0.2 },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"y":0,"opacity":1,"scale":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"y":0,"opacity":1,"scale":1}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-2", {"y":0,"opacity":1,"scale":1}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(
+        ".arm-top, .arm-middle, .arm-bottom",
+        { scaleX: 1 },
+        { duration: 0.2 },
+      );
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -41,16 +63,34 @@ const ELetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M13 8.5H9a2.5 2.5 0 0 0-2.5 2.5V20" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12.5 14H6.5" />
-        <motion.path className="part-2" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M13 20H6.5" />
+        {/* Vertical stem */}
+        <motion.path d="M6 4V20" />
+
+        {/* Top arm */}
+        <motion.path
+          className="arm-top"
+          d="M6 4H18"
+          style={{ transformOrigin: "6px 4px" }}
+        />
+
+        {/* Middle arm */}
+        <motion.path
+          className="arm-middle"
+          d="M6 12H16"
+          style={{ transformOrigin: "6px 12px" }}
+        />
+
+        {/* Bottom arm */}
+        <motion.path
+          className="arm-bottom"
+          d="M6 20H18"
+          style={{ transformOrigin: "6px 20px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-ELetterIcon.displayName = "ELetterIcon";
-
-export default ELetterIcon;
+LetterEIcon.displayName = "LetterEIcon";
+export default LetterEIcon;

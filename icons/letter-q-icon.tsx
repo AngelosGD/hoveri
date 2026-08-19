@@ -4,30 +4,41 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const QLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterQIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"y":[0,-3,3,-1,0],"rotate":[0,4,-4,0]}, { duration: 0.9, ease: "easeInOut" });
-      animate(".part-1", {"y":[0,-3,3,-1,0],"rotate":[0,4,-4,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
+    const start = async () => {
+      // Tail wag animation
+      animate(
+        ".q-body",
+        { rotate: [0, 2, -2, 1, 0] },
+        { duration: 0.4, ease: "easeOut" },
+      );
+      animate(
+        ".q-tail",
+        { rotate: [0, 20, -15, 10, 0] },
+        { duration: 0.5, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"y":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
-      animate(".part-1", {"y":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".q-body, .q-tail", { rotate: 0 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -39,15 +50,21 @@ const QLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M12 7a5 5 0 1 0 0 10 5 5 0 1 0 0-10" />
-        <motion.path className="part-1" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M16 19l4 1" />
+        <motion.path
+          className="q-body"
+          d="M18 9a5 5 0 0 0 -5 -5h-2a5 5 0 0 0 -5 5v6a5 5 0 0 0 5 5h2a5 5 0 0 0 5 -5v-6"
+          style={{ transformOrigin: "12px 12px" }}
+        />
+        <motion.path
+          className="q-tail"
+          d="M13 15l5 5"
+          style={{ transformOrigin: "13px 15px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-QLetterIcon.displayName = "QLetterIcon";
-
-export default QLetterIcon;
+LetterQIcon.displayName = "LetterQIcon";
+export default LetterQIcon;

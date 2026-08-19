@@ -4,28 +4,36 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const MLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+const LetterMIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
     { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
 
-    const startAnimation = async () => {
-      animate(".part-0", {"y":[0,-3,3,-1,0],"rotate":[0,4,-4,0]}, { duration: 0.9, ease: "easeInOut" });
+    const start = async () => {
+      // Mountain pulse - peaks push up
+      animate(
+        ".m-shape",
+        { y: [0, -2, 0], scaleY: [1, 1.05, 1] },
+        { duration: 0.4, ease: "easeOut" },
+      );
     };
 
-    const stopAnimation = () => {
-      animate(".part-0", {"y":0,"rotate":0}, { duration: 0.2, ease: "easeInOut" });
+    const stop = () => {
+      animate(".m-shape", { y: 0, scaleY: 1 }, { duration: 0.2 });
     };
 
-    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+    useImperativeHandle(ref, () => ({
+      startAnimation: start,
+      stopAnimation: stop,
+    }));
 
     return (
       <motion.svg
         ref={scope}
-        onHoverStart={startAnimation}
-        onHoverEnd={stopAnimation}
+        onHoverStart={start}
+        onHoverEnd={stop}
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
@@ -37,14 +45,16 @@ const MLetterIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinejoin="round"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
-        aria-hidden="true"
       >
-        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M5 6v14l7-14 7 14V6" />
+        <motion.path
+          className="m-shape"
+          d="M4 20V4L12 14L20 4V20"
+          style={{ transformOrigin: "12px 20px" }}
+        />
       </motion.svg>
     );
   },
 );
 
-MLetterIcon.displayName = "MLetterIcon";
-
-export default MLetterIcon;
+LetterMIcon.displayName = "LetterMIcon";
+export default LetterMIcon;
