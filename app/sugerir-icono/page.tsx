@@ -38,9 +38,9 @@ export default function SuggestIconPage() {
                 Así funciona
               </h2>
               <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                Llena el formulario, se armará un correo con tu sugerencia
-                listo para enviar. Si hay varias personas pidiendo lo mismo,
-                sube de prioridad.
+                Llena el formulario y nos llegará tu sugerencia directo al
+                correo. Si hay varias personas pidiendo lo mismo, sube de
+                prioridad.
               </p>
             </div>
           </div>

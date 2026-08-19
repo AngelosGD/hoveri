@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-const CONTACT_EMAIL = "TU_EMAIL_AQUI";
-
 const MOTIONS = [
   "Latido / pulso",
   "Giro / rotación",
@@ -18,39 +16,48 @@ const inputCls =
 
 export default function SuggestIconForm() {
   const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const nombre = String(data.get("nombre") ?? "").trim();
-    const idea = String(data.get("idea") ?? "").trim();
-    const motion = String(data.get("motion") ?? "").trim();
-    const categoria = String(data.get("categoria") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
+    const payload = {
+      nombre: String(data.get("nombre") ?? "").trim(),
+      idea: String(data.get("idea") ?? "").trim(),
+      motion: String(data.get("motion") ?? "").trim(),
+      categoria: String(data.get("categoria") ?? "").trim(),
+      email: String(data.get("email") ?? "").trim(),
+    };
 
-    const subject = encodeURIComponent(
-      `[hoveri] Sugerencia de icono: ${nombre || "sin nombre"}`
-    );
-    const body = encodeURIComponent(
-      `Nombre del icono: ${nombre}\n` +
-        `Qué representa / idea: ${idea}\n` +
-        `Movimiento sugerido: ${motion || "Sin especificar"}\n` +
-        `Categoría sugerida: ${categoria || "Sin especificar"}\n` +
-        (email ? `Contacto: ${email}` : "")
-    );
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/suggest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const err = (await res.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        throw new Error(err?.error ?? "Error al enviar");
+      }
+      setSent(true);
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (sent) {
     return (
       <div className="rounded-2xl border border-rose-200 bg-rose-50 p-8 text-center dark:border-rose-500/30 dark:bg-rose-500/10">
         <p className="text-base font-semibold text-zinc-950 dark:text-zinc-50">
-          Sugerencia lista
+          Sugerencia enviada
         </p>
         <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Se abrió tu cliente de correo con el mensaje armado. Solo dale enviar
-          y listo. Gracias por ayudar a crecer la librería.
+          ¡Gracias! Recibimos tu idea y la revisaremos. Si tiene sentido, la
+          agregamos a la librería.
         </p>
       </div>
     );
@@ -134,10 +141,18 @@ export default function SuggestIconForm() {
 
       <button
         type="submit"
-        className="w-full rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition-shadow hover:shadow-md dark:bg-white dark:text-zinc-950"
+        disabled={status === "sending"}
+        className="w-full rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition-shadow hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-zinc-950"
       >
-        Enviar sugerencia
+        {status === "sending" ? "Enviando…" : "Enviar sugerencia"}
       </button>
+
+      {status === "error" && (
+        <p className="text-sm leading-6 text-rose-600 dark:text-rose-400">
+          No se pudo enviar tu sugerencia. Inténtalo de nuevo o escríbenos a
+          angelde9919@gmail.com.
+        </p>
+      )}
     </form>
   );
 }
