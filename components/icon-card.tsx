@@ -1,7 +1,7 @@
 "use client";
 
-import { Suspense, createElement, useCallback, useEffect, useState } from "react";
-import { AnimatePresence } from "motion/react";
+import { Suspense, createElement, useCallback, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { getIconComponent } from "@/icons/icon-map";
 import IconModal from "./icon-modal";
 
@@ -33,54 +33,66 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
 
   return (
     <>
-      <div className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-colors duration-200 hover:border-zinc-300 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-600">
-        <button
-          type="button"
-          aria-label={`Icono ${name}`}
-          onClick={() => setOpen(true)}
-          className={`flex flex-1 items-center justify-center text-zinc-900 transition-colors duration-200 group-hover:bg-zinc-50 dark:text-zinc-50 dark:group-hover:bg-zinc-800/40 ${
-            compact ? "min-h-12 p-2" : "min-h-16 p-3"
-          }`}
-        >
-          <IconPreview file={file} size={compact ? 28 : 64} />
-        </button>
+      <motion.div
+        className="group relative"
+        whileHover={{ y: compact ? 0 : -2 }}
+        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+      >
+        <div className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-600 dark:hover:shadow-lg">
+          <button
+            type="button"
+            aria-label={`Icono ${name}`}
+            onClick={() => setOpen(true)}
+            className={`group/btn flex flex-1 items-center justify-center text-zinc-900 transition-all duration-200 group-hover:bg-zinc-50 dark:text-zinc-50 dark:group-hover:bg-zinc-800/40 ${
+              compact ? "min-h-12 p-2" : "min-h-16 p-3"
+            }`}
+          >
+            <span className="transition-transform duration-200 group-hover/btn:scale-110">
+              <IconPreview file={file} size={compact ? 28 : 64} />
+            </span>
+          </button>
 
-        {!compact && (
-          <div className="flex items-center justify-center gap-1 border-t border-zinc-200 px-1 py-1.5 dark:border-zinc-800/80">
-            <button
-              type="button"
-              onClick={copyShadcn}
-              aria-label="Copiar comando shadcn"
-              title="Copiar comando shadcn"
-              className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50"
-            >
-              <CopyIcon size={13} />
-            </button>
-            <button
-              type="button"
-              onClick={copySource}
-              aria-label="Copiar código fuente"
-              title="Copiar código fuente"
-              className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50"
-            >
-              <CodeXmlIcon size={13} />
-            </button>
-          </div>
-        )}
-
-        {!compact && (
-          <div className="pointer-events-none absolute bottom-[calc(100%+8px)] left-1/2 z-20 w-max max-w-[240px] -translate-x-1/2 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-            <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 shadow-lg dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40">
-              <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-50">
-                {name}
-              </p>
-              <p className="mt-0.5 font-mono text-[10px] text-zinc-500 dark:text-zinc-400">
-                {importCode}
-              </p>
+          {!compact && (
+            <div className="flex items-center justify-center gap-1 border-t border-zinc-200 px-1 py-1.5 dark:border-zinc-800/80">
+              <motion.button
+                type="button"
+                onClick={copyShadcn}
+                aria-label="Copiar comando shadcn"
+                title="Copiar comando shadcn"
+                whileHover={{ scale: 1.08, y: -1 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 active:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50 dark:active:bg-zinc-700"
+              >
+                <CopyIcon size={13} />
+              </motion.button>
+              <motion.button
+                type="button"
+                onClick={copySource}
+                aria-label="Copiar código fuente"
+                title="Copiar código fuente"
+                whileHover={{ scale: 1.08, y: -1 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 active:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50 dark:active:bg-zinc-700"
+              >
+                <CodeXmlIcon size={13} />
+              </motion.button>
             </div>
+          )}
+        </div>
+
+        <div className="pointer-events-none absolute bottom-[calc(100%+8px)] left-1/2 z-20 w-max max-w-[240px] -translate-x-1/2 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+          <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 shadow-lg dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40">
+            <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-50">
+              {name}
+            </p>
+            <p className="mt-0.5 font-mono text-[10px] text-zinc-500 dark:text-zinc-400">
+              {importCode}
+            </p>
           </div>
-        )}
-      </div>
+        </div>
+      </motion.div>
 
       <AnimatePresence>
         {open && (

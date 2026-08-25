@@ -25,9 +25,9 @@ export default function Home() {
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
+          className="group inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm text-zinc-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-sm active:translate-y-0 active:scale-[0.98] dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 transition-transform duration-200 group-hover:scale-125" />
           <span className="font-medium">Código abierto</span>
         </a>
 
@@ -48,16 +48,18 @@ export default function Home() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-11 items-center gap-2 rounded-full bg-zinc-950 px-6 text-sm font-medium text-white transition-shadow hover:shadow-md dark:bg-white dark:text-zinc-950"
+            className="group flex h-11 items-center gap-2 rounded-full bg-zinc-950 px-6 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 hover:shadow-lg hover:shadow-zinc-900/15 active:translate-y-0 active:scale-[0.98] dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100 dark:hover:shadow-white/10"
           >
-            <GitHubIcon size={16} />
+            <GitHubIcon size={16} className="transition-transform duration-200 group-hover:rotate-6 group-hover:scale-110" />
             Ver en GitHub
+            <span className="ml-1 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </a>
           <Link
             href="/icons"
-            className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:border-rose-300 hover:text-rose-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-rose-500 dark:hover:text-rose-400"
+            className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-rose-300 hover:text-rose-600 hover:shadow-md hover:shadow-rose-500/10 active:translate-y-0 active:scale-[0.98] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-rose-500 dark:hover:text-rose-400"
           >
             Ir a la librería
+            <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
 
@@ -83,9 +85,10 @@ export default function Home() {
 
                 <Link
                   href="/icons"
-                  className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-zinc-950 bg-white px-6 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
+                  className="group mt-8 inline-flex h-11 items-center justify-center gap-2 rounded-full border border-zinc-950 bg-white px-6 text-sm font-medium text-zinc-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-950 hover:text-white hover:shadow-md active:translate-y-0 active:scale-[0.98] dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
                 >
                   Ir a la librería
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </Link>
               </div>
             </Reveal>

@@ -30,16 +30,17 @@ export default function Footer() {
             <div className="mt-6 flex flex-wrap items-center gap-2">
               <Link
                 href="/invitame-un-cafe"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-950 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-950 hover:text-white dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
+                className="group inline-flex items-center gap-2 rounded-full border border-zinc-950 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-zinc-950 hover:text-white hover:shadow-md active:translate-y-0 active:scale-[0.98] dark:border-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-white dark:hover:text-zinc-950"
               >
-                <CoffeeIcon size={16} />
+                <CoffeeIcon size={16} className="transition-transform duration-200 group-hover:rotate-12 group-hover:scale-110" />
                 Invítame un café
               </Link>
               <Link
                 href="/icons"
-                className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:border-rose-300 hover:text-rose-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-rose-500 dark:hover:text-rose-400"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-rose-300 hover:text-rose-600 hover:shadow-md hover:shadow-rose-500/10 active:translate-y-0 active:scale-[0.98] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-rose-500 dark:hover:text-rose-400"
               >
                 Explorar la librería
+                <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
             </div>
           </div>
@@ -52,24 +53,27 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sugerir-icono"
-                  className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+                  className="group inline-flex items-center gap-1.5 text-zinc-600 transition-all hover:translate-x-1 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
+                  <span className="h-px w-0 bg-rose-500 transition-all duration-200 group-hover:w-3" />
                   Pedir un icono
                 </Link>
               </li>
               <li>
                 <Link
                   href="/como-se-hace"
-                  className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+                  className="group inline-flex items-center gap-1.5 text-zinc-600 transition-all hover:translate-x-1 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
+                  <span className="h-px w-0 bg-rose-500 transition-all duration-200 group-hover:w-3" />
                   Cómo funciona
                 </Link>
               </li>
               <li>
                 <Link
                   href="/invitame-un-cafe"
-                  className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+                  className="group inline-flex items-center gap-1.5 text-zinc-600 transition-all hover:translate-x-1 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
+                  <span className="h-px w-0 bg-rose-500 transition-all duration-200 group-hover:w-3" />
                   Invítame un café
                 </Link>
               </li>
@@ -104,10 +108,11 @@ export default function Footer() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+            className="group flex items-center gap-2 text-zinc-600 transition-all hover:translate-x-0.5 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
           >
-            <GitHubIcon size={14} />
+            <GitHubIcon size={14} className="transition-transform duration-200 group-hover:rotate-6 group-hover:scale-110" />
             Código fuente en GitHub
+            <span className="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
           </a>
         </div>
       </div>

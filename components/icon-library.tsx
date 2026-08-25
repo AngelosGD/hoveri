@@ -89,18 +89,21 @@ export default function IconLibrary() {
             <span className="mr-2 font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
               Categorías
             </span>
-            <button
+            <motion.button
               type="button"
               onClick={() => reset(() => setCategory(null))}
+              whileHover={{ y: category === null ? 0 : -1 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 18 }}
               className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                 category === null
-                  ? "border-rose-500 bg-rose-500 text-white dark:border-rose-500"
-                  : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:text-zinc-100"
+                  ? "border-rose-500 bg-rose-500 text-white shadow-sm dark:border-rose-500"
+                  : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:bg-rose-50/50 hover:text-zinc-950 hover:shadow-sm dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:bg-rose-500/5 dark:hover:text-zinc-100"
               }`}
             >
               Todas
               <span
-                className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] ${
+                className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] transition-colors ${
                   category === null
                     ? "bg-white/20 text-white"
                     : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
@@ -108,23 +111,26 @@ export default function IconLibrary() {
               >
                 {total}
               </span>
-            </button>
+            </motion.button>
             {categories.map((c) => (
-              <button
+              <motion.button
                 key={c}
                 type="button"
                 onClick={() =>
                   reset(() => setCategory(category === c ? null : c))
                 }
+                whileHover={{ y: category === c ? 0 : -1 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
                 className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                   category === c
-                    ? "border-rose-500 bg-rose-500 text-white dark:border-rose-500"
-                    : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:text-zinc-100"
+                    ? "border-rose-500 bg-rose-500 text-white shadow-sm dark:border-rose-500"
+                    : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:bg-rose-50/50 hover:text-zinc-950 hover:shadow-sm dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:bg-rose-500/5 dark:hover:text-zinc-100"
                 }`}
               >
                 {c}
                 <span
-                  className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] ${
+                  className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] transition-colors ${
                     category === c
                       ? "bg-white/20 text-white"
                       : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
@@ -132,7 +138,7 @@ export default function IconLibrary() {
                 >
                   {categoryCounts.get(c) ?? 0}
                 </span>
-              </button>
+              </motion.button>
             ))}
           </motion.div>
 
@@ -197,16 +203,20 @@ export default function IconLibrary() {
               <motion.button
                 type="button"
                 onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                whileHover={reduce ? undefined : { y: -1 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
-                className="rounded-full border border-zinc-200 bg-white px-8 py-3 text-sm font-medium text-zinc-700 transition-all hover:border-zinc-950 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-100 dark:hover:text-white"
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                className="rounded-full border border-zinc-200 bg-white px-8 py-3 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-zinc-950 hover:text-zinc-950 hover:shadow-md active:translate-y-0 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-100 dark:hover:text-white"
               >
                 Cargar más ({filtered.length - visible} restantes)
               </motion.button>
               <motion.button
                 type="button"
                 onClick={() => setVisible(filtered.length)}
+                whileHover={reduce ? undefined : { y: -1 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
-                className="rounded-full border border-zinc-950 bg-zinc-950 px-8 py-3 text-sm font-medium text-white transition-all hover:bg-zinc-700 dark:border-white dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                className="rounded-full border border-zinc-950 bg-zinc-950 px-8 py-3 text-sm font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-zinc-700 hover:shadow-md active:translate-y-0 dark:border-white dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
               >
                 Mostrar todos
               </motion.button>
