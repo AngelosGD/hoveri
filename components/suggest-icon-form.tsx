@@ -8,7 +8,16 @@ const MOTIONS = [
   "Flotar / levitar",
   "Rebote / elasticidad",
   "Escala / zoom",
+  "Balanceo / vaivén",
+  "Temblor / vibración",
+  "Deslizamiento / traslado",
+  "Aparición / desvanecimiento",
+  "Dibujado / trazado",
+  "Ondulación",
+  "Parpadeo",
+  "Brillo / destello",
   "Otra",
+  "(escribir)",
 ] as const;
 
 const inputCls =
@@ -17,14 +26,19 @@ const inputCls =
 export default function SuggestIconForm() {
   const [sent, setSent] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
+  const [motionValue, setMotionValue] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
+    const rawMotion = String(data.get("motion") ?? "").trim();
+    const customMotion = String(data.get("motionCustom") ?? "").trim();
+    const motion =
+      rawMotion === "(escribir)" ? customMotion : rawMotion;
     const payload = {
       nombre: String(data.get("nombre") ?? "").trim(),
       idea: String(data.get("idea") ?? "").trim(),
-      motion: String(data.get("motion") ?? "").trim(),
+      motion,
       categoria: String(data.get("categoria") ?? "").trim(),
     };
 
@@ -106,25 +120,42 @@ export default function SuggestIconForm() {
         />
       </label>
 
-      <label className="block">
-        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
-          Movimiento sugerido
-        </span>
-        <select
-          name="motion"
-          defaultValue=""
-          className={`${inputCls} mt-2`}
-        >
-          <option value="" disabled>
-            Elige un movimiento
-          </option>
-          {MOTIONS.map((m) => (
-            <option key={m} value={m}>
-              {m}
+      <div className="space-y-3">
+        <label className="block">
+          <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+            Movimiento sugerido
+          </span>
+          <select
+            name="motion"
+            value={motionValue}
+            onChange={(e) => setMotionValue(e.target.value)}
+            className={`${inputCls} mt-2`}
+          >
+            <option value="" disabled>
+              Elige un movimiento
             </option>
-          ))}
-        </select>
-      </label>
+            {MOTIONS.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+        </label>
+        {motionValue === "(escribir)" && (
+          <label className="block">
+            <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+              Escribe qué tipo de movimiento
+            </span>
+            <input
+              name="motionCustom"
+              type="text"
+              required
+              placeholder="p. ej. que gire y vibre al pasar el mouse"
+              className={`${inputCls} mt-2`}
+            />
+          </label>
+        )}
+      </div>
 
       <button
         type="submit"
