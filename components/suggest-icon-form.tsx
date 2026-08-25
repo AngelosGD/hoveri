@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getCategories } from "@/icons/data";
 
 const MOTIONS = [
   "Latido / pulso",
@@ -22,6 +23,8 @@ const MOTIONS = [
 
 const inputCls =
   "w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-rose-500 dark:focus:bg-zinc-900 dark:focus:ring-rose-500/10";
+
+const CATEGORIES = getCategories();
 
 export default function SuggestIconForm() {
   const [sent, setSent] = useState(false);
@@ -98,12 +101,20 @@ export default function SuggestIconForm() {
           <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
             Categoría sugerida
           </span>
-          <input
+          <select
             name="categoria"
-            type="text"
-            placeholder="p. ej. Naturaleza"
+            defaultValue=""
             className={`${inputCls} mt-2`}
-          />
+          >
+            <option value="" disabled>
+              Elige una categoría
+            </option>
+            {CATEGORIES.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
 
