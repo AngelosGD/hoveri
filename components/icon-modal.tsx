@@ -110,7 +110,7 @@ ${usageCode}`;
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97, y: 8 }}
         transition={{ type: "spring", stiffness: 320, damping: 28 }}
-        className="flex max-h-[90dvh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950"
+        className="flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950"
       >
         {/* header */}
         <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-5 py-3 dark:border-zinc-800">
@@ -142,9 +142,9 @@ ${usageCode}`;
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center md:w-[320px] md:shrink-0"
+            className="flex flex-col items-center md:w-[360px] md:shrink-0"
           >
-            <div className="group relative flex aspect-square w-full max-w-[320px] items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50">
+            <div className="group relative flex aspect-square w-full max-w-[360px] items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50">
               <div className="absolute right-3 top-3 hidden rounded-md p-1.5 text-zinc-400 opacity-0 transition-all group-hover:opacity-100 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 sm:group-hover:opacity-100 [@media(hover:none)]:opacity-100 [@media(hover:none)]:block">
                 <span className="text-xs">hover</span>
               </div>
@@ -291,8 +291,8 @@ ${usageCode}`;
                     </pre>
                   )}
                   {tab === "code" && (
-                    <pre className="max-h-[320px] overflow-auto font-mono text-xs leading-6 text-zinc-800 dark:text-zinc-300">
-                      <code>{sourceError ? "No se pudo cargar el código del icono." : source ?? "Cargando..."}</code>
+                    <pre className="overflow-x-auto whitespace-pre-wrap break-words font-mono text-xs leading-6 text-zinc-800 dark:text-zinc-300">
+                      <code className="whitespace-pre-wrap break-words">{sourceError ? "No se pudo cargar el código del icono." : source ?? "Cargando..."}</code>
                     </pre>
                   )}
                   {tab === "steps" && (
@@ -310,7 +310,7 @@ ${usageCode}`;
                           <div className="min-w-0 flex-1">
                             <p className="text-xs font-medium text-zinc-900 dark:text-zinc-100">{s.title}</p>
                             {s.mono ? (
-                              <pre className="mt-1.5 overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 font-mono text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
+                              <pre className="mt-1.5 whitespace-pre-wrap break-words rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 font-mono text-xs leading-5 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
                                 {s.body}
                               </pre>
                             ) : (

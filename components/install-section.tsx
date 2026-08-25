@@ -227,8 +227,8 @@ const ref = useRef(null);
                   <span className="h-2 w-2 rounded-full bg-white/10" />
                   <span className="h-2 w-2 rounded-full bg-white/10" />
                 </div>
-                <pre className="overflow-x-auto pt-6 font-mono text-xs leading-6 text-zinc-300">
-                  <code>{basicUsage}</code>
+                <pre className="whitespace-pre-wrap break-words pt-6 font-mono text-xs leading-6 text-zinc-300">
+                  <code className="whitespace-pre-wrap break-words">{basicUsage}</code>
                 </pre>
               </div>
             </motion.div>
@@ -283,8 +283,8 @@ const ref = useRef(null);
                   <span className="h-2 w-2 rounded-full bg-white/10" />
                   <span className="h-2 w-2 rounded-full bg-white/10" />
                 </div>
-                <pre className="overflow-x-auto pt-6 font-mono text-xs leading-6 text-zinc-300">
-                  <code>{controlledUsage}</code>
+                <pre className="whitespace-pre-wrap break-words pt-6 font-mono text-xs leading-6 text-zinc-300">
+                  <code className="whitespace-pre-wrap break-words">{controlledUsage}</code>
                 </pre>
               </div>
             </motion.div>
@@ -318,7 +318,7 @@ const ref = useRef(null);
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.97, y: 8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 320, damping: 28 }}
-              className="flex max-h-[85dvh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
+              className="flex max-h-[90dvh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
             >
               <div className="flex items-center justify-between border-b border-zinc-200 px-5 py-3 dark:border-zinc-800">
                 <div className="flex items-center gap-2.5">
@@ -365,8 +365,8 @@ const ref = useRef(null);
                 </div>
               </div>
               <div className="overflow-auto bg-zinc-950 p-6 dark:bg-black">
-                <pre className="font-mono text-sm leading-7 text-zinc-300">
-                  <code>{expanded === "basic" ? basicUsage : controlledUsage}</code>
+                <pre className="whitespace-pre-wrap break-words font-mono text-sm leading-7 text-zinc-300">
+                  <code className="whitespace-pre-wrap break-words">{expanded === "basic" ? basicUsage : controlledUsage}</code>
                 </pre>
               </div>
             </motion.div>
