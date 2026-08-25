@@ -5,25 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const NextIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".next-ring",
-        { scale: [1, 1.06, 1], opacity: [1, 0.85, 1] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".next-n",
-        { y: [0, -2, 0], x: [0, 1, 0], opacity: [1, 0.7, 1] },
-        { duration: 0.55, ease: "easeInOut", delay: 0.12 },
-      );
+      animate(".brand", { scale: [1, 1.1, 0.95, 1.05, 1] }, { duration: 0.9, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".next-ring", { scale: 1, opacity: 1 }, { duration: 0.25 });
-      animate(".next-n", { y: 0, x: 0, opacity: 1 }, { duration: 0.25 });
+      animate(".brand", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -37,26 +27,16 @@ const NextIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <path
-          className="next-ring"
+        <motion.path
+          className="brand"
+          d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"
           style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-          fill={color}
-          stroke="none"
-          d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001Z"
-        />
-        <path
-          className="next-n"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-          fill={color}
-          stroke="none"
-          d="M18.665 21.978L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Z"
         />
       </motion.svg>
     );

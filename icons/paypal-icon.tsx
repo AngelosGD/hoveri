@@ -4,26 +4,16 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const PayPalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+const PaypalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".pplo-big",
-        { y: [0, -2, 0], rotate: [0, -4, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".pplo-small",
-        { opacity: [0, 1, 1, 0], scale: [0.9, 1, 1, 0.9] },
-        { duration: 0.7, ease: "easeInOut", delay: 0.15 },
-      );
+      animate(".brand", { scale: [1, 1.1, 0.95, 1.05, 1] }, { duration: 0.9, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".pplo-big", { y: 0, rotate: 0 }, { duration: 0.25 });
-      animate(".pplo-small", { opacity: 0, scale: 0.9 }, { duration: 0.25 });
+      animate(".brand", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -37,28 +27,22 @@ const PayPalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <path
-          className="pplo-big"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
-          fill={color}
-          stroke="none"
+        <motion.path
+          className="brand"
           d="M15.607 4.653H8.941L6.645 19.251H1.82L4.862 0h7.995c3.754 0 6.375 2.294 6.473 5.513-.648-.478-2.105-.86-3.722-.86m6.57 5.546c0 3.41-3.01 6.853-6.958 6.853h-2.493L11.595 24H6.74l1.845-11.538h3.592c4.208 0 7.346-3.634 7.153-6.949a5.24 5.24 0 0 1 2.848 4.686M9.653 5.546h6.408c.907 0 1.942.222 2.363.541-.195 2.741-2.655 5.483-6.441 5.483H8.714Z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
         />
-        <path className="pplo-small" d="M5 4h12" opacity="0" strokeWidth={strokeWidth * 0.6} />
       </motion.svg>
     );
   },
 );
 
-PayPalIcon.displayName = "PayPalIcon";
+PaypalIcon.displayName = "PaypalIcon";
 
-export default PayPalIcon;
+export default PaypalIcon;

@@ -4,32 +4,16 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const LinkedInIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+const LinkedinIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".in-dot",
-        { scale: [1, 1.6, 1], opacity: [1, 0.5, 1] },
-        { duration: 0.5, ease: "easeInOut" },
-      );
-      animate(
-        ".in-stem",
-        { scaleY: [1, 1.2, 1], y: [0, -1, 0] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.15 },
-      );
-      animate(
-        ".in-frame",
-        { scale: [1, 1.06, 1], rotate: [0, 3, 0] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.25 },
-      );
+      animate(".brand", { scale: [1, 1.1, 0.95, 1.05, 1] }, { duration: 0.9, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".in-dot", { scale: 1 }, { duration: 0.25 });
-      animate(".in-stem", { scaleY: 1 }, { duration: 0.25 });
-      animate(".in-frame", { scale: 1 }, { duration: 0.25 });
+      animate(".brand", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,28 +27,22 @@ const LinkedInIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="in-frame" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <rect x="3.5" y="3.5" width="17" height="17" rx="2.2" />
-        </g>
-        <circle className="in-dot" cx="7.5" cy="8" r="1.1" fill={color} stroke="none" />
-        <g className="in-stem" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M7.5 10.5V16" />
-          <path d="M11 10.5V16M11 12.6c.9-1.2 2-1.8 3.2-1.8C17 10.8 17 13 17 13.4V16" />
-        </g>
+        <motion.path
+          className="brand"
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },
 );
 
-LinkedInIcon.displayName = "LinkedInIcon";
+LinkedinIcon.displayName = "LinkedinIcon";
 
-export default LinkedInIcon;
+export default LinkedinIcon;

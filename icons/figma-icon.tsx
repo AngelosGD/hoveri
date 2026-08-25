@@ -5,31 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const FigmaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".figma-top",
-        { y: [0, -3, 0], scale: [1, 1.06, 1] },
-        { duration: 0.55, ease: "easeInOut" },
-      );
-      animate(
-        ".figma-bottom",
-        { y: [0, 2.5, 0], scale: [1, 0.96, 1] },
-        { duration: 0.55, ease: "easeInOut", delay: 0.12 },
-      );
-      animate(
-        ".figma-stem",
-        { scaleY: [1, 1.15, 1], scaleX: [1, 0.95, 1] },
-        { duration: 0.6, ease: "easeInOut", delay: 0.2 },
-      );
+      animate(".brand", { scale: [1, 1.08, 0.97, 1] }, { duration: 0.6, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".figma-top", { y: 0, scale: 1 }, { duration: 0.25 });
-      animate(".figma-bottom", { y: 0, scale: 1 }, { duration: 0.25 });
-      animate(".figma-stem", { scaleX: 1, scaleY: 1 }, { duration: 0.25 });
+      animate(".brand", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,22 +27,17 @@ const FigmaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="figma-top" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <circle cx="9" cy="7" r="4.6" fill={color} stroke="none" />
-          <circle cx="15" cy="7" r="4.6" fill={color} stroke="none" />
-        </g>
-        <g className="figma-bottom" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <circle cx="9" cy="17" r="4.6" fill={color} stroke="none" />
-          <circle cx="15" cy="17" r="4.6" fill={color} stroke="none" />
-        </g>
-        <circle className="figma-stem" cx="9" cy="12" r="4.6" fill={color} stroke="none" />
+        <motion.path
+          className="brand"
+          d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

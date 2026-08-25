@@ -5,25 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const XIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".x-line-a",
-        { rotate: [0, -22, 0], x: [0, 1.2, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".x-line-b",
-        { rotate: [0, 22, 0], x: [0, -1.2, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
+      animate(".brand", { scale: [0.9, 1.15, 1], opacity: [0.8, 1, 1] }, { duration: 0.5, ease: "easeOut" });
     };
 
     const stopAnimation = () => {
-      animate(".x-line-a", { rotate: 0, x: 0 }, { duration: 0.25 });
-      animate(".x-line-b", { rotate: 0, x: 0 }, { duration: 0.25 });
+      animate(".brand", { scale: 1, opacity: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -38,16 +28,16 @@ const XIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         height={size}
         viewBox="0 0 24 24"
         fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="x-line-a" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M4 4 20 20M4 4l4 4M20 20l-4-4" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" fill="none" />
-        </g>
-        <g className="x-line-b" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M20 4 4 20m0-16l4 4m0 8l4 4" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" fill="none" />
-        </g>
+        <motion.path
+          className="brand"
+          d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

@@ -5,31 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const AngularIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".angular-shield",
-        { y: [0, -2, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".angular-arms",
-        { rotate: [0, -8, 8, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".angular-a",
-        { scale: [1, 1.2, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.2 },
-      );
+      animate(".brand", { opacity: [1, 0.7, 1], scale: [1, 1.05, 1] }, { duration: 0.8, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".angular-shield", { y: 0 }, { duration: 0.25 });
-      animate(".angular-arms", { rotate: 0 }, { duration: 0.25 });
-      animate(".angular-a", { scale: 1 }, { duration: 0.25 });
+      animate(".brand", { opacity: 1, scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,23 +27,17 @@ const AngularIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="angular-shield" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M12 2 3 5.5 4.8 17 12 21l7.2-4L21 5.5Z" />
-        </g>
-        <g className="angular-arms" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M12 6.8 8 16h2.1l.9-2h2l.9 2H16Z" />
-        </g>
-        <path className="angular-a" d="M12 9.4l1.3 2.9h-2.6Z" fill={color} stroke="none"
-          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} />
+        <motion.path
+          className="brand"
+          d="M16.712 17.711H7.288l-1.204 2.916L12 24l5.916-3.373-1.204-2.916ZM14.692 0l7.832 16.855.814-12.856L14.692 0ZM9.308 0 .662 3.999l.814 12.856L9.308 0Zm-.405 13.93h6.198L12 6.396 8.903 13.93Z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

@@ -5,25 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const SvelteIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".svelte-a",
-        { rotate: [0, 12, 0], x: [0, 1, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-      animate(
-        ".svelte-b",
-        { rotate: [0, -12, 0], x: [0, -1, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
+      animate(".brand", { rotate: [0, 6, -6, 3, 0] }, { duration: 0.8, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".svelte-a", { rotate: 0, x: 0 }, { duration: 0.25 });
-      animate(".svelte-b", { rotate: 0, x: 0 }, { duration: 0.25 });
+      animate(".brand", { rotate: 0 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -37,21 +27,17 @@ const SvelteIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="svelte-a" style={{ transformOrigin: "50% 95%", transformBox: "fill-box" }}>
-          <path d="M15.5 3 5 14.2c-.8 1-.8 2.4.1 3.3.9.9 2.3.9 3.2.1L20 6.5" />
-        </g>
-        <g className="svelte-b" style={{ transformOrigin: "50% 5%", transformBox: "fill-box" }}>
-          <path d="M4 6.5 14.5 17.7c.9.8 2.3.8 3.2-.1.9-.9.9-2.3.1-3.3L8.5 3" />
-        </g>
+        <motion.path
+          className="brand"
+          d="M10.354 21.125a4.44 4.44 0 0 1-4.765-1.767 4.109 4.109 0 0 1-.703-3.107 3.898 3.898 0 0 1 .134-.522l.105-.321.287.21a7.21 7.21 0 0 0 2.186 1.092l.208.063-.02.208a1.253 1.253 0 0 0 .226.83 1.337 1.337 0 0 0 1.435.533 1.231 1.231 0 0 0 .343-.15l5.59-3.562a1.164 1.164 0 0 0 .524-.778 1.242 1.242 0 0 0-.211-.937 1.338 1.338 0 0 0-1.435-.533 1.23 1.23 0 0 0-.343.15l-2.133 1.36a4.078 4.078 0 0 1-1.135.499 4.44 4.44 0 0 1-4.765-1.766 4.108 4.108 0 0 1-.702-3.108 3.855 3.855 0 0 1 1.742-2.582l5.589-3.563a4.072 4.072 0 0 1 1.135-.499 4.44 4.44 0 0 1 4.765 1.767 4.109 4.109 0 0 1 .703 3.107 3.943 3.943 0 0 1-.134.522l-.105.321-.286-.21a7.204 7.204 0 0 0-2.187-1.093l-.208-.063.02-.207a1.255 1.255 0 0 0-.226-.831 1.337 1.337 0 0 0-1.435-.532 1.231 1.231 0 0 0-.343.15L8.62 9.368a1.162 1.162 0 0 0-.524.778 1.24 1.24 0 0 0 .211.937 1.338 1.338 0 0 0 1.435.533 1.235 1.235 0 0 0 .344-.151l2.132-1.36a4.067 4.067 0 0 1 1.135-.498 4.44 4.44 0 0 1 4.765 1.766 4.108 4.108 0 0 1 .702 3.108 3.857 3.857 0 0 1-1.742 2.583l-5.589 3.562a4.072 4.072 0 0 1-1.135.499m10.358-17.95C18.484-.015 14.082-.96 10.9 1.068L5.31 4.63a6.412 6.412 0 0 0-2.896 4.295 6.753 6.753 0 0 0 .666 4.336 6.43 6.43 0 0 0-.96 2.396 6.833 6.833 0 0 0 1.168 5.167c2.229 3.19 6.63 4.135 9.812 2.108l5.59-3.562a6.41 6.41 0 0 0 2.896-4.295 6.756 6.756 0 0 0-.665-4.336 6.429 6.429 0 0 0 .958-2.396 6.831 6.831 0 0 0-1.167-5.168Z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

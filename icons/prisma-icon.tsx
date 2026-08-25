@@ -5,31 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const PrismaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".prisma-prism",
-        { rotate: [0, 6, -6, 0], y: [0, -2, 0] },
-        { duration: 0.7, ease: "easeInOut" },
-      );
-      animate(
-        ".prisma-line",
-        { y: [0, 4, 0], opacity: [1, 0.4, 1] },
-        { duration: 0.7, ease: "easeInOut", delay: 0.15 },
-      );
-      animate(
-        ".prisma-tip",
-        { scale: [1, 1.4, 1], opacity: [1, 0.5, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.3 },
-      );
+      animate(".brand", { opacity: [1, 0.7, 1], scale: [1, 1.05, 1] }, { duration: 0.8, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".prisma-prism", { y: 0, scale: 1 }, { duration: 0.25 });
-      animate(".prisma-line", { y: 0, opacity: 1 }, { duration: 0.25 });
-      animate(".prisma-tip", { scale: 1 }, { duration: 0.25 });
+      animate(".brand", { opacity: 1, scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -43,20 +27,17 @@ const PrismaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="prisma-prism" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M14.8 3 5 16.3h6L9 21l9.8-13.3Z" />
-        </g>
-        <path className="prisma-line" d="M11.6 16.3h6.2L9.6 21Z" opacity="0.5" />
-        <path className="prisma-tip" d="M13.6 6.8 8.8 13h3.6L11 17Z" fill={color} stroke="none" />
+        <motion.path
+          className="brand"
+          d="M21.8068 18.2848L13.5528.7565c-.207-.4382-.639-.7273-1.1286-.7541-.5023-.0293-.9523.213-1.2062.6253L2.266 15.1271c-.2773.4518-.2718 1.0091.0158 1.4555l4.3759 6.7786c.2608.4046.7127.6388 1.1823.6388.1332 0 .267-.0188.3987-.0577l12.7019-3.7568c.3891-.1151.7072-.3904.8737-.7553s.1633-.7828-.0075-1.1454zm-1.8481.7519L9.1814 22.2242c-.3292.0975-.6448-.1873-.5756-.5194l3.8501-18.4386c.072-.3448.5486-.3996.699-.0803l7.1288 15.138c.1344.2856-.019.6224-.325.7128z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

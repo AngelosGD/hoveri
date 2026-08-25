@@ -5,25 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const GoogleIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".google-g",
-        { rotate: [0, -12, 0], scale: [1, 1.08, 1] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".google-dot",
-        { scale: [1, 1.8, 1], opacity: [1, 0.5, 1] },
-        { duration: 0.5, ease: "easeInOut", delay: 0.2 },
-      );
+      animate(".brand", { y: [0, -2, 0] }, { duration: 0.6, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".google-g", { rotate: 0, scale: 1 }, { duration: 0.25 });
-      animate(".google-dot", { scale: 1, opacity: 1 }, { duration: 0.25 });
+      animate(".brand", { y: 0 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -37,20 +27,17 @@ const GoogleIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="google-g" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M20.2 12.5c0 .9-.1 1.6-.3 2.3H12v-3.1h5.3c-.1-.6-.7-1.6-1.9-2.2 1.9-.3 2.9-1 3.2-1.6.5.6.6 1.4.6 2.3Z" opacity="0" />
-          <path d="M12 4c2 .9 3.3 1.3 4.5 2.1M12 4V2.5M12 4c-2.4 1.1-4.2 3.2-4.2 6 0 2.5 1.6 4.6 3.6 5.5M18.6 14.8c-.6 1.9-2 3.1-4 3.7M12 4l3 2" />
-        </g>
-        <circle className="google-dot" cx="12" cy="12" r="1.4" />
+        <motion.path
+          className="brand"
+          d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

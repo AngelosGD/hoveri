@@ -5,25 +5,15 @@ import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
 const ViteIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
-  ({ size = 24, color = "currentColor", strokeWidth = 2, className = "" }, ref) => {
+  ({ size = 24, color = "currentColor", className = "" }, ref) => {
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".vite-bolt",
-        { pathLength: [0, 1], opacity: [0, 1], y: [0, 1, 0] },
-        { duration: 0.5, ease: "easeInOut" },
-      );
-      animate(
-        ".vite-frame",
-        { y: [0, -3, 0], rotate: [0, 3, 0] },
-        { duration: 0.7, ease: "easeInOut", delay: 0.1 },
-      );
+      animate(".brand", { scale: [0.9, 1.15, 1], opacity: [0.8, 1, 1] }, { duration: 0.5, ease: "easeOut" });
     };
 
     const stopAnimation = () => {
-      animate(".vite-bolt", { pathLength: 1, opacity: 1 }, { duration: 0.25 });
-      animate(".vite-frame", { y: 0 }, { duration: 0.25 });
+      animate(".brand", { scale: 1, opacity: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -37,19 +27,17 @@ const ViteIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <g className="vite-frame" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}>
-          <path d="M12 2 4 4l2 15 6 3 6-3 2-15Z" />
-        </g>
-        <path className="vite-bolt" d="M12.5 6 8 12.5h3L10.5 18 15.5 10.8h-3Z" />
+        <motion.path
+          className="brand"
+          d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },

@@ -9,27 +9,11 @@ const VercelIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-      await animate(
-        ".vercel-left",
-        { scaleY: [1, 0.82, 1], y: [0, 1.2, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".vercel-right",
-        { scaleY: [1, 1.14, 1], y: [0, -0.6, 0] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
-      animate(
-        ".vercel-base",
-        { scaleX: [1, 1.08, 1] },
-        { duration: 0.6, ease: "easeInOut" },
-      );
+      animate(".brand", { scale: [1, 1.1, 0.95, 1.05, 1] }, { duration: 0.9, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {
-      animate(".vercel-left", { scaleY: 1, y: 0 }, { duration: 0.25 });
-      animate(".vercel-right", { scaleY: 1, y: 0 }, { duration: 0.25 });
-      animate(".vercel-base", { scaleX: 1 }, { duration: 0.25 });
+      animate(".brand", { scale: 1 }, { duration: 0.2 });
     };
 
     useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
@@ -44,13 +28,16 @@ const VercelIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         height={size}
         viewBox="0 0 24 24"
         fill={color}
+        stroke="none"
         className={`${className} cursor-pointer`}
         style={{ overflow: "visible" }}
         aria-hidden="true"
       >
-        <path className="vercel-left" style={{ transformOrigin: "50% 0%", transformBox: "fill-box" }} d="M12 2 2 22h7Z" />
-        <path className="vercel-right" style={{ transformOrigin: "50% 0%", transformBox: "fill-box" }} d="M12 2 22 22h-7Z" />
-        <path className="vercel-base" style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }} d="M9 22h6l-3-6Z" />
+        <motion.path
+          className="brand"
+          d="m12 1.608 12 20.784H0Z"
+          style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}
+        />
       </motion.svg>
     );
   },
