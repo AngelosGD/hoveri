@@ -80,7 +80,7 @@ const ref = useRef(null);
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:border-white/10 dark:bg-zinc-900 md:col-span-3"
+            className="group relative flex flex-col self-start overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:border-white/10 dark:bg-zinc-900 md:col-span-3"
           >
             <div className="flex items-center justify-between border-b border-zinc-100 bg-zinc-50/50 px-4 py-3 dark:border-zinc-800 dark:bg-zinc-900">
               <div className="flex items-center gap-2">
@@ -118,8 +118,8 @@ const ref = useRef(null);
               </div>
             </div>
 
-            <div className="relative flex flex-1 items-center gap-3 bg-white px-5 py-6 dark:bg-zinc-900">
-              <span className="font-mono text-sm text-rose-500">$</span>
+            <div className="relative flex items-center gap-3 bg-white px-5 py-5 dark:bg-zinc-900">
+              <span className="font-mono text-sm font-medium text-zinc-400 dark:text-zinc-500">$</span>
               <AnimatePresence mode="wait">
                 <motion.code
                   key={manager}
@@ -137,7 +137,7 @@ const ref = useRef(null);
                 onClick={() => copy(activeCmd, "install")}
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 font-mono text-xs font-medium text-zinc-700 shadow-sm transition-colors hover:border-zinc-300 hover:text-zinc-950 active:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-white"
+                className="ml-auto inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 font-mono text-xs font-medium text-zinc-700 shadow-sm transition-colors hover:border-zinc-300 hover:text-zinc-950 active:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-white"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {copied === "install" ? (
