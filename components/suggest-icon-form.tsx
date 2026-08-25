@@ -26,7 +26,6 @@ export default function SuggestIconForm() {
       idea: String(data.get("idea") ?? "").trim(),
       motion: String(data.get("motion") ?? "").trim(),
       categoria: String(data.get("categoria") ?? "").trim(),
-      email: String(data.get("email") ?? "").trim(),
     };
 
     setStatus("sending");
@@ -125,18 +124,6 @@ export default function SuggestIconForm() {
             </option>
           ))}
         </select>
-      </label>
-
-      <label className="block">
-        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
-          Tu correo (opcional)
-        </span>
-        <input
-          name="email"
-          type="email"
-          placeholder="para avisarte cuando esté listo"
-          className={`${inputCls} mt-2`}
-        />
       </label>
 
       <button

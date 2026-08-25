@@ -11,14 +11,12 @@ export async function POST(request: Request) {
       idea?: string;
       motion?: string;
       categoria?: string;
-      email?: string;
     };
 
     const nombre = (body.nombre ?? "").trim();
     const idea = (body.idea ?? "").trim();
     const motion = (body.motion ?? "").trim();
     const categoria = (body.categoria ?? "").trim();
-    const email = (body.email ?? "").trim();
 
     if (!nombre || !idea) {
       return NextResponse.json(
@@ -38,15 +36,13 @@ export async function POST(request: Request) {
       `Nombre del icono: ${nombre}\n` +
       `Qué representa / idea: ${idea}\n` +
       (motion ? `Movimiento sugerido: ${motion}\n` : "") +
-      (categoria ? `Categoría sugerida: ${categoria}\n` : "") +
-      (email ? `Contacto: ${email}\n` : "");
+      (categoria ? `Categoría sugerida: ${categoria}\n` : "");
 
     const { error } = await resend.emails.send({
       from: "hoveri <onboarding@resend.dev>",
       to: [CONTACT_EMAIL],
       subject: `[hoveri] Sugerencia de icono: ${nombre}`,
       text,
-      replyTo: email || undefined,
     });
 
     if (error) {
