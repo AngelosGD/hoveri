@@ -108,7 +108,7 @@ ${usageCode}`;
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97, y: 8 }}
         transition={{ type: "spring", stiffness: 320, damping: 28 }}
-        className="flex max-h-[92dvh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950"
+        className="flex max-h-[92dvh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
       >
         {/* header */}
         <div className="flex shrink-0 items-center justify-between border-b border-zinc-200 px-5 py-3 dark:border-zinc-800">
@@ -142,7 +142,7 @@ ${usageCode}`;
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col items-center md:w-[360px] md:shrink-0"
           >
-            <div className="group relative flex aspect-square w-full max-w-[360px] items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50">
+            <div className="group relative flex aspect-square w-full max-w-[360px] items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
               <div className="absolute right-3 top-3 hidden rounded-md p-1.5 text-zinc-400 opacity-0 transition-all group-hover:opacity-100 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 sm:group-hover:opacity-100 [@media(hover:none)]:opacity-100 [@media(hover:none)]:block">
                 <span className="text-xs">hover</span>
               </div>

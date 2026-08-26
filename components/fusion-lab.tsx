@@ -78,7 +78,7 @@ export default function FusionLab() {
           onFocus={() => setHovered(true)}
           onBlur={() => setHovered(false)}
           tabIndex={0}
-          className="group relative flex h-[320px] items-center justify-center overflow-hidden rounded-3xl border border-zinc-200 bg-white outline-none transition-colors focus-visible:ring-4 focus-visible:ring-rose-100 hover:border-rose-300 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-rose-500/50 dark:focus-visible:ring-rose-500/10"
+          className="group relative flex h-[320px] items-center justify-center overflow-hidden rounded-3xl border border-zinc-200 bg-white outline-none transition-colors focus-visible:ring-4 focus-visible:ring-rose-100 hover:border-rose-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 dark:focus-visible:ring-rose-500/10"
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(244,63,94,0.06),transparent_60%)]" />
           <div className="relative flex h-40 w-40 items-center justify-center">
@@ -167,7 +167,7 @@ export default function FusionLab() {
         </p>
       </section>
 
-      <aside className="flex flex-col rounded-3xl border border-zinc-200 bg-white p-4 dark:border-zinc-800/80 dark:bg-zinc-900/40">
+      <aside className="flex flex-col rounded-3xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mb-3 flex items-center justify-between gap-2">
           <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
             Iconos

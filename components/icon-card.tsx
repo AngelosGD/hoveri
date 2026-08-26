@@ -38,12 +38,12 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
         whileHover={{ y: compact ? 0 : -2 }}
         transition={{ type: "spring", stiffness: 400, damping: 20 }}
       >
-        <div className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-600 dark:hover:shadow-lg">
+        <div className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 dark:hover:shadow-lg dark:hover:shadow-black/20">
           <button
             type="button"
             aria-label={`Icono ${name}`}
             onClick={() => setOpen(true)}
-            className={`group/btn flex flex-1 items-center justify-center text-zinc-900 transition-all duration-200 group-hover:bg-zinc-50 dark:text-zinc-50 dark:group-hover:bg-zinc-800/40 ${
+            className={`group/btn flex flex-1 items-center justify-center text-zinc-900 transition-all duration-200 group-hover:bg-zinc-50 dark:text-zinc-100 dark:group-hover:bg-zinc-800 ${
               compact ? "min-h-12 p-2" : "min-h-16 p-3"
             }`}
           >
@@ -53,7 +53,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
           </button>
 
           {!compact && (
-            <div className="flex items-center justify-center gap-1 border-t border-zinc-200 px-1 py-1.5 dark:border-zinc-800/80">
+            <div className="flex items-center justify-center gap-1 border-t border-zinc-200 bg-zinc-50/50 px-1 py-1.5 dark:border-zinc-800 dark:bg-zinc-900">
               <motion.button
                 type="button"
                 onClick={copyShadcn}
@@ -62,7 +62,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
                 whileHover={{ scale: 1.08, y: -1 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 active:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50 dark:active:bg-zinc-700"
+                className="rounded px-1.5 py-1 text-zinc-500 transition-colors hover:bg-white hover:text-zinc-900 hover:shadow-sm active:bg-zinc-100 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 dark:active:bg-zinc-700"
               >
                 <CopyIcon size={13} />
               </motion.button>
@@ -74,7 +74,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
                 whileHover={{ scale: 1.08, y: -1 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                className="rounded px-1.5 py-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900 active:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700/50 dark:hover:text-zinc-50 dark:active:bg-zinc-700"
+                className="rounded px-1.5 py-1 text-zinc-500 transition-colors hover:bg-white hover:text-zinc-900 hover:shadow-sm active:bg-zinc-100 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 dark:active:bg-zinc-700"
               >
                 <CodeXmlIcon size={13} />
               </motion.button>
@@ -83,7 +83,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
         </div>
 
         <div className="pointer-events-none absolute bottom-[calc(100%+8px)] left-1/2 z-20 w-max max-w-[240px] -translate-x-1/2 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-          <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 shadow-lg dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40">
+          <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-800 dark:shadow-black/30">
             <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-50">
               {name}
             </p>

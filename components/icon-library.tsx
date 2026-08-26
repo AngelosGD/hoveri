@@ -47,7 +47,7 @@ export default function IconLibrary() {
 
   return (
     <>
-      <section className="border-b border-zinc-200 bg-white dark:border-zinc-800/60 dark:bg-zinc-950">
+      <section className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -98,7 +98,7 @@ export default function IconLibrary() {
               className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                 category === null
                   ? "border-rose-500 bg-rose-500 text-white shadow-sm dark:border-rose-500"
-                  : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:bg-rose-50/50 hover:text-zinc-950 hover:shadow-sm dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:bg-rose-500/5 dark:hover:text-zinc-100"
+                  : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:bg-rose-50/50 hover:text-zinc-950 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-rose-500/50 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
               }`}
             >
               Todas
@@ -106,7 +106,7 @@ export default function IconLibrary() {
                 className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] transition-colors ${
                   category === null
                     ? "bg-white/20 text-white"
-                    : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
+                    : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-500 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
                 }`}
               >
                 {total}
@@ -125,7 +125,7 @@ export default function IconLibrary() {
                 className={`group flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all ${
                   category === c
                     ? "border-rose-500 bg-rose-500 text-white shadow-sm dark:border-rose-500"
-                    : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:bg-rose-50/50 hover:text-zinc-950 hover:shadow-sm dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:bg-rose-500/5 dark:hover:text-zinc-100"
+                    : "border-zinc-200 bg-transparent text-zinc-600 hover:border-rose-400 hover:bg-rose-50/50 hover:text-zinc-950 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-rose-500/50 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
                 }`}
               >
                 {c}
@@ -133,7 +133,7 @@ export default function IconLibrary() {
                   className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] transition-colors ${
                     category === c
                       ? "bg-white/20 text-white"
-                      : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
+                      : "bg-zinc-100 text-zinc-500 group-hover:bg-rose-100 group-hover:text-rose-600 dark:bg-zinc-800 dark:text-zinc-500 dark:group-hover:bg-rose-500/10 dark:group-hover:text-rose-400"
                   }`}
                 >
                   {categoryCounts.get(c) ?? 0}

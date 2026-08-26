@@ -44,7 +44,7 @@ const ref = useRef(null);
   };
 
   return (
-    <section className="relative overflow-hidden border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800/60 dark:bg-zinc-900/30">
+    <section className="relative overflow-hidden border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
       {/* decorative glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-rose-100/40 blur-3xl dark:bg-rose-500/[0.06]" />
