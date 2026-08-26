@@ -82,14 +82,42 @@ export default function FusionLab() {
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(244,63,94,0.06),transparent_60%)]" />
           <div className="relative flex h-40 w-40 items-center justify-center">
-            <AnimatePresence mode="popLayout">
+            {/* morph glow */}
+            <motion.div
+              aria-hidden
+              className="absolute h-32 w-32 rounded-full bg-rose-500/10 blur-2xl dark:bg-rose-500/15"
+              animate={
+                reduce
+                  ? undefined
+                  : {
+                      scale: hovered ? [1, 1.15, 1] : [1, 1.08, 1],
+                      opacity: hovered ? [0.6, 1, 0.6] : [0.5, 0.8, 0.5],
+                    }
+              }
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <AnimatePresence mode="wait">
               <motion.div
                 key={hovered ? slotB : slotA}
-                initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.5, rotate: hovered ? 90 : -90 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.5, rotate: hovered ? -90 : 90 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="absolute"
+                layoutId="fusion-icon"
+                initial={
+                  reduce
+                    ? { opacity: 0 }
+                    : { opacity: 0, scale: 0.85, rotate: hovered ? 14 : -14, filter: "blur(6px)" }
+                }
+                animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
+                exit={
+                  reduce
+                    ? { opacity: 0 }
+                    : { opacity: 0, scale: 0.88, rotate: hovered ? -14 : 14, filter: "blur(6px)" }
+                }
+                transition={{
+                  type: "spring",
+                  stiffness: 220,
+                  damping: 24,
+                  mass: 0.9,
+                }}
+                className="absolute will-change-transform"
               >
                 {CurrentIcon ? (
                   <IconNode icon={CurrentIcon} size={96} />
