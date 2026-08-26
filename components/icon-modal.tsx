@@ -21,6 +21,8 @@ const TABS = [
 type TabId = (typeof TABS)[number]["id"];
 type ManagerId = (typeof MANAGERS)[number]["id"];
 
+const SOURCE_URL = (file: string) => `/api/icon-source?file=${file}`;
+
 export default function IconModal({
   file,
   name,
@@ -34,6 +36,8 @@ export default function IconModal({
   const [manager, setManager] = useState<ManagerId>("npm");
   const [tab, setTab] = useState<TabId>("install");
   const [copied, setCopied] = useState(false);
+  const [source, setSource] = useState<string | null>(null);
+  const [sourceError, setSourceError] = useState(false);
 
   const meta = ICON_LIST.find((i) => i.file === file);
   const tags = meta?.tags ?? [];
@@ -51,6 +55,21 @@ export default function IconModal({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  useEffect(() => {
+    let alive = true;
+    fetch(SOURCE_URL(file))
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("error"))))
+      .then((data) => {
+        if (alive) setSource(data.source as string);
+      })
+      .catch(() => {
+        if (alive) setSourceError(true);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [file]);
 
   const managerInstall =
     MANAGERS.find((m) => m.id === manager)?.install ?? "npm install hoveri";
@@ -294,6 +313,14 @@ ${usageCode}`;
 
 // en un botón:
 ref.current?.startAnimation();`,
+                    },
+                    {
+                      step: "Paso 4",
+                      title: "Código fuente completo",
+                      desc: "Copia el componente completo si quieres personalizar la animación.",
+                      code: sourceError
+                        ? "No se pudo cargar el código del icono."
+                        : source ?? "Cargando código completo...",
                     },
                   ].map((s) => (
                     <div
