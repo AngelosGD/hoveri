@@ -14,11 +14,12 @@ export default function Home() {
 
   return (
     <main className="flex flex-1 flex-col">
-      <section className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-6 pt-28 pb-28 text-center">
+      <section className="relative flex min-h-[82dvh] flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-16 text-center md:pt-28 md:pb-20">
         <FloatingIcons />
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-rose-100/70 blur-3xl dark:bg-rose-500/10" />
           <div className="absolute -bottom-32 left-1/4 h-64 w-64 rounded-full bg-zinc-100 blur-3xl dark:bg-zinc-800/40" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] dark:opacity-20" />
         </div>
 
         <a
@@ -71,8 +72,8 @@ export default function Home() {
       <FeaturesSection />
 
       <section className="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-        <div className="mx-auto max-w-5xl px-6 py-24">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
             <Reveal>
               <div>
                 <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tighter text-zinc-950 md:text-4xl dark:text-zinc-50">
@@ -94,7 +95,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
                 {showcase.map((icon) => (
                   <IconCard key={icon.file} file={icon.file} name={icon.name} />
                 ))}

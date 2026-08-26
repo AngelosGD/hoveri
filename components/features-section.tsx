@@ -35,8 +35,8 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800/60 dark:bg-zinc-900/50 dark:backdrop-blur-xl dark:[background-image:linear-gradient(rgba(255,255,255,0.04),rgba(255,255,255,0))]">
-      <div className="mx-auto max-w-5xl px-6 py-24">
+    <section className="border-t border-zinc-200 bg-zinc-50/80 dark:border-zinc-800 dark:bg-zinc-900/40">
+      <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}

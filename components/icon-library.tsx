@@ -157,7 +157,7 @@ export default function IconLibrary() {
               value={query}
               onChange={(e) => reset(() => setQuery(e.target.value))}
               placeholder="Buscar icono..."
-              className="w-full rounded-full border border-zinc-200 bg-zinc-50 px-5 py-3 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-rose-500 dark:focus:bg-zinc-900 dark:focus:ring-rose-500/10"
+              className="w-full rounded-full border border-zinc-200 bg-zinc-50 px-6 py-3.5 text-sm text-zinc-900 outline-none transition-all placeholder:text-zinc-400 focus:border-rose-400 focus:bg-white focus:ring-4 focus:ring-rose-100 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-rose-500 dark:focus:bg-zinc-900 dark:focus:ring-rose-500/10"
             />
           </motion.div>
         </div>
