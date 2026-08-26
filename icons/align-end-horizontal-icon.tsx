@@ -12,9 +12,9 @@ const AlignEndHorizontalIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"scale":[1,1.1,0.95,1.06,1],"opacity":[1,0.85,1]}, { duration: 1.3, ease: "easeInOut", delay: 0.2 });
+    animate(".part-0", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {

@@ -12,10 +12,10 @@ const AlignHorizontalSpaceBetweenIcon = forwardRef<AnimatedIconHandle, AnimatedI
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.35,1],"x":[0,0.12371134020618513,0]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.35,1],"x":[0,0.20618556701030943,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"opacity":[1,0.35,1],"x":[0,0.28865979381443285,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"opacity":[1,0.35,1],"x":[0,0.37113402061855627,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.36 });
+    animate(".part-0", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.36 });
     };
 
     const stopAnimation = () => {

@@ -12,12 +12,12 @@ const AmphoraIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,8.969072164948454,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,9.175257731958764,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.07 });
-    animate(".part-2", {"rotate":[0,9.381443298969073,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.14 });
-    animate(".part-3", {"rotate":[0,9.587628865979381,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.21000000000000002 });
-    animate(".part-4", {"rotate":[0,9.793814432989691,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.28 });
-    animate(".part-5", {"rotate":[0,-10,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.35000000000000003 });
+    animate(".part-0", {"scaleY":[0.2,1,1],"opacity":[0.3,1,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"scaleY":[0.2,1,1],"opacity":[0.3,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scaleY":[0.2,1,1],"opacity":[0.3,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"scaleY":[0.2,1,1],"opacity":[0.3,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"scaleY":[0.2,1,1],"opacity":[0.3,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.4 });
+    animate(".part-5", {"scaleY":[0.2,1,1],"opacity":[0.3,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.5 });
     };
 
     const stopAnimation = () => {

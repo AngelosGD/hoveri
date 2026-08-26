@@ -12,9 +12,9 @@ const UtensilsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3.4226804123711343,-1.7113402061855671,0],"rotate":[0,2.7381443298969077,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,3.5051546391752577,-1.7525773195876289,0],"rotate":[0,2.8041237113402064,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,3.587628865979381,-1.7938144329896906,0],"rotate":[0,2.870103092783505,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
+    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
     };
 
     const stopAnimation = () => {

@@ -12,10 +12,10 @@ const AlignHorizontalDistributeStartIcon = forwardRef<AnimatedIconHandle, Animat
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-3", {"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
-    animate(".part-0", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
-    animate(".part-2", {"scale":[0.7,1.2,1],"opacity":[0.4,1,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.28 });
+    animate(".part-0", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.30000000000000004 });
     };
 
     const stopAnimation = () => {

@@ -12,10 +12,10 @@ const AlignVerticalDistributeStartIcon = forwardRef<AnimatedIconHandle, Animated
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-2.1855670103092786,1.0927835051546393,0],"rotate":[0,-1.748453608247423,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-2.1030927835051547,1.0515463917525774,0],"rotate":[0,-1.682474226804124,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,-2.020618556701031,1.0103092783505154,0],"rotate":[0,-1.6164948453608248,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"x":[0,-1.9381443298969074,0.9690721649484537,0],"rotate":[0,-1.550515463917526,0]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"rotate":[0,20,-10,8,0],"x":[0,2,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut", delay: 0.30000000000000004 });
     };
 
     const stopAnimation = () => {

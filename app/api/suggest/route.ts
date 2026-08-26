@@ -13,10 +13,10 @@ export async function POST(request: Request) {
       categoria?: string;
     };
 
-    const nombre = (body.nombre ?? "").trim();
-    const idea = (body.idea ?? "").trim();
-    const motion = (body.motion ?? "").trim();
-    const categoria = (body.categoria ?? "").trim();
+    const nombre = (body.nombre ?? "").trim().slice(0, 80);
+    const idea = (body.idea ?? "").trim().slice(0, 1000);
+    const motion = (body.motion ?? "").trim().slice(0, 120);
+    const categoria = (body.categoria ?? "").trim().slice(0, 60);
 
     if (!nombre || !idea) {
       return NextResponse.json(

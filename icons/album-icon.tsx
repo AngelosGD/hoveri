@@ -12,7 +12,8 @@ const AlbumIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-
+    animate(".part-0", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,6.268041237113402,0]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,6.350515463917525,0]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {

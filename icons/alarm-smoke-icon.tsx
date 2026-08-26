@@ -12,11 +12,11 @@ const AlarmSmokeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.4 });
+    animate(".part-0", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.04 });
+    animate(".part-2", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.08 });
+    animate(".part-3", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.12 });
+    animate(".part-4", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.16 });
     };
 
     const stopAnimation = () => {

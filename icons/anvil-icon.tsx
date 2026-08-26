@@ -12,11 +12,8 @@ const AnvilIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-2.381443298969072,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-2.2371134020618557,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"rotate":[0,-2.0927835051546397,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"rotate":[0,-1.9484536082474229,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
-    animate(".part-4", {"rotate":[0,-1.804123711340206,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.32 });
+    animate(".part-2", {"y":[0,3,-0.5,0],"rotate":[0,6,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-0", {"scale":[1,1.3,1],"opacity":[1,0.6,1]}, { duration: 0.5, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {

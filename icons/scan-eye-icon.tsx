@@ -12,12 +12,12 @@ const ScanEyeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-4", {"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-5", {"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-0", {"x":[0,-2.25,2.25,0],"y":[0,-2.25,2.25,0]}, { duration: 1.3, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,2.25,-2.25,0],"y":[0,-2.25,2.25,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,2.25,-2.25,0],"y":[0,2.25,-2.25,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"x":[0,-2.25,2.25,0],"y":[0,2.25,-2.25,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+    animate(".part-5", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.5 });
     };
 
     const stopAnimation = () => {

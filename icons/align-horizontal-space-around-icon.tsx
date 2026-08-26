@@ -12,9 +12,9 @@ const AlignHorizontalSpaceAroundIcon = forwardRef<AnimatedIconHandle, AnimatedIc
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.6,1.1,1],"opacity":[0,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"scale":[1,1.03,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.6,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"opacity":[1,0.6,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {

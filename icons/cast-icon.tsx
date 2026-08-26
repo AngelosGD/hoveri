@@ -12,10 +12,10 @@ const CastIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-1.8247422680412373,1.0948453608247424,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-1.7628865979381443,1.0577319587628866,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.13 });
-    animate(".part-2", {"x":[0,-1.7010309278350515,1.0206185567010309,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.26 });
-    animate(".part-3", {"x":[0,-1.639175257731959,0.9835051546391753,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.39 });
+    animate(".part-1", {"scale":[1,1.03,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-0", {"opacity":[1,0.5,1],"scale":[1,0.97,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"opacity":[1,0.6,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"opacity":[1,0.6,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
     };
 
     const stopAnimation = () => {

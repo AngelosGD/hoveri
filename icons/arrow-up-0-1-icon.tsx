@@ -12,11 +12,15 @@ const ArrowUp01Icon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,6.907216494845361,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,7.11340206185567,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.07 });
-    animate(".part-2", {"rotate":[0,7.31958762886598,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.14 });
-    animate(".part-3", {"rotate":[0,7.525773195876289,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.21000000000000002 });
-    animate(".part-4", {"rotate":[0,7.731958762886597,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.28 });
+    animate(".part-0", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-0", {"x":[0,0,0],"y":[0,-3,0],"opacity":[0.6,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-1", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"x":[0,0,0],"y":[0,-1.5,0],"opacity":[0.6,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-2", {"x":[0,0,0],"y":[0,-1.5,0],"opacity":[0.6,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-3", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-3", {"x":[0,0,0],"y":[0,-1.5,0],"opacity":[0.6,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-4", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
+    animate(".part-4", {"x":[0,0,0],"y":[0,-1.5,0],"opacity":[0.6,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {

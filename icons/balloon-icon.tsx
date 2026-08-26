@@ -12,9 +12,9 @@ const BalloonIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-1.1288659793814433,0],"y":[0,-0.4020618556701031,0]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-1.097938144329897,0],"y":[0,-0.43298969072164945,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"x":[0,-1.0670103092783505,0],"y":[0,-0.4639175257731959,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"scale":[0.6,1.18,0.92,1.08,0.97,1],"rotate":[0,-3.7628865979381443,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"scale":[0.6,1.18,0.92,1.08,0.97,1],"rotate":[0,-3.65979381443299,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.09 });
+    animate(".part-2", {"scale":[0.6,1.18,0.92,1.08,0.97,1],"rotate":[0,-3.5567010309278353,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.18 });
     };
 
     const stopAnimation = () => {

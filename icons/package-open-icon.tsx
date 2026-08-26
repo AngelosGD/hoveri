@@ -12,10 +12,10 @@ const PackageOpenIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3.0103092783505154,-1.5051546391752577,0],"rotate":[0,2.4082474226804127,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,3.092783505154639,-1.5463917525773194,0],"rotate":[0,2.4742268041237114,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,3.175257731958763,-1.5876288659793816,0],"rotate":[0,2.5402061855670106,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"x":[0,3.2577319587628866,-1.6288659793814433,0],"rotate":[0,2.6061855670103093,0]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"x":[0,3,-3,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.08 });
+    animate(".part-2", {"x":[0,3,-3,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
+    animate(".part-3", {"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {

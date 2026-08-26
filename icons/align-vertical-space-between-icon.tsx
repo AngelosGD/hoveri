@@ -12,10 +12,10 @@ const AlignVerticalSpaceBetweenIcon = forwardRef<AnimatedIconHandle, AnimatedIco
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,7566,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,156,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,9,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"y":[0,2.6999999999999997,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-0", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"scale":[0.8,1.18,1],"opacity":[0.5,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.30000000000000004 });
     };
 
     const stopAnimation = () => {

@@ -12,8 +12,8 @@ const AngleIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-1", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.34 });
+    animate(".part-0", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-1", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
     };
 
     const stopAnimation = () => {

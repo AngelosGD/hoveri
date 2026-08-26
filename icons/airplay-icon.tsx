@@ -12,8 +12,8 @@ const AirplayIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-6.907216494845361,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-6.701030927835053,0],"scale":[0.8,1.2,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.07 });
+    animate(".part-1", {"scale":[1,1.03,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-0", {"opacity":[1,0.5,1],"scale":[1,0.97,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {

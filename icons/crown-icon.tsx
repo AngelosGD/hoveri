@@ -12,8 +12,8 @@ const CrownIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,0.41752577319587614,0],"y":[0,-1.9484536082474229,0]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,0.44845360824742275,0],"y":[0,-1.9793814432989691,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
+    animate(".part-0", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,5.11340206185567,0]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.55,1],"scale":[1,1.07,1],"rotate":[0,5.195876288659794,0]}, { duration: 1, ease: "easeInOut", delay: 0.15 });
     };
 
     const stopAnimation = () => {

@@ -12,8 +12,8 @@ const HandbagIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,0,0,0],"y":[0,-1.05,1.05,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.08 });
+    animate(".part-0", {"x":[0,3,-3,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {

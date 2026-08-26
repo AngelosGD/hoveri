@@ -12,8 +12,8 @@ const AmpersandIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.09 });
+    animate(".part-0", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {

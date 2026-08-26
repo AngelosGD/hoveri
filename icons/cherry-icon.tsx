@@ -12,10 +12,10 @@ const CherryIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-2.268041237113402,1.134020618556701,0],"rotate":[0,-1.8144329896907216,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-2.1855670103092786,1.0927835051546393,0],"rotate":[0,-1.748453608247423,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,-2.1030927835051547,1.0515463917525774,0],"rotate":[0,-1.682474226804124,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"x":[0,-2.020618556701031,1.0103092783505154,0],"rotate":[0,-1.6164948453608248,0]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.36 });
     };
 
     const stopAnimation = () => {

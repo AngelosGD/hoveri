@@ -12,11 +12,11 @@ const TruckIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,1.0670103092783503,0],"y":[0,-2.597938144329897,0]}, { duration: 1.2, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,1.097938144329897,0],"y":[0,-2.6288659793814433,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"x":[0,1.1288659793814433,0],"y":[0,-2.6597938144329896,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"x":[0,1.1597938144329896,0],"y":[0,-2.6907216494845363,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.36 });
-    animate(".part-4", {"x":[0,1.1907216494845363,0],"y":[0,-2.7216494845360826,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.48 });
+    animate(".part-0", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
+    animate(".part-3", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.18 });
+    animate(".part-4", {"x":[0,4,0],"y":[0,-5,1.5,0],"rotate":[0,3,-2,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.24 });
     };
 
     const stopAnimation = () => {

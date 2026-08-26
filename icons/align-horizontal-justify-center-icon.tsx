@@ -12,9 +12,9 @@ const AlignHorizontalJustifyCenterIcon = forwardRef<AnimatedIconHandle, Animated
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
+    animate(".part-0", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
     };
 
     const stopAnimation = () => {

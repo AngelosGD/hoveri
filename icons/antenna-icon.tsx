@@ -12,12 +12,12 @@ const AntennaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.4 });
-    animate(".part-5", {"y":[0,-5,1.5,-0.5,0],"scale":[1,0.9,1.04,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.5 });
+    animate(".part-0", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.18 });
+    animate(".part-2", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.36 });
+    animate(".part-3", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.54 });
+    animate(".part-4", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.72 });
+    animate(".part-5", {"scale":[0.85,1.15,0.9,1],"opacity":[0.6,1,0.8,1]}, { duration: 1, ease: "easeInOut", delay: 0.8999999999999999 });
     };
 
     const stopAnimation = () => {

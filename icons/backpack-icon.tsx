@@ -12,11 +12,11 @@ const BackpackIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,5.989690721649485,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,6.1340206185567006,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"rotate":[0,6.2783505154639165,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"rotate":[0,6.422680412371134,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
-    animate(".part-4", {"rotate":[0,6.56701030927835,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.32 });
+    animate(".part-0", {"y":[0,1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"y":[0,1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"y":[0,1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.36 });
+    animate(".part-4", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.48 });
     };
 
     const stopAnimation = () => {

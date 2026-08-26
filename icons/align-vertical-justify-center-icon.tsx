@@ -12,9 +12,9 @@ const AlignVerticalJustifyCenterIcon = forwardRef<AnimatedIconHandle, AnimatedIc
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,-2.1855670103092786,1.0927835051546393,0],"rotate":[0,-1.748453608247423,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-2.1030927835051547,1.0515463917525774,0],"rotate":[0,-1.682474226804124,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,-2.020618556701031,1.0103092783505154,0],"rotate":[0,-1.6164948453608248,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
+    animate(".part-0", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"rotate":[0,-10,10,-4,0]}, { duration: 1.2, ease: "easeInOut", delay: 0.24 });
     };
 
     const stopAnimation = () => {

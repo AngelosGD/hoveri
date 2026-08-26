@@ -12,12 +12,12 @@ const AlarmClockMinusIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.09 });
-    animate(".part-2", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.18 });
-    animate(".part-3", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.27 });
-    animate(".part-4", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.36 });
-    animate(".part-5", {"y":[0,-4,0],"scale":[1,1.06,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.44999999999999996 });
+    animate(".part-0", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.04 });
+    animate(".part-2", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.08 });
+    animate(".part-3", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.12 });
+    animate(".part-4", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.16 });
+    animate(".part-5", {"x":[0,-1.5,1.5,-1,1,-0.5,0],"rotate":[0,-2,2,-1,1,0,0]}, { duration: 0.55, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {

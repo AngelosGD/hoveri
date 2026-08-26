@@ -12,10 +12,10 @@ const AirVentIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-5.701030927835052,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-5.556701030927836,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"rotate":[0,-5.412371134020619,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"rotate":[0,-5.268041237113402,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
+    animate(".part-0", {"x":[0,3,-3,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.08 });
+    animate(".part-3", {"x":[0,3,-3,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.08 });
+    animate(".part-1", {"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
+    animate(".part-2", {"x":[0,1.5,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {

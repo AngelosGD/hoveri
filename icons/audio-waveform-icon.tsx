@@ -12,7 +12,7 @@ const AudioWaveformIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[0.5,1.15,0.9,1],"opacity":[0.4,1,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-0", {"y":[0,-3,0],"rotate":[0,1.3402061855670104,0],"scale":[1,1.08,1]}, { duration: 1, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {

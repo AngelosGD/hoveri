@@ -12,12 +12,12 @@ const FishIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.35,1],"x":[0,1.608247422680412,0]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.35,1],"x":[0,1.6907216494845363,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"opacity":[1,0.35,1],"x":[0,1.7731958762886597,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"opacity":[1,0.35,1],"x":[0,1.8556701030927831,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.36 });
-    animate(".part-4", {"opacity":[1,0.35,1],"x":[0,1.9381443298969074,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.48 });
-    animate(".part-5", {"opacity":[1,0.35,1],"x":[0,2.020618556701031,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.6 });
+    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.36 });
+    animate(".part-4", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.48 });
+    animate(".part-5", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.6 });
     };
 
     const stopAnimation = () => {

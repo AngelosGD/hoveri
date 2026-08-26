@@ -12,9 +12,9 @@ const AtomIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,2.680412371134021,-1.3402061855670104,0],"rotate":[0,2.144329896907217,0]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,2.7628865979381443,-1.3814432989690721,0],"rotate":[0,2.2103092783505156,0]}, { duration: 1, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,2.8453608247422677,-1.4226804123711339,0],"rotate":[0,2.2762886597938143,0]}, { duration: 1, ease: "easeInOut", delay: 0.16 });
+    animate(".part-0", {"rotateY":[0,360],"scale":[1,0.92,1]}, { duration: 1, ease: "easeInOut" });
+    animate(".part-1", {"rotateY":[0,360],"scale":[1,0.92,1]}, { duration: 1, ease: "easeInOut", delay: 0.06 });
+    animate(".part-2", {"rotateY":[0,360],"scale":[1,0.92,1]}, { duration: 1, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {

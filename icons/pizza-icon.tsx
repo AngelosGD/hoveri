@@ -12,11 +12,11 @@ const PizzaIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-4.402061855670103,0]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-4.2577319587628875,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"rotate":[0,-4.113402061855671,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"rotate":[0,-3.9690721649484537,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
-    animate(".part-4", {"rotate":[0,-3.8247422680412377,0]}, { duration: 0.7, ease: "easeInOut", delay: 0.32 });
+    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.36 });
+    animate(".part-4", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.48 });
     };
 
     const stopAnimation = () => {

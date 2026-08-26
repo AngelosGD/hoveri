@@ -12,10 +12,10 @@ const CakeSliceIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-1", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"pathLength":[0,1,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"scale":[0.6,1.1,1],"opacity":[0,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.36 });
+    animate(".part-0", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[0.4,1.3,0.8,1],"rotate":[0,30],"opacity":[0.5,1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.16 });
+    animate(".part-3", {"opacity":[1,0.6,1],"scale":[1,1.05,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.30000000000000004 });
     };
 
     const stopAnimation = () => {

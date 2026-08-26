@@ -12,11 +12,11 @@ const CircuitBoardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,1647,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,1.5,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,0.8999999999999999,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"y":[0,5,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"y":[0,3,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+    animate(".part-0", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"y":[0,-1,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"y":[0,2,0],"opacity":[1,0.5,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
     };
 
     const stopAnimation = () => {

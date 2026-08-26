@@ -12,7 +12,8 @@ const MessageSquareDotIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"pathLength":[0,1],"opacity":[0,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-0", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut" });
+    animate(".part-1", {"scale":[0.6,1.2,0.95,1]}, { duration: 0.7, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {

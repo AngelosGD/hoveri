@@ -12,11 +12,11 @@ const SaladIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,0,0,0],"y":[0,2.6999999999999997,-2.6999999999999997,0]}, { duration: 1.3, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,0,0,0],"y":[0,1.6199999999999994,-1.6199999999999994,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"x":[0,1.3320000000000003,-1.3320000000000003,0],"y":[0,-1.1305714285714286,1.1305714285714286,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"x":[0,0.8999999999999999,-0.8999999999999999,0],"y":[0,-0.6,0.6,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.24 });
-    animate(".part-4", {"x":[0,-1.656,1.656,0],"y":[0,-0.6749999999999999,0.6749999999999999,0]}, { duration: 1.3, ease: "easeInOut", delay: 0.32 });
+    animate(".part-0", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.36 });
+    animate(".part-4", {"y":[0,-6,1.5,0],"rotate":[0,8,-4,0],"scale":[0.85,1.08,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.48 });
     };
 
     const stopAnimation = () => {

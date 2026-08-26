@@ -12,8 +12,8 @@ const AxeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-1", {"scale":[1,1.12,1],"y":[0,0.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.08 });
-    animate(".part-0", {"y":[0,1.5,0],"scale":[1,0.94,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-0", {"scale":[1,1.16,1],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut" });
+    animate(".part-1", {"scale":[1,1.16,1],"opacity":[1,0.7,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
     };
 
     const stopAnimation = () => {

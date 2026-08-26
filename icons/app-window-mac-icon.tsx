@@ -12,10 +12,10 @@ const AppWindowMacIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-1", {"scale":[1,1.12,1],"y":[0,0.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.08 });
-    animate(".part-2", {"scale":[1,1.12,1],"y":[0,0.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.16 });
-    animate(".part-3", {"scale":[1,1.12,1],"y":[0,0.5,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.24 });
-    animate(".part-0", {"y":[0,1.5,0],"scale":[1,0.94,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-0", {"x":[0,2.1340206185567006,-1.2804123711340203,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,2.195876288659794,-1.3175257731958763,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.13 });
+    animate(".part-2", {"x":[0,2.2577319587628866,-1.3546391752577318,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.26 });
+    animate(".part-3", {"x":[0,2.319587628865979,-1.3917525773195873,0],"y":[0,-2,2,0]}, { duration: 1.1, ease: "easeInOut", delay: 0.39 });
     };
 
     const stopAnimation = () => {
