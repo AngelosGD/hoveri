@@ -74,7 +74,7 @@ const ref = useRef(null);
         </motion.div>
 
         {/* main bento */}
-        <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-5">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-5">
           {/* install terminal - spans 3 */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -318,7 +318,7 @@ const ref = useRef(null);
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.97, y: 8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 320, damping: 28 }}
-              className="flex max-h-[90dvh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
+              className="flex max-h-[90dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
             >
               <div className="flex items-center justify-between border-b border-zinc-200 px-5 py-3 dark:border-zinc-800">
                 <div className="flex items-center gap-2.5">
