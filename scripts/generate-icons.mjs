@@ -5,7 +5,7 @@
  * per-icon thematic animations that move its parts individually.
  */
 import { pathToFileURL } from "node:url";
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { ICON_MANIFEST } from "./icon-manifest.mjs";
 
@@ -1735,9 +1735,16 @@ for (const entry of ICON_MANIFEST) {
     categoryTheme ||
     THEME_DEFAULTS[hashStr(lucideName) % THEME_DEFAULTS.length];
 
-  const url = pathToFileURL(join(LUCIDE_DIR, `${lucideName}.mjs`)).href;
-  const mod = await import(url);
-  const iconNode = mod.__iconNode;
+  let iconNode = null;
+  const lucidePath = join(LUCIDE_DIR, `${lucideName}.mjs`);
+  if (existsSync(lucidePath)) {
+    const mod = await import(pathToFileURL(lucidePath).href);
+    iconNode = mod.__iconNode ?? null;
+  }
+  if (!iconNode && existsSync(join(process.cwd(), "tabler-nodes.json"))) {
+    const tnodes = JSON.parse(readFileSync(join(process.cwd(), "tabler-nodes.json"), "utf8"));
+    iconNode = tnodes[lucideName] ?? null;
+  }
   if (!iconNode) continue;
 
   const parts = iconNode.map((node, i) => nodeToJsx(node, i));

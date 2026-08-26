@@ -1,0 +1,50 @@
+"use client";
+
+import { forwardRef, useImperativeHandle } from "react";
+import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
+import { motion, useAnimate } from "motion/react";
+
+const BrandVintedIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
+  (
+    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    ref,
+  ) => {
+    const [scope, animate] = useAnimate();
+
+    const startAnimation = async () => {
+    animate(".part-0", {"scale":[1,1.12,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    };
+
+    const stopAnimation = () => {
+    animate(".part-0", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut", delay: 0.00 });
+    };
+
+    useImperativeHandle(ref, () => ({ startAnimation, stopAnimation }));
+
+    return (
+      <motion.svg
+        ref={scope}
+        onHoverStart={startAnimation}
+        onHoverEnd={stopAnimation}
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={`${className} cursor-pointer`}
+        style={{ overflow: "visible" }}
+        aria-hidden="true"
+      >
+        <motion.path className="part-0" style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }} d="M11.028 6c0 7.695 -.292 11.728 0 12c2.046 -5 4.246 -12.642 5.252 -14.099c.343 -.497 .768 -.93 1.257 -1.277c.603 -.39 1.292 -.76 1.463 -.575c-.07 2.319 -4.023 15.822 -4.209 16.314a6.135 6.135 0 0 1 -3.465 3.386c-3.213 .78 -3.429 -.446 -3.836 -1.134c-.95 -2.103 -1.682 -14.26 -1.445 -15.615c.05 -.523 .143 -1.851 2.491 -2c2.359 -.354 2.547 1.404 2.492 3" />
+      </motion.svg>
+    );
+  },
+);
+
+BrandVintedIcon.displayName = "BrandVintedIcon";
+
+export default BrandVintedIcon;
