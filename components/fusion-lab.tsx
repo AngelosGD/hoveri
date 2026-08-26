@@ -90,32 +90,31 @@ export default function FusionLab() {
                 reduce
                   ? undefined
                   : {
-                      scale: hovered ? [1, 1.15, 1] : [1, 1.08, 1],
-                      opacity: hovered ? [0.6, 1, 0.6] : [0.5, 0.8, 0.5],
+                      scale: hovered ? 1.1 : 1,
+                      opacity: hovered ? 0.9 : 0.6,
                     }
               }
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout">
               <motion.div
                 key={hovered ? slotB : slotA}
-                layoutId="fusion-icon"
                 initial={
                   reduce
                     ? { opacity: 0 }
-                    : { opacity: 0, scale: 0.85, rotate: hovered ? 14 : -14, filter: "blur(6px)" }
+                    : { opacity: 0, scale: 0.6, rotate: hovered ? 45 : -45, filter: "blur(4px)" }
                 }
                 animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
                 exit={
                   reduce
                     ? { opacity: 0 }
-                    : { opacity: 0, scale: 0.88, rotate: hovered ? -14 : 14, filter: "blur(6px)" }
+                    : { opacity: 0, scale: 0.6, rotate: hovered ? -45 : 45, filter: "blur(4px)" }
                 }
                 transition={{
                   type: "spring",
-                  stiffness: 220,
-                  damping: 24,
-                  mass: 0.9,
+                  stiffness: 340,
+                  damping: 22,
+                  mass: 0.7,
                 }}
                 className="absolute will-change-transform"
               >
