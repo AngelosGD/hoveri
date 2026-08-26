@@ -38,7 +38,7 @@ export default function IconCard({ file, name, compact = false }: IconCardProps)
         whileHover={{ y: compact ? 0 : -2 }}
         transition={{ type: "spring", stiffness: 400, damping: 20 }}
       >
-        <div className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 dark:hover:shadow-lg dark:hover:shadow-black/20">
+        <div className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-transparent dark:hover:bg-zinc-900 dark:hover:border-zinc-700 dark:hover:shadow-lg dark:hover:shadow-black/20">
           <button
             type="button"
             aria-label={`Icono ${name}`}

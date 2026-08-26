@@ -93,15 +93,24 @@ export default function InvitameUnCafePage() {
           </div>
 
           <div className="mt-8 flex flex-col items-center gap-3">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-zinc-950 px-6 text-sm font-medium text-white transition-shadow hover:shadow-md dark:bg-white dark:text-zinc-950"
-            >
-              <GitHubIcon size={16} />
-              Dale una estrella en GitHub
-            </a>
+            <div className="flex flex-col items-center gap-3 sm:flex-row">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-zinc-950 px-6 text-sm font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] dark:bg-white dark:text-zinc-950"
+              >
+                <GitHubIcon size={16} />
+                Dale una estrella en GitHub
+              </a>
+              <a
+                href="/sugerir-icono"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-rose-200 bg-white px-6 text-sm font-medium text-rose-600 shadow-sm transition-all hover:-translate-y-0.5 hover:border-rose-300 hover:bg-rose-50 hover:shadow-md active:scale-[0.98] dark:border-rose-900/30 dark:bg-rose-500/10 dark:text-rose-400 dark:hover:border-rose-500/50 dark:hover:bg-rose-500/15"
+              >
+                Déjame un feedback
+                <span className="transition-transform group-hover:translate-x-0.5">→</span>
+              </a>
+            </div>
             <p className="text-xs text-zinc-400 dark:text-zinc-500">
               Gracias por estar aquí. — AngelosDev
             </p>

@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 export default function IconsPage() {
   return (
     <>
-      <IconLibrary />
       <InstallSection />
+      <IconLibrary />
     </>
   );
 }

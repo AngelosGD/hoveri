@@ -49,7 +49,7 @@ export default function FloatingIcons() {
       {ICONS.map(({ Icon, size, rotate, duration, ...pos }, i) => (
         <motion.div
           key={i}
-          className="absolute text-zinc-300/60 dark:text-zinc-600/30"
+          className="absolute text-zinc-400/70 dark:text-zinc-600/30 [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.04))]"
           style={pos as React.CSSProperties}
           animate={
             reduce

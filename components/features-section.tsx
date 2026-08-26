@@ -35,8 +35,9 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="border-t border-zinc-200 bg-zinc-50/80 dark:border-zinc-800 dark:bg-zinc-900/40">
-      <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
+    <section className="relative overflow-hidden border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_70%,transparent_110%)] dark:opacity-[0.03]" />
+      <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
