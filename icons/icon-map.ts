@@ -520,6 +520,26 @@ const HandbagIcon = lazy(() => import("@/icons/handbag-icon"));
 const BotIcon = lazy(() => import("@/icons/bot-icon"));
 const CircuitBoardIcon = lazy(() => import("@/icons/circuit-board-icon"));
 const ScanEyeIcon = lazy(() => import("@/icons/scan-eye-icon"));
+const AArrowDownIcon = lazy(() => import("@/icons/a-arrow-down-icon"));
+const AArrowUpIcon = lazy(() => import("@/icons/a-arrow-up-icon"));
+const ALargeSmallIcon = lazy(() => import("@/icons/a-large-small-icon"));
+const AdIcon = lazy(() => import("@/icons/ad-icon"));
+const AirVentIcon = lazy(() => import("@/icons/air-vent-icon"));
+const AlarmClockCheckIcon = lazy(() => import("@/icons/alarm-clock-check-icon"));
+const AlarmClockMinusIcon = lazy(() => import("@/icons/alarm-clock-minus-icon"));
+const AlarmClockOffIcon = lazy(() => import("@/icons/alarm-clock-off-icon"));
+const AlarmSmokeIcon = lazy(() => import("@/icons/alarm-smoke-icon"));
+const AlbumIcon = lazy(() => import("@/icons/album-icon"));
+const AlignCenterHorizontalIcon = lazy(() => import("@/icons/align-center-horizontal-icon"));
+const AlignCenterVerticalIcon = lazy(() => import("@/icons/align-center-vertical-icon"));
+const AlignEndHorizontalIcon = lazy(() => import("@/icons/align-end-horizontal-icon"));
+const AlignEndVerticalIcon = lazy(() => import("@/icons/align-end-vertical-icon"));
+const AlignHorizontalDistributeCenterIcon = lazy(() => import("@/icons/align-horizontal-distribute-center-icon"));
+const AlignHorizontalDistributeEndIcon = lazy(() => import("@/icons/align-horizontal-distribute-end-icon"));
+const AlignHorizontalDistributeStartIcon = lazy(() => import("@/icons/align-horizontal-distribute-start-icon"));
+const AlignHorizontalJustifyCenterIcon = lazy(() => import("@/icons/align-horizontal-justify-center-icon"));
+const AlignHorizontalJustifyEndIcon = lazy(() => import("@/icons/align-horizontal-justify-end-icon"));
+const AlignHorizontalJustifyStartIcon = lazy(() => import("@/icons/align-horizontal-justify-start-icon"));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- iconos con props extra opcionales
 const iconMap: Record<string, ComponentType<any>> = {
@@ -1041,6 +1061,26 @@ const iconMap: Record<string, ComponentType<any>> = {
   "bot-icon": BotIcon,
   "circuit-board-icon": CircuitBoardIcon,
   "scan-eye-icon": ScanEyeIcon,
+  "a-arrow-down-icon": AArrowDownIcon,
+  "a-arrow-up-icon": AArrowUpIcon,
+  "a-large-small-icon": ALargeSmallIcon,
+  "ad-icon": AdIcon,
+  "air-vent-icon": AirVentIcon,
+  "alarm-clock-check-icon": AlarmClockCheckIcon,
+  "alarm-clock-minus-icon": AlarmClockMinusIcon,
+  "alarm-clock-off-icon": AlarmClockOffIcon,
+  "alarm-smoke-icon": AlarmSmokeIcon,
+  "album-icon": AlbumIcon,
+  "align-center-horizontal-icon": AlignCenterHorizontalIcon,
+  "align-center-vertical-icon": AlignCenterVerticalIcon,
+  "align-end-horizontal-icon": AlignEndHorizontalIcon,
+  "align-end-vertical-icon": AlignEndVerticalIcon,
+  "align-horizontal-distribute-center-icon": AlignHorizontalDistributeCenterIcon,
+  "align-horizontal-distribute-end-icon": AlignHorizontalDistributeEndIcon,
+  "align-horizontal-distribute-start-icon": AlignHorizontalDistributeStartIcon,
+  "align-horizontal-justify-center-icon": AlignHorizontalJustifyCenterIcon,
+  "align-horizontal-justify-end-icon": AlignHorizontalJustifyEndIcon,
+  "align-horizontal-justify-start-icon": AlignHorizontalJustifyStartIcon,
 };
 
 export function getIconComponent(file: string) {
