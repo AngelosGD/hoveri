@@ -12,10 +12,10 @@ const CaseSensitiveIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"y":[0,-1.5,0],"scaleY":[1,0.92,1.04,1]}, { duration: 1, ease: "easeInOut", delay: 0.36 });
+    animate(".part-0", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut" });
+    animate(".part-1", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.12 });
+    animate(".part-2", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.24 });
+    animate(".part-3", {"opacity":[1,0.2,1]}, { duration: 0.3, ease: "easeInOut", delay: 0.36 });
     };
 
     const stopAnimation = () => {

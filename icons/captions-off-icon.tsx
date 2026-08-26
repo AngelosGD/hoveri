@@ -12,12 +12,12 @@ const CaptionsOffIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.35,1],"x":[0,-1.0309278350515463,0]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.35,1],"x":[0,-0.9484536082474229,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
-    animate(".part-2", {"opacity":[1,0.35,1],"x":[0,-0.865979381443299,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.24 });
-    animate(".part-3", {"opacity":[1,0.35,1],"x":[0,-0.7835051546391751,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.36 });
-    animate(".part-4", {"opacity":[1,0.35,1],"x":[0,-0.7010309278350517,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.48 });
-    animate(".part-5", {"opacity":[1,0.35,1],"x":[0,-0.6185567010309279,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.6 });
+    animate(".part-0", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-1", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-2", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-3", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-4", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-5", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
     };
 
     const stopAnimation = () => {

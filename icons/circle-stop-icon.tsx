@@ -12,8 +12,8 @@ const CircleStopIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"opacity":[1,0.35,1],"x":[0,-2.927835051546392,0]}, { duration: 0.9, ease: "easeInOut" });
-    animate(".part-1", {"opacity":[1,0.35,1],"x":[0,-2.845360824742268,0]}, { duration: 0.9, ease: "easeInOut", delay: 0.12 });
+    animate(".part-0", {"y":[6,-1,0],"opacity":[0.2,1,1],"scale":[0.92,1.03,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.14 });
+    animate(".part-1", {"scale":[1,1.05,0.98,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
     };
 
     const stopAnimation = () => {
