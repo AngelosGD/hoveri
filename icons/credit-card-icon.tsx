@@ -12,8 +12,8 @@ const CreditCardIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,6,0],"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.04 });
-    animate(".part-1", {"x":[0,6,0],"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.04 });
+    animate(".part-0", {"x":[0,4,0],"rotate":[0,9,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.04 });
+    animate(".part-1", {"x":[0,4,0],"rotate":[0,9,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.04 });
     };
 
     const stopAnimation = () => {

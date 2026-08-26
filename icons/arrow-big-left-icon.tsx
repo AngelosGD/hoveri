@@ -12,7 +12,7 @@ const ArrowBigLeftIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3,0],"opacity":[1,0.4,1]}, { duration: 0.6, ease: "easeInOut" });
+    animate(".part-0", {"x":[0,2,0],"opacity":[1,0.55,1]}, { duration: 0.6, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {

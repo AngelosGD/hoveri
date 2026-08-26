@@ -12,9 +12,9 @@ const BadgeAlertIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-1", {"scale":[1,1.03,1]}, { duration: 0.7, ease: "easeInOut" });
-    animate(".part-0", {"opacity":[1,0.5,1],"scale":[1,0.97,1]}, { duration: 0.9, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"opacity":[1,0.6,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-0", {"scale":[1,1.12,0.94,1],"x":[0,0,2,0]}, { duration: 0.5, ease: "easeInOut" });
+    animate(".part-1", {"scale":[1,1.12,0.94,1],"x":[0,0,2,0]}, { duration: 0.5, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[1,1.12,0.94,1],"x":[0,0,2,0]}, { duration: 0.5, ease: "easeInOut", delay: 0.2 });
     };
 
     const stopAnimation = () => {

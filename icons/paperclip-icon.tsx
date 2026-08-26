@@ -12,7 +12,7 @@ const PaperclipIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-0", {"rotate":[0,8,0]}, { duration: 0.8, ease: "easeInOut" });
     };
 
     const stopAnimation = () => {

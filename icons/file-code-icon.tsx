@@ -12,10 +12,10 @@ const FileCodeIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3,0],"rotate":[0,36,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,3,0],"rotate":[0,36,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
-    animate(".part-2", {"x":[0,-3,0],"rotate":[0,-36,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-3", {"x":[0,3,0],"rotate":[0,36,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.15000000000000002 });
+    animate(".part-0", {"x":[0,2.0999999999999996,0],"rotate":[0,21,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,2.0999999999999996,0],"rotate":[0,21,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.05 });
+    animate(".part-2", {"x":[0,-2.0999999999999996,0],"rotate":[0,-21,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-3", {"x":[0,2.0999999999999996,0],"rotate":[0,21,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.15000000000000002 });
     };
 
     const stopAnimation = () => {

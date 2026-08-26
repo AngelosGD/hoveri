@@ -12,11 +12,11 @@ const ScissorsIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
-    animate(".part-3", {"rotate":[0,-12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
-    animate(".part-4", {"rotate":[0,12,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
+    animate(".part-0", {"rotate":[0,-8,0]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"rotate":[0,-8,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"rotate":[0,8,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.2 });
+    animate(".part-3", {"rotate":[0,-8,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.30000000000000004 });
+    animate(".part-4", {"rotate":[0,8,0]}, { duration: 0.8, ease: "easeInOut", delay: 0.4 });
     };
 
     const stopAnimation = () => {

@@ -890,7 +890,7 @@ function buildStart(theme, parts, seedName) {
     case "split": {
       boxes.forEach((b) => {
         const dir = (left(b.cx) ? -1 : 1) * 3;
-        push(b.i, { x: [0, dir, 0], rotate: [0, dir * 12, 0] }, 0.8, 0.05 * b.i);
+        push(b.i, { x: [0, dir * 0.7, 0], rotate: [0, dir * 7, 0] }, 0.8, 0.05 * b.i);
       });
       break;
     }
@@ -1260,7 +1260,7 @@ function buildStart(theme, parts, seedName) {
     case "swipe": {
       boxes.forEach((b) => {
         const dir = left(b.cx) ? -1 : 1;
-        push(b.i, { x: [0, dir * 6, 0], rotate: [0, dir * 12, 0] }, 0.8, 0.04);
+        push(b.i, { x: [0, dir * 4, 0], rotate: [0, dir * 9, 0] }, 0.8, 0.04);
       });
       break;
     }
@@ -1381,7 +1381,7 @@ function buildStart(theme, parts, seedName) {
     case "swing-parts": {
       boxes.forEach((b) => {
         const dir = left(b.cx) ? -1 : 1;
-        push(b.i, { rotate: [0, dir * 12, 0] }, 0.8, 0.1 * b.i);
+        push(b.i, { rotate: [0, dir * 8, 0] }, 0.8, 0.1 * b.i);
       });
       break;
     }
@@ -1477,7 +1477,7 @@ function buildStart(theme, parts, seedName) {
     }
     case "cascade": {
       boxes.forEach((b) => {
-        const drop = (b.cy - 12) * (below(b.cy) ? 1 : -0.3);
+        const drop = Math.max(-3.5, Math.min(3.5, (b.cy - 12) * (below(b.cy) ? 0.8 : -0.25)));
         push(b.i, { y: [0, drop, 0], opacity: [0.3, 1, 1] }, 0.8, 0.1 * b.i);
       });
       break;
@@ -1546,7 +1546,7 @@ function buildStart(theme, parts, seedName) {
     case "slides": {
       boxes.forEach((b) => {
         const dir = left(b.cx) ? -1 : 1;
-        push(b.i, { x: [0, dir * 3, 0], opacity: [1, 0.4, 1] }, 0.6, 0.07 * b.i);
+        push(b.i, { x: [0, dir * 2, 0], opacity: [1, 0.55, 1] }, 0.6, 0.07 * b.i);
       });
       break;
     }
@@ -1585,7 +1585,7 @@ function buildStart(theme, parts, seedName) {
     }
     case "bounce-flat": {
       boxes.forEach((b) => {
-        push(b.i, { y: [0, -6, 1.5, 0], rotate: [0, 8, -4, 0], scale: [0.85, 1.08, 1] }, 0.8, 0.12 * b.i);
+        push(b.i, { y: [0, -4, 1, 0], rotate: [0, 5, -3, 0], scale: [0.9, 1.06, 1] }, 0.75, 0.1 * b.i);
       });
       break;
     }

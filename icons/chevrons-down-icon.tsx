@@ -12,8 +12,8 @@ const ChevronsDownIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"y":[0,1.2999999999999998,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"y":[0,2.666666666666666,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-0", {"y":[0,1.0833333333333333,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut" });
+    animate(".part-1", {"y":[0,2.133333333333333,0],"opacity":[0.3,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {

@@ -12,9 +12,9 @@ const AlignVerticalSpaceAroundIcon = forwardRef<AnimatedIconHandle, AnimatedIcon
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut" });
-    animate(".part-1", {"scale":[1,1.06,1],"opacity":[1,0.8,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
-    animate(".part-2", {"y":[0,-2,0],"scale":[1,1.08,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.05 });
+    animate(".part-1", {"scale":[0.8,1.25,1],"opacity":[0.6,1,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.12 });
+    animate(".part-0", {"scale":[1,1.06,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
+    animate(".part-2", {"scale":[1,1.06,1]}, { duration: 0.8, ease: "easeInOut", delay: 0.1 });
     };
 
     const stopAnimation = () => {

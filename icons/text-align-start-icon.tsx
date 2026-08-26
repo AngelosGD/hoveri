@@ -12,9 +12,9 @@ const TextAlignStartIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const [scope, animate] = useAnimate();
 
     const startAnimation = async () => {
-    animate(".part-0", {"x":[0,3,0],"opacity":[1,0.4,1]}, { duration: 0.6, ease: "easeInOut" });
-    animate(".part-1", {"x":[0,-3,0],"opacity":[1,0.4,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.07 });
-    animate(".part-2", {"x":[0,-3,0],"opacity":[1,0.4,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.14 });
+    animate(".part-0", {"x":[0,2,0],"opacity":[1,0.55,1]}, { duration: 0.6, ease: "easeInOut" });
+    animate(".part-1", {"x":[0,-2,0],"opacity":[1,0.55,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.07 });
+    animate(".part-2", {"x":[0,-2,0],"opacity":[1,0.55,1]}, { duration: 0.6, ease: "easeInOut", delay: 0.14 });
     };
 
     const stopAnimation = () => {
