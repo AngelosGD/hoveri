@@ -75,7 +75,8 @@ import { lazy } from "react";
 import type { ComponentType } from "react";
 ${imports}
 
-const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- iconos con props extra opcionales
+const iconMap: Record<string, ComponentType<any>> = {
 ${map}
 };
 

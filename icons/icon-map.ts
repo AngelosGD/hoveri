@@ -502,8 +502,26 @@ const SunriseIcon = lazy(() => import("@/icons/sunrise-icon"));
 const Undo2Icon = lazy(() => import("@/icons/undo-2-icon"));
 const Redo2Icon = lazy(() => import("@/icons/redo-2-icon"));
 const SquareXIcon = lazy(() => import("@/icons/square-x-icon"));
+const AirplayIcon = lazy(() => import("@/icons/airplay-icon"));
+const CastIcon = lazy(() => import("@/icons/cast-icon"));
+const ProjectorIcon = lazy(() => import("@/icons/projector-icon"));
+const FaceGrinningIcon = lazy(() => import("@/icons/face-grinning-icon"));
+const FaceAngryIcon = lazy(() => import("@/icons/face-angry-icon"));
+const FaceNeutralIcon = lazy(() => import("@/icons/face-neutral-icon"));
+const BalloonIcon = lazy(() => import("@/icons/balloon-icon"));
+const CakeSliceIcon = lazy(() => import("@/icons/cake-slice-icon"));
+const CrownIcon = lazy(() => import("@/icons/crown-icon"));
+const DumbbellIcon = lazy(() => import("@/icons/dumbbell-icon"));
+const VolleyballIcon = lazy(() => import("@/icons/volleyball-icon"));
+const MotorbikeIcon = lazy(() => import("@/icons/motorbike-icon"));
+const PackageOpenIcon = lazy(() => import("@/icons/package-open-icon"));
+const TruckIcon = lazy(() => import("@/icons/truck-icon"));
+const HandbagIcon = lazy(() => import("@/icons/handbag-icon"));
+const BotIcon = lazy(() => import("@/icons/bot-icon"));
+const CircuitBoardIcon = lazy(() => import("@/icons/circuit-board-icon"));
+const ScanEyeIcon = lazy(() => import("@/icons/scan-eye-icon"));
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any -- los iconos aceptan props extra opcionales (p.ej. shakeOnClick, duration)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- iconos con props extra opcionales
 const iconMap: Record<string, ComponentType<any>> = {
   "heart-icon": HeartIcon,
   "star-icon": StarIcon,
@@ -1005,6 +1023,24 @@ const iconMap: Record<string, ComponentType<any>> = {
   "undo-2-icon": Undo2Icon,
   "redo-2-icon": Redo2Icon,
   "square-x-icon": SquareXIcon,
+  "airplay-icon": AirplayIcon,
+  "cast-icon": CastIcon,
+  "projector-icon": ProjectorIcon,
+  "face-grinning-icon": FaceGrinningIcon,
+  "face-angry-icon": FaceAngryIcon,
+  "face-neutral-icon": FaceNeutralIcon,
+  "balloon-icon": BalloonIcon,
+  "cake-slice-icon": CakeSliceIcon,
+  "crown-icon": CrownIcon,
+  "dumbbell-icon": DumbbellIcon,
+  "volleyball-icon": VolleyballIcon,
+  "motorbike-icon": MotorbikeIcon,
+  "package-open-icon": PackageOpenIcon,
+  "truck-icon": TruckIcon,
+  "handbag-icon": HandbagIcon,
+  "bot-icon": BotIcon,
+  "circuit-board-icon": CircuitBoardIcon,
+  "scan-eye-icon": ScanEyeIcon,
 };
 
 export function getIconComponent(file: string) {
