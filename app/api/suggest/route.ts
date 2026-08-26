@@ -4,8 +4,34 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "";
 
+// rate limit simple en memoria: 3 sugerencias por IP cada 10 min
+const RATE_LIMIT = new Map<string, { count: number; reset: number }>();
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_PER_WINDOW = 3;
+
+function rateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = RATE_LIMIT.get(ip);
+  if (!entry || now > entry.reset) {
+    RATE_LIMIT.set(ip, { count: 1, reset: now + WINDOW_MS });
+    return false;
+  }
+  entry.count += 1;
+  return entry.count > MAX_PER_WINDOW;
+}
+
 export async function POST(request: Request) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      "unknown";
+    if (rateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Demasiadas sugerencias seguidas. Inténtalo más tarde." },
+        { status: 429 },
+      );
+    }
+
     const body = (await request.json()) as {
       nombre?: string;
       idea?: string;
