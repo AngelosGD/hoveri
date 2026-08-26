@@ -6,8 +6,6 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ICON_LIST } from "@/icons/data";
 import { getIconComponent } from "@/icons/icon-map";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
-
 export default function FusionLab() {
   const [slotA, setSlotA] = useState("heart-icon");
   const [slotB, setSlotB] = useState("database-icon");

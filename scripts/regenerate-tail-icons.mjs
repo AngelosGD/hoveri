@@ -4,7 +4,6 @@
  * intent (itshover style), not generic per-part pops.
  * Usage: node scripts/regenerate-tail-icons.mjs
  */
-import { writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const OUT = join(process.cwd(), "icons");

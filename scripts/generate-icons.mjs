@@ -692,13 +692,6 @@ function hashStr(str) {
   return h;
 }
 
-function toKebab(str) {
-  return str
-    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-    .replace(/[^a-zA-Z0-9-]/g, "-")
-    .toLowerCase();
-}
-
 function toPascal(str) {
   return str
     .split("-")
@@ -834,9 +827,8 @@ function serializeAttrs(attrs) {
 
 function nodeToJsx(node, partIndex) {
   const [tag, attrs, children] = node;
-  const box = estimateBox(node);
-  const style = `style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}`;
   const cls = `className="part-${partIndex}"`;
+  const style = `style={{ transformOrigin: "50% 50%", transformBox: "fill-box" }}`;
   if (Array.isArray(children) && children.length > 0) {
     const inner = children.map((c) => nodeToJsx(c, partIndex)).join("\n");
     const attrStr = Object.keys(attrs).length ? ` ${serializeAttrs(attrs)}` : "";
@@ -876,10 +868,9 @@ function buildStart(theme, parts, seedName) {
     );
   };
 
-  const resetPoints = (jitter = 0.04, based = 0.06) => {
+  const resetPoints = (based = 0.06) => {
     return boxes.map((b) => {
-      const j = (r(seed + b.i * 3) - 0.5) * jitter;
-      return `    animate(".part-${b.i}", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut"${based ? `, delay: ${(based * b.i).toFixed(2)}` : ""} });`;
+        return `    animate(".part-${b.i}", { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }, { duration: 0.25, ease: "easeInOut"${based ? `, delay: ${(based * b.i).toFixed(2)}` : ""} });`;
     }).join("\n");
   };
 

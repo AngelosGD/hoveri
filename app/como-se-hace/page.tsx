@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HeartIcon from "@/icons/heart-icon";
 import CodeIcon from "@/icons/code-icon";
-import RocketIcon from "@/icons/rocket-icon";
 import ReactIcon from "@/icons/react-icon";
 import GitHubIcon from "@/icons/github-icon";
 import DownloadIcon from "@/icons/download-icon";
