@@ -16,13 +16,10 @@ const MANAGERS = [
 const TABS = [
   { id: "install", label: "Instalación" },
   { id: "code", label: "Código" },
-  { id: "steps", label: "Pasos" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
 type ManagerId = (typeof MANAGERS)[number]["id"];
-
-const SOURCE_URL = (file: string) => `/api/icon-source?file=${file}`;
 
 export default function IconModal({
   file,
@@ -37,8 +34,6 @@ export default function IconModal({
   const [manager, setManager] = useState<ManagerId>("npm");
   const [tab, setTab] = useState<TabId>("install");
   const [copied, setCopied] = useState(false);
-  const [source, setSource] = useState<string | null>(null);
-  const [sourceError, setSourceError] = useState(false);
 
   const meta = ICON_LIST.find((i) => i.file === file);
   const tags = meta?.tags ?? [];
@@ -57,21 +52,6 @@ export default function IconModal({
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  useEffect(() => {
-    let alive = true;
-    fetch(SOURCE_URL(file))
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("error"))))
-      .then((data) => {
-        if (alive) setSource(data.source as string);
-      })
-      .catch(() => {
-        if (alive) setSourceError(true);
-      });
-    return () => {
-      alive = false;
-    };
-  }, [file]);
-
   const managerInstall =
     MANAGERS.find((m) => m.id === manager)?.install ?? "npm install hoveri";
 
@@ -88,8 +68,7 @@ export function Example() {
 ${usageCode}`;
 
   const copyText = () => {
-    const text = tab === "install" ? installCode : tab === "code" ? source ?? "" : managerInstall;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(installCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -243,8 +222,7 @@ ${usageCode}`;
                 </div>
               )}
 
-              {/* code block - itshover gradient + hover copy */}
-              {tab !== "steps" ? (
+              {tab === "install" ? (
                 <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
                   <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/[0.04] via-transparent to-transparent opacity-60" />
                   <div className="relative flex items-center justify-between border-b border-zinc-100 bg-zinc-50/50 px-4 py-2.5 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/50">
@@ -255,7 +233,7 @@ ${usageCode}`;
                         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
                       </div>
                       <span className="ml-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
-                        {tab === "install" ? `Instalar con ${manager}` : "Código del icono"}
+                        Instalar con {manager}
                       </span>
                     </div>
                     <motion.button
@@ -283,19 +261,12 @@ ${usageCode}`;
                   </div>
 
                   <div className="relative bg-white p-4 dark:bg-zinc-900">
-                    {tab === "install" && (
-                      <pre className="overflow-x-auto font-mono text-xs leading-6 text-zinc-800 dark:text-zinc-300">
-                        <code className="flex gap-2">
-                          <span className="select-none text-rose-500">$</span>
-                          <span>{installCode}</span>
-                        </code>
-                      </pre>
-                    )}
-                    {tab === "code" && (
-                      <pre className="overflow-x-auto whitespace-pre-wrap break-words font-mono text-xs leading-6 text-zinc-800 dark:text-zinc-300">
-                        <code className="whitespace-pre-wrap break-words">{sourceError ? "No se pudo cargar el código del icono." : source ?? "Cargando..."}</code>
-                      </pre>
-                    )}
+                    <pre className="overflow-x-auto font-mono text-xs leading-6 text-zinc-800 dark:text-zinc-300">
+                      <code className="flex gap-2">
+                        <span className="select-none text-rose-500">$</span>
+                        <span className="whitespace-pre-wrap break-words">{installCode}</span>
+                      </code>
+                    </pre>
                   </div>
                 </div>
               ) : (
@@ -303,29 +274,26 @@ ${usageCode}`;
                   {[
                     {
                       step: "Paso 1",
-                      title: "Instala la librería",
-                      desc: "Elige tu gestor favorito y añade hoveri a tu proyecto.",
-                      code: managerInstall,
-                    },
-                    {
-                      step: "Paso 2",
-                      title: `Importa ${componentName}`,
-                      desc: `Importa ${componentName} desde "hoveri" en tu archivo.`,
+                      title: "Importa el icono",
+                      desc: `Trae ${componentName} a tu archivo. Es un componente React como cualquier otro.`,
                       code: `import { ${componentName} } from "hoveri";`,
                     },
                     {
-                      step: "Paso 3",
+                      step: "Paso 2",
                       title: `Crea tu ${name}`,
-                      desc: `Renderiza el icono con el tamaño que necesites. Prueba con ${size}px.`,
+                      desc: `Renderízalo donde quieras. Ajusta el tamaño — prueba con ${size}px.`,
                       code: `<${componentName} size={${size}} color="currentColor" />`,
                     },
                     {
-                      step: "Paso 4",
-                      title: "Anima al hover",
-                      desc: "Pásale el mouse y verás la animación. ¿Quieres control manual? Usa el ref.",
-                      code: `const ref = useRef(null);
+                      step: "Paso 3",
+                      title: "Controla la animación",
+                      desc: "Por defecto anima al hover. Usa el ref si quieres dispararla manualmente.",
+                      code: `const ref = useRef<AnimatedIconHandle>(null);
+
 <${componentName} ref={ref} size={${size}} />
-// ref.current?.startAnimation()`,
+
+// en un botón:
+ref.current?.startAnimation();`,
                     },
                   ].map((s) => (
                     <div
@@ -361,8 +329,8 @@ ${usageCode}`;
                             Copiar
                           </motion.button>
                         </div>
-                        <pre className="mt-3 overflow-x-auto whitespace-pre rounded-lg border border-zinc-100 bg-zinc-50 px-3 py-2.5 font-mono text-xs leading-5 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
-                          <code>{s.code}</code>
+                        <pre className="mt-3 whitespace-pre-wrap break-words rounded-lg border border-zinc-100 bg-zinc-50 px-3 py-2.5 font-mono text-xs leading-5 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
+                          <code className="whitespace-pre-wrap break-words">{s.code}</code>
                         </pre>
                       </div>
                     </div>
@@ -373,9 +341,7 @@ ${usageCode}`;
               <p className="text-xs leading-5 text-zinc-500 dark:text-zinc-400">
                 {tab === "install"
                   ? "Instala toda la librería y exporta solo el icono que necesitas. Tree-shakeable."
-                  : tab === "code"
-                    ? "El código fuente completo, con su animación Motion. Cópialo y personalízalo."
-                    : "Cuatro pasos, sin configuración. El icono lleva su animación incluida."}
+                  : "Código dividido en pasos — cada card tiene su snippet listo para copiar."}
               </p>
             </div>
           </motion.div>
