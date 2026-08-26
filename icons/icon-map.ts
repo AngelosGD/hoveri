@@ -540,6 +540,68 @@ const AlignHorizontalDistributeStartIcon = lazy(() => import("@/icons/align-hori
 const AlignHorizontalJustifyCenterIcon = lazy(() => import("@/icons/align-horizontal-justify-center-icon"));
 const AlignHorizontalJustifyEndIcon = lazy(() => import("@/icons/align-horizontal-justify-end-icon"));
 const AlignHorizontalJustifyStartIcon = lazy(() => import("@/icons/align-horizontal-justify-start-icon"));
+const AlignHorizontalSpaceAroundIcon = lazy(() => import("@/icons/align-horizontal-space-around-icon"));
+const AlignHorizontalSpaceBetweenIcon = lazy(() => import("@/icons/align-horizontal-space-between-icon"));
+const AlignStartHorizontalIcon = lazy(() => import("@/icons/align-start-horizontal-icon"));
+const AlignStartVerticalIcon = lazy(() => import("@/icons/align-start-vertical-icon"));
+const AlignVerticalDistributeCenterIcon = lazy(() => import("@/icons/align-vertical-distribute-center-icon"));
+const AlignVerticalDistributeEndIcon = lazy(() => import("@/icons/align-vertical-distribute-end-icon"));
+const AlignVerticalDistributeStartIcon = lazy(() => import("@/icons/align-vertical-distribute-start-icon"));
+const AlignVerticalJustifyCenterIcon = lazy(() => import("@/icons/align-vertical-justify-center-icon"));
+const AlignVerticalJustifyEndIcon = lazy(() => import("@/icons/align-vertical-justify-end-icon"));
+const AlignVerticalJustifyStartIcon = lazy(() => import("@/icons/align-vertical-justify-start-icon"));
+const AlignVerticalSpaceAroundIcon = lazy(() => import("@/icons/align-vertical-space-around-icon"));
+const AlignVerticalSpaceBetweenIcon = lazy(() => import("@/icons/align-vertical-space-between-icon"));
+const AmpersandIcon = lazy(() => import("@/icons/ampersand-icon"));
+const AmpersandsIcon = lazy(() => import("@/icons/ampersands-icon"));
+const AmphoraIcon = lazy(() => import("@/icons/amphora-icon"));
+const AngleIcon = lazy(() => import("@/icons/angle-icon"));
+const AntennaIcon = lazy(() => import("@/icons/antenna-icon"));
+const AnvilIcon = lazy(() => import("@/icons/anvil-icon"));
+const AppWindowMacIcon = lazy(() => import("@/icons/app-window-mac-icon"));
+const AppWindowIcon = lazy(() => import("@/icons/app-window-icon"));
+const ArchiveXIcon = lazy(() => import("@/icons/archive-x-icon"));
+const ArchiveIcon = lazy(() => import("@/icons/archive-icon"));
+const ArmchairIcon = lazy(() => import("@/icons/armchair-icon"));
+const ArrowBigDownIcon = lazy(() => import("@/icons/arrow-big-down-icon"));
+const ArrowBigLeftIcon = lazy(() => import("@/icons/arrow-big-left-icon"));
+const ArrowBigRightIcon = lazy(() => import("@/icons/arrow-big-right-icon"));
+const ArrowBigUpIcon = lazy(() => import("@/icons/arrow-big-up-icon"));
+const ArrowDown01Icon = lazy(() => import("@/icons/arrow-down-0-1-icon"));
+const ArrowDown10Icon = lazy(() => import("@/icons/arrow-down-1-0-icon"));
+const ArrowDownAZIcon = lazy(() => import("@/icons/arrow-down-a-z-icon"));
+const ArrowDownFromLineIcon = lazy(() => import("@/icons/arrow-down-from-line-icon"));
+const ArrowDownNarrowWideIcon = lazy(() => import("@/icons/arrow-down-narrow-wide-icon"));
+const ArrowDownRightIcon = lazy(() => import("@/icons/arrow-down-right-icon"));
+const ArrowDownToDotIcon = lazy(() => import("@/icons/arrow-down-to-dot-icon"));
+const ArrowDownUpIcon = lazy(() => import("@/icons/arrow-down-up-icon"));
+const ArrowDownWideNarrowIcon = lazy(() => import("@/icons/arrow-down-wide-narrow-icon"));
+const ArrowDownZAIcon = lazy(() => import("@/icons/arrow-down-z-a-icon"));
+const ArrowLeftFromLineIcon = lazy(() => import("@/icons/arrow-left-from-line-icon"));
+const ArrowLeftToLineIcon = lazy(() => import("@/icons/arrow-left-to-line-icon"));
+const ArrowRightFromLineIcon = lazy(() => import("@/icons/arrow-right-from-line-icon"));
+const ArrowRightLeftIcon = lazy(() => import("@/icons/arrow-right-left-icon"));
+const ArrowRightToLineIcon = lazy(() => import("@/icons/arrow-right-to-line-icon"));
+const ArrowUp01Icon = lazy(() => import("@/icons/arrow-up-0-1-icon"));
+const ArrowUp10Icon = lazy(() => import("@/icons/arrow-up-1-0-icon"));
+const ArrowUpAZIcon = lazy(() => import("@/icons/arrow-up-a-z-icon"));
+const ArrowUpFromDotIcon = lazy(() => import("@/icons/arrow-up-from-dot-icon"));
+const ArrowUpLeftIcon = lazy(() => import("@/icons/arrow-up-left-icon"));
+const ArrowUpNarrowWideIcon = lazy(() => import("@/icons/arrow-up-narrow-wide-icon"));
+const ArrowUpToLineIcon = lazy(() => import("@/icons/arrow-up-to-line-icon"));
+const ArrowUpWideNarrowIcon = lazy(() => import("@/icons/arrow-up-wide-narrow-icon"));
+const ArrowUpZAIcon = lazy(() => import("@/icons/arrow-up-z-a-icon"));
+const ArrowsUpFromLineIcon = lazy(() => import("@/icons/arrows-up-from-line-icon"));
+const AsteriskIcon = lazy(() => import("@/icons/asterisk-icon"));
+const AstroidIcon = lazy(() => import("@/icons/astroid-icon"));
+const AtomIcon = lazy(() => import("@/icons/atom-icon"));
+const AudioLinesXIcon = lazy(() => import("@/icons/audio-lines-x-icon"));
+const AudioWaveformIcon = lazy(() => import("@/icons/audio-waveform-icon"));
+const AxeIcon = lazy(() => import("@/icons/axe-icon"));
+const Axis3dIcon = lazy(() => import("@/icons/axis-3d-icon"));
+const BackpackIcon = lazy(() => import("@/icons/backpack-icon"));
+const BadgeAlertIcon = lazy(() => import("@/icons/badge-alert-icon"));
+const BadgeCentIcon = lazy(() => import("@/icons/badge-cent-icon"));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- iconos con props extra opcionales
 const iconMap: Record<string, ComponentType<any>> = {
@@ -1081,6 +1143,68 @@ const iconMap: Record<string, ComponentType<any>> = {
   "align-horizontal-justify-center-icon": AlignHorizontalJustifyCenterIcon,
   "align-horizontal-justify-end-icon": AlignHorizontalJustifyEndIcon,
   "align-horizontal-justify-start-icon": AlignHorizontalJustifyStartIcon,
+  "align-horizontal-space-around-icon": AlignHorizontalSpaceAroundIcon,
+  "align-horizontal-space-between-icon": AlignHorizontalSpaceBetweenIcon,
+  "align-start-horizontal-icon": AlignStartHorizontalIcon,
+  "align-start-vertical-icon": AlignStartVerticalIcon,
+  "align-vertical-distribute-center-icon": AlignVerticalDistributeCenterIcon,
+  "align-vertical-distribute-end-icon": AlignVerticalDistributeEndIcon,
+  "align-vertical-distribute-start-icon": AlignVerticalDistributeStartIcon,
+  "align-vertical-justify-center-icon": AlignVerticalJustifyCenterIcon,
+  "align-vertical-justify-end-icon": AlignVerticalJustifyEndIcon,
+  "align-vertical-justify-start-icon": AlignVerticalJustifyStartIcon,
+  "align-vertical-space-around-icon": AlignVerticalSpaceAroundIcon,
+  "align-vertical-space-between-icon": AlignVerticalSpaceBetweenIcon,
+  "ampersand-icon": AmpersandIcon,
+  "ampersands-icon": AmpersandsIcon,
+  "amphora-icon": AmphoraIcon,
+  "angle-icon": AngleIcon,
+  "antenna-icon": AntennaIcon,
+  "anvil-icon": AnvilIcon,
+  "app-window-mac-icon": AppWindowMacIcon,
+  "app-window-icon": AppWindowIcon,
+  "archive-x-icon": ArchiveXIcon,
+  "archive-icon": ArchiveIcon,
+  "armchair-icon": ArmchairIcon,
+  "arrow-big-down-icon": ArrowBigDownIcon,
+  "arrow-big-left-icon": ArrowBigLeftIcon,
+  "arrow-big-right-icon": ArrowBigRightIcon,
+  "arrow-big-up-icon": ArrowBigUpIcon,
+  "arrow-down-0-1-icon": ArrowDown01Icon,
+  "arrow-down-1-0-icon": ArrowDown10Icon,
+  "arrow-down-a-z-icon": ArrowDownAZIcon,
+  "arrow-down-from-line-icon": ArrowDownFromLineIcon,
+  "arrow-down-narrow-wide-icon": ArrowDownNarrowWideIcon,
+  "arrow-down-right-icon": ArrowDownRightIcon,
+  "arrow-down-to-dot-icon": ArrowDownToDotIcon,
+  "arrow-down-up-icon": ArrowDownUpIcon,
+  "arrow-down-wide-narrow-icon": ArrowDownWideNarrowIcon,
+  "arrow-down-z-a-icon": ArrowDownZAIcon,
+  "arrow-left-from-line-icon": ArrowLeftFromLineIcon,
+  "arrow-left-to-line-icon": ArrowLeftToLineIcon,
+  "arrow-right-from-line-icon": ArrowRightFromLineIcon,
+  "arrow-right-left-icon": ArrowRightLeftIcon,
+  "arrow-right-to-line-icon": ArrowRightToLineIcon,
+  "arrow-up-0-1-icon": ArrowUp01Icon,
+  "arrow-up-1-0-icon": ArrowUp10Icon,
+  "arrow-up-a-z-icon": ArrowUpAZIcon,
+  "arrow-up-from-dot-icon": ArrowUpFromDotIcon,
+  "arrow-up-left-icon": ArrowUpLeftIcon,
+  "arrow-up-narrow-wide-icon": ArrowUpNarrowWideIcon,
+  "arrow-up-to-line-icon": ArrowUpToLineIcon,
+  "arrow-up-wide-narrow-icon": ArrowUpWideNarrowIcon,
+  "arrow-up-z-a-icon": ArrowUpZAIcon,
+  "arrows-up-from-line-icon": ArrowsUpFromLineIcon,
+  "asterisk-icon": AsteriskIcon,
+  "astroid-icon": AstroidIcon,
+  "atom-icon": AtomIcon,
+  "audio-lines-x-icon": AudioLinesXIcon,
+  "audio-waveform-icon": AudioWaveformIcon,
+  "axe-icon": AxeIcon,
+  "axis-3d-icon": Axis3dIcon,
+  "backpack-icon": BackpackIcon,
+  "badge-alert-icon": BadgeAlertIcon,
+  "badge-cent-icon": BadgeCentIcon,
 };
 
 export function getIconComponent(file: string) {
