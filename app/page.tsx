@@ -1,6 +1,7 @@
 "use client";
 
 import { Features } from "@/components/Features";
+import { FusionLab } from "@/components/FusionLab";
 import { Hero } from "@/components/Hero";
 import { Library } from "@/components/Library";
 import { Navbar } from "@/components/Navbar";
@@ -33,6 +34,8 @@ export default function Home() {
       <Features />
 
       <Library />
+
+      <FusionLab />
     </main>
   );
 }
