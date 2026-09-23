@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -10,14 +11,18 @@ export const Navbar = () => {
           </p>
 
           <div className="flex items-center justify-center ml-100 gap-10 font-sans text-gray-600/80 font-semibold">
-            <motion.a
-              className="hover:text-red-500 transition ease-in"
+            <motion.div
               whileHover={{ rotate: -1 }}
               whileTap={{ rotate: -5, scale: 0.95 }}
               transition={{ duration: 0.1 }}
             >
-              Explorar
-            </motion.a>
+              <Link
+                href="/icons"
+                className="hover:text-red-500 transition ease-in"
+              >
+                Explorar
+              </Link>
+            </motion.div>
             <motion.a
               className="hover:text-red-500 transition ease-in"
               whileHover={{ rotate: 3 }}

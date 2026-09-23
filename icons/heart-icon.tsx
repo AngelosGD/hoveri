@@ -5,9 +5,15 @@ import { motion } from "motion/react";
 interface HeartIconProps {
   size?: number;
   className?: string;
+  duration?: number;
 }
 
-export const HeartIcon = ({ size = 32, className }: HeartIconProps) => {
+export const HeartIcon = ({
+  size = 32,
+  className,
+  duration = 0.55,
+}: HeartIconProps) => {
+  const d = duration;
   return (
     <motion.svg
       width={size}
@@ -28,7 +34,7 @@ export const HeartIcon = ({ size = 32, className }: HeartIconProps) => {
             // doble latido estilo ECG: lub-dub
             scale: [1, 1.25, 1, 1.15, 1],
             transition: {
-              duration: 0.55,
+              duration: d,
               times: [0, 0.15, 0.3, 0.45, 0.6],
               ease: "easeOut",
             },
@@ -45,7 +51,7 @@ export const HeartIcon = ({ size = 32, className }: HeartIconProps) => {
           hover: {
             opacity: [0, 0.45, 0],
             x: [-20, 25],
-            transition: { duration: 0.55, delay: 0.15 },
+            transition: { duration: d, delay: d * 0.27 },
           },
         }}
       />

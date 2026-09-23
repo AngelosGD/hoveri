@@ -5,9 +5,15 @@ import { motion } from "motion/react";
 interface SparkleIconProps {
   size?: number;
   className?: string;
+  duration?: number;
 }
 
-export const SparkleIcon = ({ size = 32, className }: SparkleIconProps) => {
+export const SparkleIcon = ({
+  size = 32,
+  className,
+  duration = 0.5,
+}: SparkleIconProps) => {
+  const d = duration;
   return (
     <motion.svg
       width={size}
@@ -28,7 +34,7 @@ export const SparkleIcon = ({ size = 32, className }: SparkleIconProps) => {
           hover: {
             rotate: [0, 15, -15, 0],
             scale: [1, 1.1, 1.1, 1],
-            transition: { duration: 0.5, times: [0, 0.3, 0.6, 1] },
+            transition: { duration: d, times: [0, 0.3, 0.6, 1] },
           },
         }}
         style={{ originX: "12px", originY: "12px" }}
@@ -44,7 +50,7 @@ export const SparkleIcon = ({ size = 32, className }: SparkleIconProps) => {
           hover: {
             opacity: [0, 1, 0],
             scale: [0, 1.4, 0],
-            transition: { duration: 0.5, delay: 0.1 },
+            transition: { duration: d, delay: d * 0.2 },
           },
         }}
       />
@@ -58,7 +64,7 @@ export const SparkleIcon = ({ size = 32, className }: SparkleIconProps) => {
           hover: {
             opacity: [0, 1, 0],
             scale: [0, 1.4, 0],
-            transition: { duration: 0.5, delay: 0.2 },
+            transition: { duration: d, delay: d * 0.4 },
           },
         }}
       />
@@ -72,7 +78,7 @@ export const SparkleIcon = ({ size = 32, className }: SparkleIconProps) => {
           hover: {
             opacity: [0, 1, 0],
             scale: [0, 1.4, 0],
-            transition: { duration: 0.5, delay: 0.3 },
+            transition: { duration: d, delay: d * 0.6 },
           },
         }}
       />

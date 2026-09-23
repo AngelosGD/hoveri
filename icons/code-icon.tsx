@@ -5,9 +5,15 @@ import { motion } from "motion/react";
 interface CodeIconProps {
   size?: number;
   className?: string;
+  duration?: number;
 }
 
-export const CodeIcon = ({ size = 32, className }: CodeIconProps) => {
+export const CodeIcon = ({
+  size = 32,
+  className,
+  duration = 0.4,
+}: CodeIconProps) => {
+  const d = duration;
   return (
     <motion.svg
       width={size}
@@ -29,9 +35,8 @@ export const CodeIcon = ({ size = 32, className }: CodeIconProps) => {
         variants={{
           idle: { x: 0 },
           hover: {
-            // se cierra hacia el centro y rebota
             x: [0, 5, -1, 0],
-            transition: { duration: 0.4, times: [0, 0.35, 0.7, 1] },
+            transition: { duration: d, times: [0, 0.35, 0.7, 1] },
           },
         }}
       />
@@ -45,7 +50,7 @@ export const CodeIcon = ({ size = 32, className }: CodeIconProps) => {
           idle: { rotate: 0 },
           hover: {
             rotate: [0, 180, 360],
-            transition: { duration: 0.45, ease: "easeInOut" },
+            transition: { duration: d * 1.1, ease: "easeInOut" },
           },
         }}
         style={{ originX: "12px", originY: "12px" }}
@@ -61,7 +66,7 @@ export const CodeIcon = ({ size = 32, className }: CodeIconProps) => {
           idle: { x: 0 },
           hover: {
             x: [0, -5, 1, 0],
-            transition: { duration: 0.4, times: [0, 0.35, 0.7, 1] },
+            transition: { duration: d, times: [0, 0.35, 0.7, 1] },
           },
         }}
       />
