@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
+import { HeroRight } from "./HeroRight";
 
 export const Hero = () => {
   return (
     <>
-      <section className="flex justify-center items-center p-8 m-6">
+      <section className="flex items-center justify-center p-8 m-6">
         {/* seccion del lado izquierdo (texto) */}
         <div className="w-[55%]">
           <p className="text-sm font-bold ">
@@ -50,6 +51,11 @@ export const Hero = () => {
               Ver codigo
             </motion.button>
           </div>
+        </div>
+
+        {/* seccion del lado derecho (circulos + cards animadas) */}
+        <div className="w-[45%]">
+          <HeroRight />
         </div>
       </section>
     </>
