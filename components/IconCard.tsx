@@ -110,7 +110,7 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
     >
       {/* numero */}
       <div className="px-5 pt-4">
-        <span className="text-xs font-medium text-zinc-400">{icon.num}</span>
+        <span className="text-xs font-medium text-rose-500">{icon.num}</span>
       </div>
 
       {/* preview con hover = animacion */}
@@ -123,7 +123,7 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
       {/* titulo + categoria + lapiz */}
       <div className="flex items-start justify-between border-t border-zinc-200 px-5 py-4">
         <div>
-          <h3 className="text-sm font-bold text-zinc-900">{icon.name}</h3>
+          <h3 className="text-sm font-bold text-rose-700">{icon.name}</h3>
           <p className="mt-0.5 text-xs text-zinc-400">{icon.category}</p>
         </div>
         <motion.button

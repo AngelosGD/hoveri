@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { Library } from "@/components/Library";
 import { Navbar } from "@/components/Navbar";
 import { PassHero } from "@/components/PassHero";
+import { ReadySection } from "@/components/ReadySection";
 import { motion } from "motion/react";
 
 export default function Home() {
@@ -36,6 +37,8 @@ export default function Home() {
       <Library />
 
       <FusionLab />
+
+      <ReadySection />
     </main>
   );
 }
