@@ -39,7 +39,8 @@ export const Library = () => {
     setConfigs((prev) => ({ ...prev, [id]: config }));
 
   return (
-    <section className="mx-auto max-w-6xl px-8 py-16">
+    <section className="w-full border-t border-zinc-200 bg-zinc-100">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
       {/* header */}
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
@@ -57,7 +58,7 @@ export const Library = () => {
       </div>
 
       {/* toolbar: buscador + filtros */}
-      <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div className="mt-14 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="relative w-full md:w-80">
           <svg
             className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400"
@@ -113,7 +114,7 @@ export const Library = () => {
           No se encontraron iconos para &quot;{query}&quot;.
         </p>
       ) : (
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((icon) => (
             <IconCard
               key={icon.id}
@@ -132,6 +133,7 @@ export const Library = () => {
         onChange={(c) => editingId && updateConfig(editingId, c)}
         onClose={() => setEditingId(null)}
       />
+      </div>
     </section>
   );
 };

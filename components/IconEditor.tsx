@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 import type { IconConfig, LibraryIcon } from "@/icons/library";
 
 type IconEditorProps = {
@@ -19,7 +20,36 @@ const COLORS = [
   "#18181b",
 ];
 
+const copyToClipboard = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+  }
+};
+
 export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps) => {
+  const [copied, setCopied] = useState(false);
+
+  const duration = icon ? icon.baseDuration / config.speed : 0.5;
+
+  const handleCopy = async () => {
+    if (!icon) return;
+    const code = `import { ${icon.componentName} } from "@/icons/${icon.fileName}";
+
+<span style={{ color: "${config.color}" }}>
+  <${icon.componentName} size={${config.size}} duration={${duration.toFixed(2)}} />
+</span>`;
+    await copyToClipboard(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
   return (
     <AnimatePresence>
       {icon && (
@@ -80,14 +110,11 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
             </div>
 
             {/* preview en tiempo real */}
-            <div className="flex h-40 items-center justify-center border-b border-zinc-200 bg-zinc-50">
+            <div className="relative flex h-40 items-center justify-center border-b border-zinc-200 bg-zinc-50">
               <span style={{ color: config.color }}>
-                <icon.Component
-                  size={config.size}
-                  duration={icon.baseDuration / config.speed}
-                />
+                <icon.Component size={config.size} duration={duration} />
               </span>
-              <p className="absolute mb-28 self-end text-[10px] font-medium uppercase tracking-widest text-zinc-400">
+              <p className="absolute bottom-3 text-[10px] font-medium uppercase tracking-widest text-zinc-400">
                 preview — hover aca
               </p>
             </div>
@@ -107,7 +134,7 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
                       aria-label={`Color ${c}`}
                       onClick={() => onChange({ ...config, color: c })}
                       className={`h-7 w-7 rounded-full border-2 transition-transform ${
-                        config.color === c
+                        config.color.toLowerCase() === c.toLowerCase()
                           ? "border-zinc-900 scale-110"
                           : "border-transparent"
                       }`}
@@ -179,17 +206,59 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
               </div>
             </div>
 
-            {/* footer */}
+            {/* footer: copiar icono actualizado */}
             <div className="border-t border-zinc-200 px-6 py-4">
               <motion.button
                 type="button"
-                onClick={onClose}
-                className="w-full rounded-2xl bg-zinc-900 py-2.5 text-sm font-semibold text-white"
+                onClick={handleCopy}
+                className={`flex w-full items-center justify-center gap-2 rounded-2xl py-2.5 text-sm font-semibold text-white transition-colors ${
+                  copied ? "bg-emerald-500" : "bg-zinc-900"
+                }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.1 }}
               >
-                Listo
+                <AnimatePresence mode="wait" initial={false}>
+                  {copied ? (
+                    <motion.svg
+                      key="check"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ scale: 0, rotate: -90 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      exit={{ scale: 0 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </motion.svg>
+                  ) : (
+                    <motion.svg
+                      key="copy"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ scale: 0.6, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.6, opacity: 0 }}
+                      transition={{ duration: 0.12 }}
+                    >
+                      <rect x="9" y="9" width="13" height="13" rx="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </motion.svg>
+                  )}
+                </AnimatePresence>
+                {copied ? "Copiado!" : "Copiar icono"}
               </motion.button>
             </div>
           </motion.div>
