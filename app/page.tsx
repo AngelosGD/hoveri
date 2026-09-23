@@ -3,6 +3,7 @@
 import { Features } from "@/components/Features";
 import { FusionLab } from "@/components/FusionLab";
 import { Hero } from "@/components/Hero";
+import { IdeaSection } from "@/components/IdeaSection";
 import { Library } from "@/components/Library";
 import { Navbar } from "@/components/Navbar";
 import { PassHero } from "@/components/PassHero";
@@ -39,6 +40,8 @@ export default function Home() {
       <FusionLab />
 
       <ReadySection />
+
+      <IdeaSection />
     </main>
   );
 }
