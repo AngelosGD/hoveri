@@ -1,7 +1,9 @@
 "use client";
 
+import { Features } from "@/components/Features";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
+import { PassHero } from "@/components/PassHero";
 import { motion } from "motion/react";
 
 export default function Home() {
@@ -22,6 +24,12 @@ export default function Home() {
       >
         <Hero />
       </motion.section>
+
+      <motion.section className="w-full bg-rose-500 h-13 mt-10 justify-center items-center flex">
+        <PassHero />
+      </motion.section>
+
+      <Features />
     </main>
   );
 }
