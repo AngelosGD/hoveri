@@ -6,7 +6,7 @@ export const Hero = () => {
     <>
       <section className="flex items-center justify-center p-8 m-6">
         {/* seccion del lado izquierdo (texto) */}
-        <div className="w-[55%]">
+        <div className="w-[55%] pl-32 lg:pl-44">
           <p className="text-sm font-bold ">
             <span className="text-red-500">{"<"}</span>
             Iconos animados para interfaces modernas

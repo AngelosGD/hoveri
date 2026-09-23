@@ -16,35 +16,63 @@ export const HeroRight = () => {
 
       {/* card 1: estrella rosa (arriba) */}
       <motion.div
-        className="absolute -top-2 left-1/2 flex h-24 w-24 -translate-x-1/2 items-center justify-center rounded-3xl bg-rose-500 text-white shadow-lg shadow-rose-500/30"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="absolute -top-2 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        whileHover={{ y: -6, rotate: -4 }}
       >
-        <SparkleIcon size={40} />
+        <motion.div
+          className="flex h-24 w-24 items-center justify-center rounded-3xl bg-rose-500 text-white shadow-lg shadow-rose-500/30"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ y: -6, rotate: -4 }}
+        >
+          <SparkleIcon size={40} />
+        </motion.div>
       </motion.div>
 
       {/* card 2: corazon naranja (derecha) */}
       <motion.div
-        className="absolute top-1/2 -right-4 flex h-24 w-24 -translate-y-1/2 items-center justify-center rounded-3xl bg-orange-400 text-white shadow-lg shadow-orange-400/30"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
+        className="absolute top-1/2 -right-4 -translate-y-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.45, duration: 0.5 }}
-        whileHover={{ x: 6, rotate: 4 }}
       >
-        <HeartIcon size={40} />
+        <motion.div
+          className="flex h-24 w-24 items-center justify-center rounded-3xl bg-orange-400 text-white shadow-lg shadow-orange-400/30"
+          animate={{ y: [0, -8, 0] }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.2,
+          }}
+          whileHover={{ y: -6, rotate: 4 }}
+        >
+          <HeartIcon size={40} />
+        </motion.div>
       </motion.div>
 
       {/* card 3: codigo negro (abajo izquierda) */}
       <motion.div
-        className="absolute bottom-8 left-8 flex h-24 w-24 items-center justify-center rounded-3xl bg-zinc-900 text-white shadow-lg shadow-zinc-900/30"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="absolute bottom-8 left-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
-        whileHover={{ y: 6, rotate: -4 }}
       >
-        <CodeIcon size={40} />
+        <motion.div
+          className="flex h-24 w-24 items-center justify-center rounded-3xl bg-zinc-900 text-white shadow-lg shadow-zinc-900/30"
+          animate={{ y: [0, -8, 0] }}
+          transition={{
+            duration: 3.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.6,
+          }}
+          whileHover={{ y: -6, rotate: -4 }}
+        >
+          <CodeIcon size={40} />
+        </motion.div>
       </motion.div>
 
       {/* texto HOVER ME en el margen superior derecho */}
