@@ -3,19 +3,155 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { ICON_LIST } from "@/icons/library";
-import type { LibraryIcon } from "@/icons/library";
+import type { IconConfig, LibraryIcon } from "@/icons/library";
+import { IconEditor } from "./IconEditor";
 
-const ACCENT: Record<string, string> = {
+const FUSION_ACCENT: Record<string, string> = {
   sparkle: "#f43f5e",
   heart: "#fb7185",
   code: "#10b981",
 };
 
 type Slot = "left" | "right";
+type Configs = Record<string, IconConfig>;
 
-const FusionCard = ({ a, b }: { a: LibraryIcon; b: LibraryIcon }) => {
+const defaultFusionConfigs = (): Configs =>
+  Object.fromEntries(
+    ICON_LIST.map((i) => [
+      i.id,
+      {
+        ...i.defaultConfig,
+        color: FUSION_ACCENT[i.id] ?? i.defaultConfig.color,
+      },
+    ]),
+  );
+
+const copyToClipboard = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+  }
+};
+
+const buildFusionCode = (
+  a: LibraryIcon,
+  b: LibraryIcon,
+  configA: IconConfig,
+  configB: IconConfig,
+) => {
+  const durA = (a.baseDuration / configA.speed).toFixed(2);
+  const durB = (b.baseDuration / configB.speed).toFixed(2);
+  return `import { ${a.componentName} } from "@/icons/${a.fileName}";
+import { ${b.componentName} } from "@/icons/${b.fileName}";
+import { AnimatePresence, motion } from "motion/react";
+
+// fusion: hover → ${b.name}, leave → ${a.name}
+<AnimatePresence mode="wait" initial={false}>
+  <motion.span
+    key={fused ? "${b.id}" : "${a.id}"}
+    initial={{ opacity: 0, scale: 0.5, rotate: fused ? 90 : -90 }}
+    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+    exit={{ opacity: 0, scale: 0.5, rotate: fused ? -90 : 90 }}
+    style={{ color: fused ? "${configB.color}" : "${configA.color}" }}
+  >
+    {fused ? (
+      <${b.componentName} size={${configB.size}} duration={${durB}} />
+    ) : (
+      <${a.componentName} size={${configA.size}} duration={${durA}} />
+    )}
+  </motion.span>
+</AnimatePresence>`;
+};
+
+const CopyIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="9" y="9" width="13" height="13" rx="2" />
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  </svg>
+);
+
+const CodeIconSvg = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="16 18 22 12 16 6" />
+    <polyline points="8 6 2 12 8 18" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <motion.svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    initial={{ scale: 0, rotate: -90 }}
+    animate={{ scale: 1, rotate: 0 }}
+    transition={{ type: "spring", stiffness: 500, damping: 20 }}
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </motion.svg>
+);
+
+const FusionCard = ({
+  a,
+  b,
+  configA,
+  configB,
+}: {
+  a: LibraryIcon;
+  b: LibraryIcon;
+  configA: IconConfig;
+  configB: IconConfig;
+}) => {
   const [fused, setFused] = useState(false);
-  const current = fused ? b : a;
+  const [showCode, setShowCode] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const icon = fused ? b : a;
+  const cfg = fused ? configB : configA;
+  const duration = icon.baseDuration / cfg.speed;
+  const code = buildFusionCode(a, b, configA, configB);
+
+  const handleCopy = async () => {
+    await copyToClipboard(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  const actionBtnCls = (active: boolean, extra: string) =>
+    [
+      "group relative flex flex-col items-center gap-1.5 py-3 text-[11px] font-medium transition-colors",
+      active
+        ? "bg-emerald-500 text-white"
+        : "text-zinc-500 hover:bg-zinc-800/80 hover:text-zinc-200",
+      extra,
+    ].join(" ");
 
   return (
     <div
@@ -38,23 +174,102 @@ const FusionCard = ({ a, b }: { a: LibraryIcon; b: LibraryIcon }) => {
       <div className="relative mx-auto flex h-24 w-full items-center justify-center">
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
-            key={current.id}
+            key={icon.id}
             initial={{ opacity: 0, scale: 0.5, rotate: fused ? 90 : -90 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             exit={{ opacity: 0, scale: 0.5, rotate: fused ? -90 : 90 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             style={{
-              color: ACCENT[current.id] ?? "#f43f5e",
+              color: cfg.color,
               display: "flex",
             }}
           >
-            <current.Component size={44} />
+            <icon.Component size={cfg.size} duration={duration} />
           </motion.span>
         </AnimatePresence>
+      </div>
+
+      {/* codigo expandible */}
+      <AnimatePresence initial={false}>
+        {showCode && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="overflow-hidden border-t border-zinc-800"
+          >
+            <pre className="max-h-40 overflow-auto px-5 py-3 text-[10px] leading-relaxed text-zinc-400">
+              <code>{code}</code>
+            </pre>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* acciones: ver codigo + copiar componente */}
+      <div className="grid grid-cols-2 border-t border-zinc-800">
+        <button
+          type="button"
+          onClick={() => setShowCode((v) => !v)}
+          className={actionBtnCls(showCode, "border-r border-zinc-800")}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={showCode ? "close" : "code"}
+              initial={{ scale: 0.6, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.6, opacity: 0 }}
+              transition={{ duration: 0.12 }}
+              className="transition-transform group-hover:scale-110"
+            >
+              <CodeIconSvg />
+            </motion.span>
+          </AnimatePresence>
+          {showCode ? "ocultar" : "ver codigo"}
+        </button>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className={actionBtnCls(copied, "")}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {copied ? (
+              <CheckIcon key="check" />
+            ) : (
+              <motion.span
+                key="copy"
+                initial={{ scale: 0.6, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.6, opacity: 0 }}
+                transition={{ duration: 0.12 }}
+                className="transition-transform group-hover:scale-110"
+              >
+                <CopyIcon />
+              </motion.span>
+            )}
+          </AnimatePresence>
+          {copied ? "copiado!" : "component"}
+        </button>
       </div>
     </div>
   );
 };
+
+const PencilIcon = () => (
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+    <path d="m15 5 4 4" />
+  </svg>
+);
 
 export const FusionLab = () => {
   const [ids, setIds] = useState<[string, string]>(["sparkle", "code"]);
@@ -62,13 +277,28 @@ export const FusionLab = () => {
   const [query, setQuery] = useState("");
   const [hoverLeft, setHoverLeft] = useState(false);
   const [hoverRight, setHoverRight] = useState(false);
+  const [configs, setConfigs] = useState<Configs>(defaultFusionConfigs);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   const left = ICON_LIST.find((i) => i.id === ids[0]) ?? ICON_LIST[0];
   const right = ICON_LIST.find((i) => i.id === ids[1]) ?? ICON_LIST[1];
+  const configLeft = configs[left.id] ?? left.defaultConfig;
+  const configRight = configs[right.id] ?? right.defaultConfig;
 
-  // hover independiente por icono
+  // hover independiente por icono (con la config del icono mostrado)
   const shownLeft = hoverLeft ? right : left;
   const shownRight = hoverRight ? left : right;
+  const shownLeftCfg = hoverLeft ? configRight : configLeft;
+  const shownRightCfg = hoverRight ? configLeft : configRight;
+
+  const editingIcon = ICON_LIST.find((i) => i.id === editingId) ?? null;
+  const editingConfig = editingId
+    ? configs[editingId] ?? ICON_LIST.find((i) => i.id === editingId)?.defaultConfig ?? {
+        color: "#18181b",
+        speed: 1,
+        size: 48,
+      }
+    : { color: "#18181b", speed: 1, size: 48 };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -82,6 +312,20 @@ export const FusionLab = () => {
     if (id === next[otherIdx]) return;
     next[idx] = id;
     setIds(next);
+    if (!configs[id]) {
+      setConfigs((prev) => ({
+        ...prev,
+        [id]: {
+          ...ICON_LIST.find((i) => i.id === id)!.defaultConfig,
+          color: FUSION_ACCENT[id] ?? "#18181b",
+        },
+      }));
+    }
+  };
+
+  const openEditor = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingId(id);
   };
 
   const tileCls = (slot: Slot) =>
@@ -98,6 +342,9 @@ export const FusionLab = () => {
     transition: { duration: 0.35, ease: "easeOut" as const },
   };
 
+  const shownLeftDuration = shownLeft.baseDuration / shownLeftCfg.speed;
+  const shownRightDuration = shownRight.baseDuration / shownRightCfg.speed;
+
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-7xl border-t border-zinc-200 px-6 py-24 md:px-10">
@@ -105,15 +352,15 @@ export const FusionLab = () => {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
-              une 2 iconos
+              Motion playground
             </p>
             <h2 className="mt-4 text-5xl font-bold tracking-tight text-zinc-900 md:text-6xl">
-              Miralos<span className="italic text-rose-600">transformarse</span>
+              See them <span className="italic">transform.</span>
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-6 text-zinc-500 md:text-right">
-            Empareja dos iconos y mira uno convertirse en el otro. Un poquito de
-            magia, bajo demanda.
+            Empareja dos iconos y mira uno convertirse en el otro. Editalos y
+            mira la fusion cambiar en vivo.
           </p>
         </div>
 
@@ -140,42 +387,55 @@ export const FusionLab = () => {
             {/* label */}
             <div className="relative z-10 flex items-center gap-2 px-7 pt-6">
               <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
-                Haz hover para ver la magia
+                Hover to transform
               </span>
               <span className="text-rose-500">↗</span>
             </div>
 
-            {/* tiles — hover independiente, click = elegir slot */}
+            {/* tiles — hover independiente, click = elegir slot, lapiz = editar */}
             <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-4 px-6 py-4">
               <div className="flex items-center gap-6">
                 {/* tile izq (A) */}
-                <motion.button
-                  type="button"
-                  aria-label={`Slot A: ${left.name}. Click para cambiar`}
-                  className={tileCls("left")}
-                  onClick={() => setActiveSlot("left")}
-                  onMouseEnter={() => setHoverLeft(true)}
-                  onMouseLeave={() => setHoverLeft(false)}
-                  onFocus={() => setHoverLeft(true)}
-                  onBlur={() => setHoverLeft(false)}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.span
-                      key={shownLeft.id}
-                      {...tileMotion}
-                      style={{
-                        color: ACCENT[shownLeft.id] ?? "#f43f5e",
-                        display: "flex",
-                      }}
-                    >
-                      <shownLeft.Component size={40} />
-                    </motion.span>
-                  </AnimatePresence>
-                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-rose-500 px-1.5 text-[9px] font-bold text-white">
-                    A
-                  </span>
-                </motion.button>
+                <div className="group relative">
+                  <motion.button
+                    type="button"
+                    aria-label={`Slot A: ${left.name}. Click para cambiar`}
+                    className={tileCls("left")}
+                    onClick={() => setActiveSlot("left")}
+                    onMouseEnter={() => setHoverLeft(true)}
+                    onMouseLeave={() => setHoverLeft(false)}
+                    onFocus={() => setHoverLeft(true)}
+                    onBlur={() => setHoverLeft(false)}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.span
+                        key={shownLeft.id}
+                        {...tileMotion}
+                        style={{
+                          color: shownLeftCfg.color,
+                          display: "flex",
+                        }}
+                      >
+                        <shownLeft.Component
+                          size={shownLeftCfg.size}
+                          duration={shownLeftDuration}
+                        />
+                      </motion.span>
+                    </AnimatePresence>
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-rose-500 px-1.5 text-[9px] font-bold text-white">
+                      A
+                    </span>
+                  </motion.button>
+                  <button
+                    type="button"
+                    aria-label={`Editar ${left.name}`}
+                    onClick={(e) => openEditor(left.id, e)}
+                    className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-400 opacity-0 transition-opacity hover:text-white focus:opacity-100 group-hover:opacity-100"
+                  >
+                    <PencilIcon />
+                  </button>
+                </div>
 
                 {/* conector */}
                 <div className="flex items-center gap-1.5">
@@ -185,33 +445,46 @@ export const FusionLab = () => {
                 </div>
 
                 {/* tile der (B) */}
-                <motion.button
-                  type="button"
-                  aria-label={`Slot B: ${right.name}. Click para cambiar`}
-                  className={tileCls("right")}
-                  onClick={() => setActiveSlot("right")}
-                  onMouseEnter={() => setHoverRight(true)}
-                  onMouseLeave={() => setHoverRight(false)}
-                  onFocus={() => setHoverRight(true)}
-                  onBlur={() => setHoverRight(false)}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.span
-                      key={shownRight.id}
-                      {...tileMotion}
-                      style={{
-                        color: ACCENT[shownRight.id] ?? "#10b981",
-                        display: "flex",
-                      }}
-                    >
-                      <shownRight.Component size={40} />
-                    </motion.span>
-                  </AnimatePresence>
-                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-emerald-500 px-1.5 text-[9px] font-bold text-white">
-                    B
-                  </span>
-                </motion.button>
+                <div className="group relative">
+                  <motion.button
+                    type="button"
+                    aria-label={`Slot B: ${right.name}. Click para cambiar`}
+                    className={tileCls("right")}
+                    onClick={() => setActiveSlot("right")}
+                    onMouseEnter={() => setHoverRight(true)}
+                    onMouseLeave={() => setHoverRight(false)}
+                    onFocus={() => setHoverRight(true)}
+                    onBlur={() => setHoverRight(false)}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.span
+                        key={shownRight.id}
+                        {...tileMotion}
+                        style={{
+                          color: shownRightCfg.color,
+                          display: "flex",
+                        }}
+                      >
+                        <shownRight.Component
+                          size={shownRightCfg.size}
+                          duration={shownRightDuration}
+                        />
+                      </motion.span>
+                    </AnimatePresence>
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-emerald-500 px-1.5 text-[9px] font-bold text-white">
+                      B
+                    </span>
+                  </motion.button>
+                  <button
+                    type="button"
+                    aria-label={`Editar ${right.name}`}
+                    onClick={(e) => openEditor(right.id, e)}
+                    className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-400 opacity-0 transition-opacity hover:text-white focus:opacity-100 group-hover:opacity-100"
+                  >
+                    <PencilIcon />
+                  </button>
+                </div>
               </div>
 
               {/* labels */}
@@ -227,7 +500,12 @@ export const FusionLab = () => {
 
               {/* card: hover → A se transforma en B, al salir → vuelve a A */}
               <div className="w-full max-w-md">
-                <FusionCard a={left} b={right} />
+                <FusionCard
+                  a={left}
+                  b={right}
+                  configA={configLeft}
+                  configB={configRight}
+                />
               </div>
             </div>
           </motion.div>
@@ -273,7 +551,7 @@ export const FusionLab = () => {
               — click en un tile para cambiar de slot
             </p>
 
-            {/* lista */}
+            {/* lista — iconos siempre negros */}
             <ul className="flex-1 overflow-y-auto">
               {filtered.map((i) => {
                 const slot: Slot | null =
@@ -285,10 +563,7 @@ export const FusionLab = () => {
                       onClick={() => pick(i.id)}
                       className="group flex w-full items-center gap-3 border-b border-zinc-100 px-5 py-3.5 text-left transition-colors hover:bg-zinc-50"
                     >
-                      <span
-                        className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-100"
-                        style={{ color: ACCENT[i.id] ?? "#f43f5e" }}
-                      >
+                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-100 text-zinc-900">
                         <i.Component size={16} />
                       </span>
                       <span className="flex-1 text-sm font-medium text-zinc-800">
@@ -319,6 +594,14 @@ export const FusionLab = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* editor de fusion — cambios se reflejan al instante en stage + card */}
+      <IconEditor
+        icon={editingIcon}
+        config={editingConfig}
+        onChange={(c) => editingId && setConfigs((prev) => ({ ...prev, [editingId]: c }))}
+        onClose={() => setEditingId(null)}
+      />
     </section>
   );
 };
