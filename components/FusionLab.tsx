@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { ICON_LIST } from "@/icons/library";
 import type { IconConfig, LibraryIcon } from "@/icons/library";
 import { IconEditor } from "./IconEditor";
@@ -255,6 +255,9 @@ const FusionCard = ({
   );
 };
 
+const LIST_INITIAL = 10;
+const LIST_STEP = 6;
+
 const PencilIcon = () => (
   <svg
     width="12"
@@ -304,6 +307,26 @@ export const FusionLab = () => {
     const q = query.trim().toLowerCase();
     return ICON_LIST.filter((i) => !q || i.name.toLowerCase().includes(q));
   }, [query]);
+
+  // scroll lazy: 10 visibles, mas al acercarse al final
+  const [visibleCount, setVisibleCount] = useState(LIST_INITIAL);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    setVisibleCount(LIST_INITIAL);
+    listRef.current?.scrollTo({ top: 0 });
+  };
+
+  const visible = filtered.slice(0, visibleCount);
+
+  const handleListScroll = () => {
+    const el = listRef.current;
+    if (!el) return;
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 80) {
+      setVisibleCount((c) => Math.min(c + LIST_STEP, filtered.length));
+    }
+  };
 
   const pick = (id: string) => {
     const next: [string, string] = [...ids];
@@ -536,7 +559,7 @@ export const FusionLab = () => {
               <input
                 type="search"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => handleQueryChange(e.target.value)}
                 placeholder="Quick find an icon..."
                 className="w-full bg-transparent py-4 pl-12 pr-5 text-sm text-zinc-700 outline-none placeholder:text-zinc-400"
               />
@@ -551,13 +574,22 @@ export const FusionLab = () => {
               — click en un tile para cambiar de slot
             </p>
 
-            {/* lista — iconos siempre negros */}
-            <ul className="flex-1 overflow-y-auto">
-              {filtered.map((i) => {
+            {/* lista — altura fija + scroll lazy (iconos siempre negros) */}
+            <ul
+              ref={listRef}
+              onScroll={handleListScroll}
+              className="h-[440px] overflow-y-auto overscroll-contain"
+            >
+              {visible.map((i, idx) => {
                 const slot: Slot | null =
                   i.id === ids[0] ? "left" : i.id === ids[1] ? "right" : null;
                 return (
-                  <li key={i.id}>
+                  <motion.li
+                    key={i.id}
+                    initial={idx >= LIST_INITIAL ? { opacity: 0, y: 8 } : false}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                  >
                     <button
                       type="button"
                       onClick={() => pick(i.id)}
@@ -582,12 +614,17 @@ export const FusionLab = () => {
                         →
                       </span>
                     </button>
-                  </li>
+                  </motion.li>
                 );
               })}
               {filtered.length === 0 && (
                 <li className="px-5 py-8 text-center text-sm text-zinc-400">
                   Sin resultados.
+                </li>
+              )}
+              {visible.length < filtered.length && (
+                <li className="px-5 py-3 text-center text-[11px] text-zinc-400">
+                  Baja para ver mas iconos…
                 </li>
               )}
             </ul>
