@@ -2,8 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { CodeIcon } from "@/icons/code-icon";
-import { HeartIcon } from "@/icons/heart-icon";
+import { ICON_LIST } from "@/icons/library";
 import { SparkleIcon } from "@/icons/sparkle-icon";
 
 const NAV = [
@@ -16,11 +15,8 @@ const NAV = [
   { label: "Privacidad", href: "/privacy" },
 ];
 
-const LATEST = [
-  { name: "Heart", color: "#f43f5e", Component: HeartIcon },
-  { name: "Code", color: "#10b981", Component: CodeIcon },
-  { name: "Sparkles", color: "#f43f5e", Component: SparkleIcon },
-] as const;
+// ultimos 10 del catalogo (los mas recientes)
+const LATEST = ICON_LIST.slice(-10);
 
 export const Footer = () => {
   return (
@@ -119,15 +115,15 @@ export const Footer = () => {
               </h3>
             </div>
 
-            <div className="flex flex-1 flex-wrap items-start gap-x-10 gap-y-6">
+            <div className="flex flex-1 flex-wrap items-start gap-x-7 gap-y-6">
               {LATEST.map((item) => (
                 <motion.div
-                  key={item.name}
+                  key={item.id}
                   className="flex w-16 flex-col items-center gap-2"
                   whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 500, damping: 20 }}
                 >
-                  <span style={{ color: item.color }}>
+                  <span className="text-zinc-900">
                     <item.Component size={24} />
                   </span>
                   <span className="text-center text-[11px] font-medium text-zinc-500">

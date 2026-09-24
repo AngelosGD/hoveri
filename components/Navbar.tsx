@@ -1,14 +1,25 @@
 import { motion } from "motion/react";
 import Link from "next/link";
+import { Logo } from "./Logo";
 
 export const Navbar = () => {
   return (
     <>
       <header className="border-b-2 border-b-gray-200 w-full p-4 sticky top-0  flex">
         <nav className="flex w-full items-center pl-50">
-          <p className="text-3xl font-semibold text-gray-800">
-            Hoveri<span className="text-red-500 ">.</span>
-          </p>
+          <div className="flex items-center gap-3">
+            <motion.span
+              className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-rose-600 bg-rose-500 text-white shadow-sm"
+              whileHover={{ scale: 1.08, rotate: -6 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.1 }}
+            >
+              <Logo size={22} />
+            </motion.span>
+            <p className="text-3xl font-semibold text-gray-800">
+              Hoveri<span className="text-red-500 ">.</span>
+            </p>
+          </div>
 
           <div className="flex items-center justify-center ml-100 gap-10 font-sans text-gray-600/80 font-semibold">
             <motion.div
