@@ -13,6 +13,16 @@ import { MoonIcon } from "@/icons/moon-icon";
 import { CheckIcon } from "@/icons/check-icon";
 import { SendIcon } from "@/icons/send-icon";
 import { TerminalIcon } from "@/icons/terminal-icon";
+import { StarIcon } from "@/icons/star-icon";
+import { EyeIcon } from "@/icons/eye-icon";
+import { CoffeeIcon } from "@/icons/coffee-icon";
+import { PlayIcon } from "@/icons/play-icon";
+import { LockIcon } from "@/icons/lock-icon";
+import { FolderIcon } from "@/icons/folder-icon";
+import { ArrowUpRightIcon } from "@/icons/arrow-up-right-icon";
+import { BookmarkIcon } from "@/icons/bookmark-icon";
+import { WifiIcon } from "@/icons/wifi-icon";
+import { FireIcon } from "@/icons/fire-icon";
 
 export type IconConfig = {
   color: string;
@@ -179,6 +189,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: TerminalIcon,
     baseDuration: 0.5,
+  },
+  {
+    id: "star",
+    num: "14",
+    name: "Star",
+    category: "Essentials",
+    fileName: "star-icon",
+    componentName: "StarIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: StarIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "eye",
+    num: "15",
+    name: "Eye",
+    category: "Interface",
+    fileName: "eye-icon",
+    componentName: "EyeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: EyeIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "coffee",
+    num: "16",
+    name: "Coffee",
+    category: "Essentials",
+    fileName: "coffee-icon",
+    componentName: "CoffeeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CoffeeIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "play",
+    num: "17",
+    name: "Play",
+    category: "Media",
+    fileName: "play-icon",
+    componentName: "PlayIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PlayIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "lock",
+    num: "18",
+    name: "Lock",
+    category: "Interface",
+    fileName: "lock-icon",
+    componentName: "LockIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LockIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "folder",
+    num: "19",
+    name: "Folder",
+    category: "Development",
+    fileName: "folder-icon",
+    componentName: "FolderIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FolderIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "arrow-up-right",
+    num: "20",
+    name: "Arrow Up Right",
+    category: "Interface",
+    fileName: "arrow-up-right-icon",
+    componentName: "ArrowUpRightIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ArrowUpRightIcon,
+    baseDuration: 0.45,
+  },
+  {
+    id: "bookmark",
+    num: "21",
+    name: "Bookmark",
+    category: "Interface",
+    fileName: "bookmark-icon",
+    componentName: "BookmarkIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BookmarkIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "wifi",
+    num: "22",
+    name: "Wifi",
+    category: "Interface",
+    fileName: "wifi-icon",
+    componentName: "WifiIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WifiIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "fire",
+    num: "23",
+    name: "Fire",
+    category: "Essentials",
+    fileName: "fire-icon",
+    componentName: "FireIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FireIcon,
+    baseDuration: 0.55,
   },
 ];
 
