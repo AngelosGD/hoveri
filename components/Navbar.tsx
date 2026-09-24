@@ -34,22 +34,42 @@ export const Navbar = () => {
                 Explorar
               </Link>
             </motion.div>
-            <motion.a
-              className="hover:text-red-500 transition ease-in"
-              whileHover={{ rotate: 3 }}
-              whileTap={{ rotate: 5, scale: 0.95 }}
+            <motion.div
+              whileHover={{ rotate: -1 }}
+              whileTap={{ rotate: -5, scale: 0.95 }}
               transition={{ duration: 0.1 }}
             >
-              Uso
-            </motion.a>
-            <motion.a
-              className="hover:text-red-500 transition ease-in"
+              <Link
+                href="/uso"
+                className="hover:text-red-500 transition ease-in"
+              >
+                Uso
+              </Link>
+            </motion.div>
+            <motion.div
               whileHover={{ rotate: -2 }}
               whileTap={{ rotate: -5, scale: 0.95 }}
               transition={{ duration: 0.1 }}
             >
-              Sugerir icono
-            </motion.a>
+              <Link
+                href="/sugerir"
+                className="hover:text-red-500 transition ease-in"
+              >
+                Sugerir icono
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ rotate: 2 }}
+              whileTap={{ rotate: 5, scale: 0.95 }}
+              transition={{ duration: 0.1 }}
+            >
+              <Link
+                href="/contacto"
+                className="hover:text-red-500 transition ease-in"
+              >
+                Contacto
+              </Link>
+            </motion.div>
           </div>
 
           {/* Botones al final del navbar */}

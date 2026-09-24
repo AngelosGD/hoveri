@@ -7,12 +7,15 @@ import { SparkleIcon } from "@/icons/sparkle-icon";
 
 const NAV = [
   { label: "Explorar", href: "/icons" },
-  { label: "Como funciona", href: "/#features" },
-  {
-    label: "Sugerir icono",
-    href: "mailto:hola@hoveri.dev?subject=Sugerencia%20de%20icono",
-  },
-  { label: "Privacidad", href: "/privacy" },
+  { label: "Como funciona", href: "/uso" },
+  { label: "Sugerir icono", href: "/sugerir" },
+  { label: "Contacto", href: "/contacto" },
+];
+
+const LEGAL = [
+  { label: "Privacidad", href: "/privacidad" },
+  { label: "Terminos", href: "/terminos" },
+  { label: "Aviso legal", href: "/legal" },
 ];
 
 // ultimos 10 del catalogo (los mas recientes)
@@ -56,9 +59,27 @@ export const Footer = () => {
             ))}
           </nav>
 
+          <nav className="flex flex-wrap items-center gap-6">
+            {LEGAL.map((item) => (
+              <motion.div
+                key={item.label}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.1 }}
+              >
+                <Link
+                  href={item.href}
+                  className="text-sm font-medium text-zinc-500 transition-colors hover:text-rose-500"
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
+
           <div className="flex items-center gap-3">
             <motion.a
-              href="mailto:hola@hoveri.dev"
+              href="mailto:angelde9919@gmail.com"
               aria-label="Email"
               className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
               whileHover={{ scale: 1.1, rotate: -8 }}

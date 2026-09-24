@@ -44,7 +44,7 @@ export const IdeaSection = () => {
             {/* right actions */}
             <div className="flex flex-col items-start gap-8 lg:items-end">
               <motion.a
-                href="mailto:hola@hoveri.dev?subject=Sugerencia%20de%20icono"
+                href="/sugerir"
                 className="group inline-flex items-center gap-2 text-sm font-bold text-white"
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.1 }}
