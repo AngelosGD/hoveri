@@ -93,6 +93,16 @@ import { WindIcon } from "@/icons/wind-icon";
 import { DropletIcon } from "@/icons/droplet-icon";
 import { PercentIcon } from "@/icons/percent-icon";
 import { ApertureIcon } from "@/icons/aperture-icon";
+import { ChevronDownIcon } from "@/icons/chevron-down-icon";
+import { GridIcon } from "@/icons/grid-icon";
+import { MenuIcon } from "@/icons/menu-icon";
+import { SunriseIcon } from "@/icons/sunrise-icon";
+import { CloudRainIcon } from "@/icons/cloud-rain-icon";
+import { MountainIcon } from "@/icons/mountain-icon";
+import { GamepadIcon } from "@/icons/gamepad-icon";
+import { FeatherIcon } from "@/icons/feather-icon";
+import { HammerIcon } from "@/icons/hammer-icon";
+import { RulerIcon } from "@/icons/ruler-icon";
 
 export type IconConfig = {
   color: string;
@@ -1139,6 +1149,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: ApertureIcon,
     baseDuration: 0.6,
+  },
+  {
+    id: "chevron-down",
+    num: "94",
+    name: "Chevron Down",
+    category: "Interface",
+    fileName: "chevron-down-icon",
+    componentName: "ChevronDownIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ChevronDownIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "grid",
+    num: "95",
+    name: "Grid",
+    category: "Interface",
+    fileName: "grid-icon",
+    componentName: "GridIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GridIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "menu",
+    num: "96",
+    name: "Menu",
+    category: "Interface",
+    fileName: "menu-icon",
+    componentName: "MenuIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MenuIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "sunrise",
+    num: "97",
+    name: "Sunrise",
+    category: "Essentials",
+    fileName: "sunrise-icon",
+    componentName: "SunriseIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SunriseIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "cloud-rain",
+    num: "98",
+    name: "Cloud Rain",
+    category: "Essentials",
+    fileName: "cloud-rain-icon",
+    componentName: "CloudRainIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CloudRainIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "mountain",
+    num: "99",
+    name: "Mountain",
+    category: "Essentials",
+    fileName: "mountain-icon",
+    componentName: "MountainIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MountainIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "gamepad",
+    num: "100",
+    name: "Gamepad",
+    category: "Media",
+    fileName: "gamepad-icon",
+    componentName: "GamepadIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GamepadIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "feather",
+    num: "101",
+    name: "Feather",
+    category: "Media",
+    fileName: "feather-icon",
+    componentName: "FeatherIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FeatherIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "hammer",
+    num: "102",
+    name: "Hammer",
+    category: "Development",
+    fileName: "hammer-icon",
+    componentName: "HammerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HammerIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "ruler",
+    num: "103",
+    name: "Ruler",
+    category: "Development",
+    fileName: "ruler-icon",
+    componentName: "RulerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RulerIcon,
+    baseDuration: 0.55,
   },
 ];
 
