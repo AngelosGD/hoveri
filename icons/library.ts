@@ -78,6 +78,21 @@ import { UmbrellaIcon } from "@/icons/umbrella-icon";
 import { AnchorIcon } from "@/icons/anchor-icon";
 import { AtSignIcon } from "@/icons/at-sign-icon";
 import { HashIcon } from "@/icons/hash-icon";
+import { ScissorsIcon } from "@/icons/scissors-icon";
+import { CropIcon } from "@/icons/crop-icon";
+import { SlidersIcon } from "@/icons/sliders-icon";
+import { WrenchIcon } from "@/icons/wrench-icon";
+import { PaperclipIcon } from "@/icons/paperclip-icon";
+import { BrushIcon } from "@/icons/brush-icon";
+import { RadioIcon } from "@/icons/radio-icon";
+import { DiscIcon } from "@/icons/disc-icon";
+import { NavigationIcon } from "@/icons/navigation-icon";
+import { HourglassIcon } from "@/icons/hourglass-icon";
+import { SnowflakeIcon } from "@/icons/snowflake-icon";
+import { WindIcon } from "@/icons/wind-icon";
+import { DropletIcon } from "@/icons/droplet-icon";
+import { PercentIcon } from "@/icons/percent-icon";
+import { ApertureIcon } from "@/icons/aperture-icon";
 
 export type IconConfig = {
   color: string;
@@ -959,6 +974,171 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: HashIcon,
     baseDuration: 0.5,
+  },
+  {
+    id: "scissors",
+    num: "79",
+    name: "Scissors",
+    category: "Interface",
+    fileName: "scissors-icon",
+    componentName: "ScissorsIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ScissorsIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "crop",
+    num: "80",
+    name: "Crop",
+    category: "Interface",
+    fileName: "crop-icon",
+    componentName: "CropIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CropIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "sliders",
+    num: "81",
+    name: "Sliders",
+    category: "Interface",
+    fileName: "sliders-icon",
+    componentName: "SlidersIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SlidersIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "wrench",
+    num: "82",
+    name: "Wrench",
+    category: "Development",
+    fileName: "wrench-icon",
+    componentName: "WrenchIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WrenchIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "paperclip",
+    num: "83",
+    name: "Paperclip",
+    category: "Interface",
+    fileName: "paperclip-icon",
+    componentName: "PaperclipIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PaperclipIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "brush",
+    num: "84",
+    name: "Brush",
+    category: "Media",
+    fileName: "brush-icon",
+    componentName: "BrushIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BrushIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "radio",
+    num: "85",
+    name: "Radio",
+    category: "Media",
+    fileName: "radio-icon",
+    componentName: "RadioIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RadioIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "disc",
+    num: "86",
+    name: "Disc",
+    category: "Media",
+    fileName: "disc-icon",
+    componentName: "DiscIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DiscIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "navigation",
+    num: "87",
+    name: "Navigation",
+    category: "Interface",
+    fileName: "navigation-icon",
+    componentName: "NavigationIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: NavigationIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "hourglass",
+    num: "88",
+    name: "Hourglass",
+    category: "Essentials",
+    fileName: "hourglass-icon",
+    componentName: "HourglassIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HourglassIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "snowflake",
+    num: "89",
+    name: "Snowflake",
+    category: "Essentials",
+    fileName: "snowflake-icon",
+    componentName: "SnowflakeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SnowflakeIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "wind",
+    num: "90",
+    name: "Wind",
+    category: "Essentials",
+    fileName: "wind-icon",
+    componentName: "WindIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WindIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "droplet",
+    num: "91",
+    name: "Droplet",
+    category: "Essentials",
+    fileName: "droplet-icon",
+    componentName: "DropletIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DropletIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "percent",
+    num: "92",
+    name: "Percent",
+    category: "Interface",
+    fileName: "percent-icon",
+    componentName: "PercentIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PercentIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "aperture",
+    num: "93",
+    name: "Aperture",
+    category: "Media",
+    fileName: "aperture-icon",
+    componentName: "ApertureIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ApertureIcon,
+    baseDuration: 0.6,
   },
 ];
 
