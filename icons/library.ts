@@ -103,6 +103,16 @@ import { GamepadIcon } from "@/icons/gamepad-icon";
 import { FeatherIcon } from "@/icons/feather-icon";
 import { HammerIcon } from "@/icons/hammer-icon";
 import { RulerIcon } from "@/icons/ruler-icon";
+import { MoveIcon } from "@/icons/move-icon";
+import { MaximizeIcon } from "@/icons/maximize-icon";
+import { ActivityIcon } from "@/icons/activity-icon";
+import { PlugIcon } from "@/icons/plug-icon";
+import { AlarmClockIcon } from "@/icons/alarm-clock-icon";
+import { WalletIcon } from "@/icons/wallet-icon";
+import { PhoneIcon } from "@/icons/phone-icon";
+import { PlaneIcon } from "@/icons/plane-icon";
+import { TicketIcon } from "@/icons/ticket-icon";
+import { AtomIcon } from "@/icons/atom-icon";
 
 export type IconConfig = {
   color: string;
@@ -1259,6 +1269,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: RulerIcon,
     baseDuration: 0.55,
+  },
+  {
+    id: "move",
+    num: "104",
+    name: "Move",
+    category: "Interface",
+    fileName: "move-icon",
+    componentName: "MoveIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MoveIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "maximize",
+    num: "105",
+    name: "Maximize",
+    category: "Interface",
+    fileName: "maximize-icon",
+    componentName: "MaximizeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MaximizeIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "activity",
+    num: "106",
+    name: "Activity",
+    category: "Essentials",
+    fileName: "activity-icon",
+    componentName: "ActivityIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ActivityIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "plug",
+    num: "107",
+    name: "Plug",
+    category: "Essentials",
+    fileName: "plug-icon",
+    componentName: "PlugIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PlugIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "alarm-clock",
+    num: "108",
+    name: "Alarm Clock",
+    category: "Essentials",
+    fileName: "alarm-clock-icon",
+    componentName: "AlarmClockIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AlarmClockIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "wallet",
+    num: "109",
+    name: "Wallet",
+    category: "Essentials",
+    fileName: "wallet-icon",
+    componentName: "WalletIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WalletIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "phone",
+    num: "110",
+    name: "Phone",
+    category: "Essentials",
+    fileName: "phone-icon",
+    componentName: "PhoneIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PhoneIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "plane",
+    num: "111",
+    name: "Plane",
+    category: "Media",
+    fileName: "plane-icon",
+    componentName: "PlaneIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PlaneIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "ticket",
+    num: "112",
+    name: "Ticket",
+    category: "Media",
+    fileName: "ticket-icon",
+    componentName: "TicketIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TicketIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "atom",
+    num: "113",
+    name: "Atom",
+    category: "Development",
+    fileName: "atom-icon",
+    componentName: "AtomIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AtomIcon,
+    baseDuration: 0.7,
   },
 ];
 
