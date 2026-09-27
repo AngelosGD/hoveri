@@ -33,6 +33,21 @@ import { UserIcon } from "@/icons/user-icon";
 import { SettingsIcon } from "@/icons/settings-icon";
 import { MicIcon } from "@/icons/mic-icon";
 import { SunIcon } from "@/icons/sun-icon";
+import { CloudIcon } from "@/icons/cloud-icon";
+import { MapPinIcon } from "@/icons/map-pin-icon";
+import { FlagIcon } from "@/icons/flag-icon";
+import { ImageIcon } from "@/icons/image-icon";
+import { HeadphonesIcon } from "@/icons/headphones-icon";
+import { VolumeIcon } from "@/icons/volume-icon";
+import { LinkIcon } from "@/icons/link-icon";
+import { CopyIcon } from "@/icons/copy-icon";
+import { ShareIcon } from "@/icons/share-icon";
+import { FilterIcon } from "@/icons/filter-icon";
+import { RefreshIcon } from "@/icons/refresh-icon";
+import { BatteryIcon } from "@/icons/battery-icon";
+import { PowerIcon } from "@/icons/power-icon";
+import { TrophyIcon } from "@/icons/trophy-icon";
+import { RocketIcon } from "@/icons/rocket-icon";
 
 export type IconConfig = {
   color: string;
@@ -418,6 +433,171 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "SunIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: SunIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "cloud",
+    num: "34",
+    name: "Cloud",
+    category: "Essentials",
+    fileName: "cloud-icon",
+    componentName: "CloudIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CloudIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "map-pin",
+    num: "35",
+    name: "Map Pin",
+    category: "Interface",
+    fileName: "map-pin-icon",
+    componentName: "MapPinIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MapPinIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "flag",
+    num: "36",
+    name: "Flag",
+    category: "Interface",
+    fileName: "flag-icon",
+    componentName: "FlagIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FlagIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "image",
+    num: "37",
+    name: "Image",
+    category: "Media",
+    fileName: "image-icon",
+    componentName: "ImageIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ImageIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "headphones",
+    num: "38",
+    name: "Headphones",
+    category: "Media",
+    fileName: "headphones-icon",
+    componentName: "HeadphonesIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HeadphonesIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "volume",
+    num: "39",
+    name: "Volume",
+    category: "Media",
+    fileName: "volume-icon",
+    componentName: "VolumeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: VolumeIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "link",
+    num: "40",
+    name: "Link",
+    category: "Interface",
+    fileName: "link-icon",
+    componentName: "LinkIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LinkIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "copy",
+    num: "41",
+    name: "Copy",
+    category: "Interface",
+    fileName: "copy-icon",
+    componentName: "CopyIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CopyIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "share",
+    num: "42",
+    name: "Share",
+    category: "Interface",
+    fileName: "share-icon",
+    componentName: "ShareIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShareIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "filter",
+    num: "43",
+    name: "Filter",
+    category: "Development",
+    fileName: "filter-icon",
+    componentName: "FilterIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FilterIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "refresh",
+    num: "44",
+    name: "Refresh",
+    category: "Development",
+    fileName: "refresh-icon",
+    componentName: "RefreshIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RefreshIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "battery",
+    num: "45",
+    name: "Battery",
+    category: "Interface",
+    fileName: "battery-icon",
+    componentName: "BatteryIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BatteryIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "power",
+    num: "46",
+    name: "Power",
+    category: "Interface",
+    fileName: "power-icon",
+    componentName: "PowerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PowerIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "trophy",
+    num: "47",
+    name: "Trophy",
+    category: "Essentials",
+    fileName: "trophy-icon",
+    componentName: "TrophyIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TrophyIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "rocket",
+    num: "48",
+    name: "Rocket",
+    category: "Development",
+    fileName: "rocket-icon",
+    componentName: "RocketIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RocketIcon,
     baseDuration: 0.55,
   },
 ];
