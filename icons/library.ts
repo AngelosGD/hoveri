@@ -48,6 +48,21 @@ import { BatteryIcon } from "@/icons/battery-icon";
 import { PowerIcon } from "@/icons/power-icon";
 import { TrophyIcon } from "@/icons/trophy-icon";
 import { RocketIcon } from "@/icons/rocket-icon";
+import { GiftIcon } from "@/icons/gift-icon";
+import { SmileIcon } from "@/icons/smile-icon";
+import { ThumbsUpIcon } from "@/icons/thumbs-up-icon";
+import { MessageCircleIcon } from "@/icons/message-circle-icon";
+import { MailIcon } from "@/icons/mail-icon";
+import { HomeIcon } from "@/icons/home-icon";
+import { FileIcon } from "@/icons/file-icon";
+import { GitBranchIcon } from "@/icons/git-branch-icon";
+import { DatabaseIcon } from "@/icons/database-icon";
+import { LayersIcon } from "@/icons/layers-icon";
+import { PackageIcon } from "@/icons/package-icon";
+import { PaletteIcon } from "@/icons/palette-icon";
+import { FilmIcon } from "@/icons/film-icon";
+import { CompassIcon } from "@/icons/compass-icon";
+import { LeafIcon } from "@/icons/leaf-icon";
 
 export type IconConfig = {
   color: string;
@@ -598,6 +613,171 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "RocketIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: RocketIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "gift",
+    num: "49",
+    name: "Gift",
+    category: "Essentials",
+    fileName: "gift-icon",
+    componentName: "GiftIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GiftIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "smile",
+    num: "50",
+    name: "Smile",
+    category: "Interface",
+    fileName: "smile-icon",
+    componentName: "SmileIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SmileIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "thumbs-up",
+    num: "51",
+    name: "Thumbs Up",
+    category: "Interface",
+    fileName: "thumbs-up-icon",
+    componentName: "ThumbsUpIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ThumbsUpIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "message-circle",
+    num: "52",
+    name: "Message",
+    category: "Interface",
+    fileName: "message-circle-icon",
+    componentName: "MessageCircleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MessageCircleIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "mail",
+    num: "53",
+    name: "Mail",
+    category: "Interface",
+    fileName: "mail-icon",
+    componentName: "MailIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MailIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "home",
+    num: "54",
+    name: "Home",
+    category: "Interface",
+    fileName: "home-icon",
+    componentName: "HomeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HomeIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "file",
+    num: "55",
+    name: "File",
+    category: "Development",
+    fileName: "file-icon",
+    componentName: "FileIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FileIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "git-branch",
+    num: "56",
+    name: "Git Branch",
+    category: "Development",
+    fileName: "git-branch-icon",
+    componentName: "GitBranchIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GitBranchIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "database",
+    num: "57",
+    name: "Database",
+    category: "Development",
+    fileName: "database-icon",
+    componentName: "DatabaseIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DatabaseIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "layers",
+    num: "58",
+    name: "Layers",
+    category: "Development",
+    fileName: "layers-icon",
+    componentName: "LayersIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LayersIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "package",
+    num: "59",
+    name: "Package",
+    category: "Development",
+    fileName: "package-icon",
+    componentName: "PackageIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PackageIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "palette",
+    num: "60",
+    name: "Palette",
+    category: "Media",
+    fileName: "palette-icon",
+    componentName: "PaletteIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PaletteIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "film",
+    num: "61",
+    name: "Film",
+    category: "Media",
+    fileName: "film-icon",
+    componentName: "FilmIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FilmIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "compass",
+    num: "62",
+    name: "Compass",
+    category: "Essentials",
+    fileName: "compass-icon",
+    componentName: "CompassIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CompassIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "leaf",
+    num: "63",
+    name: "Leaf",
+    category: "Essentials",
+    fileName: "leaf-icon",
+    componentName: "LeafIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LeafIcon,
     baseDuration: 0.55,
   },
 ];
