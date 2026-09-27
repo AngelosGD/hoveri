@@ -63,6 +63,21 @@ import { PaletteIcon } from "@/icons/palette-icon";
 import { FilmIcon } from "@/icons/film-icon";
 import { CompassIcon } from "@/icons/compass-icon";
 import { LeafIcon } from "@/icons/leaf-icon";
+import { ShieldIcon } from "@/icons/shield-icon";
+import { KeyIcon } from "@/icons/key-icon";
+import { TagIcon } from "@/icons/tag-icon";
+import { InboxIcon } from "@/icons/inbox-icon";
+import { ClipboardIcon } from "@/icons/clipboard-icon";
+import { ServerIcon } from "@/icons/server-icon";
+import { BugIcon } from "@/icons/bug-icon";
+import { CpuIcon } from "@/icons/cpu-icon";
+import { HardDriveIcon } from "@/icons/hard-drive-icon";
+import { MonitorIcon } from "@/icons/monitor-icon";
+import { AwardIcon } from "@/icons/award-icon";
+import { UmbrellaIcon } from "@/icons/umbrella-icon";
+import { AnchorIcon } from "@/icons/anchor-icon";
+import { AtSignIcon } from "@/icons/at-sign-icon";
+import { HashIcon } from "@/icons/hash-icon";
 
 export type IconConfig = {
   color: string;
@@ -779,6 +794,171 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: LeafIcon,
     baseDuration: 0.55,
+  },
+  {
+    id: "shield",
+    num: "64",
+    name: "Shield",
+    category: "Interface",
+    fileName: "shield-icon",
+    componentName: "ShieldIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShieldIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "key",
+    num: "65",
+    name: "Key",
+    category: "Interface",
+    fileName: "key-icon",
+    componentName: "KeyIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: KeyIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "tag",
+    num: "66",
+    name: "Tag",
+    category: "Interface",
+    fileName: "tag-icon",
+    componentName: "TagIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TagIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "inbox",
+    num: "67",
+    name: "Inbox",
+    category: "Interface",
+    fileName: "inbox-icon",
+    componentName: "InboxIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: InboxIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "clipboard",
+    num: "68",
+    name: "Clipboard",
+    category: "Development",
+    fileName: "clipboard-icon",
+    componentName: "ClipboardIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ClipboardIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "server",
+    num: "69",
+    name: "Server",
+    category: "Development",
+    fileName: "server-icon",
+    componentName: "ServerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ServerIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "bug",
+    num: "70",
+    name: "Bug",
+    category: "Development",
+    fileName: "bug-icon",
+    componentName: "BugIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BugIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "cpu",
+    num: "71",
+    name: "CPU",
+    category: "Development",
+    fileName: "cpu-icon",
+    componentName: "CpuIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CpuIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "hard-drive",
+    num: "72",
+    name: "Hard Drive",
+    category: "Development",
+    fileName: "hard-drive-icon",
+    componentName: "HardDriveIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HardDriveIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "monitor",
+    num: "73",
+    name: "Monitor",
+    category: "Media",
+    fileName: "monitor-icon",
+    componentName: "MonitorIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MonitorIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "award",
+    num: "74",
+    name: "Award",
+    category: "Essentials",
+    fileName: "award-icon",
+    componentName: "AwardIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AwardIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "umbrella",
+    num: "75",
+    name: "Umbrella",
+    category: "Essentials",
+    fileName: "umbrella-icon",
+    componentName: "UmbrellaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: UmbrellaIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "anchor",
+    num: "76",
+    name: "Anchor",
+    category: "Essentials",
+    fileName: "anchor-icon",
+    componentName: "AnchorIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AnchorIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "at-sign",
+    num: "77",
+    name: "At Sign",
+    category: "Interface",
+    fileName: "at-sign-icon",
+    componentName: "AtSignIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AtSignIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "hash",
+    num: "78",
+    name: "Hash",
+    category: "Interface",
+    fileName: "hash-icon",
+    componentName: "HashIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HashIcon,
+    baseDuration: 0.5,
   },
 ];
 
