@@ -123,6 +123,16 @@ import { TruckIcon } from "@/icons/truck-icon";
 import { BikeIcon } from "@/icons/bike-icon";
 import { PlusIcon } from "@/icons/plus-icon";
 import { CircleIcon } from "@/icons/circle-icon";
+import { BrainIcon } from "@/icons/brain-icon";
+import { BotIcon } from "@/icons/bot-icon";
+import { ScanIcon } from "@/icons/scan-icon";
+import { UtensilsIcon } from "@/icons/utensils-icon";
+import { TreePineIcon } from "@/icons/tree-pine-icon";
+import { ShipIcon } from "@/icons/ship-icon";
+import { CakeIcon } from "@/icons/cake-icon";
+import { GhostIcon } from "@/icons/ghost-icon";
+import { MinusIcon } from "@/icons/minus-icon";
+import { TriangleIcon } from "@/icons/triangle-icon";
 
 export type IconConfig = {
   color: string;
@@ -1498,6 +1508,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "CircleIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: CircleIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "brain",
+    num: "124",
+    name: "Brain",
+    category: "Development",
+    fileName: "brain-icon",
+    componentName: "BrainIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BrainIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "bot",
+    num: "125",
+    name: "Bot",
+    category: "Development",
+    fileName: "bot-icon",
+    componentName: "BotIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BotIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "scan",
+    num: "126",
+    name: "Scan",
+    category: "Interface",
+    fileName: "scan-icon",
+    componentName: "ScanIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ScanIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "utensils",
+    num: "127",
+    name: "Utensils",
+    category: "Essentials",
+    fileName: "utensils-icon",
+    componentName: "UtensilsIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: UtensilsIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "tree-pine",
+    num: "128",
+    name: "Tree Pine",
+    category: "Essentials",
+    fileName: "tree-pine-icon",
+    componentName: "TreePineIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TreePineIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "ship",
+    num: "129",
+    name: "Ship",
+    category: "Media",
+    fileName: "ship-icon",
+    componentName: "ShipIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShipIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "cake",
+    num: "130",
+    name: "Cake",
+    category: "Media",
+    fileName: "cake-icon",
+    componentName: "CakeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CakeIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "ghost",
+    num: "131",
+    name: "Ghost",
+    category: "Media",
+    fileName: "ghost-icon",
+    componentName: "GhostIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GhostIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "minus",
+    num: "132",
+    name: "Minus",
+    category: "Interface",
+    fileName: "minus-icon",
+    componentName: "MinusIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MinusIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "triangle",
+    num: "133",
+    name: "Triangle",
+    category: "Interface",
+    fileName: "triangle-icon",
+    componentName: "TriangleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TriangleIcon,
     baseDuration: 0.6,
   },
 ];
