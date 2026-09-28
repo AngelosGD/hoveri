@@ -133,6 +133,16 @@ import { CakeIcon } from "@/icons/cake-icon";
 import { GhostIcon } from "@/icons/ghost-icon";
 import { MinusIcon } from "@/icons/minus-icon";
 import { TriangleIcon } from "@/icons/triangle-icon";
+import { SquareIcon } from "@/icons/square-icon";
+import { CookieIcon } from "@/icons/cookie-icon";
+import { DumbbellIcon } from "@/icons/dumbbell-icon";
+import { Flower2Icon } from "@/icons/flower-2-icon";
+import { PaintBucketIcon } from "@/icons/paint-bucket-icon";
+import { ClapperboardIcon } from "@/icons/clapperboard-icon";
+import { Dice5Icon } from "@/icons/dice-5-icon";
+import { CoinsIcon } from "@/icons/coins-icon";
+import { BluetoothIcon } from "@/icons/bluetooth-icon";
+import { MicroscopeIcon } from "@/icons/microscope-icon";
 
 export type IconConfig = {
   color: string;
@@ -1619,6 +1629,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: TriangleIcon,
     baseDuration: 0.6,
+  },
+  {
+    id: "square",
+    num: "134",
+    name: "Square",
+    category: "Interface",
+    fileName: "square-icon",
+    componentName: "SquareIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SquareIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "cookie",
+    num: "135",
+    name: "Cookie",
+    category: "Essentials",
+    fileName: "cookie-icon",
+    componentName: "CookieIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CookieIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "dumbbell",
+    num: "136",
+    name: "Dumbbell",
+    category: "Essentials",
+    fileName: "dumbbell-icon",
+    componentName: "DumbbellIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DumbbellIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "flower-2",
+    num: "137",
+    name: "Flower",
+    category: "Essentials",
+    fileName: "flower-2-icon",
+    componentName: "Flower2Icon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: Flower2Icon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "paint-bucket",
+    num: "138",
+    name: "Paint Bucket",
+    category: "Media",
+    fileName: "paint-bucket-icon",
+    componentName: "PaintBucketIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PaintBucketIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "clapperboard",
+    num: "139",
+    name: "Clapperboard",
+    category: "Media",
+    fileName: "clapperboard-icon",
+    componentName: "ClapperboardIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ClapperboardIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "dice-5",
+    num: "140",
+    name: "Dice",
+    category: "Media",
+    fileName: "dice-5-icon",
+    componentName: "Dice5Icon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: Dice5Icon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "coins",
+    num: "141",
+    name: "Coins",
+    category: "Essentials",
+    fileName: "coins-icon",
+    componentName: "CoinsIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CoinsIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "bluetooth",
+    num: "142",
+    name: "Bluetooth",
+    category: "Interface",
+    fileName: "bluetooth-icon",
+    componentName: "BluetoothIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BluetoothIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "microscope",
+    num: "143",
+    name: "Microscope",
+    category: "Development",
+    fileName: "microscope-icon",
+    componentName: "MicroscopeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MicroscopeIcon,
+    baseDuration: 0.55,
   },
 ];
 
