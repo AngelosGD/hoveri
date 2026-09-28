@@ -113,6 +113,16 @@ import { PhoneIcon } from "@/icons/phone-icon";
 import { PlaneIcon } from "@/icons/plane-icon";
 import { TicketIcon } from "@/icons/ticket-icon";
 import { AtomIcon } from "@/icons/atom-icon";
+import { LightbulbIcon } from "@/icons/lightbulb-icon";
+import { FingerprintIcon } from "@/icons/fingerprint-icon";
+import { QrCodeIcon } from "@/icons/qr-code-icon";
+import { WavesIcon } from "@/icons/waves-icon";
+import { CloudLightningIcon } from "@/icons/cloud-lightning-icon";
+import { PuzzleIcon } from "@/icons/puzzle-icon";
+import { TruckIcon } from "@/icons/truck-icon";
+import { BikeIcon } from "@/icons/bike-icon";
+import { PlusIcon } from "@/icons/plus-icon";
+import { CircleIcon } from "@/icons/circle-icon";
 
 export type IconConfig = {
   color: string;
@@ -1379,6 +1389,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: AtomIcon,
     baseDuration: 0.7,
+  },
+  {
+    id: "lightbulb",
+    num: "114",
+    name: "Lightbulb",
+    category: "Essentials",
+    fileName: "lightbulb-icon",
+    componentName: "LightbulbIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LightbulbIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "fingerprint",
+    num: "115",
+    name: "Fingerprint",
+    category: "Development",
+    fileName: "fingerprint-icon",
+    componentName: "FingerprintIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FingerprintIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "qr-code",
+    num: "116",
+    name: "QR Code",
+    category: "Development",
+    fileName: "qr-code-icon",
+    componentName: "QrCodeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: QrCodeIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "waves",
+    num: "117",
+    name: "Waves",
+    category: "Essentials",
+    fileName: "waves-icon",
+    componentName: "WavesIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WavesIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "cloud-lightning",
+    num: "118",
+    name: "Cloud Lightning",
+    category: "Essentials",
+    fileName: "cloud-lightning-icon",
+    componentName: "CloudLightningIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CloudLightningIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "puzzle",
+    num: "119",
+    name: "Puzzle",
+    category: "Media",
+    fileName: "puzzle-icon",
+    componentName: "PuzzleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PuzzleIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "truck",
+    num: "120",
+    name: "Truck",
+    category: "Media",
+    fileName: "truck-icon",
+    componentName: "TruckIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TruckIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "bike",
+    num: "121",
+    name: "Bike",
+    category: "Media",
+    fileName: "bike-icon",
+    componentName: "BikeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BikeIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "plus",
+    num: "122",
+    name: "Plus",
+    category: "Interface",
+    fileName: "plus-icon",
+    componentName: "PlusIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PlusIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "circle",
+    num: "123",
+    name: "Circle",
+    category: "Interface",
+    fileName: "circle-icon",
+    componentName: "CircleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CircleIcon,
+    baseDuration: 0.6,
   },
 ];
 
