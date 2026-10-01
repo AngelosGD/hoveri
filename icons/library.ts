@@ -153,6 +153,11 @@ import { MagnetIcon } from "@/icons/magnet-icon";
 import { PartyPopperIcon } from "@/icons/party-popper-icon";
 import { HardHatIcon } from "@/icons/hard-hat-icon";
 import { GuitarIcon } from "@/icons/guitar-icon";
+import { FanIcon } from "@/icons/fan-icon";
+import { SailboatIcon } from "@/icons/sailboat-icon";
+import { WashingMachineIcon } from "@/icons/washing-machine-icon";
+import { PianoIcon } from "@/icons/piano-icon";
+import { BracesIcon } from "@/icons/braces-icon";
 
 export type IconConfig = {
   color: string;
@@ -1859,6 +1864,61 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: GuitarIcon,
     baseDuration: 0.6,
+  },
+  {
+    id: "fan",
+    num: "154",
+    name: "Fan",
+    category: "Essentials",
+    fileName: "fan-icon",
+    componentName: "FanIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FanIcon,
+    baseDuration: 1.2,
+  },
+  {
+    id: "sailboat",
+    num: "155",
+    name: "Sailboat",
+    category: "Media",
+    fileName: "sailboat-icon",
+    componentName: "SailboatIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SailboatIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "washing-machine",
+    num: "156",
+    name: "Washing Machine",
+    category: "Essentials",
+    fileName: "washing-machine-icon",
+    componentName: "WashingMachineIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WashingMachineIcon,
+    baseDuration: 1,
+  },
+  {
+    id: "piano",
+    num: "157",
+    name: "Piano",
+    category: "Media",
+    fileName: "piano-icon",
+    componentName: "PianoIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PianoIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "braces",
+    num: "158",
+    name: "Braces",
+    category: "Development",
+    fileName: "braces-icon",
+    componentName: "BracesIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BracesIcon,
+    baseDuration: 0.55,
   },
 ];
 
