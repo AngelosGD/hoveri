@@ -17,6 +17,7 @@ export const Library = () => {
   const [category, setCategory] = useState("All icons");
   const [configs, setConfigs] = useState<Configs>(defaultConfigs);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [visible, setVisible] = useState(30);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -30,9 +31,23 @@ export const Library = () => {
     });
   }, [query, category]);
 
+  const shown = filtered.slice(0, visible);
+  const hasMore = visible < filtered.length;
+
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    setVisible(30);
+  };
+
+  const handleCategoryChange = (value: string) => {
+    setCategory(value);
+    setVisible(30);
+  };
+
   const editingIcon = ICON_LIST.find((i) => i.id === editingId) ?? null;
   const editingConfig = editingId
-    ? configs[editingId]
+    ? configs[editingId] ??
+      ICON_LIST.find((i) => i.id === editingId)?.defaultConfig ?? { color: "#000", speed: 1, size: 48 }
     : { color: "#000", speed: 1, size: 48 };
 
   const updateConfig = (id: string, config: IconConfig) =>
@@ -76,7 +91,7 @@ export const Library = () => {
             <input
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => handleQueryChange(e.target.value)}
               placeholder="Buscar iconos..."
               className="w-full rounded-full border border-zinc-200 bg-white py-3 pl-11 pr-12 text-sm text-zinc-700 outline-none transition-colors placeholder:text-zinc-400 focus:border-rose-300 focus:ring-2 focus:ring-rose-100"
             />
@@ -92,7 +107,7 @@ export const Library = () => {
                 <motion.button
                   key={c}
                   type="button"
-                  onClick={() => setCategory(c)}
+                  onClick={() => handleCategoryChange(c)}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     active
                       ? "bg-zinc-900 text-white"
@@ -115,14 +130,41 @@ export const Library = () => {
           </p>
         ) : (
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filtered.map((icon) => (
+            {shown.map((icon) => (
               <IconCard
                 key={icon.id}
                 icon={icon}
-                config={configs[icon.id]}
+                config={configs[icon.id] ?? icon.defaultConfig}
                 onEdit={() => setEditingId(icon.id)}
               />
             ))}
+          </div>
+        )}
+
+        {/* cargar mas */}
+        {filtered.length > 0 && hasMore && (
+          <div className="mt-12 flex flex-col items-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
+              <motion.button
+                type="button"
+                onClick={() => setVisible((v) => v + 30)}
+                whileTap={{ scale: 0.97 }}
+                className="rounded-full border border-zinc-300 bg-white px-6 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-900 hover:bg-zinc-900 hover:text-white"
+              >
+                Cargar sección
+              </motion.button>
+              <motion.button
+                type="button"
+                onClick={() => setVisible(filtered.length)}
+                whileTap={{ scale: 0.97 }}
+                className="rounded-full border border-zinc-200 bg-transparent px-6 py-2.5 text-sm font-medium text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-900"
+              >
+                Cargar todo
+              </motion.button>
+            </div>
+            <p className="text-xs text-zinc-400">
+              Mostrando {shown.length} de {filtered.length} iconos
+            </p>
           </div>
         )}
 
