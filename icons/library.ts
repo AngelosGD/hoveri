@@ -148,6 +148,11 @@ import { FlaskConicalIcon } from "@/icons/flask-conical-icon";
 import { GemIcon } from "@/icons/gem-icon";
 import { SwordsIcon } from "@/icons/swords-icon";
 import { PopcornIcon } from "@/icons/popcorn-icon";
+import { BookOpenIcon } from "@/icons/book-open-icon";
+import { MagnetIcon } from "@/icons/magnet-icon";
+import { PartyPopperIcon } from "@/icons/party-popper-icon";
+import { HardHatIcon } from "@/icons/hard-hat-icon";
+import { GuitarIcon } from "@/icons/guitar-icon";
 
 export type IconConfig = {
   color: string;
@@ -1799,6 +1804,61 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: PopcornIcon,
     baseDuration: 0.55,
+  },
+  {
+    id: "book-open",
+    num: "149",
+    name: "Book Open",
+    category: "Essentials",
+    fileName: "book-open-icon",
+    componentName: "BookOpenIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BookOpenIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "magnet",
+    num: "150",
+    name: "Magnet",
+    category: "Development",
+    fileName: "magnet-icon",
+    componentName: "MagnetIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MagnetIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "party-popper",
+    num: "151",
+    name: "Party Popper",
+    category: "Media",
+    fileName: "party-popper-icon",
+    componentName: "PartyPopperIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PartyPopperIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "hard-hat",
+    num: "152",
+    name: "Hard Hat",
+    category: "Essentials",
+    fileName: "hard-hat-icon",
+    componentName: "HardHatIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HardHatIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "guitar",
+    num: "153",
+    name: "Guitar",
+    category: "Media",
+    fileName: "guitar-icon",
+    componentName: "GuitarIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GuitarIcon,
+    baseDuration: 0.6,
   },
 ];
 
