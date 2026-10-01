@@ -158,6 +158,11 @@ import { SailboatIcon } from "@/icons/sailboat-icon";
 import { WashingMachineIcon } from "@/icons/washing-machine-icon";
 import { PianoIcon } from "@/icons/piano-icon";
 import { BracesIcon } from "@/icons/braces-icon";
+import { FlashlightIcon } from "@/icons/flashlight-icon";
+import { TentIcon } from "@/icons/tent-icon";
+import { PillIcon } from "@/icons/pill-icon";
+import { DramaIcon } from "@/icons/drama-icon";
+import { WaypointsIcon } from "@/icons/waypoints-icon";
 
 export type IconConfig = {
   color: string;
@@ -1919,6 +1924,61 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: BracesIcon,
     baseDuration: 0.55,
+  },
+  {
+    id: "flashlight",
+    num: "159",
+    name: "Flashlight",
+    category: "Essentials",
+    fileName: "flashlight-icon",
+    componentName: "FlashlightIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FlashlightIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "tent",
+    num: "160",
+    name: "Tent",
+    category: "Essentials",
+    fileName: "tent-icon",
+    componentName: "TentIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TentIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "pill",
+    num: "161",
+    name: "Pill",
+    category: "Essentials",
+    fileName: "pill-icon",
+    componentName: "PillIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PillIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "drama",
+    num: "162",
+    name: "Drama",
+    category: "Media",
+    fileName: "drama-icon",
+    componentName: "DramaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DramaIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "waypoints",
+    num: "163",
+    name: "Waypoints",
+    category: "Development",
+    fileName: "waypoints-icon",
+    componentName: "WaypointsIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WaypointsIcon,
+    baseDuration: 0.6,
   },
 ];
 
