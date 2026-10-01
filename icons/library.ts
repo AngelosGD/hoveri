@@ -143,6 +143,11 @@ import { Dice5Icon } from "@/icons/dice-5-icon";
 import { CoinsIcon } from "@/icons/coins-icon";
 import { BluetoothIcon } from "@/icons/bluetooth-icon";
 import { MicroscopeIcon } from "@/icons/microscope-icon";
+import { SirenIcon } from "@/icons/siren-icon";
+import { FlaskConicalIcon } from "@/icons/flask-conical-icon";
+import { GemIcon } from "@/icons/gem-icon";
+import { SwordsIcon } from "@/icons/swords-icon";
+import { PopcornIcon } from "@/icons/popcorn-icon";
 
 export type IconConfig = {
   color: string;
@@ -1738,6 +1743,61 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "MicroscopeIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: MicroscopeIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "siren",
+    num: "144",
+    name: "Siren",
+    category: "Media",
+    fileName: "siren-icon",
+    componentName: "SirenIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SirenIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "flask-conical",
+    num: "145",
+    name: "Flask",
+    category: "Development",
+    fileName: "flask-conical-icon",
+    componentName: "FlaskConicalIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FlaskConicalIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "gem",
+    num: "146",
+    name: "Gem",
+    category: "Essentials",
+    fileName: "gem-icon",
+    componentName: "GemIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GemIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "swords",
+    num: "147",
+    name: "Swords",
+    category: "Media",
+    fileName: "swords-icon",
+    componentName: "SwordsIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SwordsIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "popcorn",
+    num: "148",
+    name: "Popcorn",
+    category: "Media",
+    fileName: "popcorn-icon",
+    componentName: "PopcornIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PopcornIcon,
     baseDuration: 0.55,
   },
 ];
