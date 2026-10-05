@@ -203,6 +203,16 @@ import { InfinityIcon } from "@/icons/infinity-icon";
 import { CarIcon } from "@/icons/car-icon";
 import { ShuffleIcon } from "@/icons/shuffle-icon";
 import { CookingPotIcon } from "@/icons/cooking-pot-icon";
+import { BoxIcon } from "@/icons/box-icon";
+import { FishIcon } from "@/icons/fish-icon";
+import { DnaIcon } from "@/icons/dna-icon";
+import { HighlighterIcon } from "@/icons/highlighter-icon";
+import { EraserIcon } from "@/icons/eraser-icon";
+import { TreeDeciduousIcon } from "@/icons/tree-deciduous-icon";
+import { OrbitIcon } from "@/icons/orbit-icon";
+import { GitCommitIcon } from "@/icons/git-commit-icon";
+import { ShapesIcon } from "@/icons/shapes-icon";
+import { SofaIcon } from "@/icons/sofa-icon";
 
 export type IconConfig = {
   color: string;
@@ -2458,6 +2468,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "CookingPotIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: CookingPotIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "box",
+    num: "204",
+    name: "Box",
+    category: "Essentials",
+    fileName: "box-icon",
+    componentName: "BoxIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BoxIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "fish",
+    num: "205",
+    name: "Fish",
+    category: "Media",
+    fileName: "fish-icon",
+    componentName: "FishIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: FishIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "dna",
+    num: "206",
+    name: "DNA",
+    category: "Development",
+    fileName: "dna-icon",
+    componentName: "DnaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DnaIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "highlighter",
+    num: "207",
+    name: "Highlighter",
+    category: "Interface",
+    fileName: "highlighter-icon",
+    componentName: "HighlighterIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HighlighterIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "eraser",
+    num: "208",
+    name: "Eraser",
+    category: "Interface",
+    fileName: "eraser-icon",
+    componentName: "EraserIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: EraserIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "tree-deciduous",
+    num: "209",
+    name: "Tree Deciduous",
+    category: "Essentials",
+    fileName: "tree-deciduous-icon",
+    componentName: "TreeDeciduousIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TreeDeciduousIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "orbit",
+    num: "210",
+    name: "Orbit",
+    category: "Development",
+    fileName: "orbit-icon",
+    componentName: "OrbitIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: OrbitIcon,
+    baseDuration: 1.2,
+  },
+  {
+    id: "git-commit",
+    num: "211",
+    name: "Git Commit",
+    category: "Development",
+    fileName: "git-commit-icon",
+    componentName: "GitCommitIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GitCommitIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "shapes",
+    num: "212",
+    name: "Shapes",
+    category: "Interface",
+    fileName: "shapes-icon",
+    componentName: "ShapesIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShapesIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "sofa",
+    num: "213",
+    name: "Sofa",
+    category: "Essentials",
+    fileName: "sofa-icon",
+    componentName: "SofaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SofaIcon,
     baseDuration: 0.55,
   },
 ];
