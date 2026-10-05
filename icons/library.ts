@@ -183,6 +183,16 @@ import { SkullIcon } from "@/icons/skull-icon";
 import { AnvilIcon } from "@/icons/anvil-icon";
 import { MergeIcon } from "@/icons/merge-icon";
 import { HandshakeIcon } from "@/icons/handshake-icon";
+import { BananaIcon } from "@/icons/banana-icon";
+import { MilkIcon } from "@/icons/milk-icon";
+import { CupSodaIcon } from "@/icons/cup-soda-icon";
+import { PizzaIcon } from "@/icons/pizza-icon";
+import { PickaxeIcon } from "@/icons/pickaxe-icon";
+import { RadioTowerIcon } from "@/icons/radio-tower-icon";
+import { WatchIcon } from "@/icons/watch-icon";
+import { CitrusIcon } from "@/icons/citrus-icon";
+import { NotebookIcon } from "@/icons/notebook-icon";
+import { BirdIcon } from "@/icons/bird-icon";
 
 export type IconConfig = {
   color: string;
@@ -2218,6 +2228,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "HandshakeIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: HandshakeIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "banana",
+    num: "184",
+    name: "Banana",
+    category: "Essentials",
+    fileName: "banana-icon",
+    componentName: "BananaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BananaIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "milk",
+    num: "185",
+    name: "Milk",
+    category: "Essentials",
+    fileName: "milk-icon",
+    componentName: "MilkIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MilkIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "cup-soda",
+    num: "186",
+    name: "Cup Soda",
+    category: "Essentials",
+    fileName: "cup-soda-icon",
+    componentName: "CupSodaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CupSodaIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "pizza",
+    num: "187",
+    name: "Pizza",
+    category: "Essentials",
+    fileName: "pizza-icon",
+    componentName: "PizzaIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PizzaIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "pickaxe",
+    num: "188",
+    name: "Pickaxe",
+    category: "Development",
+    fileName: "pickaxe-icon",
+    componentName: "PickaxeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PickaxeIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "radio-tower",
+    num: "189",
+    name: "Radio Tower",
+    category: "Media",
+    fileName: "radio-tower-icon",
+    componentName: "RadioTowerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RadioTowerIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "watch",
+    num: "190",
+    name: "Watch",
+    category: "Interface",
+    fileName: "watch-icon",
+    componentName: "WatchIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WatchIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "citrus",
+    num: "191",
+    name: "Citrus",
+    category: "Essentials",
+    fileName: "citrus-icon",
+    componentName: "CitrusIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CitrusIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "notebook",
+    num: "192",
+    name: "Notebook",
+    category: "Interface",
+    fileName: "notebook-icon",
+    componentName: "NotebookIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: NotebookIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "bird",
+    num: "193",
+    name: "Bird",
+    category: "Media",
+    fileName: "bird-icon",
+    componentName: "BirdIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BirdIcon,
     baseDuration: 0.55,
   },
 ];
