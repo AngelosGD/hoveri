@@ -193,6 +193,16 @@ import { WatchIcon } from "@/icons/watch-icon";
 import { CitrusIcon } from "@/icons/citrus-icon";
 import { NotebookIcon } from "@/icons/notebook-icon";
 import { BirdIcon } from "@/icons/bird-icon";
+import { PaintbrushIcon } from "@/icons/paintbrush-icon";
+import { MegaphoneIcon } from "@/icons/megaphone-icon";
+import { ArchiveIcon } from "@/icons/archive-icon";
+import { SyringeIcon } from "@/icons/syringe-icon";
+import { BombIcon } from "@/icons/bomb-icon";
+import { ShellIcon } from "@/icons/shell-icon";
+import { InfinityIcon } from "@/icons/infinity-icon";
+import { CarIcon } from "@/icons/car-icon";
+import { ShuffleIcon } from "@/icons/shuffle-icon";
+import { CookingPotIcon } from "@/icons/cooking-pot-icon";
 
 export type IconConfig = {
   color: string;
@@ -2338,6 +2348,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "BirdIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: BirdIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "paintbrush",
+    num: "194",
+    name: "Paintbrush",
+    category: "Interface",
+    fileName: "paintbrush-icon",
+    componentName: "PaintbrushIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PaintbrushIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "megaphone",
+    num: "195",
+    name: "Megaphone",
+    category: "Interface",
+    fileName: "megaphone-icon",
+    componentName: "MegaphoneIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MegaphoneIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "archive",
+    num: "196",
+    name: "Archive",
+    category: "Interface",
+    fileName: "archive-icon",
+    componentName: "ArchiveIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ArchiveIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "syringe",
+    num: "197",
+    name: "Syringe",
+    category: "Essentials",
+    fileName: "syringe-icon",
+    componentName: "SyringeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SyringeIcon,
+    baseDuration: 0.45,
+  },
+  {
+    id: "bomb",
+    num: "198",
+    name: "Bomb",
+    category: "Media",
+    fileName: "bomb-icon",
+    componentName: "BombIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BombIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "shell",
+    num: "199",
+    name: "Shell",
+    category: "Essentials",
+    fileName: "shell-icon",
+    componentName: "ShellIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShellIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "infinity",
+    num: "200",
+    name: "Infinity",
+    category: "Development",
+    fileName: "infinity-icon",
+    componentName: "InfinityIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: InfinityIcon,
+    baseDuration: 0.9,
+  },
+  {
+    id: "car",
+    num: "201",
+    name: "Car",
+    category: "Essentials",
+    fileName: "car-icon",
+    componentName: "CarIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CarIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "shuffle",
+    num: "202",
+    name: "Shuffle",
+    category: "Development",
+    fileName: "shuffle-icon",
+    componentName: "ShuffleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShuffleIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "cooking-pot",
+    num: "203",
+    name: "Cooking Pot",
+    category: "Essentials",
+    fileName: "cooking-pot-icon",
+    componentName: "CookingPotIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CookingPotIcon,
     baseDuration: 0.55,
   },
 ];
