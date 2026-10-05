@@ -173,6 +173,16 @@ import { BinaryIcon } from "@/icons/binary-icon";
 import { CarrotIcon } from "@/icons/carrot-icon";
 import { CrosshairIcon } from "@/icons/crosshair-icon";
 import { BlocksIcon } from "@/icons/blocks-icon";
+import { SatelliteIcon } from "@/icons/satellite-icon";
+import { BackpackIcon } from "@/icons/backpack-icon";
+import { RabbitIcon } from "@/icons/rabbit-icon";
+import { SandwichIcon } from "@/icons/sandwich-icon";
+import { BoneIcon } from "@/icons/bone-icon";
+import { TelescopeIcon } from "@/icons/telescope-icon";
+import { SkullIcon } from "@/icons/skull-icon";
+import { AnvilIcon } from "@/icons/anvil-icon";
+import { MergeIcon } from "@/icons/merge-icon";
+import { HandshakeIcon } from "@/icons/handshake-icon";
 
 export type IconConfig = {
   color: string;
@@ -2098,6 +2108,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "BlocksIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: BlocksIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "satellite",
+    num: "174",
+    name: "Satellite",
+    category: "Development",
+    fileName: "satellite-icon",
+    componentName: "SatelliteIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SatelliteIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "backpack",
+    num: "175",
+    name: "Backpack",
+    category: "Essentials",
+    fileName: "backpack-icon",
+    componentName: "BackpackIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BackpackIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "rabbit",
+    num: "176",
+    name: "Rabbit",
+    category: "Media",
+    fileName: "rabbit-icon",
+    componentName: "RabbitIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RabbitIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "sandwich",
+    num: "177",
+    name: "Sandwich",
+    category: "Essentials",
+    fileName: "sandwich-icon",
+    componentName: "SandwichIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SandwichIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "bone",
+    num: "178",
+    name: "Bone",
+    category: "Essentials",
+    fileName: "bone-icon",
+    componentName: "BoneIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BoneIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "telescope",
+    num: "179",
+    name: "Telescope",
+    category: "Development",
+    fileName: "telescope-icon",
+    componentName: "TelescopeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TelescopeIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "skull",
+    num: "180",
+    name: "Skull",
+    category: "Media",
+    fileName: "skull-icon",
+    componentName: "SkullIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SkullIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "anvil",
+    num: "181",
+    name: "Anvil",
+    category: "Development",
+    fileName: "anvil-icon",
+    componentName: "AnvilIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AnvilIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "merge",
+    num: "182",
+    name: "Merge",
+    category: "Development",
+    fileName: "merge-icon",
+    componentName: "MergeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: MergeIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "handshake",
+    num: "183",
+    name: "Handshake",
+    category: "Essentials",
+    fileName: "handshake-icon",
+    componentName: "HandshakeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HandshakeIcon,
     baseDuration: 0.55,
   },
 ];
