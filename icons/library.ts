@@ -163,6 +163,16 @@ import { TentIcon } from "@/icons/tent-icon";
 import { PillIcon } from "@/icons/pill-icon";
 import { DramaIcon } from "@/icons/drama-icon";
 import { WaypointsIcon } from "@/icons/waypoints-icon";
+import { LandmarkIcon } from "@/icons/landmark-icon";
+import { PodcastIcon } from "@/icons/podcast-icon";
+import { StickyNoteIcon } from "@/icons/sticky-note-icon";
+import { DrumIcon } from "@/icons/drum-icon";
+import { ScrollIcon } from "@/icons/scroll-icon";
+import { SproutIcon } from "@/icons/sprout-icon";
+import { BinaryIcon } from "@/icons/binary-icon";
+import { CarrotIcon } from "@/icons/carrot-icon";
+import { CrosshairIcon } from "@/icons/crosshair-icon";
+import { BlocksIcon } from "@/icons/blocks-icon";
 
 export type IconConfig = {
   color: string;
@@ -1979,6 +1989,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: WaypointsIcon,
     baseDuration: 0.6,
+  },
+  {
+    id: "landmark",
+    num: "164",
+    name: "Landmark",
+    category: "Essentials",
+    fileName: "landmark-icon",
+    componentName: "LandmarkIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LandmarkIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "podcast",
+    num: "165",
+    name: "Podcast",
+    category: "Media",
+    fileName: "podcast-icon",
+    componentName: "PodcastIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PodcastIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "sticky-note",
+    num: "166",
+    name: "Sticky Note",
+    category: "Interface",
+    fileName: "sticky-note-icon",
+    componentName: "StickyNoteIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: StickyNoteIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "drum",
+    num: "167",
+    name: "Drum",
+    category: "Media",
+    fileName: "drum-icon",
+    componentName: "DrumIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DrumIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "scroll",
+    num: "168",
+    name: "Scroll",
+    category: "Essentials",
+    fileName: "scroll-icon",
+    componentName: "ScrollIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ScrollIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "sprout",
+    num: "169",
+    name: "Sprout",
+    category: "Essentials",
+    fileName: "sprout-icon",
+    componentName: "SproutIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SproutIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "binary",
+    num: "170",
+    name: "Binary",
+    category: "Development",
+    fileName: "binary-icon",
+    componentName: "BinaryIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BinaryIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "carrot",
+    num: "171",
+    name: "Carrot",
+    category: "Essentials",
+    fileName: "carrot-icon",
+    componentName: "CarrotIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CarrotIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "crosshair",
+    num: "172",
+    name: "Crosshair",
+    category: "Interface",
+    fileName: "crosshair-icon",
+    componentName: "CrosshairIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CrosshairIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "blocks",
+    num: "173",
+    name: "Blocks",
+    category: "Development",
+    fileName: "blocks-icon",
+    componentName: "BlocksIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BlocksIcon,
+    baseDuration: 0.55,
   },
 ];
 
