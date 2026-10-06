@@ -132,7 +132,7 @@ export const IconStepsPanel = ({
           <CodeBlock
             code={current.code}
             label={current.label}
-            maxHeight={step === 2 ? "22rem" : undefined}
+            maxHeight={step === 2 ? "40rem" : undefined}
           />
         </motion.div>
       </AnimatePresence>
