@@ -213,6 +213,16 @@ import { OrbitIcon } from "@/icons/orbit-icon";
 import { GitCommitIcon } from "@/icons/git-commit-icon";
 import { ShapesIcon } from "@/icons/shapes-icon";
 import { SofaIcon } from "@/icons/sofa-icon";
+import { BedIcon } from "@/icons/bed-icon";
+import { DoorOpenIcon } from "@/icons/door-open-icon";
+import { RecycleIcon } from "@/icons/recycle-icon";
+import { GrapeIcon } from "@/icons/grape-icon";
+import { AppleIcon } from "@/icons/apple-icon";
+import { PenIcon } from "@/icons/pen-icon";
+import { StampIcon } from "@/icons/stamp-icon";
+import { ArmchairIcon } from "@/icons/armchair-icon";
+import { LayoutDashboardIcon } from "@/icons/layout-dashboard-icon";
+import { SignalIcon } from "@/icons/signal-icon";
 
 export type IconConfig = {
   color: string;
@@ -2578,6 +2588,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "SofaIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: SofaIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "bed",
+    num: "214",
+    name: "Bed",
+    category: "Essentials",
+    fileName: "bed-icon",
+    componentName: "BedIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BedIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "door-open",
+    num: "215",
+    name: "Door Open",
+    category: "Interface",
+    fileName: "door-open-icon",
+    componentName: "DoorOpenIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DoorOpenIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "recycle",
+    num: "216",
+    name: "Recycle",
+    category: "Development",
+    fileName: "recycle-icon",
+    componentName: "RecycleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: RecycleIcon,
+    baseDuration: 0.65,
+  },
+  {
+    id: "grape",
+    num: "217",
+    name: "Grape",
+    category: "Essentials",
+    fileName: "grape-icon",
+    componentName: "GrapeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: GrapeIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "apple",
+    num: "218",
+    name: "Apple",
+    category: "Essentials",
+    fileName: "apple-icon",
+    componentName: "AppleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: AppleIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "pen",
+    num: "219",
+    name: "Pen",
+    category: "Interface",
+    fileName: "pen-icon",
+    componentName: "PenIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PenIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "stamp",
+    num: "220",
+    name: "Stamp",
+    category: "Interface",
+    fileName: "stamp-icon",
+    componentName: "StampIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: StampIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "armchair",
+    num: "221",
+    name: "Armchair",
+    category: "Essentials",
+    fileName: "armchair-icon",
+    componentName: "ArmchairIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ArmchairIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "layout-dashboard",
+    num: "222",
+    name: "Layout Dashboard",
+    category: "Interface",
+    fileName: "layout-dashboard-icon",
+    componentName: "LayoutDashboardIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LayoutDashboardIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "signal",
+    num: "223",
+    name: "Signal",
+    category: "Media",
+    fileName: "signal-icon",
+    componentName: "SignalIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SignalIcon,
     baseDuration: 0.55,
   },
 ];
