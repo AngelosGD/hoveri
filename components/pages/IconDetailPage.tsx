@@ -3,9 +3,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { IconCustomPanel } from "@/components/pages/IconCustomPanel";
 import { IconImportPanel } from "@/components/pages/IconImportPanel";
 import { IconStepsPanel } from "@/components/pages/IconStepsPanel";
 import { ICON_LIST } from "@/icons/library";
+import type { IconConfig } from "@/icons/library";
 
 export type IconMeta = {
   id: string;
@@ -47,12 +49,18 @@ const OPTIONS: { id: OptionId; num: string; title: string; desc: string }[] = [
 
 export const IconDetailPage = ({ meta, source }: IconDetailPageProps) => {
   const [active, setActive] = useState<OptionId>("import");
+  const [config, setConfig] = useState<IconConfig>(() => {
+    const found = ICON_LIST.find((i) => i.id === meta.id);
+    return {
+      ...(found?.defaultConfig ?? { color: "#18181b", speed: 1, size: 48 }),
+    };
+  });
   const icon = useMemo(() => ICON_LIST.find((i) => i.id === meta.id), [meta.id]);
 
   if (!icon) return null;
 
-  const { Component, defaultConfig } = icon;
-  const duration = icon.baseDuration / defaultConfig.speed;
+  const { Component } = icon;
+  const duration = icon.baseDuration / config.speed;
 
   return (
     <main className="min-h-screen bg-zinc-50">
@@ -97,8 +105,8 @@ export const IconDetailPage = ({ meta, source }: IconDetailPageProps) => {
                 className="flex h-72 cursor-pointer items-center justify-center"
                 aria-hidden
               >
-                <span style={{ color: defaultConfig.color }}>
-                  <Component size={defaultConfig.size} duration={duration} />
+                <span style={{ color: config.color }}>
+                  <Component size={config.size} duration={duration} />
                 </span>
               </div>
 
@@ -238,7 +246,7 @@ export const IconDetailPage = ({ meta, source }: IconDetailPageProps) => {
                 {active === "import" && (
                   <IconImportPanel
                     meta={meta}
-                    config={defaultConfig}
+                    config={config}
                     duration={duration}
                   />
                 )}
@@ -246,12 +254,17 @@ export const IconDetailPage = ({ meta, source }: IconDetailPageProps) => {
                   <IconStepsPanel
                     meta={meta}
                     source={source}
-                    config={defaultConfig}
+                    config={config}
                     duration={duration}
                   />
                 )}
                 {active === "custom" && (
-                  <p className="text-sm text-zinc-400">preparando controles…</p>
+                  <IconCustomPanel
+                    meta={meta}
+                    config={config}
+                    duration={duration}
+                    onChange={setConfig}
+                  />
                 )}
               </motion.div>
             </AnimatePresence>
