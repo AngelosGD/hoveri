@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { IconImportPanel } from "@/components/pages/IconImportPanel";
+import { IconStepsPanel } from "@/components/pages/IconStepsPanel";
 import { ICON_LIST } from "@/icons/library";
 
 export type IconMeta = {
@@ -47,7 +48,6 @@ const OPTIONS: { id: OptionId; num: string; title: string; desc: string }[] = [
 export const IconDetailPage = ({ meta, source }: IconDetailPageProps) => {
   const [active, setActive] = useState<OptionId>("import");
   const icon = useMemo(() => ICON_LIST.find((i) => i.id === meta.id), [meta.id]);
-  void source;
 
   if (!icon) return null;
 
@@ -243,7 +243,12 @@ export const IconDetailPage = ({ meta, source }: IconDetailPageProps) => {
                   />
                 )}
                 {active === "steps" && (
-                  <p className="text-sm text-zinc-400">preparando pasos…</p>
+                  <IconStepsPanel
+                    meta={meta}
+                    source={source}
+                    config={defaultConfig}
+                    duration={duration}
+                  />
                 )}
                 {active === "custom" && (
                   <p className="text-sm text-zinc-400">preparando controles…</p>
