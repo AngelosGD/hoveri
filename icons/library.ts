@@ -1,5 +1,3 @@
-"use client";
-
 import { CodeIcon } from "@/icons/code-icon";
 import { HeartIcon } from "@/icons/heart-icon";
 import { SparkleIcon } from "@/icons/sparkle-icon";
