@@ -223,6 +223,16 @@ import { StampIcon } from "@/icons/stamp-icon";
 import { ArmchairIcon } from "@/icons/armchair-icon";
 import { LayoutDashboardIcon } from "@/icons/layout-dashboard-icon";
 import { SignalIcon } from "@/icons/signal-icon";
+import { StethoscopeIcon } from "@/icons/stethoscope-icon";
+import { HeartPulseIcon } from "@/icons/heart-pulse-icon";
+import { ThermometerIcon } from "@/icons/thermometer-icon";
+import { EarIcon } from "@/icons/ear-icon";
+import { BathIcon } from "@/icons/bath-icon";
+import { TimerIcon } from "@/icons/timer-icon";
+import { ScaleIcon } from "@/icons/scale-icon";
+import { CandyIcon } from "@/icons/candy-icon";
+import { CroissantIcon } from "@/icons/croissant-icon";
+import { UtensilsCrossedIcon } from "@/icons/utensils-crossed-icon";
 
 export type IconConfig = {
   color: string;
@@ -2698,6 +2708,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "SignalIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: SignalIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "stethoscope",
+    num: "224",
+    name: "Stethoscope",
+    category: "Essentials",
+    fileName: "stethoscope-icon",
+    componentName: "StethoscopeIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: StethoscopeIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "heart-pulse",
+    num: "225",
+    name: "Heart Pulse",
+    category: "Essentials",
+    fileName: "heart-pulse-icon",
+    componentName: "HeartPulseIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HeartPulseIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "thermometer",
+    num: "226",
+    name: "Thermometer",
+    category: "Essentials",
+    fileName: "thermometer-icon",
+    componentName: "ThermometerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ThermometerIcon,
+    baseDuration: 0.7,
+  },
+  {
+    id: "ear",
+    num: "227",
+    name: "Ear",
+    category: "Essentials",
+    fileName: "ear-icon",
+    componentName: "EarIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: EarIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "bath",
+    num: "228",
+    name: "Bath",
+    category: "Essentials",
+    fileName: "bath-icon",
+    componentName: "BathIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BathIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "timer",
+    num: "229",
+    name: "Timer",
+    category: "Interface",
+    fileName: "timer-icon",
+    componentName: "TimerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: TimerIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "scale",
+    num: "230",
+    name: "Scale",
+    category: "Essentials",
+    fileName: "scale-icon",
+    componentName: "ScaleIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ScaleIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "candy",
+    num: "231",
+    name: "Candy",
+    category: "Essentials",
+    fileName: "candy-icon",
+    componentName: "CandyIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CandyIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "croissant",
+    num: "232",
+    name: "Croissant",
+    category: "Essentials",
+    fileName: "croissant-icon",
+    componentName: "CroissantIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CroissantIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "utensils-crossed",
+    num: "233",
+    name: "Utensils Crossed",
+    category: "Essentials",
+    fileName: "utensils-crossed-icon",
+    componentName: "UtensilsCrossedIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: UtensilsCrossedIcon,
     baseDuration: 0.55,
   },
 ];
