@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { IconConfig, LibraryIcon } from "@/icons/library";
 
@@ -76,9 +77,12 @@ const CheckIcon = () => (
 
 export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
   const [copied, setCopied] = useState<null | "component" | "install">(null);
+  const router = useRouter();
 
   const { Component } = icon;
   const duration = icon.baseDuration / config.speed;
+
+  const openDetail = () => router.push(`/icono/${icon.id}`);
 
   const handleCopy = async (kind: "component" | "install") => {
     const text =
@@ -113,8 +117,12 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
         <span className="text-xs font-medium text-rose-500">{icon.num}</span>
       </div>
 
-      {/* preview con hover = animacion */}
-      <div className="flex h-36 items-center justify-center" aria-hidden>
+      {/* preview con hover = animacion (clic = pagina del icono) */}
+      <div
+        onClick={openDetail}
+        className="flex h-36 cursor-pointer items-center justify-center"
+        aria-hidden
+      >
         <span style={{ color: config.color }}>
           <Component size={config.size} duration={duration} />
         </span>
@@ -122,8 +130,13 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
 
       {/* titulo + categoria + lapiz */}
       <div className="flex items-start justify-between border-t border-zinc-200 px-5 py-4">
-        <div>
-          <h3 className="text-sm font-bold text-rose-700">{icon.name}</h3>
+        <div className="min-w-0 flex-1">
+          <h3
+            onClick={openDetail}
+            className="cursor-pointer text-sm font-bold text-rose-700 transition-colors hover:text-rose-500"
+          >
+            {icon.name}
+          </h3>
           <p className="mt-0.5 text-xs text-zinc-400">{icon.category}</p>
         </div>
         <motion.button
