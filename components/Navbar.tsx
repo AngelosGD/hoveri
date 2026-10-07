@@ -1,11 +1,12 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Navbar = () => {
   return (
     <>
-      <header className="border-b-2 border-b-gray-200 w-full p-4 sticky top-0  flex">
+      <header className="border-b-2 border-b-gray-200 dark:border-b-gray-800 w-full p-4 sticky top-0  flex">
         <nav className="flex w-full items-center pl-50">
           <div className="flex items-center gap-3">
             <motion.span
@@ -16,12 +17,12 @@ export const Navbar = () => {
             >
               <Logo size={22} />
             </motion.span>
-            <p className="text-3xl font-semibold text-gray-800">
+            <p className="text-3xl font-semibold text-gray-800 dark:text-gray-100">
               Hoveri<span className="text-red-500 ">.</span>
             </p>
           </div>
 
-          <div className="flex items-center justify-center ml-100 gap-10 font-sans text-gray-600/80 font-semibold">
+          <div className="flex items-center justify-center ml-100 gap-10 font-sans text-gray-600/80 dark:text-gray-300/80 font-semibold">
             <motion.div
               whileHover={{ rotate: -1 }}
               whileTap={{ rotate: -5, scale: 0.95 }}
@@ -74,27 +75,7 @@ export const Navbar = () => {
 
           {/* Botones al final del navbar */}
           <div className="ml-auto flex items-center gap-4 pr-50">
-            <motion.button
-              type="button"
-              aria-label="Cambiar tema"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-gray-600/80 transition-colors hover:bg-gray-100 hover:text-red-500"
-              whileHover={{ rotate: -10, scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.1 }}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-              </svg>
-            </motion.button>
+            <ThemeToggle />
 
             <motion.a
               href="/invitame-un-cafe"
