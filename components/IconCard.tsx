@@ -99,13 +99,13 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
       "group relative flex flex-col items-center gap-1.5 py-3 text-[11px] font-medium transition-colors",
       copied === kind
         ? "bg-emerald-500 text-white"
-        : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900",
+        : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-100",
       extra,
     ].join(" ");
 
   return (
     <motion.div
-      className="flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white"
+      className="flex flex-col overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -129,11 +129,11 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
       </div>
 
       {/* titulo + categoria + lapiz */}
-      <div className="flex items-start justify-between border-t border-zinc-200 px-5 py-4">
+      <div className="flex items-start justify-between border-t border-zinc-200 dark:border-zinc-800 px-5 py-4">
         <div className="min-w-0 flex-1">
           <h3
             onClick={openDetail}
-            className="cursor-pointer text-sm font-bold text-rose-700 transition-colors hover:text-rose-500"
+            className="cursor-pointer text-sm font-bold text-rose-700 dark:text-rose-400 transition-colors hover:text-rose-500 dark:hover:text-rose-300"
           >
             {icon.name}
           </h3>
@@ -143,7 +143,7 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
           type="button"
           onClick={onEdit}
           aria-label={`Editar ${icon.name}`}
-          className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-700"
+          className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
           whileHover={{ rotate: -12, scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.1 }}
@@ -165,11 +165,11 @@ export const IconCard = ({ icon, config, onEdit }: IconCardProps) => {
       </div>
 
       {/* acciones: component + install */}
-      <div className="grid grid-cols-2 border-t border-zinc-200">
+      <div className="grid grid-cols-2 border-t border-zinc-200 dark:border-zinc-800">
         <button
           type="button"
           onClick={() => handleCopy("component")}
-          className={actionBtnCls("component", "border-r border-zinc-200")}
+          className={actionBtnCls("component", "border-r border-zinc-200 dark:border-zinc-800")}
         >
           <AnimatePresence mode="wait" initial={false}>
             {copied === "component" ? (

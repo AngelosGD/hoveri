@@ -73,16 +73,16 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
 
           {/* modal */}
           <motion.div
-            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-2xl"
+            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl"
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
             {/* header */}
-            <div className="flex items-center justify-between border-b border-zinc-200 px-6 py-4">
+            <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 px-6 py-4">
               <div>
-                <h3 className="text-sm font-bold text-zinc-900">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-50">
                   Editar {icon.name}
                 </h3>
                 <p className="text-xs text-zinc-400">{icon.category}</p>
@@ -110,7 +110,7 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
             </div>
 
             {/* preview en tiempo real */}
-            <div className="relative flex h-40 items-center justify-center border-b border-zinc-200 bg-zinc-50">
+            <div className="relative flex h-40 items-center justify-center border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800">
               <span style={{ color: config.color }}>
                 <icon.Component size={config.size} duration={duration} />
               </span>
@@ -123,7 +123,7 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
             <div className="space-y-5 px-6 py-5">
               {/* color */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
                   Color
                 </label>
                 <div className="mt-2.5 flex items-center gap-2.5">
@@ -135,7 +135,7 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
                       onClick={() => onChange({ ...config, color: c })}
                       className={`h-7 w-7 rounded-full border-2 transition-transform ${
                         config.color.toLowerCase() === c.toLowerCase()
-                          ? "border-zinc-900 scale-110"
+                          ? "border-zinc-900 dark:border-zinc-100 scale-110"
                           : "border-transparent"
                       }`}
                       style={{ backgroundColor: c }}
@@ -143,7 +143,7 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
                       whileTap={{ scale: 0.9 }}
                     />
                   ))}
-                  <label className="relative ml-1 h-7 w-7 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-zinc-300">
+                  <label className="relative ml-1 h-7 w-7 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-zinc-300 dark:border-zinc-600">
                     <input
                       type="color"
                       value={config.color}
@@ -162,10 +162,10 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
               {/* velocidad */}
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
                     Velocidad
                   </label>
-                  <span className="text-xs font-semibold text-zinc-700">
+                  <span className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">
                     {config.speed.toFixed(1)}x
                   </span>
                 </div>
@@ -185,10 +185,10 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
               {/* tamano */}
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
                     Tamano
                   </label>
-                  <span className="text-xs font-semibold text-zinc-700">
+                  <span className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">
                     {config.size}px
                   </span>
                 </div>
@@ -207,12 +207,12 @@ export const IconEditor = ({ icon, config, onChange, onClose }: IconEditorProps)
             </div>
 
             {/* footer: copiar icono actualizado */}
-            <div className="border-t border-zinc-200 px-6 py-4">
+            <div className="border-t border-zinc-200 dark:border-zinc-800 px-6 py-4">
               <motion.button
                 type="button"
                 onClick={handleCopy}
                 className={`flex w-full items-center justify-center gap-2 rounded-2xl py-2.5 text-sm font-semibold text-white transition-colors ${
-                  copied ? "bg-emerald-500" : "bg-zinc-900"
+                  copied ? "bg-emerald-500" : "bg-zinc-900 dark:bg-zinc-700"
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
