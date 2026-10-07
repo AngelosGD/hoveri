@@ -231,6 +231,16 @@ import { ScaleIcon } from "@/icons/scale-icon";
 import { CandyIcon } from "@/icons/candy-icon";
 import { CroissantIcon } from "@/icons/croissant-icon";
 import { UtensilsCrossedIcon } from "@/icons/utensils-crossed-icon";
+import { KeyRoundIcon } from "@/icons/key-round-icon";
+import { Gamepad2Icon } from "@/icons/gamepad-2-icon";
+import { CableIcon } from "@/icons/cable-icon";
+import { PlugZapIcon } from "@/icons/plug-zap-icon";
+import { NfcIcon } from "@/icons/nfc-icon";
+import { LampIcon } from "@/icons/lamp-icon";
+import { SunsetIcon } from "@/icons/sunset-icon";
+import { ShoppingCartIcon } from "@/icons/shopping-cart-icon";
+import { WandSparklesIcon } from "@/icons/wand-sparkles-icon";
+import { HandHeartIcon } from "@/icons/hand-heart-icon";
 
 export type IconConfig = {
   color: string;
@@ -2816,6 +2826,116 @@ export const ICON_LIST: LibraryIcon[] = [
     componentName: "UtensilsCrossedIcon",
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: UtensilsCrossedIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "key-round",
+    num: "234",
+    name: "Key Round",
+    category: "Essentials",
+    fileName: "key-round-icon",
+    componentName: "KeyRoundIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: KeyRoundIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "gamepad-2",
+    num: "235",
+    name: "Gamepad 2",
+    category: "Media",
+    fileName: "gamepad-2-icon",
+    componentName: "Gamepad2Icon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: Gamepad2Icon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "cable",
+    num: "236",
+    name: "Cable",
+    category: "Development",
+    fileName: "cable-icon",
+    componentName: "CableIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CableIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "plug-zap",
+    num: "237",
+    name: "Plug Zap",
+    category: "Development",
+    fileName: "plug-zap-icon",
+    componentName: "PlugZapIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PlugZapIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "nfc",
+    num: "238",
+    name: "Nfc",
+    category: "Development",
+    fileName: "nfc-icon",
+    componentName: "NfcIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: NfcIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "lamp",
+    num: "239",
+    name: "Lamp",
+    category: "Essentials",
+    fileName: "lamp-icon",
+    componentName: "LampIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: LampIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "sunset",
+    num: "240",
+    name: "Sunset",
+    category: "Essentials",
+    fileName: "sunset-icon",
+    componentName: "SunsetIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: SunsetIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "shopping-cart",
+    num: "241",
+    name: "Shopping Cart",
+    category: "Essentials",
+    fileName: "shopping-cart-icon",
+    componentName: "ShoppingCartIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: ShoppingCartIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "wand-sparkles",
+    num: "242",
+    name: "Wand Sparkles",
+    category: "Interface",
+    fileName: "wand-sparkles-icon",
+    componentName: "WandSparklesIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: WandSparklesIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "hand-heart",
+    num: "243",
+    name: "Hand Heart",
+    category: "Essentials",
+    fileName: "hand-heart-icon",
+    componentName: "HandHeartIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: HandHeartIcon,
     baseDuration: 0.55,
   },
 ];
