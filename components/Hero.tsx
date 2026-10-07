@@ -13,9 +13,9 @@ export const Hero = () => {
             <span className="text-red-500">{"/>"}</span>
           </p>
 
-          <h2 className="text-8xl font-bold font-sans text-black/90 w-[45%]">
+          <h2 className="text-8xl font-bold font-sans text-black/90 dark:text-white/90 w-[45%]">
             <span className="text-red-500">Iconos </span>que se
-            <span className="text-black"> mueven</span> con tus ideas
+            <span className="text-black dark:text-white"> mueven</span> con tus ideas
             <span className="text-red-500">.</span>
           </h2>
 
@@ -40,7 +40,7 @@ export const Hero = () => {
             </motion.button>
 
             <motion.button
-              className="group flex h-12 w-40 items-center justify-center gap-2 rounded-3xl border-2 border-black/60 text-sm font-bold text-black/60"
+              className="group flex h-12 w-40 items-center justify-center gap-2 rounded-3xl border-2 border-black/60 dark:border-white/50 text-sm font-bold text-black/60 dark:text-white/70"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
               transition={{ duration: 0.1 }}

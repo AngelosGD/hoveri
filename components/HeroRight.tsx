@@ -9,10 +9,10 @@ export const HeroRight = () => {
   return (
     <div className="relative flex h-[520px] w-[520px] items-center justify-center">
       {/* circulo exterior (mas notable, rosa) */}
-      <div className="absolute h-[480px] w-[480px] rounded-full border border-rose-200" />
+      <div className="absolute h-[480px] w-[480px] rounded-full border border-rose-200 dark:border-rose-900" />
 
       {/* circulo interior (menos notable, gris) */}
-      <div className="absolute h-[420px] w-[420px] rounded-full border border-zinc-200" />
+      <div className="absolute h-[420px] w-[420px] rounded-full border border-zinc-200 dark:border-zinc-700" />
 
       {/* card 1: estrella rosa (arriba) */}
       <motion.div
@@ -61,7 +61,7 @@ export const HeroRight = () => {
         transition={{ delay: 0.6, duration: 0.5 }}
       >
         <motion.div
-          className="flex h-24 w-24 items-center justify-center rounded-3xl bg-zinc-900 text-white shadow-lg shadow-zinc-900/30"
+          className="flex h-24 w-24 items-center justify-center rounded-3xl bg-zinc-900 dark:bg-zinc-800 text-white shadow-lg shadow-zinc-900/30 dark:shadow-black/40"
           animate={{ y: [0, -8, 0] }}
           transition={{
             duration: 3.8,
