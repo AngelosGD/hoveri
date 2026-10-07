@@ -63,7 +63,7 @@ const MotionPreview = () => (
 
 const CustomPreview = () => (
   <div className="absolute inset-0 bg-gradient-to-br from-rose-500 via-orange-400 to-amber-300">
-    <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-3 rounded-2xl bg-white/95 p-4 shadow-lg">
+    <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-3 rounded-2xl bg-white/95 dark:bg-zinc-900/95 p-4 shadow-lg">
       <div className="flex gap-2">
         {["bg-rose-500", "bg-orange-400", "bg-violet-500", "bg-emerald-500"].map(
           (c) => (
@@ -75,7 +75,7 @@ const CustomPreview = () => (
           ),
         )}
       </div>
-      <div className="h-1.5 w-36 rounded-full bg-zinc-200">
+      <div className="h-1.5 w-36 rounded-full bg-zinc-200 dark:bg-zinc-700">
         <motion.div
           className="h-full w-2/3 rounded-full bg-rose-500"
           initial={{ width: "0%" }}
@@ -84,7 +84,7 @@ const CustomPreview = () => (
           transition={{ duration: 1, delay: 0.4 }}
         />
       </div>
-      <div className="h-1.5 w-36 rounded-full bg-zinc-200">
+      <div className="h-1.5 w-36 rounded-full bg-zinc-200 dark:bg-zinc-700">
         <motion.div
           className="h-full w-1/3 rounded-full bg-violet-500"
           initial={{ width: "0%" }}
@@ -101,21 +101,21 @@ const CustomPreview = () => (
 );
 
 const FusionPreview = () => (
-  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-zinc-100">
+  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-zinc-100 dark:bg-zinc-800">
     <div className="flex items-center gap-3">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 text-zinc-400">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-600 text-zinc-400">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="8" />
         </svg>
       </div>
-      <span className="text-lg font-bold text-zinc-300">+</span>
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 text-zinc-400">
+      <span className="text-lg font-bold text-zinc-300 dark:text-zinc-500">+</span>
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-600 text-zinc-400">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 4 L14 10 L20 12 L14 14 L12 20 L10 14 L4 12 L10 10 Z" />
         </svg>
       </div>
     </div>
-    <span className="rounded-full bg-zinc-200 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+    <span className="rounded-full bg-zinc-200 dark:bg-zinc-700 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-300">
       Proximamente
     </span>
   </div>
@@ -133,15 +133,15 @@ export const Features = () => {
       <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
         {/* bloque editorial izquierdo */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Por que hoveri
           </p>
-          <h2 className="mt-5 text-5xl font-bold leading-tight tracking-tight text-zinc-900 md:text-6xl">
+          <h2 className="mt-5 text-5xl font-bold leading-tight tracking-tight text-zinc-900 dark:text-zinc-50 md:text-6xl">
             Detalles pequenos.
             <br />
             <span className="italic">Grandes sensaciones.</span>
           </h2>
-          <p className="mt-6 max-w-sm text-base leading-7 text-zinc-500">
+          <p className="mt-6 max-w-sm text-base leading-7 text-zinc-500 dark:text-zinc-400">
             Las buenas interfaces se sienten obvias. Las grandes se sienten
             vivas. Hoveri te da los pequenos momentos que hacen que la gente
             quiera seguir explorando.
@@ -155,7 +155,7 @@ export const Features = () => {
             return (
               <motion.div
                 key={f.num}
-                className="relative flex h-72 flex-col justify-end overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm"
+                className="relative flex h-72 flex-col justify-end overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -166,14 +166,14 @@ export const Features = () => {
                 <Preview />
 
                 {/* scrim + texto encima */}
-                <div className="relative z-10 bg-gradient-to-t from-white via-white/95 to-transparent p-5 pt-12">
+                <div className="relative z-10 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-zinc-900 dark:via-zinc-900/95 dark:to-transparent p-5 pt-12">
                   <span className="text-xs font-bold text-rose-500">
                     {f.num}
                   </span>
-                  <h3 className="mt-2 text-sm font-bold text-zinc-900">
+                  <h3 className="mt-2 text-sm font-bold text-zinc-900 dark:text-zinc-50">
                     {f.title}
                   </h3>
-                  <p className="mt-1.5 text-[13px] leading-6 text-zinc-500">
+                  <p className="mt-1.5 text-[13px] leading-6 text-zinc-500 dark:text-zinc-400">
                     {f.desc}
                   </p>
                 </div>
