@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export default function IconsPage() {
   return (
-    <main className="min-h-screen bg-zinc-50">
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}

@@ -54,19 +54,19 @@ export const Library = () => {
     setConfigs((prev) => ({ ...prev, [id]: config }));
 
   return (
-    <section className="w-full border-t border-zinc-200 bg-zinc-100">
+    <section className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
         {/* header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
               The library
             </p>
-            <h1 className="mt-4 text-5xl font-bold tracking-tight text-zinc-900 md:text-6xl">
+            <h1 className="mt-4 text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 md:text-6xl">
               Find your <span className="text-rose-500">motion.</span>
             </h1>
           </div>
-          <p className="max-w-xs text-sm leading-6 text-zinc-500 md:text-right">
+          <p className="max-w-xs text-sm leading-6 text-zinc-500 dark:text-zinc-400 md:text-right">
             Cada icono esta hecho a mano con un poco de personalidad. Pasa el
             cursor para conocerlos.
           </p>
@@ -93,9 +93,9 @@ export const Library = () => {
               value={query}
               onChange={(e) => handleQueryChange(e.target.value)}
               placeholder="Buscar iconos..."
-              className="w-full rounded-full border border-zinc-200 bg-white py-3 pl-11 pr-12 text-sm text-zinc-700 outline-none transition-colors placeholder:text-zinc-400 focus:border-rose-300 focus:ring-2 focus:ring-rose-100"
+              className="w-full rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 py-3 pl-11 pr-12 text-sm text-zinc-700 dark:text-zinc-200 outline-none transition-colors placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 dark:focus:border-rose-800 dark:focus:ring-rose-950"
             />
-            <kbd className="absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-md border border-zinc-200 bg-zinc-50 px-1.5 py-0.5 text-[10px] font-medium text-zinc-400 md:block">
+            <kbd className="absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-md border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-400 md:block">
               ⌘ K
             </kbd>
           </div>
@@ -110,8 +110,8 @@ export const Library = () => {
                   onClick={() => handleCategoryChange(c)}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     active
-                      ? "bg-zinc-900 text-white"
-                      : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+                      ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                      : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
                   }`}
                   whileTap={{ scale: 0.96 }}
                   transition={{ duration: 0.1 }}
@@ -149,7 +149,7 @@ export const Library = () => {
                 type="button"
                 onClick={() => setVisible((v) => v + 30)}
                 whileTap={{ scale: 0.97 }}
-                className="rounded-full border border-zinc-300 bg-white px-6 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-900 hover:bg-zinc-900 hover:text-white"
+                className="rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-6 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 transition-colors hover:border-zinc-900 hover:bg-zinc-900 hover:text-white dark:hover:border-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900"
               >
                 Cargar sección
               </motion.button>
@@ -157,7 +157,7 @@ export const Library = () => {
                 type="button"
                 onClick={() => setVisible(filtered.length)}
                 whileTap={{ scale: 0.97 }}
-                className="rounded-full border border-zinc-200 bg-transparent px-6 py-2.5 text-sm font-medium text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-900"
+                className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-transparent px-6 py-2.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
               >
                 Cargar todo
               </motion.button>
