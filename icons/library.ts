@@ -241,6 +241,16 @@ import { SunsetIcon } from "@/icons/sunset-icon";
 import { ShoppingCartIcon } from "@/icons/shopping-cart-icon";
 import { WandSparklesIcon } from "@/icons/wand-sparkles-icon";
 import { HandHeartIcon } from "@/icons/hand-heart-icon";
+import { KeyboardIcon } from "@/icons/keyboard-icon";
+import { PrinterIcon } from "@/icons/printer-icon";
+import { CrownIcon } from "@/icons/crown-icon";
+import { EggIcon } from "@/icons/egg-icon";
+import { IceCreamIcon } from "@/icons/ice-cream-icon";
+import { DonutIcon } from "@/icons/donut-icon";
+import { BeerIcon } from "@/icons/beer-icon";
+import { BriefcaseIcon } from "@/icons/briefcase-icon";
+import { BusIcon } from "@/icons/bus-icon";
+import { JoystickIcon } from "@/icons/joystick-icon";
 
 export type IconConfig = {
   color: string;
@@ -2937,6 +2947,116 @@ export const ICON_LIST: LibraryIcon[] = [
     defaultConfig: { color: "#18181b", speed: 1, size: 48 },
     Component: HandHeartIcon,
     baseDuration: 0.55,
+  },
+  {
+    id: "keyboard",
+    num: "244",
+    name: "Keyboard",
+    category: "Development",
+    fileName: "keyboard-icon",
+    componentName: "KeyboardIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: KeyboardIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "printer",
+    num: "245",
+    name: "Printer",
+    category: "Essentials",
+    fileName: "printer-icon",
+    componentName: "PrinterIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: PrinterIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "crown",
+    num: "246",
+    name: "Crown",
+    category: "Essentials",
+    fileName: "crown-icon",
+    componentName: "CrownIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: CrownIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "egg",
+    num: "247",
+    name: "Egg",
+    category: "Essentials",
+    fileName: "egg-icon",
+    componentName: "EggIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: EggIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "ice-cream",
+    num: "248",
+    name: "Ice Cream",
+    category: "Essentials",
+    fileName: "ice-cream-icon",
+    componentName: "IceCreamIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: IceCreamIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "donut",
+    num: "249",
+    name: "Donut",
+    category: "Essentials",
+    fileName: "donut-icon",
+    componentName: "DonutIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: DonutIcon,
+    baseDuration: 0.6,
+  },
+  {
+    id: "beer",
+    num: "250",
+    name: "Beer",
+    category: "Essentials",
+    fileName: "beer-icon",
+    componentName: "BeerIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BeerIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "briefcase",
+    num: "251",
+    name: "Briefcase",
+    category: "Essentials",
+    fileName: "briefcase-icon",
+    componentName: "BriefcaseIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BriefcaseIcon,
+    baseDuration: 0.5,
+  },
+  {
+    id: "bus",
+    num: "252",
+    name: "Bus",
+    category: "Essentials",
+    fileName: "bus-icon",
+    componentName: "BusIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: BusIcon,
+    baseDuration: 0.55,
+  },
+  {
+    id: "joystick",
+    num: "253",
+    name: "Joystick",
+    category: "Media",
+    fileName: "joystick-icon",
+    componentName: "JoystickIcon",
+    defaultConfig: { color: "#18181b", speed: 1, size: 48 },
+    Component: JoystickIcon,
+    baseDuration: 0.5,
   },
 ];
 
