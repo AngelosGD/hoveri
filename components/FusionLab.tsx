@@ -163,10 +163,10 @@ const FusionCard = ({
       tabIndex={0}
     >
       <div className="flex items-center justify-between px-5 pt-4">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
           {fused ? "Fused" : "Hover to fuse"}
         </span>
-        <span className="text-[10px] font-medium text-zinc-500">
+        <span className="text-[10px] font-medium text-zinc-500 dark:text-zinc-400">
           {a.name} → {b.name}
         </span>
       </div>
@@ -369,19 +369,19 @@ export const FusionLab = () => {
   const shownRightDuration = shownRight.baseDuration / shownRightCfg.speed;
 
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto max-w-7xl border-t border-zinc-200 px-6 py-24 md:px-10">
+    <section className="w-full bg-white dark:bg-zinc-950">
+      <div className="mx-auto max-w-7xl border-t border-zinc-200 dark:border-zinc-800 px-6 py-24 md:px-10">
         {/* header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
               Motion playground
             </p>
-            <h2 className="mt-4 text-5xl font-bold tracking-tight text-zinc-900 md:text-6xl">
+            <h2 className="mt-4 text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 md:text-6xl">
               See them <span className="italic">transform.</span>
             </h2>
           </div>
-          <p className="max-w-xs text-sm leading-6 text-zinc-500 md:text-right">
+          <p className="max-w-xs text-sm leading-6 text-zinc-500 dark:text-zinc-400 md:text-right">
             Empareja dos iconos y mira uno convertirse en el otro. Editalos y
             mira la fusion cambiar en vivo.
           </p>
@@ -409,7 +409,7 @@ export const FusionLab = () => {
 
             {/* label */}
             <div className="relative z-10 flex items-center gap-2 px-7 pt-6">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                 Hover to transform
               </span>
               <span className="text-rose-500">↗</span>
@@ -535,14 +535,14 @@ export const FusionLab = () => {
 
           {/* panel selector */}
           <motion.div
-            className="flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white lg:col-span-2"
+            className="flex flex-col overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 lg:col-span-2"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {/* buscador */}
-            <div className="relative border-b border-zinc-200">
+            <div className="relative border-b border-zinc-200 dark:border-zinc-800">
               <svg
                 className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400"
                 width="16"
@@ -561,12 +561,12 @@ export const FusionLab = () => {
                 value={query}
                 onChange={(e) => handleQueryChange(e.target.value)}
                 placeholder="Quick find an icon..."
-                className="w-full bg-transparent py-4 pl-12 pr-5 text-sm text-zinc-700 outline-none placeholder:text-zinc-400"
+                className="w-full bg-transparent py-4 pl-12 pr-5 text-sm text-zinc-700 dark:text-zinc-200 outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
               />
             </div>
 
             {/* hint */}
-            <p className="border-b border-zinc-100 bg-zinc-50 px-5 py-2.5 text-[11px] font-medium text-zinc-500">
+            <p className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 px-5 py-2.5 text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
               Cambiando slot{" "}
               <span className="font-bold text-rose-500">
                 {activeSlot === "left" ? "A" : "B"}
@@ -593,12 +593,12 @@ export const FusionLab = () => {
                     <button
                       type="button"
                       onClick={() => pick(i.id)}
-                      className="group flex w-full items-center gap-3 border-b border-zinc-100 px-5 py-3.5 text-left transition-colors hover:bg-zinc-50"
+                      className="group flex w-full items-center gap-3 border-b border-zinc-100 dark:border-zinc-800 px-5 py-3.5 text-left transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800"
                     >
-                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-100 text-zinc-900">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100">
                         <i.Component size={16} />
                       </span>
-                      <span className="flex-1 text-sm font-medium text-zinc-800">
+                      <span className="flex-1 text-sm font-medium text-zinc-800 dark:text-zinc-100">
                         {i.name}
                       </span>
                       {slot && (
