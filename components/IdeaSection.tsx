@@ -5,7 +5,7 @@ import { SparkleIcon } from "@/icons/sparkle-icon";
 
 export const IdeaSection = () => {
   return (
-    <section className="w-full bg-white pb-6">
+    <section className="w-full bg-white dark:bg-zinc-950 pb-6">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="relative overflow-hidden rounded-[28px] bg-[#111111] px-8 py-16 md:px-14 md:py-20">
           {/* sparkle decorativo */}
