@@ -25,17 +25,13 @@ export const Gamepad2Icon = ({
       initial="idle"
       aria-hidden
     >
-      {/* mando da un saltito */}
+      {/* mando da un saltito y vuelve a su lugar */}
       <motion.g
         variants={{
           idle: { y: 0 },
           hover: {
-            y: [0, -1.4, 0],
-            transition: {
-              duration: d * 0.9,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
+            y: [0, -1.8, 0],
+            transition: { duration: d * 1.2, ease: "easeInOut" },
           },
         }}
       >
@@ -52,10 +48,10 @@ export const Gamepad2Icon = ({
           variants={{
             idle: { scale: 1 },
             hover: {
-              scale: [1, 1.22, 1],
+              scale: [1, 1.25, 1],
               transition: {
-                duration: d,
-                repeat: Infinity,
+                duration: d * 0.9,
+                delay: d * 0.15,
                 ease: "easeInOut",
               },
             },
@@ -96,8 +92,7 @@ export const Gamepad2Icon = ({
               scale: [1, 1.6, 1],
               transition: {
                 duration: d * 0.7,
-                delay: d * 0.15,
-                repeat: Infinity,
+                delay: d * 0.3,
                 ease: "easeInOut",
               },
             },
@@ -118,8 +113,7 @@ export const Gamepad2Icon = ({
               scale: [1, 1.6, 1],
               transition: {
                 duration: d * 0.7,
-                delay: d * 0.3,
-                repeat: Infinity,
+                delay: d * 0.45,
                 ease: "easeInOut",
               },
             },

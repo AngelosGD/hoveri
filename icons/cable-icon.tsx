@@ -25,24 +25,13 @@ export const CableIcon = ({
       initial="idle"
       aria-hidden
     >
-      {/* cable recibe corriente */}
-      <motion.path
+      {/* cable */}
+      <path
         d="M19 14V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V10"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        variants={{
-          idle: { strokeWidth: 2 },
-          hover: {
-            strokeWidth: [2, 2.7, 2],
-            transition: {
-              duration: d * 0.9,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          },
-        }}
       />
       {/* ficha superior se tensa */}
       <motion.g
